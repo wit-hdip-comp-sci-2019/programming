@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/css/uikit.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit-icons.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style>
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+  <body class="uk-background-muted">
+    <div class="wrapper">
+      <div class="content">
+        <div style="height:1000px;">
+          
+  
+  <div class="uk-offcanvas-content">
+    <div id="offcanvas-usage" uk-offcanvas>
+      <div class="uk-offcanvas-bar">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+        
+          
+        
+          
+            <ul class="uk-nav">
+              <li class="uk-parent">
+                <a class="item" href="http://wit-hdip-comp-sci-2018.github.io/programming//topic-00-induction/index.html">
+                  
+  <i class="fas fa-sitemap " style="color:#009688"> </i>
+00: Induction 
+                </a>
+                <ul class="uk-nav-sub">
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://wit-hdip-comp-sci-2018.github.io/programming//topic-00-induction/talk-1/a-intro-to-processing.pdf">
+  <i class="fas fa-object-group " style="color:#009688"> </i>
+Coding in Processing 
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        
+                          
+                            
+                              <a class="item"
+                                 href="http://wit-hdip-comp-sci-2018.github.io/programming//topic-00-induction/book-induction/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Induction
+                                
+                              </a>
+                            
+                          
+                        
+                      </li>
+                    
+                  
+                </ul>
+              </li>
+            </ul>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="uk-flex uk-flex-center uk-flex-middle uk-text-center uk-padding-small" uk-grid>
+    
+  <div class="uk-padding">
+    <a href="#offcanvas-usage" uk-toggle title="Table of Contents" pos="bottom" uk-tooltip>
+      
+  <i class="fas fa-bars fa-3x" style="color:"> </i>
+
+    </a>
+  </div>
+
+    
+  <div class="uk-width-1-2@m  uk-card uk-card-default uk-padding-small">
+    <h2>  Programming Fundamentals  </h2>
+    <div class="uk-text-muted uk-text-small">
+      
+        Colm Dunphy, Dr. Siobhan Drohan, Diarmuid O'Connor, Dr. Frank Walsh, WIT
+      
+    </div>
+  </div>
+
+    
+  <div class="uk-padding">
+    
+      
+  <li>
+    <a href="https://wit-hdip-comp-sci-2018.github.io/" title="To the Programme home..." pos="bottom" uk-tooltip> 
+  <i class="fas fa-th fa-4x" style="color:"> </i>
+ </a>
+  </li>
+
+    
+  </div>
+
+    
+  
+    
+      <div class="uk-card uk-card-default uk-padding-small">
+        <ul class="uk-iconnav">
+          
+            
+  <li>
+    <a href="https://moodle.wit.ie/mod/adobeconnect/view.php?id=2427816" title="To Adobe connect ..." pos="bottom" uk-tooltip> 
+  <i class="far fa-address-card fa-2x" style="color:grey"> </i>
+ </a>
+  </li>
+
+          
+          
+            
+  <li>
+    <a href="https://moodle.wit.ie/course/view.php?id=118143&section=1" title="To Moodle ..." pos="bottom" uk-tooltip> 
+  <i class="fas fa-graduation-cap fa-2x" style="color:#f87f2a"> </i>
+ </a>
+  </li>
+
+          
+          
+            
+  <li>
+    <a href="https://wit-hdip-comp-sci.slack.com/messages/C84S2LQSC/" title="To Slack Channel ..." pos="bottom" uk-tooltip> 
+  <i class="fab fa-slack fa-2x" style="color:#573852"> </i>
+ </a>
+  </li>
+
+          
+          
+            
+  <li>
+    <a href="https://www.youtube.com/watch?v=4uMCr3cGe-Y&list=PLMW4bgOfD3DxoBKQbH2GRAmdqqaP9QA61" title="To Youtube Channel ..." pos="bottom" uk-tooltip> 
+  <i class="fab fa-youtube-square fa-2x" style="color:red"> </i>
+ </a>
+  </li>
+
+          
+        </ul>
+      </div>
+    
+  
+
+    
+      
+
+  
+    <div class="uk-card uk-card-default uk-padding-small">
+      <ul class="uk-iconnav">
+        
+          
+  
+    
+      
+      
+  <li>
+    <a href="./talkwall.html" title="All slides's in module" pos="bottom" uk-tooltip> 
+  <i class="fas fa-object-group fa-2x" style="color:#009688"> </i>
+ </a>
+  </li>
+
+    
+  
+    
+      
+      
+  <li>
+    <a href="./labwall.html" title="All labs's in module" pos="bottom" uk-tooltip> 
+  <i class="fas fa-flask fa-2x" style="color:#00BCD4"> </i>
+ </a>
+  </li>
+
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+        
+        
+      </ul>
+    </div>
+  
+
+    
+  </div>
+
+
+  <div class="uk-container uk-padding-small">
+    
+  
+
+    
+  
+
+    
+  
+
+  </div>
+  
+  <div class="uk-container uk-padding-small">
+    <div class="uk-child-width-1-4@s uk-flex uk-flex-center" uk-grid uk-height-match="target: > div > .uk-card">
+      
+        <div>
+          
+            
+
+  
+  
+
+  <div class="uk-card uk-card-default 
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
+
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3>  Assignment Specifications </h3>
+      </div>
+      <div class="uk-width-1-4@m">
+        
+  <i class="fas fa-sitemap fa-2x" style="color:#009688"> </i>
+
+        
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-card-body">
+    
+      <img src="./topic----assignments/topic.png">
+    
+  </div>
+
+    
+  
+
+    
+  
+
+    
+  
+    <div class="uk-card-footer">
+      <p> <p>This section details the assignments for module</p>
+</p>
+    </div>
+  
+
+    
+  
+
+  </div>
+
+
+
+          
+        </div>
+      
+        <div>
+          
+            
+
+  
+  
+    
+  
+
+  <div class="uk-card uk-card-secondary 
+  
+    uk-card-hover
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
+    
+      
+      
+    
+    <a href=./topic-00-induction/index.html>
+  
+
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3> 00: Induction </h3>
+      </div>
+      <div class="uk-width-1-4@m">
+        
+  <i class="fas fa-sitemap fa-2x" style="color:#009688"> </i>
+
+        
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-card-body">
+    
+      <img src="./topic-00-induction/topic.png">
+    
+  </div>
+
+    
+  
+    </a>
+  
+
+    
+  
+
+    
+  
+    <div class="uk-card-footer">
+      <p> <p>module structure · delivery approach · java programming language · development environments</p>
+</p>
+    </div>
+  
+
+    
+  
+
+  </div>
+
+
+
+          
+        </div>
+      
+        <div>
+          
+            
+
+  
+  
+
+  <div class="uk-card uk-card-default 
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
+
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3> 01: First Contact </h3>
+      </div>
+      <div class="uk-width-1-4@m">
+        
+  <i class="fas fa-sitemap fa-2x" style="color:#009688"> </i>
+
+        
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-card-body">
+    
+      <img src="./topic-01-first-contact/unit-01a-intro-to-processing/talk-1-processing-recap/a-processing-recap.png">
+    
+  </div>
+
+    
+  
+
+    
+  
+
+    
+  
+    <div class="uk-card-footer">
+      <p> <p>processing · java · drawing shapes · colour · grayscale · RGB · syntax errors · commenting code animating simple drawings · variables · system variables · primitive data types · operators</p>
+</p>
+    </div>
+  
+
+    
+  
+
+  </div>
+
+
+
+          
+        </div>
+      
+        <div>
+          
+            
+
+  
+  
+
+  <div class="uk-card uk-card-default 
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
+
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3> 02: Selection & Iteration </h3>
+      </div>
+      <div class="uk-width-1-4@m">
+        
+  <i class="fas fa-sitemap fa-2x" style="color:#009688"> </i>
+
+        
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-card-body">
+    
+      <img src="./topic-02-selection_and_iteration/unit-02a-if-stmt-and-events/talk-1-conditional-statements/a-processing-conditional-statements.png">
+    
+  </div>
+
+    
+  
+
+    
+  
+
+    
+  
+    <div class="uk-card-footer">
+      <p> <p>animated drawings · conditional statements · relational operators · logical operators · variables · mouse events · key events · iteration · for loops · while loops · variable scope · compound assignment statements · print · println</p>
+</p>
+    </div>
+  
+
+    
+  
+
+  </div>
+
+
+
+          
+        </div>
+      
+        <div>
+          
+            
+
+  
+  
+
+  <div class="uk-card uk-card-default 
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
+
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3> 03: Methods </h3>
+      </div>
+      <div class="uk-width-1-4@m">
+        
+  <i class="fas fa-sitemap fa-2x" style="color:#009688"> </i>
+
+        
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-card-body">
+    
+      <img src="./topic-03-methods/unit-03a-methods/talk-1-mouse-event-methods/a-processing-mouse-event-methods.png">
+    
+  </div>
+
+    
+  
+
+    
+  
+
+    
+  
+    <div class="uk-card-footer">
+      <p> <p>method signature · return types · parameters · mouse event methods · bespoke methods · more sophisticated methods · return types · parameters · recursion · Strings · API · String methods · JOptionPane</p>
+</p>
+    </div>
+  
+
+    
+  
+
+  </div>
+
+
+
+          
+        </div>
+      
+        <div>
+          
+            
+
+  
+  
+
+  <div class="uk-card uk-card-default 
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
+
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3> 04: Classes </h3>
+      </div>
+      <div class="uk-width-1-4@m">
+        
+  <i class="fas fa-sitemap fa-2x" style="color:#009688"> </i>
+
+        
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-card-body">
+    
+      <img src="./topic-04-classes/unit-04a-strings-and-intro-to-classes/talk-1-more-on-strings/a-processing-more-on-strings.png">
+    
+  </div>
+
+    
+  
+
+    
+  
+
+    
+  
+    <div class="uk-card-footer">
+      <p> <p>String methods · Objects · Classes · behaviour · attributes · Spot class · methods · behaviour · overloading · validation · this · encapsulation · access modifiers · accessors · mutators</p>
+</p>
+    </div>
+  
+
+    
+  
+
+  </div>
+
+
+
+          
+        </div>
+      
+        <div>
+          
+            
+
+  
+  
+
+  <div class="uk-card uk-card-default 
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
+
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3> 05: Arrays </h3>
+      </div>
+      <div class="uk-width-1-4@m">
+        
+  <i class="fas fa-sitemap fa-2x" style="color:#009688"> </i>
+
+        
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-card-body">
+    
+      <img src="./topic-05-arrays/unit-05a-swing-and-arrays/talk-1-joptionpane/a-processing-joptionpane.png">
+    
+  </div>
+
+    
+  
+
+    
+  
+
+    
+  
+    <div class="uk-card-footer">
+      <p> <p>GUI · Swing · JOptionPane · dialog boxes · primitive arrays · array syntax  · primitive arrays · array syntax · arrays and loops · length · classes</p>
+</p>
+    </div>
+  
+
+    
+  
+
+  </div>
+
+
+
+          
+        </div>
+      
+        <div>
+          
+            
+
+  
+  
+
+  <div class="uk-card uk-card-default 
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
+
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3>  06: Game of Pong </h3>
+      </div>
+      <div class="uk-width-1-4@m">
+        
+  <i class="fas fa-sitemap fa-2x" style="color:#009688"> </i>
+
+        
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-card-body">
+    
+      <img src="./topic-06-pong/talk-1-pong-v1-and-v2/a-processing-game-of-pongV1_V2.png">
+    
+  </div>
+
+    
+  
+
+    
+  
+
+    
+  
+    <div class="uk-card-footer">
+      <p> <p>Game of Pong · Ball class · Paddle class · Player class · Tournaments · Statistics · Collision detection</p>
+</p>
+    </div>
+  
+
+    
+  
+
+  </div>
+
+
+
+          
+        </div>
+      
+        <div>
+          
+            
+
+  
+  
+
+  <div class="uk-card uk-card-default 
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
+
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3> 07: IntelliJ and Basic I/O </h3>
+      </div>
+      <div class="uk-width-1-4@m">
+        
+  <i class="fas fa-sitemap fa-2x" style="color:#009688"> </i>
+
+        
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-card-body">
+    
+      <img src="./topic-07-IntelliJ-JVM-and-IO/topic.png">
+    
+  </div>
+
+    
+  
+
+    
+  
+
+    
+  
+    <div class="uk-card-footer">
+      <p> <p>IntelliJ · Java Virtual Machine (JVM) · main method · Scanner · OO recap · Array recap</p>
+</p>
+    </div>
+  
+
+    
+  
+
+  </div>
+
+
+
+          
+        </div>
+      
+        <div>
+          
+            
+
+  
+  
+
+  <div class="uk-card uk-card-default 
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
+
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3>  08: Grouping Objects </h3>
+      </div>
+      <div class="uk-width-1-4@m">
+        
+  <i class="fas fa-sitemap fa-2x" style="color:#009688"> </i>
+
+        
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-card-body">
+    
+      <img src="./topic-08-grouping-objects/topic.jpg">
+    
+  </div>
+
+    
+  
+
+    
+  
+
+    
+  
+    <div class="uk-card-footer">
+      <p> <p>primitive arrays · classes · algorithms for collections · ArrayLists</p>
+</p>
+    </div>
+  
+
+    
+  
+
+  </div>
+
+
+
+          
+        </div>
+      
+        <div>
+          
+            
+
+  
+  
+
+  <div class="uk-card uk-card-default 
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
+
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3>  09: Menu Driven Apps and Persistence </h3>
+      </div>
+      <div class="uk-width-1-4@m">
+        
+  <i class="fas fa-sitemap fa-2x" style="color:#009688"> </i>
+
+        
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-card-body">
+    
+      <img src="./topic-09-menu-and-crud/topic.jpg">
+    
+  </div>
+
+    
+  
+
+    
+  
+
+    
+  
+    <div class="uk-card-footer">
+      <p> <p>Switch · Loops · Menus · persistence · CRUD · debugging</p>
+</p>
+    </div>
+  
+
+    
+  
+
+  </div>
+
+
+
+          
+        </div>
+      
+        <div>
+          
+            
+
+  
+  
+
+  <div class="uk-card uk-card-default 
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
+
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3>  10: Persistence (XML & Exceptions) </h3>
+      </div>
+      <div class="uk-width-1-4@m">
+        
+  <i class="fas fa-sitemap fa-2x" style="color:#009688"> </i>
+
+        
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-card-body">
+    
+      <img src="./topic-10-persistence-xml-exceptions/topic.jpg">
+    
+  </div>
+
+    
+  
+
+    
+  
+
+    
+  
+    <div class="uk-card-footer">
+      <p> <p>Streaming · XML · Exception Handling · Validate User Input · Static · JavaDoc · ShopV5.0 · DVD3.0</p>
+</p>
+    </div>
+  
+
+    
+  
+
+  </div>
+
+
+
+          
+        </div>
+      
+        <div>
+          
+            
+
+  
+  
+
+  <div class="uk-card uk-card-default 
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
+
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3>  11: Inheritance and Polymorphism </h3>
+      </div>
+      <div class="uk-width-1-4@m">
+        
+  <i class="fas fa-sitemap fa-2x" style="color:#009688"> </i>
+
+        
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-card-body">
+    
+      <img src="./topic-11-inher-polym/talk-1-inheritance/a-inheritance.jpg">
+    
+  </div>
+
+    
+  
+
+    
+  
+
+    
+  
+    <div class="uk-card-footer">
+      <p> <p>Inheritance · <em>is-a</em> relationship · Polymorphism (many shapes!) · Overriding</p>
+</p>
+    </div>
+  
+
+    
+  
+
+  </div>
+
+
+
+          
+        </div>
+      
+        <div>
+          
+            
+
+  
+  
+
+  <div class="uk-card uk-card-default 
+  
+ uk-card-small uk-text-center uk-text-baseline uk-animation-fade">
+    
+  
+
+    
+  <div class="uk-card-header">
+    <div uk-grid>
+      <div class="uk-width-expand@m">
+        <h3>  12: Collections (Map and Set) </h3>
+      </div>
+      <div class="uk-width-1-4@m">
+        
+  <i class="fas fa-sitemap fa-2x" style="color:#009688"> </i>
+
+        
+      </div>
+    </div>
+  </div>
+
+    
+  <div class="uk-card-body">
+    
+      <img src="./topic-12-collections-map-set/topic.jpg">
+    
+  </div>
+
+    
+  
+
+    
+  
+
+    
+  
+    <div class="uk-card-footer">
+      <p> <p>Collections · Map · Set · Tech Support App</p>
+</p>
+    </div>
+  
+
+    
+  
+
+  </div>
+
+
+
+          
+        </div>
+      
+    </div>
+  </div>
+
+
+        </div>
+      </div>
+      <div class="footer uk-text-small uk-text-right uk-text-muted"> Powered by <a
+          href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a>
+        Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+      </div>
+    </div>
+  </body>
+</html>

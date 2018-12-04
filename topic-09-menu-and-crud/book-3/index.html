@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../index.html">  09: Menu Driven Apps and Persistence  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Assignment 3 Prerequisite">
+          Assignment 3 Prerequisite
+        </a>
+      
+        <a class="item" data-tab="Context">
+          Context
+        </a>
+      
+        <a class="item" data-tab="Setup">
+          Setup
+        </a>
+      
+        <a class="item" data-tab="Principles">
+          Principles
+        </a>
+      
+        <a class="item" data-tab="Test Execution">
+          Test Execution
+        </a>
+      
+        <a class="item" data-tab="Challenges">
+          Challenges
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="/topic-00-induction/book-induction/index.html">Induction </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Assignment 3 Prerequisite">
+            <p>The material covered in this &#39;lab&#39; is a prerequisite for the third assignment in this module.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Context">
+            <h3>Context</h3>
+<p>Suppose you are part of a team developing a large application. You are given the specifications for a particular class from the overall application and asked to implement it. The specification details the fields and methods required. Each method&#39;s signature and objective are included, however, the class has no user interaction aspect. </p>
+<p>For example, suppose you were tasked with implementing the Store class (only) from the Shop application (covered in previous labs), but the Driver class was not part of the overall application. The problem is how do you know if your implementation works? You need to develop an associated piece of code that exercises your class. We call this code a <strong>unit test</strong>, where the application class is the &#39;unit&#39; being tested. Because this scenario arises frequently, special Java libraries have evolved specifically for developing and executing unit testing code (just like Processing evolved for developing and executing animations). <em>JUnit</em> is the most popular of these libraries. In a later nodule on this course you will practice writing unit tests. The purpose of this lab is to experience <strong>using</strong> test code given to you and being able to <strong>interpret</strong> what it tells you about the state of the application class being developed - is it behaving as specified.</p>
+<p>[ In the third assignment for this module unit tests will be provide for a class(s) that you will be required to implement - more details later.]</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Setup">
+            <h3>Setup instructions.</h3>
+<p>Download and unzip <a href="./archives/start.zip">this archive</a>. It&#39;s an IntelliJ project containing the source code for the Shop application and supporting unit test code for the Store class. The project base folder is called <code>ShopWithTests</code>. To import it into your  IntelliJ environment, drop-down the <em>File</em> menu, select <em>Open ...</em>, as follows:</p>
+<p><img src="img/open.png" alt=""></p>
+<p>Navigate to the base folder (<code>ShopWithTests</code>) and click <em>Open</em>. </p>
+<p>Now expand the project&#39;s <em>src</em> folder:</p>
+<p><img src="img/src.png" alt=""></p>
+<p>The application code is inside a sub-folder called <em>main</em>. The <em>test</em> sub-folder has test code - ignore this for the moment. Run the application (the Driver class) as you did previously. </p>
+<p><img src="img/run.png" alt=""></p>
+<p>The application should work as before. Briefly review the code to refresh your understanding of its workings. </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Principles">
+            <h3>Test design principles.</h3>
+<p>The purpose of this lab is to enable you understand the <strong>output generated</strong> by the test code. The test code syntax can be completely ignored - you will cover this in a later module.</p>
+<p>In the <code>src/test</code> folder we typically have one unit test file per application class. The are a few exceptions to this guideline:</p>
+<ol>
+<li>An application class that performs user i/o e.g. the Driver class</li>
+<li>A class that only has fields and simple setter/getter methods, e.g. the Product class</li>
+</ol>
+<p>Therefore, the Shop application only needs one unit test file, for the Store class. It&#39;s best practice to name a test file according to the class it is testing, e.g. StoreTest. We refer to the application class as the <strong>target</strong> of the test code file.</p>
+<p>The <code>StoreTest</code> file actually contains Java code that is runnable (see later). While we do not need to examine this code, some test coding principles are worth noting:</p>
+<ol>
+<li>Each public method of the target class (e.g. Store) should be tested.</li>
+<li>Each SCENARIO a method can encounter should be tested (see later)</li>
+<li>No need to test private methods - these are indirectly exercised by tests for public methods.</li>
+<li>No need to test standard setters, getters or constructors.</li>
+</ol>
+<p>Based on these principles, the following methods of the Store class should be tested:</p>
+<ul>
+<li>public String listProducts()</li>
+<li>public String cheapestProduct()</li>
+<li>public String listCurrentProducts()</li>
+<li>public double averageProductPrice()</li>
+<li>public String listProductsAboveAPrice(double price)</li>
+</ul>
+<p>It is not necessary to test the <em>public void add(Product product)</em> method as it is trivial.</p>
+<p>Consider the <em>listProducts()</em> target method. What scenarios do we need to consider when testing it? Their are two:</p>
+<ol>
+<li>When the array of products in the store is empty.</li>
+<li>When the array of products in the store has some entries.</li>
+</ol>
+<p>The purpose of the tests is to ensure the method <strong>behaves as expected</strong> for all scenarios. This usually means does it return the correct result. The first scenario above is termed a <strong>boundary</strong> case - also know as exceptional or edge case. The second scenario above is termed the <strong>normal</strong> case. </p>
+<p>The same scenarios apply to many of the other methods of the Store class, coincidently. For the  <em>cheapestProduct()</em> method the scenarios to consider would include:</p>
+<ol>
+<li>When the array of products in the store is empty.</li>
+<li>When the cheapest product is the first in the list (boundary)</li>
+<li>When the cheapest product is the last in the list (boundary)</li>
+<li>When the cheapest product is somewhere in the middle of the list (normal)</li>
+</ol>
+<p>A well designed unit test is one that deals with all scenarios of the target class&#39;s behavior. While you will not be developing test code, it is worth having an understanding of the &#39;Given-When-Then&#39; design pattern for designing test code:</p>
+<pre><code>  GIVEN a precondition(s)
+  WHEN the target method is called with a particular 
+       set of parameters
+  THEN it should return a particular result</code></pre>
+<p>Foe example, applying this pattern to the <em>listProducts()</em> method:</p>
+<pre><code>  GIVEN the array of products is empty
+  WHEN (not relevant as their are no arguments) 
+  THEN it should return the &#39;No products&#39; message string</code></pre>
+<p>For the <em>cheapestProduct()</em> method we might have:</p>
+<pre><code>  GIVEN the array has entries and the cheapest is the last one
+  WHEN (not relevant as their are no arguments) 
+  THEN it should return the name of the last product
+
+  GIVEN the array has entries and the cheapest is the third one
+  WHEN 
+  THEN it should return the name of the third product</code></pre>
+<p>We will see evidence of this GIVEN-WHEN-THEN pattern in the output generated by the Store tests (next section).</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Test Execution">
+            <h3>Running the tests.</h3>
+<p>To run the Store tests follow the screen-shot below:</p>
+<p><img src="img/testrun.png" alt=""></p>
+<p>The output generated looks as follows (you may need to collapse some of the output branches, by double-clicking them, to see this exact output):</p>
+<p><img src="img/output.png" alt=""></p>
+<p>The top branch (labeled &#39;Test Results&#39;) has a green tick on the left-hand side meaning all the tests passed. There is only one sub-branch (&#39;Tests for Store class&#39;) because we have only one application class to test. The next level pf nesting has four sub-branches, one for each public method of the target that needs testing. </p>
+<p>To expand a branch you double-click it. Expand the &#39;Find the cheapest product&#39; branch all the way so that it looks as follows:</p>
+<p><img src="img/cheapest.png" alt=""></p>
+<p>Notice the labels on the various sub-branches. They match the different scenarios mentioned in the previous section and use the GIVEN-WHEN-THEN(Should) language for clarity. It suggests the tests have covered all the scenarios and are therefore well-designed. </p>
+<p>Lets cause a test to fail by intensionally adding a bug to the target code. In the <code>Store</code> class (<code>src/main</code> folder) change the condition statement of the <em>cheapestProduct)</em> method from:   . </p>
+<pre><code>    if (product.getUnitCost() &lt; cheapestProduct.getUnitCost())</code></pre>
+<p>to</p>
+<pre><code>      if (product.getUnitCost() &gt; cheapestProduct.getUnitCost())</code></pre>
+<p>Re-run the tests by clicking the button provided (or use the keyboard shortcut cmd+R (ctrl+F5 for Windows/Linux)):</p>
+<p><img src="img/rerun.png" alt=""></p>
+<p>An exclamation mark (!) now precedes the tests that have failed.</p>
+<p><img src="img/failed.png" alt=""></p>
+<p>When a particular scenario test fails its &#39;parent&#39; branch is also registered as a failure, e.g. &#39;Find the cheapest product&#39; branch is recorded as failed due to one of its subordinates failing. This pattern travels all the way to the top of the test branch hierarchy.</p>
+<p>According to its specification, the <em>cheapestProduct)</em> method fails when the product name it returns is not the cheapest one in the array. How do we implement test code so that it knows what product name should be returned? The test code simply adds a set of products to the Store (via the add()method), calls <em>cheapestProduct)</em>, and then compares the method&#39;s <strong>actual</strong> response to what it <strong>expected</strong>. If they are different it registers the test scenario as a failure. The test code developer chooses the product details to add to the Store and knows what the method <strong>should return</strong>. The test code executer (you) doesn&#39;t really need to know the product details, only whether the test passed/failed.</p>
+<p>Undo the code change above to return to all the tests passing again.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Challenges">
+            <h3>Challenges.</h3>
+<p>Often in a development team the person asked to implement some application code does NOT write the associated testing code. This safeguards against the app developer assuming their code will work and cutting corners when writing the tests to prove it.</p>
+<h4>Challenge 1.</h4>
+<p><strong>You are required</strong> to implement the following method specification for the Store class:</p>
+<pre><code>   public double totalValue() - Compute the total value of all
+    products in the store. Only products that are &#39;in the current 
+    product line&#39; should be included in the calculation. The method
+    should return 0.0 when no product in the array is &#39;in the current
+    product line&#39; or when the array is empty. </code></pre>
+<p>Although you are not writing the test code, some of the scenarios relevant here are:</p>
+<pre><code>  GIVEN the array of products is not empty but all entries 
+     have inCurrentProductLine set to false
+  WHEN 
+  THEN it should return 0.0
+
+  GIVEN the array of products is not empty and some entries have 
+     have inCurrentProductLine set to true
+  WHEN 
+  THEN it should return the total value of those 
+     with inCurrentProductLine set to true</code></pre>
+<p>To prove your implementation is correct, run the test file <code>src/challenges/Challenge1Test</code>:</p>
+<p><img src="img/c1.png" alt=""></p>
+<p>All the test scenarios must pass. If any fail, try to fix the bug(s) in your implementation and re-run the tests.</p>
+<h4>Challenge 2.</h4>
+<p><strong>You are required</strong> to implement the following method specification for the Store class:</p>
+<pre><code> public int addUniqueProduct(Product product) - This adds the product
+    argument to the Store&#39;s array provided its product code does 
+    not clash with another product currently in the array. If their
+    is no clash it should return the index position of the newly 
+    added product, otherwise it should returns -1.</code></pre>
+<p> scenarios relevant here are:</p>
+<pre><code>  GIVEN the array of products is not empty 
+  WHEN the new product&#39;s code matches one already in the array
+  THEN it should return -1
+
+  GIVEN the array of products is not empty 
+  WHEN the new product&#39;s code is unique
+  THEN it should return the index position of the new product</code></pre>
+<p>[The empty Store scenario is really the same as the second scenario above.]</p>
+<p>To prove your implementation is correct, run the test file <code>src/challenges/Challenge2Test</code>. All the test scenarios must pass.</p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

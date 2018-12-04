@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../index.html"> 00: Induction  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Induction">
+          Induction
+        </a>
+      
+        <a class="item" data-tab="Software">
+          Software
+        </a>
+      
+        <a class="item" data-tab="IntelliJ">
+          IntelliJ
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+        <a class="item" data-tab="05">
+          05
+        </a>
+      
+        <a class="item" data-tab="06">
+          06
+        </a>
+      
+        <a class="item" data-tab="Exercises">
+          Exercises
+        </a>
+      
+        <a class="item" data-tab="Solutions">
+          Solutions
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="/topic-00-induction/book-induction/index.html">Induction </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Induction">
+            <h1>Objectives</h1>
+<p>Processing · drawing basic shapes · verify IntelliJ setup</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Software">
+            <h1>Installing the Module Software</h1>
+<p>For this module, we need the following software packages:</p>
+<ul>
+<li>Processing Development Environment (PDE).  </li>
+<li>Java</li>
+<li>IntelliJ</li>
+</ul>
+<p>If you have these installed on your computer, you can move onto the next step.</p>
+<p>If you didn&#39;t get a chance to install the required software, please watch the video previously sent to you and follow the instructions for the installation.</p>
+<p>Alternatively, if you are familiar with installing software, you can download and install the latest version of the resources from here:</p>
+<ul>
+<li><a href="https://processing.org/download/">https://processing.org/download/</a></li>
+<li><a href="https://java.com/en/download/">https://java.com/en/download/</a></li>
+<li><a href="https://www.jetbrains.com/idea/download/">https://www.jetbrains.com/idea/download/</a></li>
+</ul>
+<p>If you require unzipping software, 7zip is a good choice: <a href="http://www.7-zip.org/">http://www.7-zip.org/</a> (or Keka for Mac <a href="http://www.kekaosx.com/en/">http://www.kekaosx.com/en/</a>)</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="IntelliJ">
+            <h1>Verifying IntelliJ Installation</h1>
+<ul>
+<li>We will start using IntelliJ in week 6/7.  </li>
+<li>The purpose of this step is to verify that IntelliJ installed correctly. </li>
+</ul>
+<h2>Launch IntelliJ</h2>
+<p>Locate your IntelliJ application and start it.</p>
+<p>A small window might appear asking you if you want to import settings...you don&#39;t need to import any settings.  </p>
+<p>If this is your first time launching IntelliJ, you will be presented with this customising window:</p>
+<p><img src="./img/26.png" alt=""></p>
+<p>Click on the button to <strong>Skip Remaining and Set Defaults</strong>.  </p>
+<h2>Creating your first Java Program</h2>
+<p>Click <strong>Create New Project</strong>.</p>
+<p><img src="./img/27.png" alt=""></p>
+<p>Something similar to this window should appear:</p>
+<p><img src="./img/28.png" alt=""></p>
+<p>If your installation says that <strong>No SDK</strong> exists for the <strong>Project SDK</strong> (as ours does above), click on the <strong>New..</strong> button and locate the version of Java you previously downloaded, for example:</p>
+<p><img src="./img/29.png" alt=""></p>
+<p>Now that we have a valid Project SDK, click the <strong>Next</strong> button:</p>
+<p><img src="./img/30.png" alt=""></p>
+<p>Check the <strong>Create project from template</strong> box and select the <strong>Java Hello World</strong> project.  Click the Next button.</p>
+<p><img src="./img/31.png" alt=""></p>
+<p>Rename the project to <strong>HelloWorld</strong> and click <strong>Finish</strong>.</p>
+<p><img src="./img/32.png" alt=""></p>
+<p>Close the <strong>Tip</strong> window when it appears.  </p>
+<p>Below, we can see our first project has been created and it contains a <strong>Main.java</strong> file with Java code in it.</p>
+<p><img src="./img/33.png" alt=""></p>
+<h2>Running your first Java Program</h2>
+<p>This program, when run, will print <strong>Hello World!</strong> into the console window.  At the moment, we are not concerned with the Java code written here, we are just checking that your installtion of IntelliJ is working properly.  We will cover the code in later labs.</p>
+<p>To run the program, click the run button.</p>
+<p><img src="./img/34.png" alt=""></p>
+<p><strong>Hello World!</strong> should be printed to the console:</p>
+<p><img src="./img/35.png" alt=""></p>
+<p>If you are not getting this result, you should flag this to your instructor who can help resolve the issue.</p>
+<p>Once you have <strong>Hello World!</strong> printed to your console, you can exit the IntelliJ IDE.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Opening the PDE (Processing Development Environment)</h1>
+<p>Go to the directory/folder where you installed your processing app.  </p>
+<p>You should see a list of files and folders similiar to the image below:</p>
+<p><img src="./img/04.png" alt="Processing Development Environment files"></p>
+<p>Double click in the <strong>processing</strong> application (highlighted by the red rectangle).</p>
+<p>The PDE (Processing Development Environment) should launch.</p>
+<p><img src="./img/05.png" alt="The Processing Development Environment"></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Setting your Sketchbook location</h1>
+<ul>
+<li><p>As you work through the exercises in this course, you will create many new files.  These files are called Sketchbooks.</p>
+</li>
+<li><p>It is important that you pick a convenient location on your computer to save these sketchbook files to.  The following steps show you how to do this.</p>
+</li>
+</ul>
+<h2>Updating your Sketchbook location</h2>
+<ul>
+<li>In Processing, from the <strong>File</strong> menu (<strong>Processing</strong> menu on the Mac), select the <strong>Preferences</strong> menu item.</li>
+</ul>
+<p><img src="./img/06.png" alt="Selecting the Preferences menu item"></p>
+<ul>
+<li>When the following window appears, enter a convenient folder location (or keep the existing one if it is suitable for you).</li>
+</ul>
+<p><img src="./img/07.png" alt="Enter a new sketchbook location"></p>
+<h2>The Sketchbook location</h2>
+<ul>
+<li>All your work can now be accessed easily by selecting <strong>Open Recent</strong> from the <strong>File</strong> menu. An example of previous Sketchbook work could look like this:</li>
+</ul>
+<p><img src="./img/08.png" alt="Example of a Sketchbook containing previous work"></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Drawing Simple Shapes</h1>
+<ul>
+<li>We will use the following built-in functions to draw simple shapes:<ul>
+<li>rect()</li>
+<li>line()</li>
+<li>ellipse()</li>
+</ul>
+</li>
+</ul>
+<h2>Drawing Rectangles</h2>
+<ul>
+<li>The syntax of the <strong>rect</strong> function is:</li>
+</ul>
+<pre><code>    rect(x, y, w, h)
+        x = x-coordinate of the upper left corner of the rectangle
+        y = y-coordinate of the upper left corner of the rectangle
+        w = width of the rectangle
+        h = height of the rectangle</code></pre>
+<ul>
+<li>Note that, in computing, the coordinates start in the top left hand corner i.e. (0,0) is in the top left of the screen.  In the following picture, you can see the coordinates of the rectangle (1,2) along with its width (4) and height (3). </li>
+</ul>
+<p><img src="./img/09.png" alt="Rectangle example from www.processing.org"></p>
+<ul>
+<li>Enter the following code in your sketchbook:</li>
+</ul>
+<pre><code>    rect(20,30,50,30);</code></pre>
+<ul>
+<li>Run the code, by clicking on the <strong>play</strong> button (highlighted in red in the screen shot below):</li>
+</ul>
+<p><img src="./img/11.png" alt="Running code - click on the play button"></p>
+<ul>
+<li>The following window should appear with a rectangle that:<ul>
+<li>starts at the (x,y) coordinates (20,30) [measured in pixels]</li>
+<li>has a width of 50 pixels</li>
+<li>has a height of 30 pixels</li>
+</ul>
+</li>
+</ul>
+<p><img src="./img/12.png" alt="Rectangle"></p>
+<h2>Drawing Squares</h2>
+<ul>
+<li><p>Using the rect() function, you can draw squares. Just set the width and height to the same number of pixels.</p>
+</li>
+<li><p>Below the code you wrote previously, try drawing a square that has starts at the (x,y) coordinates of (40,5) and has a length of 20.  </p>
+</li>
+<li><p>Run the code.  Did a square appear?</p>
+</li>
+</ul>
+<p><img src="./img/13.png" alt="Rectangle and square"></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Drawing Simple Shapes(contd.)</h1>
+<ul>
+<li>Using rect(), line() and ellipse().</li>
+</ul>
+<h2>Drawing Lines</h2>
+<ul>
+<li>The syntax of the <strong>line</strong> function is:</li>
+</ul>
+<pre><code>    line(x1, y1, x2, y2)
+        x1 = x-coordinate of first point
+        y1 = y-coordinate of first point
+        x2 = x-coordinate of second point
+        y2 = y-coordinate of second point</code></pre>
+<ul>
+<li>In the following picture, you can see an example of a line. </li>
+</ul>
+<p><img src="./img/14.png" alt="Line example from www.processing.org"></p>
+<ul>
+<li>Enter the following code in your open sketchbook:</li>
+</ul>
+<pre><code>    line(5,30,20,90);</code></pre>
+<ul>
+<li>When you run the code, you should see the following line that starts at (5,30) and ends at (20,90):</li>
+</ul>
+<p><img src="./img/15.png" alt="Drawing a line"></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="05">
+            <h1>Drawing Simple Shapes(contd.)</h1>
+<ul>
+<li>Using rect(), line() and ellipse().</li>
+</ul>
+<h2>Drawing Ellipses</h2>
+<ul>
+<li><p>For our purposes here, we will define an <strong>ellipse</strong> as a basic oval shape. </p>
+</li>
+<li><p>The syntax of the <strong>ellipse</strong> function is:</p>
+</li>
+</ul>
+<pre><code>    ellipse(x, y, w, h)
+        x = x-coordinate at the centre of the ellipse
+        y = y-coordinate at the centre of the ellipse
+        w = width of the ellipse
+        h = height of the ellipse</code></pre>
+<ul>
+<li>In the following picture, you can see an example of an ellipse. </li>
+</ul>
+<p><img src="./img/16.png" alt="Ellipse example from www.processing.org"></p>
+<ul>
+<li>Enter the following code in your open sketchbook:</li>
+</ul>
+<pre><code class="lang-java">    ellipse(85,50,20,60);</code></pre>
+<ul>
+<li>When you run the code, you should see the following ellipse whose centre is (85,50) and is 20 pixels wide and 90 high.</li>
+</ul>
+<p><img src="./img/17.png" alt="Drawing an ellipse"></p>
+<h2>Drawing Circles</h2>
+<ul>
+<li><p>Using the ellipse() function, you can draw circles. Just set the width and height to the same number of pixels.</p>
+</li>
+<li><p>Try drawing a cicle that has the coordinates (50,80) at its centre and has a diameter of 15 pixels.</p>
+</li>
+<li><p>Run the code.  Did a circle appear?</p>
+</li>
+</ul>
+<p><img src="./img/18.png" alt="Drawing a circle"></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="06">
+            <h1>Changing the look of the display window</h1>
+<ul>
+<li>You should have the following code in your open sketchbook:</li>
+</ul>
+<pre><code class="lang-java">    rect(20,30,50,30);
+    rect(40,5,20,20);
+    line(5,30,20,90);
+    ellipse(85,50,20,60);
+    ellipse(50,80,15,15);</code></pre>
+<ul>
+<li>When it runs, you should have something that looks like this:</li>
+</ul>
+<p><img src="./img/18.png" alt="Output so far"></p>
+<ul>
+<li>We can see that the available space in the window is at a minimum and the window is quite small.  There background is also a default light grey colour.  We will make changes to this code to make the window larger and change the colour.</li>
+</ul>
+<h2>size() function</h2>
+<ul>
+<li><p>The size() function sets the size of the display window in pixels.  It has to be the first line of code in your sketchbook (there is an exception to this that we will cover later).  </p>
+</li>
+<li><p>The syntax of the <strong>size</strong> function is:</p>
+</li>
+</ul>
+<pre><code>    size(w, h)
+        w = width of the ellipse
+        h = height of the ellipse</code></pre>
+<ul>
+<li><p>If the size function is not called, the window will be set to a default size of 100x100 pixels.</p>
+</li>
+<li><p>Enter the following code in your open sketchbook:</p>
+</li>
+</ul>
+<pre><code>    size(400,300);</code></pre>
+<ul>
+<li>Run your code; your window should now be larger.</li>
+</ul>
+<h2>background() function</h2>
+<ul>
+<li><p>The background() function sets the background colour of the display window. </p>
+</li>
+<li><p>The syntax of the Grayscale <strong>background</strong> function is:</p>
+</li>
+</ul>
+<pre><code>    background(g)
+        g = gray colour   (a number between 0 and 255 inclusive) 
+
+        0 is black and 255 is white.  All numbers in between vary in shades of gray.</code></pre>
+<ul>
+<li><p>In your open sketchbook (after the size() function), type in the background() function, passing a value between 0 and 255 as your colour parameter.</p>
+</li>
+<li><p>For example, we chose a dark-ish grey:  </p>
+</li>
+</ul>
+<pre><code>    background(100);</code></pre>
+<p><img src="./img/19.png" alt="Setting the size and colour of the display window"></p>
+<h2>Saving your work</h2>
+<p>It is a good idea to save your work as you progress through your labs.  From the <strong>File</strong> menu (<strong>Processing</strong> on the Mac), select <strong>Save As..</strong>.  The folder location you chose earlier for storing your sketches should be displayed.  Save your sketch as something like <strong>lab00</strong>.  </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Exercises">
+            <h1>Exercises</h1>
+<ul>
+<li>These exercises are based on the functions we covered in the previous steps in this lab.</li>
+<li>For each exercise listed below, create a new sketchbook.</li>
+</ul>
+<h2>Exercise 1</h2>
+<p>At the end of step07, your animation looked like this:</p>
+<p><img src="./img/19.png" alt=""></p>
+<p>Make the necessary changes so your animation now looks like this image:</p>
+<p><img src="./img/20.png" alt=""></p>
+<h2>Exercise 2</h2>
+<ul>
+<li>Draw a stick man as shown in the picture below:</li>
+</ul>
+<p><img src="./img/25.png" alt="Basic Stick Man"></p>
+<h2>Exercise 3</h2>
+<ul>
+<li>Design your own picture, making sure to use combinations of Circles, Ovals, Squares, Rectanges and Lines.  </li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Solutions">
+            <h1>Solutions</h1>
+<p>The solutions for this lab can be found <a href="archives/lab00_solutions.zip">here</a>. </p>
+<p>If you require unzipping software, 7zip is a good choice: <a href="http://www.7-zip.org/">http://www.7-zip.org/</a> (or Keka for Mac <a href="http://www.kekaosx.com/en/">http://www.kekaosx.com/en/</a>)</p>
+<p>After unzipping the solutions, it might be a good idea to copy the three folders to your <strong>sketchbook</strong> folder.  From Processing, you could then use <strong>File</strong>, followed by <strong>Sketchbook</strong> to easily open them.</p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

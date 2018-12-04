@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../index.html">  06: Game of Pong  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-06b">
+          Lab-06b
+        </a>
+      
+        <a class="item" data-tab="V3">
+          V3
+        </a>
+      
+        <a class="item" data-tab="V4">
+          V4
+        </a>
+      
+        <a class="item" data-tab="V5">
+          V5
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="/topic-00-induction/book-induction/index.html">Induction </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-06b">
+            <h1>Objectives</h1>
+<p>PongGame V3.0 · PongGame V4.0 · PongGameV5.0</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="V3">
+            <h1>PongGameV3.0</h1>
+<p>On completion of this lab you should be very familiar with the game of pong and have included collision detection code for the Ball and Paddle class.  You should see the game evolve through maintaining tournaments, lives lost and scores for the game.  In this lab, you will work on PongGameV3.0, PongGameV4.0 and PongGameV5.0.</p>
+<p>Having read the lecture on PongGameV3.0 we will now develop it. </p>
+<p>This version of the game adds collision detection between the Ball and the Paddle.</p>
+<p><img src="./img/01.png" alt="PongGame V3.0"></p>
+<h2>Adding hitPaddle method</h2>
+<p>Open your solution to &#39;&#39;PongGameV2_0&#39;&#39;.  A copy of the V2 solution is <a href="archives/PongGameV2_0.zip">here</a>, if you need it.</p>
+<p>Save it as &#39;&#39;PongGameV3_0&#39;&#39;</p>
+<p>In the PongGameV3_0 class/main tab, add the following hitPaddle method:</p>
+<pre><code class="lang-java">//method returns true if the ball and paddle overlap (i.e. ball is hit), false otherwise.
+boolean hitPaddle(Paddle paddle, Ball ball)
+{
+   //These variables measure the magnitude of the gap between the paddle and the ball.  
+   float circleDistanceX = abs(ball.getXCoord() - paddle.getXCoord());
+   float circleDistanceY = abs(ball.getYCoord() - paddle.getYCoord() - paddle.getPaddleHeight()/2);
+
+   //The Ball is too far away from the Paddle on the X axis to have a collision, so abandon collision detection
+   if (circleDistanceX &gt; (ball.getDiameter()/2)) {
+      return false;
+   }
+
+   //The Ball is too far away from the Paddle on the Y axis to have a collision, so abandon collision detection
+   if (circleDistanceY &gt; (paddle.getPaddleHeight()/2 + ball.getDiameter()/2)) {
+       return false; 
+   }
+
+   //We have a collision!
+   return true;
+
+}</code></pre>
+<h2>Using the hitPadde method</h2>
+<p>In the draw method, after the ball.display() method call, insert the following code:</p>
+<pre><code class="lang-java">   //Set variable to true if ball and paddle are overlapping, false if not 
+
+   boolean collision = hitPaddle(paddle, ball);
+   if (collision == true){
+      ball.hit();        //the ball is hit i.e. reverses direction.
+   }</code></pre>
+<h2>Test your code</h2>
+<p>Run your code.  </p>
+<p>The ball functionality should not have been affected.  It still should:</p>
+<ul>
+<li><p>traverse the screen left to right.</p>
+</li>
+<li><p>when it reaches the right hand side, disappear off screen and a new ball should appear in a random lcoation on the left hand side.  </p>
+</li>
+<li><p>when re-appearing, traverse the screen in a random trajectory at a random speed.</p>
+</li>
+</ul>
+<p>The paddle functionality should not have been affected.  It should still:</p>
+<ul>
+<li><p>be pinned to the right hand side of the window </p>
+</li>
+<li><p>move on it&#39;s vertical plane in accordance with the movement of the mouse pointer.</p>
+</li>
+</ul>
+<p>You should now have collision detection built into the code.  Test that the paddle now hits the ball when they touch.</p>
+<h2>Solution</h2>
+<p>If your code is not working, the solution can be found <a href="archives/PongGameV3_0.zip">here</a>. </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="V4">
+            <h1>PongGameV4.0</h1>
+<p>Having read the lecture on PongGameV4.0 we will now develop it. </p>
+<p>Make sure that you read and understand the code below, while typing it into the relevant class.  If you have any questions on any part of the code, make sure to ask your lecturer.</p>
+<p><img src="./img/02.png" alt="PongGame V4.0"></p>
+<h2>Adding game information</h2>
+<p>In this version, we want to store the game information such as the number of lives lost, the maximum lives allowed per game and the score of the game.  The game will end when the user loses the number of lives allowed per game.</p>
+<p>Open your solution to &#39;&#39;PongGameV3_0&#39;&#39;.</p>
+<p>Save it as &#39;&#39;PongGameV4_0&#39;&#39;</p>
+<p>In the PongGameV4_0 class, add the following global variables to store the game information:</p>
+<pre><code class="lang-java">  //Current game data
+  int livesLost = 0;         //keeps track of number of lives lost in current game
+  int score = 0;             //high score of the current game
+  int maxLivesPerGame = 3;   //maximum number of lives that can be lost 
+                             //before the game ends</code></pre>
+<p>In the draw() method, change the call to the ball.update() method to be:</p>
+<pre><code class="lang-java">  // Update the ball position.  If true is returned, the ball has left the display   
+  // window i.e. a life is lost
+  if (ball.update() == true){
+      livesLost++;
+      println(&quot;Lives lost:  &quot;  + livesLost);
+  }</code></pre>
+<p>In the draw() method, replace this version 3.0 code:</p>
+<pre><code class="lang-java">   //VERSION 3.0 code.
+   //Draw the ball at its new location and check for a collision with the paddle
+   ball.display();    
+   //Set variable to true if ball and paddle are overlapping, false if not 
+   boolean collision = hitPaddle(paddle, ball);
+   if (collision == true){
+      ball.hit();        //the ball is hit i.e. reverses direction.
+   }</code></pre>
+<p>with the version 4.0 code:</p>
+<pre><code class="lang-java">  //If the player still has a life left in the current game, 
+  //draw the ball at its new location and check for a collision with the paddle
+  if (livesLost &lt; maxLivesPerGame){ 
+     ball.display();       
+     //Set variable to true if ball and paddle are overlapping, false if not 
+     boolean collision = hitPaddle(paddle, ball);
+     if (collision == true){
+        ball.hit();     //the ball is hit i.e. reverses direction.
+        score++;      //increase score in the current game by 1, if the player hit the ball.
+        println(&quot;Score:  &quot;  + score);
+     }
+  }
+  //The player has no lives left so the game ends
+  else{
+     println(&quot;Game Over!&quot;);
+     println(&quot;You have lost all of your lives:  &quot;  + livesLost);
+     println(&quot;Your final score is:  &quot;  + score); 
+     exit();     
+  }</code></pre>
+<h2>Test your code</h2>
+<p>Run your code.  </p>
+<p>Your output should be similar to this:</p>
+<p><img src="./img/03.png" alt="PongGame V4.0 output"></p>
+<p>Make sure you understand the code before moving onto PongGameV5_0.</p>
+<h2>Solution</h2>
+<p>If your code is not working, the solution can be found <a href="archives/PongGameV4_0.zip">here</a>. </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="V5">
+            <h1>PongGameV5.0</h1>
+<p>Having read the lecture on PongGameV5.0 we will now develop it. </p>
+<p>Make sure that you read and understand the code below, while typing it into the relevant class.  If you have any questions on any part of the code, make sure to ask your lecturer.</p>
+<p><img src="./img/04.png" alt="PongGame V5.0"></p>
+<h2>Adding tournament information</h2>
+<p>In this version, we want to store the tournament information such as the number of games in a tournament and the number of games played so far in the tournament.</p>
+<p>Open your solution to &#39;&#39;PongGameV4_0&#39;&#39;.</p>
+<p>Save it as &#39;&#39;PongGameV5_0&#39;&#39;</p>
+<p>In the PongGameV5_0 class, add the following global variables to store the tournament information:</p>
+<pre><code class="lang-java">  //Tournament data
+  int maxNumberOfGames = 5;     //maximum number of games in a tournament
+  int numberOfGamesPlayed = 0;  //num of games played, so far, in a tournament</code></pre>
+<p>In the draw() method, replace the &#39;&#39;else&#39;&#39; portion relating to this if statement:</p>
+<pre><code class="lang-java">  if (livesLost &lt; maxLivesPerGame){</code></pre>
+<p>with this code:</p>
+<pre><code class="lang-java">  //The player has no lives left so the game ends
+  else{
+     numberOfGamesPlayed++;        
+     //If the player has more games left in the tournament, 
+     //display their score and ask them if they want to continue with tournament.
+     if (numberOfGamesPlayed &lt; maxNumberOfGames){
+        resetGame();
+     }
+     else{
+        //the player has no more games left in the tournament 
+        tournamentOver();
+     }
+  }</code></pre>
+<h2>The resetGame() method</h2>
+<p>In the PongGameV5_0 class, add this new method:</p>
+<pre><code class="lang-java">// This method prepares for the next game by resetting the variables 
+// that store the current game information.
+void resetGame()
+{
+    println(&quot;Game Over!&quot;);
+    println(&quot;Starting a new game...&quot;);
+    livesLost = 0;        //resets the lives lost in the current game to zero
+    score = 0;            //resets the score of the current game to zero   
+}</code></pre>
+<h2>The tournamentOver() method</h2>
+<p>In the PongGameV5_0 class, add this new method:</p>
+<pre><code class="lang-java">// This method displays the player information, before exiting the program.
+void tournamentOver()
+{
+   println(&quot;Game Over!&quot;);
+   println(&quot;Tournament Over!&quot;);
+   exit();  
+}</code></pre>
+<h2>Test your code</h2>
+<p>Run your code.  </p>
+<p>Your output should be similar to this:</p>
+<p><img src="./img/05.png" alt="PongGame V5.0 output"></p>
+<p>Make sure you understand the code before moving onto PongGameV6_0.</p>
+<h2>Solution</h2>
+<p>If your code is not working, the solution can be found <a href="archives/PongGameV5_0.zip">here</a>. </p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

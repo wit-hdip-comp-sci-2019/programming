@@ -1,0 +1,10 @@
+<object-stream>
+  <list>
+    <Product>
+      <productName>235235</productName>
+      <productCode>3</productCode>
+      <unitCost>2.0</unitCost>
+      <inCurrentProductLine>true</inCurrentProductLine>
+    </Product>
+  </list>
+</object-stream>

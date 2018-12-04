@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html">  5b: Arrays and Classes  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-05b">
+          Lab-05b
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="Exercises">
+          Exercises
+        </a>
+      
+        <a class="item" data-tab="Solutions">
+          Solutions
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="/topic-00-induction/book-induction/index.html">Induction </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-05b">
+            <h1>Objectives</h1>
+<p>primitive arrays · length property · array of classes </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Arrays and length</h1>
+<p>In this step, we will update the solution to lab05a exercise 1 to include the <strong>length</strong> property.</p>
+<h2>Using length</h2>
+<p>Create a new Processing sketch in your workspace and call it <strong>lab05a_exercise_1_updated</strong>.</p>
+<p>Use the following code as your starting point (cut and paste):</p>
+<pre><code class="lang-java">int numbers[] = new int[10];             
+
+// initialise each value to 20
+for (int i = 0; i &lt; 10 ; i ++)  {    
+  numbers[i] = 20;
+}      
+
+// now we print each value
+for (int i = 0; i &lt; 10 ; i ++)   {   
+      println(&quot;Number &quot; + (i+1) + &quot; is: &quot; + numbers[i]);
+}</code></pre>
+<p>Run the code. Each of the 10 elements in the array is set to a starting value of 20.</p>
+<p>Now update the code so that you use <strong>numbers.length</strong> instead of hard coding 10 into the for loop.</p>
+<p>Run the code. It should work the exact same as previously, however, it is now more maintainable.  Your code should now be:</p>
+<pre><code class="lang-java">int numbers[] = new int[10];             
+
+// initialise each value to 20
+for (int i = 0; i &lt; numbers.length ; i ++)  {    
+  numbers[i] = 20;
+}      
+
+// now we print each value
+for (int i = 0; i &lt; numbers.length ; i ++)   {   
+      println(&quot;Number &quot; + (i+1) + &quot; is: &quot; + numbers[i]);
+}</code></pre>
+<p>Now, change the size of the array to hold 15 elements - you should only need to change it in the array declaration.  Run your code to make sure the 15 elements were initialised to 20.</p>
+<p>Save your work and close the sketch.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Arrays and Classes</h1>
+<p>In this step, we will start building arrays using String and Spot.</p>
+<h2>Array of String</h2>
+<p>Create a new Processing sketch in your workspace and call it <strong>lab05b_array_string</strong>.</p>
+<p>Create an array of String with a size of 4.  </p>
+<p>In index location 1, place the String <strong>Dog</strong>.  In index location 3, place the String <strong>Cat</strong>.  Then cycle over the array and print out the contents of each element to the console.</p>
+<p>Run your code.  You should get output similar to this:</p>
+<pre><code>null
+Dog
+null
+Cat</code></pre>
+<p>The solution code is here:</p>
+<pre><code class="lang-java">String words[];
+
+words = new String[4];
+
+words[1] = &quot;Dog&quot;;
+words[3] = &quot;Cat&quot;;
+
+for (int i=0; i &lt; words.length; i++)
+{
+    println(words[i]);
+}</code></pre>
+<p>Save your sketch and close the project.</p>
+<h2>Array of Spot</h2>
+<p>Create a new Processing sketch in your workspace and call it <strong>lab05b_array_spot</strong>.</p>
+<p>Create a new tab called <strong>Spot</strong>.  Copy and paste this code into it:</p>
+<pre><code class="lang-java">//Spot Version 6.1
+
+class Spot{
+
+  float xCoord, yCoord;
+  float diameter;
+  int red, green, blue, gray;
+
+  Spot()
+  {
+  }
+
+ Spot(float xCoord, float yCoord, float diameter)
+ {
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    this.diameter = diameter;
+  }
+
+   Spot(float xCoord, float yCoord, float diameter, int gray)
+   {
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    this.diameter = diameter;
+    colour(gray);
+   }
+
+   Spot(float xCoord, float yCoord, float diameter, int red, int green, int blue)
+   {
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    this.diameter = diameter;
+     colour(red, green, blue);  
+   }
+
+   void display()
+   {
+     ellipse(xCoord, yCoord, diameter, diameter);
+   } 
+
+  void colour(int red, int green, int blue)
+  {
+    this.red = red;
+    this.green = green;
+    this.blue = blue;
+    fill (this.red, this.green, this.blue);
+  }
+
+  void colour(int gray){
+    this.gray = gray;
+    fill (this.gray);
+  }
+
+   void move(float xCoord, float yCoord)
+   {
+     this.xCoord = xCoord;
+     this.yCoord = yCoord;
+   }
+}</code></pre>
+<p>In the <strong>main</strong> tab:</p>
+<ul>
+<li><p>create an array of Spot with a size of 4.  </p>
+</li>
+<li><p>add a setup() method and set the size of the sketch to (500,500).  Inside this method, add a for loop that will populate the spot array with four new spots.  Hint: you can use mathematical operators on the for loop index to generate xCoord, yCoord and diameter for each spot. </p>
+</li>
+<li><p>add a draw() method.  This method should have a for loop in it that will display each spot in the array and also change the colour of the spot based on the mouse location.</p>
+</li>
+</ul>
+<p>Run your code.  You should get output similar to this, depending on the mouse location:</p>
+<p><img src="./img/01.png" alt=""></p>
+<p>The solution code for the <strong>main</strong> tab is here:</p>
+<pre><code class="lang-java">Spot[] spots;
+
+void setup(){
+  size(500,500);
+
+  spots = new Spot[4];
+
+  for(int i = 1; i &lt;= spots.length; i++){
+     spots[i-1] = new Spot(i*50, i*100, i*30);
+  }
+
+}
+
+void draw(){
+
+  for (int i=0; i &lt; spots.length; i++){
+     spots[i].display();
+     spots[i].colour(mouseX, mouseY, 0);
+  }
+
+}</code></pre>
+<p>Save your sketch and close the project.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Exercises">
+            <h1>Exercises</h1>
+<p>There is only one exercise this session and no challenges.  This will free up the lab time for an assignment studio.</p>
+<h2>Exercise 1</h2>
+<p>Create a new Processing sketch in your workspace and call it <strong>lab05a_exercise_2_updated</strong>.</p>
+<p>Use the following code as your starting point (cut and paste):</p>
+<pre><code class="lang-java">import javax.swing.*;  
+
+int numbers[] = new int[5];             
+
+//populate the array with user input
+for (int i = 0; i &lt; 5 ; i ++)  {    
+  numbers[i] = Integer.parseInt(
+    JOptionPane.showInputDialog(
+      &quot;Please enter a number &quot;, &quot;3&quot;));  
+}      
+// print each value in reverse order 
+for (int i = 4; i &gt;= 0 ; i --)   {   
+      println(&quot;Number &quot; + (i+1) + &quot; is: &quot; + numbers[i]);
+}</code></pre>
+<p>Run the code.  Each of the 5 elements read in, should be printed in reverse order.  </p>
+<p>Now update the code so that you use <strong>numbers.length</strong> instead of hard coding the array size into the for loops.</p>
+<p>Run the code. It should work the exact same as previously, however, it is now more maintainable.  </p>
+<p>Save your work and close the sketch.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Solutions">
+            <h1>Solutions</h1>
+<p>The solutions for this lab can be found <a href="archives/lab05b_solutions.zip">here</a>. </p>
+<p>If you require unzipping software, 7zip is a good choice: <a href="http://www.7-zip.org/">http://www.7-zip.org/</a> (or Keka for Mac <a href="http://www.kekaosx.com/en/">http://www.kekaosx.com/en/</a>)</p>
+<p>After unzipping the solutions, it might be a good idea to copy the folders to your <strong>sketchbook</strong> folder.  From Processing, you could then use <strong>File</strong>, followed by <strong>Sketchbook</strong> to easily open them.</p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

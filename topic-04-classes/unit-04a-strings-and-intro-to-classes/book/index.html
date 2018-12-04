@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html"> 4a: Classes (Part 1)   </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-04a">
+          Lab-04a
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+        <a class="item" data-tab="05">
+          05
+        </a>
+      
+        <a class="item" data-tab="Exercises">
+          Exercises
+        </a>
+      
+        <a class="item" data-tab="Challenges">
+          Challenges
+        </a>
+      
+        <a class="item" data-tab="Solutions">
+          Solutions
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="/topic-00-induction/book-induction/index.html">Induction </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-04a">
+            <h1>Objectives</h1>
+<p>charAt · compareTo · substring · objects · classes · object state · attributes · bahaviours · class design · constructors · Spot</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Strings - charAt()</h1>
+<p>Create a new Processing sketch in your workspace and call it <strong>Example_4_1</strong>.</p>
+<h2>charAt() method</h2>
+<p>Include the following code in your sketch (don&#39;t cut and paste it, type it in):</p>
+<pre><code class="lang-java">String alphabet = &quot;abcdefghijklmnopqrstuvwxyz&quot;;
+String errorMessage404 = &quot;HTTP 404 Not Found Error&quot;;
+
+println(&quot;The character at position 4 in &quot; 
+              + alphabet 
+              + &quot; is &quot; 
+              + alphabet.charAt(3));
+
+println(&quot;The character at position 10 in &quot;
+              + errorMessage404 
+              + &quot; is &quot; 
+              + errorMessage404.charAt(9));</code></pre>
+<p>Run your code; You should get the following output:</p>
+<p><img src="./img/01.png" alt="charAt method output"></p>
+<p>Save your work.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Strings - substring()</h1>
+<p>Create a new Processing sketch in your workspace and call it <strong>Example_4_2</strong>.</p>
+<h2>substring() method</h2>
+<p>Type in the following code in your sketch:</p>
+<pre><code class="lang-java">//Version 1 (with roar variable)
+String anotherPalindrome = &quot;Niagara. O roar again!&quot;; 
+String roar = anotherPalindrome.substring(11, 15); 
+print(roar);</code></pre>
+<p>Run the code.  Your output should be </p>
+<pre><code>roar</code></pre>
+<p>Now comment out the above code and add this code to your sketch:</p>
+<pre><code class="lang-java">//Version 2 (without roar variable)
+String anotherPalindrome = &quot;Niagara. O roar again!&quot;; 
+print(anotherPalindrome.substring(11, 15)); 
+
+//Version 1 (with roar variable)
+//String anotherPalindrome = &quot;Niagara. O roar again!&quot;; 
+//String roar = anotherPalindrome.substring(11, 15); 
+//print(roar);</code></pre>
+<p>Run the code.  Your output should still be: </p>
+<pre><code>roar</code></pre>
+<p>Do you understand the difference between the two code versions?  In the first version, we declare a variable called &#39;roar&#39;.  In the second version, we don&#39;t use a &#39;roar&#39; variable at all.</p>
+<p>Save your work.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Strings - compareTo()</h1>
+<p>We will step through a few examples of the compareTo method from your lectures.</p>
+<h2>compareTo(), Example 4.3</h2>
+<p>Create a new Processing sketch in your workspace and call it <strong>Example_4_3</strong>.</p>
+<p>Type in the following code in your sketch:</p>
+<pre><code class="lang-java">String str1 = &quot;Dog&quot;;
+String str2 = &quot;Cat&quot;;
+
+if(str1.compareTo(str2) &lt; 0){
+     println(str1+&quot; comes before &quot;+ str2 +&quot; in the alphabet&quot;);
+}
+else if(str1.compareTo(str2) &gt; 0){
+     println(str2 +&quot; comes before &quot;+ str1+&quot; in the alphabet&quot;);
+}
+else{
+    println(&quot;The strings are identical&quot;);
+}</code></pre>
+<p>When you run it, you get the following output</p>
+<pre><code>Cat comes before Dog in the alphabet</code></pre>
+<p>Can you explain the output?</p>
+<p>Save your work.</p>
+<h2>compareTo(), Example 4.4</h2>
+<p>Save your sketch as <strong>Example_4_4</strong>.</p>
+<p>Then change the values of the two strings to the following: </p>
+<pre><code class="lang-java">String str1 = &quot;cat&quot;;
+String str2 = &quot;Cat&quot;;</code></pre>
+<p>When you run it, you get the following output</p>
+<pre><code>Cat comes before cat in the alphabet</code></pre>
+<p>Can you explain the output?</p>
+<p>Save your work.</p>
+<h2>compareTo(), Example 4.5</h2>
+<p>Save your sketch as <strong>Example_4_5</strong>.</p>
+<p>Then change the values of the two strings to the following: </p>
+<pre><code class="lang-java">String str1 = &quot;Animal&quot;;
+String str2 = &quot;Cat&quot;;</code></pre>
+<p>When you run it, you get the following output</p>
+<pre><code>Animal comes before Cat in the alphabet</code></pre>
+<p>Can you explain the output?</p>
+<p>Save your work.</p>
+<h2>compareTo(), Example 4.6</h2>
+<p>Save your sketch as <strong>Example_4_6</strong>.</p>
+<p>Then change the values of the two strings to the following: </p>
+<pre><code class="lang-java">String str1 = &quot;Cat&quot;;
+String str2 = &quot;Cat&quot;;</code></pre>
+<p>When you run it, you get the following output</p>
+<pre><code>The strings are identical</code></pre>
+<p>Save your work.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Strings - equals()</h1>
+<p>We will step through a new example relating to the <em>equals</em> method.</p>
+<h2>equals()</h2>
+<p>Create a new Processing sketch in your workspace and call it <strong>lab04a_equals</strong>.</p>
+<p>Type in the following code in your sketch:</p>
+<pre><code class="lang-java">String str1 = &quot;a&quot;;
+String str2 = &quot;b&quot;;
+
+if(str1.equals(str2))
+{
+    println(str1+&quot; is the same as &quot;+ str2);
+}
+else  
+{
+    println(str1+&quot; is NOT same as &quot;+ str2);
+}</code></pre>
+<p>Run this code and your output should be:</p>
+<pre><code>a is NOT same as b</code></pre>
+<p>Now make the following change so that both <em>str1</em> and <em>str2</em> have the value <em>a</em>:</p>
+<pre><code>String str1 = &quot;a&quot;;
+String str2 = &quot;a&quot;;</code></pre>
+<p>When you run the code, your output should now be:</p>
+<pre><code>a is the same as a</code></pre>
+<p>Save your work.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="05">
+            <h1>Objects and Classes</h1>
+<h2>Drawing spot without classes</h2>
+<p>Create a new Sketchbook and save it as <strong>Spot_Version0.0</strong>.</p>
+<p>Enter the following code:</p>
+<pre><code class="lang-java">float x = 33.0;
+float y = 50.0;
+float diameter = 30.0;
+
+void setup(){
+  size (100,100);
+  noStroke();
+}
+
+void draw(){
+  background(0);
+  ellipse(x, y, diameter, diameter);
+}</code></pre>
+<p>Run the code.  You should see a black window window with a white circle drawn in it.</p>
+<p><img src="./img/05.png" alt="Drawing spot without using classes"></p>
+<p>Save your work.</p>
+<h2>Drawing spot with basic class</h2>
+<p>Save your sketch as <strong>Spot_Version1.0</strong>.</p>
+<p>Replace the existing code with this:</p>
+<pre><code class="lang-java">Spot sp;
+
+void setup()
+{
+  size (100,100);
+  noStroke();
+  sp = new Spot();
+  sp.xCoord = 33;
+  sp.yCoord = 50;
+  sp.diameter = 30;
+}
+
+void draw()
+{
+  background(0);
+  ellipse(sp.xCoord, sp.yCoord, sp.diameter, sp.diameter);
+}</code></pre>
+<p>Then using the new tab button as below, create a new tab called Spot. (This will be the name of the new class)</p>
+<p><img src="./img/06.png" alt="Creating a class"></p>
+<p>Enter the following code in the new window. </p>
+<pre><code class="lang-java">class Spot
+{
+  float xCoord, yCoord;
+  float diameter;
+}</code></pre>
+<p>Run the code.  You should see the same black window with a white circle drawn in it.</p>
+<p><img src="./img/05.png" alt="Drawing spot using basic classes"></p>
+<p>Save your work.</p>
+<h2>Drawing spot with Spot class and constructor</h2>
+<p>Save your sketch as <strong>Spot_Version2.0</strong>.</p>
+<p>In the main tab, refactor the code so that it is the same as below:</p>
+<pre><code class="lang-java">Spot sp;
+
+void setup()
+{
+  size (100,100);
+  noStroke();
+  sp = new Spot(33, 50, 30);
+}
+
+void draw()
+{
+  background(0);
+  ellipse(sp.xCoord, sp.yCoord, sp.diameter, sp.diameter);
+}</code></pre>
+<p>Then go to the tab/class called <em>Spot</em> and refactor the code so that is has the following constructor:</p>
+<pre><code class="lang-java">class Spot
+{
+  float xCoord, yCoord;
+  float diameter;
+
+  //Constructor
+  Spot(float xPos, float yPos, float diamtr)
+  {
+    xCoord = xPos;
+    yCoord = yPos;
+    diameter = diamtr;
+  }
+}</code></pre>
+<p>Run the code.  You should see the same black window with a white circle drawn in it.</p>
+<p><img src="./img/05.png" alt="Drawing spot with Spot class and constructor"></p>
+<p>Save your work.</p>
+<h2>Drawing spot with Spot class and multiple constructors</h2>
+<p>Save your sketch as <strong>Spot_Version3.0</strong>.</p>
+<p>In this step, we will make no changes in the <em>main</em> tab.</p>
+<p>Go to the tab/class called <em>Spot</em> and refactor the code so that is also has the default constructor:</p>
+<pre><code class="lang-java">class Spot{
+  float xCoord, yCoord;
+  float diameter;
+
+  //Default Constructor
+  Spot(){
+  }
+
+  //Constructor 
+  Spot(float xPos, float yPos, float diamtr){
+    xCoord = xPos;
+    yCoord = yPos;
+    diameter = diamtr;
+  }
+}</code></pre>
+<p>Run the code.  Once again, you should see the same black window with a white circle drawn in it.</p>
+<p><img src="./img/05.png" alt="Drawing spot with Spot class and multiple constructors"></p>
+<p>Save and close your work.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Exercises">
+            <h1>Exercise</h1>
+<p>In these exercises, we will look at solving some common errors.</p>
+<h2>Exercise 1: Using &#39;&#39;=&#39;&#39; in test for equality (syntax error)</h2>
+<p>Create a new sketch and save it as <strong>lab04a_exercise_1</strong>.</p>
+<p>Cut and paste the following code into it:</p>
+<pre><code class="lang-java">        int num1 = 1;
+        int num2 = 2;
+
+        if(num1 = num2)
+             println(num1+&quot; is the same as &quot;+ num2);
+        else
+             println(num1+&quot; is NOT same as &quot;+ num2);</code></pre>
+<p>Try to run the code. You will see an error similar to this one: </p>
+<p><img src="./img/02.png" alt="Error Message"></p>
+<p>Change the single &#39;&#39;=&#39;&#39; to a double equals &#39;&#39;==&#39;&#39; Rerun the code.  It should now work. </p>
+<p>Save your work.  </p>
+<h2>Exercise 2: Using &#39;&#39;;&#39;&#39; in incorrect place(logic)</h2>
+<p>Save your sketch as <strong>lab04a_exercise_2</strong>.</p>
+<p>Replace the code in it with this (cut and paste is fine here!):</p>
+<pre><code class="lang-java">int num1 = 1;
+int num2 = 2;
+
+if(num1 == num2) ;
+     println(num1+&quot; is the same as &quot;+ num2);
+if (num1 != num2) 
+     println(num1+&quot; is NOT same as &quot;+ num2);</code></pre>
+<p>Run the code. You will get the folowing (incorrect) output. </p>
+<p><img src="./img/03.png" alt="This output is incorrect"></p>
+<p>Can you see where the error is? Change the code to that you get the correct output (&quot;1 is not the same as 2&quot;).</p>
+<p>If you are having difficulty spotting it, the error is in the first if statement...there should be no ; after the boolean expression.</p>
+<p>Save your work.</p>
+<h2>Exercise 3: Not using &#39;&#39;{&#39;&#39; and &#39;&#39;}&#39;&#39; to control statements(logic)</h2>
+<p>Save your sketch as <strong>lab04a_exercise_3</strong>.</p>
+<p>Replace the code in it with this (cut and paste is fine here!):</p>
+<pre><code class="lang-java">int num1 = 1;
+int num2 = 2;
+
+if(num1 == num2) 
+     println(num1+&quot; is the same as &quot;+ num2);
+     println(&quot;This means that they are equal&quot;);
+if (num1 != num2) 
+     println(num1+&quot; is NOT same as &quot;+ num2);</code></pre>
+<p>Run the code. You will get the folowing (incorrect) output. </p>
+<p><img src="./img/04.png" alt="This output is incorrect"></p>
+<p>Can you see where the error is?   Hint: there is a problem with curly braces...recall that curly braces are not required in an if statement when there is only one statement in it; they are required when there is more than one statement. </p>
+<p>Change the code to that you get the correct output in each case (when numbers are equal and when numbers are not equal).</p>
+<p>Save your work.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Challenges">
+            <h1>Challenges</h1>
+<p>In these challenges, we will bring in validation on our fields in the constructor.  If you have difficulty attempting these, don&#39;t worry...we will cover this approach in detail in your next lecture!</p>
+<h2>Challenge 1</h2>
+<p>Using <a href="archives/Spot_Version3_0.zip">Spot Version 3.0</a> as a starting point, save this as <strong>lab04a_challenge_01</strong>.</p>
+<p>In this code, you will notice we have the following Spot Constructor:</p>
+<pre><code class="lang-java">Spot(float xPos, float yPos, float diamtr){
+    xCoord = xPos;
+    yCoord = yPos;
+    diameter = diamtr;
+  }</code></pre>
+<p>We want to add some validation rules to this i.e.</p>
+<ul>
+<li><p>before setting the diameter, check that the value sent into the constructor is between 20 and 50 inclusive.  If the value sent in is outside that range, set a default value of 20.</p>
+</li>
+<li><p>before setting the xPos and the yPos, check that the value sent into the constructor is  not negative (i.e. &gt;= 0).  If the value sent in is negative, set a default value of 0.</p>
+</li>
+</ul>
+<p>Test your code to make sure it is behaving appropriately.  </p>
+<p>Save your work and close the project.</p>
+<h2>Challenge 2</h2>
+<p>If we add another field to Spot - a String field called <strong>spotName</strong>. (This simply stores the name of the spot). The class now looks like (without the validations done above):</p>
+<pre><code class="lang-java">class Spot{
+  String spotName;
+  float xCoord, yCoord;
+  float diameter;
+
+ Spot(String name, float xPos, float yPos, float diamtr){
+    spotName = name;
+    xCoord = xPos;
+    yCoord = yPos;
+    diameter = diamtr;
+  }
+}</code></pre>
+<p>and the <em>main</em> class looks like:</p>
+<pre><code class="lang-java">Spot sp;
+
+void setup()
+{
+  size (100,100);
+  noStroke();
+  sp = new Spot( &quot;SpottySpot&quot;, 33, 50, 30);
+}
+
+void draw()
+{
+  background(0);
+  ellipse(sp.xCoord, sp.yCoord, sp.diameter, sp.diameter);
+  println(sp.spotName);
+}</code></pre>
+<p>Create a new sketch called <strong>lab04a_challenge_02</strong> and cut and paste the above code into it.</p>
+<p>Firstly, run this program. See how the code in the Spot class and the <em>main</em> class have changed to cater for the extra field. Can you explain why so many <em>SpottySpot</em> are printed to the console?</p>
+<p>Then, add a validation to the constructor that only allows names that are no more than 7 characters long. If the name is too long, the constructor should impose the rule by cutting the spotName string to the first 7 characters. </p>
+<p>Test your code to make sure it is behaving appropriately.  In particular, perform the following tests:</p>
+<ul>
+<li><p>enter a name that is 6 characters long...all 6 characters should be stored in the name.</p>
+</li>
+<li><p>enter a name that is 7 characters long...all 6 characters should be stored in the name.</p>
+</li>
+<li><p>enter a name that is 8 characters long...only the first 7 characters should be stored in the name (hint: substring).</p>
+</li>
+</ul>
+<p>NOTE: This is called <strong>boundary testing</strong> i.e. we are testing just below, exactly on, and just above the boolean condition that we used in the validation.  This is a popular testing approach as a lot of bugs <em>live</em> in the boundaries.</p>
+<p>Save your work and close the project. </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Solutions">
+            <h1>Solutions</h1>
+<p>The solutions for this lab can be found <a href="archives/lab04a_solutions.zip">here</a>. </p>
+<p>If you require unzipping software, 7zip is a good choice: <a href="http://www.7-zip.org/">http://www.7-zip.org/</a> (or Keka for Mac <a href="http://www.kekaosx.com/en/">http://www.kekaosx.com/en/</a>)</p>
+<p>After unzipping the solutions, it might be a good idea to copy the folders to your <strong>sketchbook</strong> folder.  From Processing, you could then use <strong>File</strong>, followed by <strong>Sketchbook</strong> to easily open them.</p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

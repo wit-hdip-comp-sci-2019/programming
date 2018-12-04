@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html"> 3b: Methods (Part 2)  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-03b">
+          Lab-03b
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+        <a class="item" data-tab="Exercises">
+          Exercises
+        </a>
+      
+        <a class="item" data-tab="Challenges">
+          Challenges
+        </a>
+      
+        <a class="item" data-tab="Solutions">
+          Solutions
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="/topic-00-induction/book-induction/index.html">Induction </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-03b">
+            <h1>Objectives</h1>
+<p>more sophisticated methods · return types · parameters · Strings · String methods · JOptionPane</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Abstracting code to a method</h1>
+<p>In this step, you will draw many eyes (the examples 3.7 - 3.9 from your lectures).</p>
+<h2>Coding the setup() method</h2>
+<p>Create a new Processing sketch in your workspace and call it <strong>Example_3_7</strong>.</p>
+<p>Your display window should be 100x100.  Write the line of code that will ensure all subsequent shapes are drawn with no outline.</p>
+<h2>Coding the draw() method</h2>
+<p>Include the following code in your sketch:</p>
+<pre><code>void draw()
+{
+  background(204);
+  fill(255);
+  ellipse(50,50,60,60);    //outer white circle
+  fill(0);
+  ellipse(50+10, 50, 30, 30);  //black circle
+  fill(255);
+  ellipse(50+16, 46, 6, 6);  //small, white circle
+}</code></pre>
+<p>Run your code; a single eye should be drawn.</p>
+<p>Save your work.</p>
+<h2>Drawing two eyes</h2>
+<p>With your <strong>Example_3_7</strong> sketch open, perform a <em>Save as...</em> and enter the name <strong>Example_3_8</strong>.</p>
+<p>Now refactor the code above so that you have a method called <strong>eye</strong>.  This method should:</p>
+<ul>
+<li>accept two parameters of type int, representing the x and y coordiates of the eye.</li>
+<li>have a void return type.</li>
+</ul>
+<p>Call the eye method twice from the draw method so that your display window is rendered like so:</p>
+<p><img src="./img/00.png" alt="Two eyes"></p>
+<p>Save your work.</p>
+<h2>Drawing six eyes</h2>
+<p>With your <strong>Example_3_8</strong> sketch open, perform a <em>Save as...</em> and enter the name <strong>Example_3_9</strong>.</p>
+<p>Now refactor the code to call the eye method six times from the draw method so that your display window is rendered like so:</p>
+<p><img src="./img/01.png" alt="Six eyes"></p>
+<p>Save your work.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Overloading methods</h1>
+<p>In this step, you will draw many X&#39;s (the processing examples 3.10 - 3.15 from your lectures).</p>
+<h2>Coding the setup() method</h2>
+<p>Create a new Processing sketch in your workspace and call it <strong>Example_3_10</strong>.</p>
+<p>Your display window should be 100x100 and have a light grey background.  </p>
+<h2>Coding the drawX() method</h2>
+<p>Write a method called <strong>drawX</strong> that:</p>
+<ul>
+<li>has a void return type</li>
+<li>has an empty parameter list</li>
+<li>sets the stroke to light grey</li>
+<li>sets the weight of the stroke to 20</li>
+<li>draws two lines that intersect in the shape of an <strong>X</strong></li>
+</ul>
+<p>Call this method from the setup() method.</p>
+<p>When you run your code, it should look like this:</p>
+<p><img src="./img/02.png" alt="A light grey, heavy X"></p>
+<p>Save your work.</p>
+<h2>Coding a second drawX() method</h2>
+<p>With your <strong>Example_3_10</strong> sketch open, perform a <em>Save as...</em> and enter the name <strong>Example_3_11</strong>.</p>
+<p>To the existing code, write another method called <strong>drawX</strong> that:</p>
+<ul>
+<li>has a void return type</li>
+<li>accepts a parameter of type int </li>
+<li>sets the stroke to the parameter</li>
+<li>sets the weight of the stroke to 20</li>
+<li>draws two lines that intersect in the shape of an <strong>X</strong></li>
+</ul>
+<p>In the setup() method, comment out the call to the previous draw method.  Now call this method instead, passing the value of 0 as a parameter.</p>
+<p>When you run your code, it should look like this:</p>
+<p><img src="./img/03.png" alt="A black, heavy X"></p>
+<p>Save your work.</p>
+<h2>Coding a third drawX() method</h2>
+<p>With your <strong>Example_3_11</strong> sketch open, perform a <em>Save as...</em> and enter the name <strong>Example_3_12</strong>.</p>
+<p>To the existing code, write another method called <strong>drawX</strong> that:</p>
+<ul>
+<li>has a void return type</li>
+<li>accepts two parameters of type int </li>
+<li>sets the stroke to the first parameter</li>
+<li>sets the weight of the stroke to the second parameter</li>
+<li>draws two lines that intersect in the shape of an <strong>X</strong></li>
+</ul>
+<p>In the setup() method, comment out the call to the previous draw method.  Now call this method instead, passing the value of 0, 30 as parameters.</p>
+<p>When you run your code, it should look like this:</p>
+<p><img src="./img/04.png" alt="A black, really heavy X"></p>
+<p>Save your work.</p>
+<h2>Coding a fourth drawX() method</h2>
+<p>With your <strong>Example_3_12</strong> sketch open, perform a <em>Save as...</em> and enter the name <strong>Example_3_13</strong>.</p>
+<p>Write another method called <strong>drawX</strong> that:</p>
+<ul>
+<li>has a void return type</li>
+<li>accepts five parameters of type int </li>
+<li>sets the stroke to the first parameter</li>
+<li>sets the weight of the stroke to the second parameter</li>
+<li>draws two lines that intersect in the shape of an <strong>X</strong>.  The third parameter represents X, fourth represents Y and the fifth represents the size of the line.</li>
+</ul>
+<p>In the setup() method, comment out the call to the previous draw method.  Now call this method instead, passing the values:  0, 30, 40, 30, 35) as parameters.</p>
+<p>When you run your code, it should look like this:</p>
+<p><img src="./img/05.png" alt="A black, really heavy X"></p>
+<p>Save your work.</p>
+<h2>Drawing multiple X&#39;s</h2>
+<p>With your <strong>Example_3_13</strong> sketch open, perform a <em>Save as...</em> and enter the name <strong>Example_3_14</strong>.</p>
+<p>Using the most appropriate drawX method, reproduce the following output (you will have three individual method calls):</p>
+<p><img src="./img/06.png" alt="Three different X&#39;s"></p>
+<p>Save your work.</p>
+<h2>Drawing shadowed X&#39;s</h2>
+<p>With your <strong>Example_3_14</strong> sketch open, perform a <em>Save as...</em> and enter the name <strong>Example_3_15</strong>.</p>
+<p>Using the most appropriate drawX method and a for or while loop, reproduce the following output:</p>
+<p><img src="./img/07.png" alt="Shadowed X&#39;s"></p>
+<p>Save your work.</p>
+<h2>Versioning Software</h2>
+<p>For our drawX project, you will notice that we now have 5 sketches, <strong>Example_3_10</strong> to <strong>Example_3_15</strong>.  This means that we have 5 different versions of the drawX project.  As we incrementally worked on our drawX project and got a new method working, we saved off that work and starting working in a new file.  This is a standard approach in programming and we will focus more on this approach throughout the course.  </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Farenheit / Celsius Converter</h1>
+<p>In this step, you will work on reproducing the code example 3.16 from your lectures.</p>
+<h2>Writing the coversion method</h2>
+<p>Create a new Processing sketch in your workspace and call it <strong>Example_3_16</strong>.</p>
+<p>Write a method called <strong>farenheitToCelsius</strong> that takes one float parameter. </p>
+<p>The return type for this method is <strong>float</strong>.</p>
+<p>The method returns the result of the conversion:  (farenheit - 32.0) * (5.0/9.0)</p>
+<h2>Calling the coversion method</h2>
+<p>The <strong>farenheitToCelsius</strong> method should be called from the draw() method.</p>
+<p>The value retuned from the calculation should be printed to the console.</p>
+<p>Test your code by passing the farenheit value of 451.  The celsius value printed should be:  232.77779  </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Recursion</h1>
+<p>In this step, you will work on reproducing the code example 3.17 from your lectures.</p>
+<h2>Solution with no recursion</h2>
+<p>Create a new Processing sketch in your workspace and call it <strong>Example_3_17</strong>.</p>
+<p>Include the following code in it:</p>
+<pre><code>void setup()
+{
+  size(100,100);
+  drawLines(10,4);
+}
+
+void drawLines(int x, int num)
+{
+    for (int i = 0; i &lt; num; num--)
+    {
+        line (x, 20, x, 80);
+        x += 5;
+    }
+}</code></pre>
+<p>Run the code so you can see the output. </p>
+<h2>Recap of recursion</h2>
+<p>A method can contain a line of code that calls itself.</p>
+<p>This is called recursion.</p>
+<p>To stop the infinite calling of the method, it is necessary to have some way for the method to exit.  This is called the base case.  You continually work towards the base case. </p>
+<h2>Using recursion</h2>
+<p>Rewrite the <strong>drawLines</strong> method so that it uses recursion to produce the same output as above.</p>
+<p>Save your work.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Exercises">
+            <h1>Exercise</h1>
+<h2>Exercise 1 (String methods)</h2>
+<p>Create a new sketch called <strong>lab03b_exercise01</strong>.</p>
+<p>In this exercise, you will call many different methods over a given String.</p>
+<p>Declare a String to hold the text <strong>This is my String exercise</strong>.</p>
+<p>Produce the following console output over the String:</p>
+<p><img src="./img/08.png" alt="String details"></p>
+<p>Save your work.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Challenges">
+            <h1>Challenges</h1>
+<p>For each challenge listed below, open a new sketch.</p>
+<p>In these challenges, we are going to use something you haven&#39;t seen before..Message Dialogs.  </p>
+<p><img src="./img/09.png" alt="Message Dialog"></p>
+<p>We will these Dialog boxes to ask the user to type in information.  We will also use them to display information. </p>
+<p>As we will cover the theory on them later in the course, we will give you the starting code here.  Don&#39;t worry if you don&#39;t understand all of the code relating to these dialogs, or if you can&#39;t do these exercises...we will cover it later!</p>
+<h2>Challenge 1 (Using Message Dialogs)</h2>
+<p>Cut and paste the following code into a new sketchbook.</p>
+<pre><code class="lang-java">import javax.swing.*;
+
+void setup()
+{
+  String str = JOptionPane.showInputDialog(&quot;Enter a String of your choice:&quot;);
+  JOptionPane.showMessageDialog(null, &quot;The String you entered is: &quot; + str);
+  exit();  //supresses the display window.
+}</code></pre>
+<p>Run the code.  When the Dialog appears, enter any String of your choice.  Is it re-displayed back to you?</p>
+<p>Save your work.</p>
+<h2>Challenge 2 (Using Message Dialogs)</h2>
+<p>Taking the code from the above challenge as starter code, make the necessary changes to display the length of the entered string as well as the entered string.</p>
+<p>Run the code.  When the Dialog appears, enter any String of your choice.  Is it re-displayed back to you, along with the length of the String?</p>
+<p>Save your work.</p>
+<h2>Challenge 3 (Using Message Dialogs)</h2>
+<p>Using the code from the above challenge, make the necessary changes to display:</p>
+<ul>
+<li>the entered String.</li>
+<li>the length of the entered string.</li>
+<li>the string convered to uppercase.</li>
+<li>the string converted to lowercase.</li>
+</ul>
+<p>Run the code.  When the Dialog appears, enter any String of your choice.  Is the right information displayed in the JOption pane?  However, does it look very cluttered like this?  We will fix the layout in our next challenge.</p>
+<p><img src="./img/09.png" alt="String details"></p>
+<p>Save your work.</p>
+<h2>Challenge 4 (Formatting Message Dialogs)</h2>
+<p>Escape sequences are used to format Strings in Java:</p>
+<p><img src="./img/10.png" alt="Escape sequences"></p>
+<p>Research the use of escape characters in Java.  </p>
+<p>Using the newline escape sequence, format the code from the above challenge so that your Message Dialog looks like this:</p>
+<p><img src="./img/11.png" alt="Formatted Message Dialog"></p>
+<p>Save your work.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Solutions">
+            <h1>Solutions</h1>
+<p>The solutions for this lab can be found <a href="archives/lab03b_solutions.zip">here</a>. </p>
+<p>If you require unzipping software, 7zip is a good choice: <a href="http://www.7-zip.org/">http://www.7-zip.org/</a> (or Keka for Mac <a href="http://www.kekaosx.com/en/">http://www.kekaosx.com/en/</a>)</p>
+<p>After unzipping the solutions, it might be a good idea to copy the folders to your <strong>sketchbook</strong> folder.  From Processing, you could then use <strong>File</strong>, followed by <strong>Sketchbook</strong> to easily open them.</p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

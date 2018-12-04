@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html">  5a: Swing and Arrays  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-05a">
+          Lab-05a
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="Exercises">
+          Exercises
+        </a>
+      
+        <a class="item" data-tab="Challenges">
+          Challenges
+        </a>
+      
+        <a class="item" data-tab="Solutions">
+          Solutions
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="/topic-00-induction/book-induction/index.html">Induction </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-05a">
+            <h1>Objectives</h1>
+<p>GUI · Swing · JOptionPane · dialog boxes · primitive arrays · array syntax</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Using Swing - JoptionPane</h1>
+<p>In this step, you will familiarise yourself with the JOptionPane class and particularly these methods:</p>
+<ul>
+<li>showMessageDialog:  Simple message output.</li>
+<li>showInputDialog: Allow the user to type in (String) input.</li>
+<li>showConfirmDialog: Allow the user to choose an option.</li>
+</ul>
+<h2>showMessageDialog: Simple Message Output</h2>
+<p>Create a new Processing sketch in your workspace and call it <strong>lab05a_JOption</strong>.</p>
+<p>We will use the same sketch for this entire step, so periodically save your work as you progress through it.</p>
+<p>To use JOptionPane, we must import the Swing package:</p>
+<pre><code class="lang-java">import javax.swing.JOptionPane;</code></pre>
+<p>Type in the following code in your sketch:</p>
+<pre><code class="lang-java">JOptionPane.showMessageDialog(null,     
+        &quot;Welcome to the 12 days of Christmas&quot;);</code></pre>
+<p>Run your code.</p>
+<p>You should get the following output:  </p>
+<p><img src="./img/01.png" alt="Using JOptionPane, showMessageDialog, for simple output"></p>
+<h2>showMessageDialog: Adding detail to a Simple Message</h2>
+<p>The default option (above) has a small icon. </p>
+<p>To have no such icon, you can add a &#39;PLAIN_MESSAGE&#39; option.  Add this code to the above code (you now should have two JOptionPanes in your code):</p>
+<pre><code class="lang-java">JOptionPane.showMessageDialog(null, 
+  &quot;Welcome to the 12 days of Christmas&quot;,
+      &quot;Christmas Title&quot;,
+      JOptionPane.PLAIN_MESSAGE);</code></pre>
+<p>Note that we also included a title for our message.  </p>
+<p>Run your code.</p>
+<p>You should get the following output:  </p>
+<p><img src="./img/02.png" alt="Using JOptionPane for simple output with no icon"></p>
+<h2>showInputDialog: Entering String data via input dialog</h2>
+<p>We will now look at user input and read in a String. </p>
+<p>Add the following code:</p>
+<pre><code class="lang-java">String day = JOptionPane.showInputDialog(
+                &quot;Welcome to Christmas week\n\n &quot; + &quot;Please enter the day: &quot;,
+                &quot;Monday&quot;);
+
+println(&quot;Day is : &quot; + day);</code></pre>
+<p>Run your code.</p>
+<p>This code should present you with this input dialog:</p>
+<p><img src="./img/03.png" alt="Using JOptionPane for reading input"></p>
+<p>Also, the print statement will print out the day of the week you entered on the console. </p>
+<h2>showInputDialog: Entering integers via an input dialog</h2>
+<p>We will now look at user input and read in a number. </p>
+<p>As the input dialog reads from the user in String format, we will need to convert the String to a number if we want to do any mathematical operations on it:</p>
+<pre><code class="lang-java">int num = Integer.parseInt(
+      JOptionPane.showInputDialog(&quot;Enter a number between 0 and 10&quot;, &quot;3&quot; )
+      );</code></pre>
+<p>Add this code...it simply performs a mathematical calculation on the number read in and displays the result on the console:</p>
+<pre><code class="lang-java">num++;
+println(&quot;Your number incremented by 1 is : &quot; + num);</code></pre>
+<p>Run the code.  </p>
+<p>This code should present you with this input dialog:</p>
+<p><img src="./img/04.png" alt="Using JOptionPane for reading numeric input"></p>
+<p>Also, the print statement will print out the number you entered, incremented by 1. </p>
+<h2>showConfirmDialog: Using a yes/no dialog</h2>
+<p>Sometimes we will need a simple yes/no dialog.</p>
+<p>Include the following code in your sketch:</p>
+<pre><code class="lang-java">int reply = JOptionPane.showConfirmDialog(null,           
+     “Did you watch the Late Late Toy Show on Saturday night?&quot;,                
+     &quot;Christmas Question&quot;,   
+     JOptionPane.YES_NO_OPTION);</code></pre>
+<p>Add this code...it simply displays an int representation of your choice to the console:</p>
+<pre><code class="lang-java">println(&quot;You chose: &quot; + reply);</code></pre>
+<p>Run the code.  </p>
+<p>Your output should now look like:</p>
+<p><img src="./img/05.png" alt="Yes/No dialog"></p>
+<p>And it should display an int representation of your choice to the console.</p>
+<p>Save your work and close the project.</p>
+<p>We will continue working on JOptionPane in the exercises.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Using Arrays</h1>
+<p>In this step, we will introduce the use of arrays, in a similar manner as discussed in your lectures.  Instead of reading in 10 numbers, we will just look at using 5.</p>
+<h2>No arrays - reading in 5 numbers and adding them</h2>
+<p>Here you will use JOptionPane to read in 5 numbers, add them together and print their sum in the console window. </p>
+<p>Create a new Processing sketch in your workspace and call it <strong>lab05a_Arrays_01</strong>.</p>
+<p>Type the following code into your sketch:</p>
+<pre><code class="lang-java">import javax.swing.*;  
+
+int number = 0;
+int sum = 0;
+
+for (int i = 0; i&lt;5; i++)  {    
+   number = Integer.parseInt(JOptionPane.showInputDialog(
+                       &quot;Please enter a number &quot;, &quot;3&quot;)
+                       );    
+   sum += number;  
+}
+
+println(&quot;The sum of the values you typed in is : &quot; +   sum);</code></pre>
+<p>Run your code. </p>
+<p>The sum of the 5 numbers you have entered should be printed to the console e.g. </p>
+<pre><code>The sum of the values you typed in is : 15</code></pre>
+<p>Save your work, but don&#39;t close the sketch.</p>
+<h2>No arrays - adding 5 numbers and remembering them</h2>
+<p>In the above sketch, we read in 5 numbers and printed out a running total of the numbers.  However, we didn&#39;t store the numbers we entered.  Here, we will refactor our code (not using arrays) to save the 5 entered numbers.  </p>
+<p>Save your exsiting sketch as  <strong>lab05a_Arrays_02</strong></p>
+<p>Refactor your code so that it declares 5 variables; these variables are then used to store each of the entered numbers.  Then print out the sum of the numbers, along with the actual numbers entered.  The code is here:</p>
+<pre><code class="lang-java">import javax.swing.*;  
+
+int n0, n1, n2, n3, n4;
+int sum = 0;
+
+n0 = Integer.parseInt(JOptionPane.showInputDialog(&quot;Please enter a number &quot;, &quot;3&quot;));
+sum += n0;
+
+n1 = Integer.parseInt(JOptionPane.showInputDialog(&quot;Please enter a number &quot;, &quot;3&quot;));
+sum += n1;
+
+n2 = Integer.parseInt(JOptionPane.showInputDialog(&quot;Please enter a number &quot;, &quot;3&quot;));
+sum += n2;
+
+n3 = Integer.parseInt(JOptionPane.showInputDialog(&quot;Please enter a number &quot;, &quot;3&quot;));
+sum += n3;
+
+n4 = Integer.parseInt(JOptionPane.showInputDialog(&quot;Please enter a number &quot;, &quot;3&quot;));
+sum += n4;
+
+println(&quot;The sum of the values you typed in is : &quot; + sum);
+println(&quot;Number 1 is: &quot; + n0);
+println(&quot;Number 2 is: &quot; + n1);
+println(&quot;Number 3 is: &quot; + n2);
+println(&quot;Number 4 is: &quot; + n3);
+println(&quot;Number 5 is: &quot; + n4);</code></pre>
+<p>Run your code. The sum of the 5 numbers you have entered should be printed to the console, along with the numbers you just entered e.g.</p>
+<pre><code>The sum of the values you typed in is : 15
+Number 1 is: 5
+Number 2 is: 4
+Number 3 is: 3
+Number 4 is: 2
+Number 5 is: 1</code></pre>
+<p>Save your work, but don&#39;t close the sketch.</p>
+<h2>Using arrays to store and add numbers</h2>
+<p>Here you will use JOptionPane to read in 5 numbers into an array, add them together and print their sum in the console window. In this code, we declare an integer array of size 5(allowing 5 values to be stored from index 0 to 4).</p>
+<p>Save your exsiting sketch as  <strong>lab05a_Arrays_03</strong></p>
+<p>Refactor your code so that it is the same as below:</p>
+<pre><code class="lang-java">import javax.swing.*;  
+
+int numbers[] = new int[5];             
+int sum = 0;
+
+for (int i = 0; i &lt; 5 ; i ++)  {    
+    numbers[i] = Integer.parseInt(JOptionPane.showInputDialog(
+    &quot;Please enter a number &quot;, &quot;3&quot;));  
+}      
+
+for (int i = 0; i &lt; 5 ; i ++)   {   // now we sum the values and print each value 
+       sum += numbers[i];  
+      println(&quot;Number &quot; + (i+1) + &quot; is: &quot; + numbers[i]);
+} 
+
+ println(&quot;The sum of the values you typed in is : &quot; + sum);</code></pre>
+<p>Run your code. </p>
+<p>The sum of the 5 numbers you have entered should be printed to the console, along with the numbers you just entered e.g.</p>
+<pre><code>The sum of the values you typed in is : 15
+Number 1 is: 5
+Number 2 is: 4
+Number 3 is: 3
+Number 4 is: 2
+Number 5 is: 1</code></pre>
+<p>Notice that the output from this code, is the same as the output from <strong>lab05a_Arrays_02</strong> above.  However, the code here is much more maintainable (e.g. we could very easily refactor this to read in 100 numbers).</p>
+<p>Save your work, but don&#39;t close the sketch.</p>
+<h2>Inputting the size of the array</h2>
+<p>A primitive array is of fixed size. So once you construct (using new) the array, you cannot change its size. However, you can read in this value (size of the array) before constructing the array.  The next piece of code demonstrates this approach.</p>
+<p>Save your exsiting sketch as  <strong>lab05a_Arrays_04</strong></p>
+<p>Refactor your code so that it is the same as below (notice how we use now numData in the boolean expression of the for loop):</p>
+<pre><code class="lang-java">import javax.swing.*;  
+
+int numbers[];
+int numData = Integer.parseInt(JOptionPane.showInputDialog(&quot;How many values do you wish to sum? &quot;, &quot;3&quot;));
+//now, use this value to make the array this size.
+numbers = new int[numData];             
+
+int sum = 0;
+
+for (int i = 0; i &lt; numData ; i ++)  {    
+  numbers[i] = Integer.parseInt(JOptionPane.showInputDialog(
+  &quot;Please enter a number &quot;, &quot;3&quot;));  
+}      
+
+for (int i = 0; i &lt; numData ; i ++)   {   // now we sum the values and print each value 
+     sum += numbers[i];  
+      println(&quot;Number &quot; + (i+1) + &quot; is: &quot; + numbers[i]);
+} 
+
+println(&quot;The sum of the values you typed in is : &quot; + sum);</code></pre>
+<p>Run your code and test it, in particular, by entering four values. </p>
+<p>The sum of the numbers you have entered should be printed to the console, along with the numbers you just entered e.g.</p>
+<pre><code>Number 1 is: 9
+Number 2 is: 8
+Number 3 is: 4
+Number 4 is: 3
+The sum of the values you typed in is : 24</code></pre>
+<p>Verify that the printed sum, is the correct tally of the values entered.</p>
+<p>Save your work and close the project.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Exercises">
+            <h1>Exercises</h1>
+<p>The exercises are based mainly on Arrays, with some use of JOptionPane.</p>
+<p>For each exercise below, create a new sketch and save your work.</p>
+<h2>Exercise 1</h2>
+<p>Write a program to declare and construct an int array (called numbers) of size 10. </p>
+<p>Initialise the array by putting 20 in each of the elements of the array. </p>
+<p>Print out the values to the console (each value should be printed to a new line) e.g. </p>
+<pre><code>Number 1 is: 20
+Number 2 is: 20
+Number 3 is: 20
+Number 4 is: 20
+Number 5 is: 20
+Number 6 is: 20
+Number 7 is: 20
+Number 8 is: 20
+Number 9 is: 20
+Number 10 is: 20</code></pre>
+<h2>Exercise 2</h2>
+<p>Write a program to declare and construct an int array (called numbers) of size 5. </p>
+<p>Read in 5 values and store them in the array.  </p>
+<p>Print out the values to the console (one line at a time) in the reverse order to the order they were entered in.  For example, if we entered 3, 4, 5, 6 and 7, the output should be:</p>
+<pre><code>Number 5 is: 7
+Number 4 is: 6
+Number 3 is: 5
+Number 2 is: 4
+Number 1 is: 3</code></pre>
+<h2>Exercise 3</h2>
+<p>Write a program to declare and construct an int array (called numbers) with the size determined by the user.</p>
+<p>Read in a value for each element in the array and store it.</p>
+<p>Use a for loop to print out every second value stored in the array to the console.  For example, if we choose to enter 8 numbers and then enter the following numbers: 5, 6, 7, 8, 9, 10, 11, 12, we should expect our output to be:</p>
+<pre><code>Number 1 is: 5
+Number 3 is: 7
+Number 5 is: 9
+Number 7 is: 11</code></pre>
+<h2>Exercise 4</h2>
+<p>Write a program to declare and construct an int array (called numbers) with the size determined by the user.</p>
+<p>Read in a value for each element in the array and store it.</p>
+<p>Print out only the even numbers stored in the array to the console (hint: use the % operator).  For example, if we choose to enter 6 numbers and then enter the following numbers: 6, 7, 8, 10, 11, 12, we should expect our output to be:</p>
+<pre><code>Number 1 is: 6
+Number 3 is: 8
+Number 4 is: 10
+Number 6 is: 12</code></pre>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Challenges">
+            <h1>Challenge</h1>
+<p>The challenges are on JOptionPane today.</p>
+<h2>Challenge 1 - JOptionPane</h2>
+<pre><code class="lang-java">JOptionPane.showMessageDialog(null, 
+  &quot;Welcome to the 12 days of Christmas&quot;,
+      &quot;Christmas Title&quot;,
+      JOptionPane.PLAIN_MESSAGE);</code></pre>
+<p>The above code produces this message dialog, with a message type of PLAIN_MESSAGE:</p>
+<p><img src="./img/02.png" alt="Using JOptionPane for simple output with no icon"></p>
+<p>Visit the Java API for JOptionPane:  <a href="https://docs.oracle.com/javase/7/docs/api/javax/swing/JOptionPane.html">https://docs.oracle.com/javase/7/docs/api/javax/swing/JOptionPane.html</a> and look for the <strong>messageType</strong> description, i.e. :</p>
+<pre><code>messageType
+
+Defines the style of the message. The Look and Feel manager may lay out the dialog differently depending on this value, and will often provide a default icon. The possible values are:
+
+  ERROR_MESSAGE
+  INFORMATION_MESSAGE
+  WARNING_MESSAGE
+  QUESTION_MESSAGE
+  PLAIN_MESSAGE</code></pre>
+<p>Create a new sketch and experiment with these message type options and note the changes in the output.</p>
+<h2>Challenge 2 - JOptionPane</h2>
+<pre><code class="lang-java">int reply = JOptionPane.showConfirmDialog(null,           
+     “Did you watch the Late Late Toy Show on Saturday night?&quot;,                
+     &quot;Christmas Question&quot;,   
+     JOptionPane.YES_NO_OPTION);</code></pre>
+<p>The above code produces this confirm dialog, with a yes/no button option:</p>
+<p><img src="./img/05.png" alt="Yes/No dialog"></p>
+<p>Return to the Java API for JOptionPane:  <a href="https://docs.oracle.com/javase/7/docs/api/javax/swing/JOptionPane.html">https://docs.oracle.com/javase/7/docs/api/javax/swing/JOptionPane.html</a> and look for the <strong>optionType</strong> description, i.e. :</p>
+<pre><code>optionType
+
+Defines the set of option buttons that appear at the bottom of the dialog box:
+
+  DEFAULT_OPTION
+  YES_NO_OPTION
+  YES_NO_CANCEL_OPTION
+  OK_CANCEL_OPTION</code></pre>
+<p>Create a new sketch and experiment with these option types and note the changes in the output.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Solutions">
+            <h1>Solutions</h1>
+<p>The solutions for this lab can be found <a href="archives/lab05a_solutions.zip">here</a>. </p>
+<p>If you require unzipping software, 7zip is a good choice: <a href="http://www.7-zip.org/">http://www.7-zip.org/</a> (or Keka for Mac <a href="http://www.kekaosx.com/en/">http://www.kekaosx.com/en/</a>)</p>
+<p>After unzipping the solutions, it might be a good idea to copy the folders to your <strong>sketchbook</strong> folder.  From Processing, you could then use <strong>File</strong>, followed by <strong>Sketchbook</strong> to easily open them.</p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

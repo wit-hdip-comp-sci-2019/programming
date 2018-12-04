@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html">  1b: Animating your Drawings  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-1b">
+          Lab-1b
+        </a>
+      
+        <a class="item" data-tab="PDE">
+          PDE
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+        <a class="item" data-tab="05">
+          05
+        </a>
+      
+        <a class="item" data-tab="Exercises">
+          Exercises
+        </a>
+      
+        <a class="item" data-tab="Challenges">
+          Challenges
+        </a>
+      
+        <a class="item" data-tab="Solutions">
+          Solutions
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="/topic-00-induction/book-induction/index.html">Induction </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-1b">
+            <h1>Objectives</h1>
+<p>animate simple drawings · variables · system variables · primitive data types · arithmetic operators</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="PDE">
+            <h1>Opening the PDE (Processing Development Environment)</h1>
+<p>Go to the directory/folder where you installed your processing app.  </p>
+<p>You should see a list of files and folders similar to the image below:</p>
+<p><img src="./img/01.png" alt="Processing Development Environment files"></p>
+<p>Double click in the <strong>processing</strong> application (highlighted by the red rectangle).</p>
+<p>The PDE (Processing Development Environment) should launch.</p>
+<p><img src="./img/02.png" alt="The Processing Development Environment"></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Basic Animation</h1>
+<ul>
+<li>We will use the following built-in functions to animate our drawings:<ul>
+<li>setup()</li>
+<li>draw()</li>
+</ul>
+</li>
+</ul>
+<h2>A note on the setup() function</h2>
+<ul>
+<li>setup() is called once when the program starts and should not be called again.</li>
+<li>setup() can set the screen size and background colour. </li>
+<li>There can only be one setup() function for each sketch.</li>
+</ul>
+<h2>A note on the draw() function</h2>
+<ul>
+<li>You should never call the draw() function.</li>
+<li>Processing automatically calls the draw() function straight after the setup() call.</li>
+<li>draw() continuously executes the code contained inside it.</li>
+<li>There can only be one draw() function for each sketch.</li>
+</ul>
+<h2>Animating Ellipses</h2>
+<p>In your PDE, enter the following code:</p>
+<p><img src="./img/03.png" alt="Animating Ellipses"></p>
+<p>Using the <strong>File</strong>, <strong>Save as...</strong> menu options, save this sketchbook as <strong>lab01b_step02</strong>.</p>
+<p>Run the code.  As you move your mouse around the canvas, you should have animation similar to the screen shot below.</p>
+<p><img src="./img/04.png" alt="Animating Ellipses - Multiple Circles"></p>
+<p>Can you explain why there are multiple circles drawn?  Why not just one circle? </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Animating Ellipses (continued)</h1>
+<p>We are now going to change the code (from the previous step) so that only one circle is shown when you move the mouse.</p>
+<p>Amend your code so that the background function is in the draw method instead of the setup method:</p>
+<p><img src="./img/05.png" alt="Animating Ellipses - One Circle"></p>
+<p>Run the code.  As you move the mouse over the canvas, you should have animation similar to the screen shot below.</p>
+<p><img src="./img/06.png" alt="Animating Ellipses - One Circle"></p>
+<p>Can you explain why there is only one circle drawn as we move our mouse? </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Playing with the System Variables</h1>
+<p>What would happen to our animation if we swapped the <strong>mouseX</strong> and <strong>mouseY</strong> system variables in the <strong>ellipse</strong> function with each other?  </p>
+<p>Make this change (the code change is below, if you need it) and see if you can figure out what is going on.</p>
+<pre><code>    ellipse(mouseY, mouseX, 100, 100)</code></pre>
+<p>Now, what would happen to our animation if we changed our ellipse function to be this:</p>
+<pre><code>    ellipse(width, mouseY, 100, 100)</code></pre>
+<p>Make this change and see if you can figure out what is going on.</p>
+<p>Save your work (we will use a new sketch for step05).</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Primitive Data Types</h1>
+<p>In Java, there are:
+- four whole number data types:  byte, short, int, long.
+- two decimal number data types: float (default in Processing) and double (default in Java apps).
+- a single character data type: char.
+- a true/false data type: boolean.</p>
+<h2>Using the int data type</h2>
+<p>Create a new Sketchbook in your PDE and save it as <strong>lab01b_step05</strong>.</p>
+<p>Enter the following code:</p>
+<p><img src="./img/07.png" alt="Using int data type to set the coordinates of three lines"></p>
+<p>Run the code.  Your window should now have three blue lines similar to the screen shot below:</p>
+<p><img src="./img/08.png" alt="Three blue lines"></p>
+<p>Update the code using a,b,c and d variables to generate new lines:</p>
+<p><img src="./img/09.png" alt="Using int data type to set the coordinates of more lines"></p>
+<p>Run the code.  Your window should now have three new blue lines similar to the screen shot below:</p>
+<p><img src="./img/10.png" alt="Six blue lines"></p>
+<h2>A syntax error</h2>
+<p>Update the code by changing <strong>int</strong> to <strong>Int</strong> (uppercase I).  Run your code again.  What happened? Can you explain what happened?  Ask your lecturer to explain it if you are not sure. </p>
+<p>Change <strong>Int</strong> back to <strong>int</strong>.</p>
+<h2>Another syntax error</h2>
+<p>Update the code by changing the amount assigned to variable <strong>a</strong> from 70 to 70.56.  </p>
+<p>Run your code again.  What happened? Can you explain what happened?  Ask your lecturer to explain it if you are not sure. </p>
+<p>Change 70.56 back to 70.</p>
+<p>Save and close the sketchbook.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="05">
+            <h1>Primitive Data Types</h1>
+<h2>Using the float data type</h2>
+<p>Create a new Sketchbook in your PDE and save it as <strong>lab01b_step06</strong>.</p>
+<p>Enter the following code:</p>
+<p><img src="./img/11.png" alt="Using the float data type to set the coordinates of a square"></p>
+<p>Run the code.  You should see a grey window with a white square drawn in it.</p>
+<h2>Not a syntax error!</h2>
+<p>Update the code by changing the amount assigned to the xCoordinate variable from 50.67 to just 50.</p>
+<p>Run the code.  Why did it work? Can you explain what happened?  Ask your lecturer to explain it if you are not sure. </p>
+<p>Change the amount assigned to the xCoordinate variable back to 50.67.</p>
+<h2>A syntax error</h2>
+<p>Update the code by changing <strong>float</strong> to <strong>double</strong>.  </p>
+<p>You have a syntax erorr.  Can you explain why?  Ask your lecturer to explain it if you are not sure. </p>
+<p>Change <strong>double</strong> back to <strong>float</strong>.</p>
+<h2>Another syntax error</h2>
+<p>Update the code by renaming the <strong>yCoordinate</strong> variable name to <strong>xCoordinate</strong>, as shown below:</p>
+<pre><code class="lang-java">float xCoordinate = 50.67;
+float xCoordinate = 100.33;
+rect(xCoordinate, yCoordinate, 80,80);</code></pre>
+<p>You have a syntax error...can you explain why?  Ask your lecturer to explain it if you are not sure. </p>
+<p>Change the code back.</p>
+<p>Save and close the sketchbook.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Exercises">
+            <h1>Exercises</h1>
+<p>The exercises are typically based on the material we covered in the previous steps in this lab and the associated lectures.</p>
+<p>For each exercise listed below, open a new sketch.</p>
+<h2>Exercise 1 (static drawing)</h2>
+<p>In Step04 we entered this code:</p>
+<p><img src="./img/09.png" alt="Six blue lines"></p>
+<p>Which produced this output:</p>
+<p><img src="./img/10.png" alt="Six blue lines"></p>
+<p>Using this code as a starting point, make the following changes so that your output looks like this:</p>
+<p><img src="./img/12.png" alt="Desired output"></p>
+<p>NOTE: the object of this exercise is to use the arithmetic operators on the variables (a,b,c).</p>
+<h2>Exercise 2 (static drawing)</h2>
+<p>The object of this exercise is to produce the same output as Exercise 1, but instead of using variables (a,b,c) use the <strong>width</strong> and <strong>height</strong> system variables and perform artihmetic calculations on them to produce the desired output.</p>
+<h2>Exercise 3 (animated drawing)</h2>
+<p>Produce the following animation:</p>
+<ul>
+<li><p>a white circle is drawn when you move the mouse; only one circle is visible at one time (i.e. all previous ones are cleared).</p>
+</li>
+<li><p>the x and y coordinates for the circle are dependent on the mouse position (hint: use system variables mouseX and mouseY).</p>
+</li>
+<li><p>the size of the circle is determined by the y mouse coordinate.</p>
+</li>
+</ul>
+<p>When you run your code, your circle should grow in size as you move your mouse pointer down the window and reduce in size when you move your mouse up the window.  When you move your mouse horizontally, the circle should stay the same size.</p>
+<h2>Exercise 4 (animated drawing)</h2>
+<p>Using exercise 3 as a starting point, add the following animation to it:</p>
+<ul>
+<li><p>a black circle is drawn when you move the mouse (all previous black circles are cleared).</p>
+</li>
+<li><p>the x coordinate for the circle is the mouseY coordinate and the y coordinate for the circle is mouseX.</p>
+</li>
+<li><p>the size of the circle is determined by the x mouse coordinate.</p>
+</li>
+</ul>
+<p>When you run your code, the black circle should overlap the white circle when you drag your mouse from (0,0) diagnolally down to (100,100).  When you move your mouse horizontally, the black circle show grow/shrink in size.  It remains the same size when the mouse is dragged vertically.  Note that the white circle&#39;s behaviour hasn&#39;t changed.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Challenges">
+            <h1>Challenges</h1>
+<p>For each exercise listed below, open a new sketchbook.</p>
+<p>You may need to visit the <a href="https://processing.org/reference/">Processing website</a> for additional information.</p>
+<h2>Challenge 1 (animated drawing with no cursor)</h2>
+<p>Do some research to figure out how to turn the mouse pointer (cursor) off.</p>
+<p>Implement this functionality in any one of the exercises from the previous step.</p>
+<h2>Challenge 2 (animated drawing with a different cursor)</h2>
+<p>Do some research to figure out how to turn the mouse pointer (cursor) into a <em>hand</em>.</p>
+<p>Implement this functionality in any one of the exercises from the previous step.</p>
+<h2>Challenge 3 (animated drawing using a drag effect)</h2>
+<p>Do some research into the Processing variables:  pmousex and pmousey.</p>
+<p>Write a Processing sketch that uses these variables. </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Solutions">
+            <h1>Solutions</h1>
+<p>The solutions for this lab can be found <a href="archives/lab01b_solutions.zip">here</a>. </p>
+<p>If you require unzipping software, 7zip is a good choice: <a href="http://www.7-zip.org/">http://www.7-zip.org/</a> (or Keka for Mac <a href="http://www.kekaosx.com/en/">http://www.kekaosx.com/en/</a>)</p>
+<p>After unzipping the solutions, it might be a good idea to copy the folders to your <strong>sketchbook</strong> folder.  From Processing, you could then use <strong>File</strong>, followed by <strong>Sketchbook</strong> to easily open them.</p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

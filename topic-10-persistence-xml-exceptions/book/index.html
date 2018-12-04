@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../index.html">  10: Persistence (XML & Exceptions)  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-10">
+          Lab-10
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+        <a class="item" data-tab="Solutions">
+          Solutions
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="/topic-00-induction/book-induction/index.html">Induction </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-10">
+            <h1>Objectives</h1>
+<p>XML · Exception Handling · Validate User Input · ShopV5.0 · DVD3.0</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Developing Shop V5.0</h1>
+<p>In this practical, you will create a new project called ShopV5.0, based on ShopV4.0.  You will update the Driver, Store and Product classes (linked below) to enable the user to save the products to an XML file and also reload them (see Figure 1 for the updated menu system).</p>
+<p><img src="./img/00.png" alt="Figure 1: Menu System for ShopV5.0"> </p>
+<h2>Menu Items 9 and 10:  Saving and Loading Products</h2>
+<p>Create a new project called ShopV5.0.</p>
+<p>Copy the following classes into the project:</p>
+<ul>
+<li><p><a href="archives/Driver.java">Driver.java</a></p>
+</li>
+<li><p><a href="archives/Store.java">Store.java</a></p>
+</li>
+<li><p><a href="archives/Product.java">Product.java</a></p>
+</li>
+</ul>
+<h2>Setting up the Component for Serializing</h2>
+<p>Download the following XStream jar file from:</p>
+<ul>
+<li><a href="archives/xstream-1.4.10.jar">xstream-1.4.10.jar</a> </li>
+</ul>
+<p>In IntelliJ, on the ShopV5.0 project, right click and select <strong>New</strong>, followed by <strong>Directory</strong>.  Call the new directory <strong>lib</strong>.  Drag the xstream jar file already downloaded into the lib folder.</p>
+<p>Your workspace should look like this:</p>
+<p><img src="img/xml01.png" alt=""></p>
+<p>From <strong>File</strong> menu, select <strong>Project Structure</strong>.  Click on <strong>Libraries</strong>.  To add a library to your build path, click on the green + : </p>
+<p><img src="img/xml02.png" alt=""></p>
+<p>Select Java and locate your library…click OK (a few times!).</p>
+<h2>Updating Store Class to serialize and deserialize products</h2>
+<p>In the Store class, create these two new methods:</p>
+<pre><code class="lang-java">    @SuppressWarnings(&quot;unchecked&quot;)
+    public void load() throws Exception
+    {
+        XStream xstream = new XStream(new DomDriver());
+        ObjectInputStream is = xstream.createObjectInputStream(new FileReader(&quot;products.xml&quot;));
+        products = (ArrayList&lt;Product&gt;) is.readObject();
+        is.close();
+    }
+
+    public void save() throws Exception
+    {
+        XStream xstream = new XStream(new DomDriver());
+        ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter(&quot;products.xml&quot;));
+        out.writeObject(products);
+        out.close();    
+    }</code></pre>
+<p>You will notice that they don&#39;t compile; they are missing some needed packages.  Import the following packages at the top of the store class:</p>
+<pre><code class="lang-java">import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;</code></pre>
+<h2>Adding load and save functionality to the menu</h2>
+<p>In the Driver class, add options 9 and 10 to the printed menu:</p>
+<p><img src="./img/03.png" alt="Figure 4: Menu System code for Shop V5.0"> </p>
+<p>In the Driver class, make the following changes to implement case 9 and 10: </p>
+<p><img src="./img/04.png" alt="Figure 5: Code for case 9 and 10"> </p>
+<h2>Testing the load and store</h2>
+<p>You should be in a position now to test.  </p>
+<p>Start your app and create two products e.g.</p>
+<pre><code>Please enter the product description: 24 inch monitor
+Please enter the product code: 3423
+Please enter the product cost: 129.99
+Is this product in your current line (y/n): y
+
+Please enter the product description: 14 inch monitor
+Please enter the product code: 2322
+Please enter the product cost: 109.99
+Is this product in your current line (y/n): y</code></pre>
+<p>Now try option 9 to save your products. <strong>Note: if you are using java 9 you are probably getting a series of red warning messages...the products will be saved, but they will still produce the warnings.  The next step will show you how to suppress these warnings</strong>.<br>You should now see a products.xml file appearing in the root of your project.  </p>
+<p>Open this file and it should contain something similar to this:</p>
+<pre><code class="lang-xml">&lt;object-stream&gt;
+  &lt;list&gt;
+    &lt;Product&gt;
+      &lt;productName&gt;24 inch monitor&lt;/productName&gt;
+      &lt;productCode&gt;3423&lt;/productCode&gt;
+      &lt;unitCost&gt;129.99&lt;/unitCost&gt;
+      &lt;inCurrentProductLine&gt;true&lt;/inCurrentProductLine&gt;
+    &lt;/Product&gt;
+    &lt;Product&gt;
+      &lt;productName&gt;14 inch monitor&lt;/productName&gt;
+      &lt;productCode&gt;2322&lt;/productCode&gt;
+      &lt;unitCost&gt;109.99&lt;/unitCost&gt;
+      &lt;inCurrentProductLine&gt;true&lt;/inCurrentProductLine&gt;
+    &lt;/Product&gt;
+  &lt;/list&gt;
+&lt;/object-stream&gt;</code></pre>
+<p>Exit your application and run it again.</p>
+<p>Test option 10 and make sure that the saved products are loaded back into your products ArrayList correctly.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Java 9 and XStream</h1>
+<p><em>This step ONLY applies if you are using JDK9.  If you are using JDK8 or lower, you can move onto the next step.  Chances are the majority of you are using JDK8.</em></p>
+<p>If you are using JDK9, you are more than likely getting the following warning when saving your products:</p>
+<p><img src="./img/error01.png" alt="Warning when saving XML file with JDK9">  </p>
+<p>However, your products.xml file will still be successfully saved; it is just a warning. </p>
+<h2>Getting rid of the warning</h2>
+<p>We can get rid of the warning by passing suppression messages to the VM when we run our application. To do this:</p>
+<ul>
+<li><p>From the <strong>Run</strong> menu, select <strong>Edit Configuratons...*</strong></p>
+</li>
+<li><p>In the <strong>VM Options</strong> box, paste in the following VM arguments:</p>
+</li>
+</ul>
+<pre><code>--add-opens java.base/java.util=ALL-UNNAMED 
+--add-opens java.base/java.lang.reflect=ALL-UNNAMED 
+--add-opens java.base/java.text=ALL-UNNAMED 
+--add-opens java.desktop/java.awt.font=ALL-UNNAMED</code></pre>
+<ul>
+<li>Click the <strong>OK</strong> button.  </li>
+</ul>
+<h2>Retesting</h2>
+<p>Rerun the app and try the save again...the warning message should now be suppresed.</p>
+<h2>A note on XStream and Java</h2>
+<p>Java 9 was released in September 2017.  However, the latest version of XStream (1.4.10) was released in May 2017, before the latest Java changes.  When a new version of XStream is released, we probably won&#39;t have to pass these parameters to the VM.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Shop V5.0 - Exceptions</h1>
+<p>In this practical, you will continue working on Shop V5.0. </p>
+<h2>Adding Exception Handling</h2>
+<p>In the Driver class, put a try and catch block around each potential read of data that could throw an exception (nextLine() and next() are ok).</p>
+<p>Revisit your lecture notes on this topic if you need guidance.</p>
+<p>Run your program and test your user input to ensure that your exception handling is correctly implemented e.g. enter String data when a double or int is expected.   </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Menu Driven DVD Specification (Phase 3)</h1>
+<p>In this practical, you will create a new project and copy in the code from <strong>DVDLibraryV2.0</strong>.  You will then extend the code to allow the user to save the DVDs to an XML file and to load the DVDs from an XML file. </p>
+<ul>
+<li><p>Create a new project called <strong>DVDLibraryV3.0</strong>.</p>
+</li>
+<li><p>In your Windows Explorer / Mac Finder, copy the <strong>src</strong> java files from <strong>DVDLibraryV2.0</strong> to the <strong>src</strong> folder in your new project,  <strong>DVDLibraryV3.0</strong>.</p>
+</li>
+<li><p>NOTE:  a copy of the completed <strong>DVDLibraryV2.0</strong> <a href="archives/DVDLibraryV2.0.zip">is available here</a>.</p>
+</li>
+</ul>
+<h2>Setting up the Component for Serializing</h2>
+<p>Download the following XStream jar file and incorporate it into your DVDLibraryV3.0 project:</p>
+<ul>
+<li><a href="../book/archives/xstream-1.4.10.jar">xstream-1.4.10.jar</a> </li>
+</ul>
+<h2>Library class</h2>
+<p>In the Library class:</p>
+<ul>
+<li><p>add a load() method that throws an Exception.  This method should read the contents of the dvd.xml file into the ArrayList of DVDs.</p>
+</li>
+<li><p>add a save() method that throws an Exception.  This method should write the contents of the ArrayList of DVDs to the dvd.xml file.</p>
+</li>
+</ul>
+<h2>Driver class - Save DVDs</h2>
+<p>Add a fifth option to the menu:  <em>5) Save DVDs to dvds.xml.</em></p>
+<p>Add a case 5 to the switch statement.  Then, within a try and catch block, call the save() method you wrote in the Library class.</p>
+<h2>Driver class - Load DVDs</h2>
+<p>Add a sixth option to the menu:  <em>6) Load DVDs from dvds.xml.</em></p>
+<p>Add a case 6 to the switch statement.  Then, within a try and catch block, call the load() method you wrote in the Library class.</p>
+<h2>Test your code</h2>
+<p>Run the project.</p>
+<ul>
+<li><p>Test option 5 and make sure that your DVDs are stored to an XML file.  </p>
+</li>
+<li><p>You should have a new XML file that looks something like this:</p>
+</li>
+</ul>
+<pre><code class="lang-XML">&lt;object-stream&gt;
+  &lt;list&gt;
+    &lt;DVD&gt;
+      &lt;title&gt;The Matrix&lt;/title&gt;
+    &lt;/DVD&gt;
+    &lt;DVD&gt;
+      &lt;title&gt;Sicario&lt;/title&gt;
+    &lt;/DVD&gt;
+    &lt;DVD&gt;
+      &lt;title&gt;The Grinch&lt;/title&gt;
+    &lt;/DVD&gt;
+  &lt;/list&gt;
+&lt;/object-stream&gt;</code></pre>
+<p>Exit your application and run it again.</p>
+<ul>
+<li>Test option 6 and make sure that your DVDs are loaded back into your dvd ArrayList correctly.</li>
+</ul>
+<h2>Exceptions</h2>
+<p>Each time you read in an int in the Driver class, add a try and catch so that your program won&#39;t crash if you enter a non-numeric value.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Solutions">
+            <h1>Solutions</h1>
+<p>The solution to the ShopV5.0 exercise <a href="archives/ShopV5.0.zip">is here</a>.</p>
+<p>The solution to DVD phase 3 <a href="archives/DVDLibraryV3.0.zip">is here</a>.</p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> 
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>
