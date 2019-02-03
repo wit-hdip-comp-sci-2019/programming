@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html">  4b: Classes (Part 2)  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-04b">
+          Lab-04b
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+        <a class="item" data-tab="05">
+          05
+        </a>
+      
+        <a class="item" data-tab="Exercise">
+          Exercise
+        </a>
+      
+        <a class="item" data-tab="Challenge">
+          Challenge
+        </a>
+      
+        <a class="item" data-tab="Solutions">
+          Solutions
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-00-induction/book-induction/index.html">Induction </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-01-first-contact/unit-01a-intro-to-processing/book-1a/index.html">Lab-1a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-01-first-contact/unit-01b-animate-your-drawings/book-1b/index.html">Lab-1b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-02-selection_and_iteration/unit-02a-if-stmt-and-events/book/index.html">Lab-02a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-02-selection_and_iteration/unit-02b-iteration-for-while/book/index.html">Lab-02b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-03-methods/unit-03a-methods/book/index.html">Lab-03a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-03-methods/unit-03b-more-on-methods/book/index.html">Lab-03b </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-04b">
+            <h1>Objectives</h1>
+<p>classes · methods · behaviour · overloading · validation · this · encapsulation · access modifiers · accessors · mutators </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Adding behaviour (methods) to Spot</h1>
+<p>We have seen how the fields are used in classes (i.e. xCoord, yCoord, diameter).
+We now look at the behaviour (methods) in classes.    </p>
+<p><strong>Note:</strong>  The version of Spot below doesn&#39;t enforce the encapsulation rules yet.  We will implement these rules in SpotV7.0 (consistent with how we did it in lectures).  We will bring in Encapsulation in Step04 of this lab when we add the accessors and mutators.</p>
+<h2>Spot V4.0 - display() method</h2>
+<p>Create a new Processing sketch in your workspace and call it <strong>Spot_Version4_0</strong>.</p>
+<p>Create a new <strong>Spot</strong> tab and cut and paste the following code into it:</p>
+<pre><code class="lang-java">class Spot{
+  float xCoord, yCoord;
+  float diameter;
+
+  Spot()
+  {
+  }
+
+ Spot(float xPos, float yPos, float diamtr)
+ {
+    xCoord = xPos;
+    yCoord = yPos;
+    diameter = diamtr;
+  }
+
+}</code></pre>
+<p>Then write this new method into the above class:</p>
+<pre><code class="lang-java">  void display()
+  {
+    ellipse(xCoord, yCoord, diameter, diameter);
+  }</code></pre>
+<p>In the <em>main</em> tab, cut and paste the following code into it:</p>
+<pre><code>Spot sp;
+
+void setup()
+{
+  size (100,100);
+  noStroke();
+  sp = new Spot(33, 50, 30);
+}
+
+void draw()
+{
+  background(0);
+  sp.display();
+}</code></pre>
+<p>Run your code.  You should get the following output:</p>
+<p><img src="./img/01.png" alt="Drawing spot using display method"></p>
+<p>Save your work (don&#39;t close the project though).</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Adding behaviour (methods) to Spot</h1>
+<p>We will continue looking at the behaviour (methods) in classes.    </p>
+<p><strong>Note:</strong>  The version of Spot below doesn&#39;t enforce the encapsulation rules yet.  We will implement these rules in SpotV7.0 (consistent with how we did it in lectures).  We will bring in Encapsulation in Step04 of this lab when we add the accessors and mutators.</p>
+<h2>Spot V5.0 - colour() method</h2>
+<p>Save your <strong>Spot_Version4_0</strong> as <strong>Spot_Version5_0</strong>.</p>
+<p>Add the following fields to the Spot class </p>
+<pre><code class="lang-java">  int red, green, blue, gray;</code></pre>
+<p>Type in the following colour() method code to the Spot class:</p>
+<pre><code class="lang-java">void colour(int redVal, int greenVal, int blueVal)
+  {
+    red = redVal;
+    green = greenVal;
+    blue = blueVal;
+    fill (red, green, blue);
+  }</code></pre>
+<p>and then in the <em>main</em> tab, refactor the draw() method to: </p>
+<pre><code class="lang-java">void draw()
+{
+  background(0);
+  sp.colour(255,10,20);
+  sp.display();
+}</code></pre>
+<p>Run the code.  </p>
+<p>Your output should now look like:</p>
+<p><img src="./img/02.png" alt="Drawing spot with display() and colour() methods"></p>
+<p>Save your work (don&#39;t close the project though).</p>
+<h2>Spot V5.1 - Adding a second (overloaded) colour() method</h2>
+<p>Save your <strong>Spot_Version5_0</strong> work as <strong>Spot_Version5_1</strong>.</p>
+<p>Type the following extra method code in your Spot class:</p>
+<pre><code class="lang-java"> void colour(int grayVal)
+  {
+    gray = grayVal;
+    fill (gray);
+  }</code></pre>
+<p>Now we want to call this extra method, so you need to change the draw method in the <em>main</em> tab:</p>
+<pre><code class="lang-java">void draw()
+{
+  background(0);
+  sp.colour(125);
+  sp.display();
+}</code></pre>
+<p>Run the code.  </p>
+<p>Your output should now look like:</p>
+<p><img src="./img/03.png" alt="Drawing spot with second colour method"></p>
+<p>Can you explain why the output is different from the previous output. </p>
+<p>Save your work (don&#39;t close the project though).</p>
+<h2>Spot V5.2 - Adding another constructor (to introduce a grayscale starting colour)</h2>
+<p>Save your <strong>Spot_Version5_1</strong> work as <strong>Spot_Version5_2</strong>.</p>
+<p>Type in the following extra method code in your Spot class:</p>
+<pre><code class="lang-java"> Spot(float xPos, float yPos, float diamtr, int grayVal)
+   {
+     xCoord = xPos;
+     yCoord = yPos;
+     diameter = diamtr;
+     colour(grayVal);  
+   }</code></pre>
+<p>This constructor allows us to define the colour (in grayscale) of the spot when creating the object. </p>
+<p>Now we want to call this extra constructor, so you need to change the code in the setup method in the <em>main</em> tab:</p>
+<pre><code class="lang-java">Spot sp;
+
+void setup()
+{
+  size (100,100);
+  noStroke();
+  sp = new Spot(33, 50, 30, 125);
+}
+
+void draw()
+{
+  background(0);
+  sp.display();
+}</code></pre>
+<p>Your output should now look like:</p>
+<p><img src="./img/03.png" alt="Drawing spot with second colour method"></p>
+<p>Can you answer why this is producing the same output as the previous version? </p>
+<p>Save your work (don&#39;t close the project though).</p>
+<h2>Spot 5.3 - Adding another constructor (to introduce an r,g,b starting colour)</h2>
+<p>Save your <strong>Spot_Version5_2</strong> work as <strong>Spot_Version5_3</strong>.</p>
+<p>Type in the following extra method code in your Spot class:</p>
+<pre><code class="lang-java"> Spot(float xPos, float yPos, float diamtr, int redVal, int greenVal, int blueVal)
+   {
+     xCoord = xPos;
+     yCoord = yPos;
+     diameter = diamtr;
+     colour(redVal, greenVal, blueVal);  
+   }</code></pre>
+<p>Then refactor your setup method in the <em>main</em> tab like so:</p>
+<pre><code class="lang-java">void setup()
+{
+  size (100,100);
+  noStroke();
+  sp = new Spot(33, 50, 30, 255,150,50);
+}</code></pre>
+<p>Run the code.  </p>
+<p>You should see the a differently coloured spot. </p>
+<p><img src="./img/04.png" alt="Drawing spot using rgb constructor"></p>
+<p>Change the rgb values in the constructor and see how this changes the colour in the spot. </p>
+<p>Also use the colour method in the draw() method to change the colour. Will this work? Is this the best use of the constructor?</p>
+<p>Note that now, your Spot class should look like: </p>
+<pre><code class="lang-java">class Spot{
+  float xCoord, yCoord;
+  float diameter;
+  int red, green, blue, gray;
+
+  Spot()
+  {
+  }
+
+  Spot(float xPos, float yPos, float diamtr)
+  {
+     xCoord = xPos;
+     yCoord = yPos;
+     diameter = diamtr;
+   }
+
+   Spot(float xPos, float yPos, float diamtr, int grayVal)
+   {
+     xCoord = xPos;
+     yCoord = yPos;
+     diameter = diamtr;
+     colour(grayVal);
+   }
+
+   Spot(float xPos, float yPos, float diamtr, int redVal, int greenVal, int blueVal)
+   {
+     xCoord = xPos;
+     yCoord = yPos;
+     diameter = diamtr;
+     colour(redVal, greenVal, blueVal);  
+   }
+
+   void display()
+   {
+     ellipse(xCoord, yCoord, diameter, diameter);
+   } 
+
+   void colour(int redVal, int greenVal, int blueVal)
+   {
+     red = redVal;
+     green = greenVal;
+     blue = blueVal;
+     fill (red, green, blue);
+   }
+
+   void colour(int grayVal)
+   {
+     gray = grayVal;
+     fill (gray);
+   }
+}</code></pre>
+<p>Save your work (don&#39;t close the project though).</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Spot V6.x</h1>
+<p>In this step, we will introduce the <em>move</em> method and also start using the <em>this</em> keyword.</p>
+<p><strong>Note:</strong>  The version of Spot below doesn&#39;t enforce the encapsulation rules yet.  We will implement these rules in SpotV7.0 (consistent with how we did it in lectures).  We will bring in Encapsulation in Step04 of this lab when we add the accessors and mutators.</p>
+<h2>Spot V6.0 - Adding a move() method</h2>
+<p>Save your <strong>Spot_Version5_3</strong> work as <strong>Spot_Version6_0</strong>.</p>
+<p>Type in the following extra method code in your Spot class:</p>
+<pre><code class="lang-java">   void move(float xPos, float yPos)
+   {
+     xCoord = xPos;
+     yCoord = yPos;
+   }</code></pre>
+<p>and then in the <em>main</em> tab, refactor the draw() method to: </p>
+<pre><code class="lang-java">Spot sp;
+
+void setup()
+{
+  size (100,100);
+  noStroke();
+  sp = new Spot(33, 50, 30, 125);
+}
+
+void draw()
+{
+  background(0);
+  sp.display();
+  sp.move(mouseX, mouseY);
+}</code></pre>
+<p>Run the code. </p>
+<p>What do you see? Do you understand why it looks like this? If you do not understand, ask your lecturer.</p>
+<p>Save your work (don&#39;t close the project though).</p>
+<h2>Spot V6.1 - the this keyword</h2>
+<p>Save your <strong>Spot_Version6_0</strong> work as <strong>Spot_Version6_1</strong>.</p>
+<p>Refactor your Spot class to use the <em>this</em> keyword:</p>
+<pre><code class="lang-java">class Spot{
+
+  float xCoord, yCoord;
+  float diameter;
+  int red, green, blue, gray;
+
+  Spot()
+  {
+  }
+
+ Spot(float xCoord, float yCoord, float diameter)
+ {
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    this.diameter = diameter;
+  }
+
+   Spot(float xCoord, float yCoord, float diameter, int gray)
+   {
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    this.diameter = diameter;
+    colour(gray);
+   }
+
+   Spot(float xCoord, float yCoord, float diameter, int red, int green, int blue)
+   {
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    this.diameter = diameter;
+     colour(red, green, blue);  
+   }
+
+   void display()
+   {
+     ellipse(xCoord, yCoord, diameter, diameter);
+   } 
+
+  void colour(int red, int green, int blue)
+  {
+    this.red = red;
+    this.green = green;
+    this.blue = blue;
+    fill (this.red, this.green, this.blue);
+  }
+
+  void colour(int gray){
+    this.gray = gray;
+    fill (this.gray);
+  }
+
+   void move(float xCoord, float yCoord)
+   {
+     this.xCoord = xCoord;
+     this.yCoord = yCoord;
+   }
+}</code></pre>
+<p>No other changes are necessary.</p>
+<p>Run your code.  It should behave in the same way at V6.0 above.</p>
+<p>Save your work (don&#39;t close the project though).</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Setters and Getters</h1>
+<p>In this step, we will make the fields in Spot private and then introduce the <em>setter</em> and <em>getter</em> methods.  This will allow us implement the encapsulation rules in our class.  </p>
+<h2>Spot V7.0</h2>
+<p>Save your <strong>Spot_Version6_1</strong> work as <strong>Spot_Version7_0</strong>.</p>
+<p>Refactor your Spot class so that the fields have private access and it has the following setter and getter methods:</p>
+<pre><code class="lang-java">class Spot {
+
+  private float xCoord, yCoord;
+  private float diameter;
+  private int red, green, blue, gray;
+
+  //------------------//
+  //   constructors   //
+  //------------------//
+
+  Spot()
+  {
+  }
+
+  Spot(float xCoord, float yCoord, float diameter)
+  {
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    this.diameter = diameter;
+  }
+
+  Spot(float xCoord, float yCoord, float diameter, int gray)
+  {
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    this.diameter = diameter;
+    colour(gray);
+  }
+
+  Spot(float xCoord, float yCoord, float diameter, int red, int green, int blue)
+  {
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    this.diameter = diameter;
+    colour(red, green, blue);
+  }
+
+  //------------------//
+  //     methods      //
+  //------------------//
+
+  void display()
+  {
+    ellipse(xCoord, yCoord, diameter, diameter);
+  } 
+
+  void colour(int red, int green, int blue)
+  {
+    this.red = red;
+    this.green = green;
+    this.blue = blue;
+    fill (this.red, this.green, this.blue);
+  }
+
+  void colour(int gray) {
+    this.gray = gray;
+    fill (this.gray);
+  }
+
+  void move(float xCoord, float yCoord)
+  {
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+  }
+
+  //------------------//
+  //     getters      //
+  //------------------//
+  public float getDiameter() {
+    return diameter;
+  }
+
+  public float getXCoord() {
+    return xCoord;
+  }
+
+  public float getYCoord() {
+    return yCoord;
+  }
+
+  public int getRed() {
+    return red;
+  }
+
+  public int getGreen() {
+    return green;
+  }
+
+  public int getBlue() {
+    return blue;
+  }
+
+  public int getGray() {
+    return gray;
+  }
+
+  //------------------//
+  //     setters      //
+  //------------------//
+  public void setDiameter(float diameter) {
+    this.diameter = diameter;
+  } 
+
+  public void setXCoord(float xCoord) {
+    this.xCoord = xCoord;
+  } 
+
+  public void setYCoord(float yCoord) {
+    this.yCoord = yCoord;
+  } 
+
+  public void setRed(int red) {
+    this.red = red;
+  } 
+
+  public void setGreen(int green) {
+    this.green = green;
+  } 
+
+  public void setBlue(int blue) {
+    this.blue = blue;
+  }
+
+  public void setGray(int gray) {
+    this.gray = gray;
+  }
+
+}</code></pre>
+<p>and then in the <em>main</em> tab, refactor the draw() method to: </p>
+<pre><code class="lang-java">Spot sp;
+
+void setup()
+{
+  size (100,100);
+  noStroke();
+
+  sp = new Spot(33, 50, 30);
+  println(&quot;After constructor, the value of the diameter is &quot; + sp.getDiameter());
+
+  // Now change the value of the diameter
+  sp.setDiameter(40);
+  println(&quot;After setter, the value of the diameter is &quot; + sp.getDiameter());
+}
+
+void draw()
+{
+  background(0);
+  sp.colour(255,0,0);
+  sp.display();
+}</code></pre>
+<p>Examine the Spot code i.e. the getters and setters. Note what each of the methods do, their naming convention and return values etc.</p>
+<p>Run this code.  </p>
+<p>Your console output should be:</p>
+<pre><code>After constructor, the value of the diameter is 30.0
+After setter, the value of the diameter is 40.0</code></pre>
+<p>Have a look at your code.  Are you happy that you understand how this output was produced? </p>
+<p>Save your work (don&#39;t close the project though).</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="05">
+            <h1>Setters and Getters - validations</h1>
+<p>In this step, we will add some validation to our diameter field.</p>
+<h2>Spot V7.1 - Using validation in <strong>constructors</strong></h2>
+<p>Save your <strong>Spot_Version7_0</strong> work as <strong>Spot_Version7_1</strong>.</p>
+<p>Refactor the following Spot Constructor so that it validates the diameter field.</p>
+<pre><code class="lang-java">Spot(float xCoord, float yCoord, float diameter)
+  {
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    if ((diameter &gt;= 20) &amp;&amp; (diameter &lt;= 50)){
+       this.diameter = diameter;
+    }
+    else{
+       this.diameter = 20;
+    } 
+  }</code></pre>
+<p>This code will only allow values of between (and including) 20 and 50 into the diameter field. If values outside this range are sent in via the parameter, then the value of 20 is assigned to the diameter field (using the else clause).</p>
+<p>To see this validation in action, refactor the setup method in the <em>main</em> tab to:</p>
+<pre><code class="lang-java">Spot sp;
+
+void setup()
+{
+  size (100,100);
+  noStroke();
+
+  //constructor (float, float, float) test
+  sp = new Spot(33, 50, 30000);
+  println(&quot;The value of diameter is : &quot;+ sp.getDiameter());
+
+}
+
+void draw()
+{
+  background(0);
+  sp.display();
+  sp.move(mouseX,  mouseY);
+}</code></pre>
+<p>Try to run the code. You should see the following line in the console screen:</p>
+<p><img src="./img/05.png" alt="Value of diameter field"></p>
+<h2>Data Integrity</h2>
+<p>We have diameter validation in one constructor, but we can see that the diameter is updated in other constructors:</p>
+<pre><code class="lang-java">  //------------------//
+  //   constructors   //
+  //------------------//
+
+  Spot()
+  {
+  }
+
+  Spot(float xCoord, float yCoord, float diameter)
+  {
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    if ((diameter &gt;= 20) &amp;&amp; (diameter &lt;= 50)) {
+      this.diameter = diameter;
+    } else {
+      this.diameter = 20;
+    }
+  }
+
+  Spot(float xCoord, float yCoord, float diameter, int gray)
+  {
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    this.diameter = diameter;
+    colour(gray);
+  }
+
+  Spot(float xCoord, float yCoord, float diameter, int red, int green, int blue)
+  {
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    this.diameter = diameter;
+    colour(red, green, blue);
+  }</code></pre>
+<p>It is also updated in the mutator.  </p>
+<pre><code class="lang-java">  public void setDiameter(float diameter) {
+    this.diameter = diameter;
+  }</code></pre>
+<p>We have compromised our <em>data integrity</em>...diameter may or may not be between the right boundaries, depending on which constructor/mutator we call.  We have to fix this!</p>
+<p>Copy and paste the constructor diameter validation into all constructors that update diameter:</p>
+<pre><code class="lang-java">  Spot(float xCoord, float yCoord, float diameter)
+  {
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    if ((diameter &gt;= 20) &amp;&amp; (diameter &lt;= 50)) {
+      this.diameter = diameter;
+    } else {
+      this.diameter = 20;
+    }
+  }
+
+  Spot(float xCoord, float yCoord, float diameter, int gray)
+  {
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    if ((diameter &gt;= 20) &amp;&amp; (diameter &lt;= 50)) {
+      this.diameter = diameter;
+    } else {
+      this.diameter = 20;
+    }
+    colour(gray);
+  }
+
+  Spot(float xCoord, float yCoord, float diameter, int red, int green, int blue)
+  {
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    if ((diameter &gt;= 20) &amp;&amp; (diameter &lt;= 50)) {
+      this.diameter = diameter;
+    } else {
+      this.diameter = 20;
+    }
+    colour(red, green, blue);
+  }</code></pre>
+<p>Paste the constructor diameter validation into the diameter mutator and remove the <em>else</em> clause:</p>
+<pre><code class="lang-java">  public void setDiameter(float diameter) {
+   if ((diameter &gt;= 20) &amp;&amp; (diameter &lt;= 50)) {
+      this.diameter = diameter;
+    }
+  }</code></pre>
+<p>A note on setters:  </p>
+<ul>
+<li>We use setters as the <em>safe</em> way to change the values of fields after the object has been created.</li>
+<li>We typically use the same validation rules that we applied in the constructor...except...there typically is <strong><em>no</em></strong> else in the if statement. This means that if the parameter is not in the correct range, then the diameter field will remain unchanged. Where feasible, this is the convention we use for this module. </li>
+</ul>
+<h2>Testing the grayscale constructor and the mutator</h2>
+<p>To test your grayscale constructor and the mutator code, refactor your setup method in the <em>main</em> tab to:</p>
+<pre><code class="lang-java">void setup()
+{
+  size (100, 100);
+  noStroke();
+
+  //grayscale constructor test
+  sp = new Spot(33, 50, 30000, 200);
+  println(&quot;After grayscale constructor, the value of the diameter is &quot; + sp.getDiameter());
+  sp.setDiameter(40000);    // changing the value of the diameter
+  println(&quot;After setter, the value of the diameter is &quot; + sp.getDiameter());
+
+}</code></pre>
+<p>Run your code.  The console output should be:</p>
+<pre><code>After grayscale constructor, the value of the diameter is 20.0
+After setter, the value of the diameter is 20.0</code></pre>
+<h2>Testing the rgb constructor and the mutator</h2>
+<p>To test your rgb constructor and the mutator code, refactor your setup method in the <em>main</em> tab to:</p>
+<pre><code class="lang-java">void setup()
+{
+  size (100, 100);
+  noStroke();
+
+  //rgb constructor test
+  sp = new Spot(33, 50, 30000, 200, 0, 0);
+  println(&quot;After rgb constructor, the value of the diameter is &quot; + sp.getDiameter());
+  sp.setDiameter(40000);    // changing the value of the diameter
+  println(&quot;After setter, the value of the diameter is &quot; + sp.getDiameter());
+
+}</code></pre>
+<p>Run your code.  The console output should be:</p>
+<pre><code>After rgb constructor, the value of the diameter is 20.0
+After setter, the value of the diameter is 20.0</code></pre>
+<p>Save your work and close the project.</p>
+<h2>Repeating code...</h2>
+<p>You may have noticed that we have repeated the same validation in many places in the above code.  This is not the best approach at all.  What would happen if we decided to change the diameter boundaries of the Spot from 20:50 to 20:100?  You would have to <em>remember</em> to change it in four places.  That&#39;s a lot of remembering and this is where bugs sneak in...what if we forgot to change one of the checks?   </p>
+<p>A key mantra to remember when coding...use the <strong>DRY</strong> approach...<strong>Don&#39;t Repeat Yourself</strong>.  However, we have a bit of work to do before we move down this path.  Later in the module, we will show a different approach to avoid this scenario and adhere to DRY principles.   </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Exercise">
+            <h1>Exercise</h1>
+<h2>Exercise 1</h2>
+<p>Using <a href="archives/Spot_Version7_1.zip">Spot Version 7.1</a> as a starting point, save this as <strong>lab04b_exercise_01</strong>.</p>
+<p>Implement these validation rules in the relevant constructors and setters:</p>
+<ul>
+<li>xCoord and yCoord values must be in the range 0..100.</li>
+<li>if an invalid value is supplied at constructor level, give a default of 50.</li>
+<li>if an invalid value is supplied at setter level, don&#39;t default.</li>
+</ul>
+<p>For testing, use the same appraoch we applied to testing the diameter validation.</p>
+<h2>DRY principle</h2>
+<p>Now you can really see how we have repeated ourselves throughout our code.  As we become more familiar with Java, we will working on writing utility / helper methods to reduce this repetition!  </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Challenge">
+            <h1>Challenge</h1>
+<h2>Challenge 1</h2>
+<p>Using your latest working version of the Spot project as a starting point <a href="archives/lab04b_exercise_01.zip">or our solution to the previous exercise</a>, save it as <strong>lab04b_challenge_01</strong>.</p>
+<p>In Spot, write a method called <strong>grow</strong> that takes in one float parameter (growthPixels).  The return type of this method is void.  </p>
+<p>In the <em>main</em> tab, in the draw method, call the <strong>grow</strong> method, passing out a value as a parameter.</p>
+<p>Run your code.  If you passed a positive number in grow, you should see your circle growing each time the draw() method is called, if you passed a negative value, you should see your circle shrinking.  To verfiy that the diameter is changing, you could print out the value stored in it (using getDiameter).</p>
+<p>Data Integrity:  Did you consider data integrity when writing the draw method?  What we mean by this is...else where in the Spot class, we restricted the diameter to a range of 20 to 50 inclusive.  Did you remember to do this in the new method, <em>grow</em>?  If not, refactor your method to make sure that the diameter doesn&#39;t breach these bounds.  </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Solutions">
+            <h1>Solutions</h1>
+<p>The solutions for this lab can be found <a href="archives/lab04b_solutions.zip">here</a>. </p>
+<p>If you require unzipping software, 7zip is a good choice: <a href="http://www.7-zip.org/">http://www.7-zip.org/</a> (or Keka for Mac <a href="http://www.kekaosx.com/en/">http://www.kekaosx.com/en/</a>)</p>
+<p>After unzipping the solutions, it might be a good idea to copy the folders to your <strong>sketchbook</strong> folder.  From Processing, you could then use <strong>File</strong>, followed by <strong>Sketchbook</strong> to easily open them.</p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

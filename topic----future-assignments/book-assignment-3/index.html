@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../index.html">  Assignment Specifications  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Assignment 3">
+          Assignment 3
+        </a>
+      
+        <a class="item" data-tab="Data Model">
+          Data Model
+        </a>
+      
+        <a class="item" data-tab="Gym API">
+          Gym API
+        </a>
+      
+        <a class="item" data-tab="Utility Class">
+          Utility Class
+        </a>
+      
+        <a class="item" data-tab="MenuController">
+          MenuController
+        </a>
+      
+        <a class="item" data-tab="Unit Tests">
+          Unit Tests
+        </a>
+      
+        <a class="item" data-tab="Grading Spectrum">
+          Grading Spectrum
+        </a>
+      
+        <a class="item" data-tab="Submission">
+          Submission
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-00-induction/book-induction/index.html">Induction </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-01-first-contact/unit-01a-intro-to-processing/book-1a/index.html">Lab-1a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-01-first-contact/unit-01b-animate-your-drawings/book-1b/index.html">Lab-1b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-02-selection_and_iteration/unit-02a-if-stmt-and-events/book/index.html">Lab-02a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-02-selection_and_iteration/unit-02b-iteration-for-while/book/index.html">Lab-02b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-03-methods/unit-03a-methods/book/index.html">Lab-03a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-03-methods/unit-03b-more-on-methods/book/index.html">Lab-03b </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Assignment 3">
+            <h1>Assignment 3.</h1>
+<p>You are required to implement a console-based Gym Management application. The application&#39;s architecture is illustrated below.</p>
+<p><img src="./img/arch.jpg" alt=""></p>
+<p>The components of the architecture are:</p>
+<ul>
+<li>The MenuController provides a console-based user interface to the application&#39;s feature set.</li>
+<li>The Gym API class implements the application&#39;s &#39;business logic&#39;.<ul>
+<li>Reusable parts of the &#39;business logic&#39; is delegated to a utility class.</li>
+</ul>
+</li>
+<li>The Data model contains classes based on the problem domain, e.g. Member, Trainer</li>
+</ul>
+<p>The detail specification for each aspect of this architecture are provided in the sections that follow.</p>
+<p>This assignment is worth 40% of your overall grade. </p>
+<h1>Starter Pack.</h1>
+<p>Download <a href="./archives/start.zip">this archive</a> and unzip it. The base folder, <code>Assignment3</code> is an InterriJ skeleton project. Open it inside your InyrlliJ environment.</p>
+<p><img src="./img/skeleton.png" alt=""></p>
+<p>You are required to develop the application code in the classes of the <code>src/main</code> folder. Some classes already contain initial code to help you get started - although this code is incomplete. The <code>src/test</code> folder contains unit test code, which will be provided incrementally (via Slack)  over the duration of the assignment.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Data Model">
+            <h2>Data model requirements.</h2>
+<p>The app&#39;s data model consists of the following entities: Premium Member, Student Member, Trainer, and Assessment. Clearly the two member types will have common fields and methods (see below). Applying an inheritance design to their implementation will be rewarded with additional marks - see grading spectrum. Inheritance also applies between Trainer and Member (a Person type) which must be implemented. A visual representation of the data model is shown below: </p>
+<p><img src="./img/dataModel.jpg" alt=""></p>
+<p>The design detail for the classes are as follows:</p>
+<ul>
+<li>Person - Stores email, name, address and gender. The email is used to uniquely identify a person in the system.</li>
+<li><p>Member - Subclass of Person. Stores a person’s height, starting weight, chosenPackage and a hashmap to record all the member&#39;s progress i.e. assessments performed by trainers. The map key will be the date (as a string) the assessment was performed, in the format <strong>YY/MM/DD</strong>, e.g. 18/05/04 (required for sorting - see later). The map values will be an assessment&#39;s details - see Assessment object later.</p>
+</li>
+<li><p>PremiumMember - Subclass of Member. Stores no additional data.</p>
+</li>
+<li>StudentMember - Subclass of Member. Stores studentId and collegeName.</li>
+<li>Trainer - Subclass of Person. Stores the trainer’s specialty.</li>
+</ul>
+<p>The following rules should be applied to these entities:</p>
+<ul>
+<li><p>The following validation rules apply to these fields (fields not listed below indicates that no validation is done on them):</p>
+<ul>
+<li>Height is measured in metres and must be between 1 and 3 inclusive.</li>
+<li>Starting Weight is measured in kgs and must be between 35 and 250.</li>
+<li>The name is maximum 30 characters; any name entered should be truncated to 30 characters. </li>
+<li>The gender can be either “M” or “F”.  If it is not either of these then apply a default value of “Unspecified”.</li>
+</ul>
+</li>
+<li><p>The Person class should have a String toString() method that formats the printing of the object state and returns it. It’s subclasses should override the superclass method String toString(), call the superclass toString method and also report on the new fields defined in these subclasses.</p>
+</li>
+<li>Each class should define a constructor that initialises each instance fields based on user input data.</li>
+<li>Each class should define accessors and mutators for all instance fields, except for the following cases:<pre><code>+ Assessment hashmap (Member) - no mutator.
++ Email (Person), StudentId and CollegeName (both StudentMember) - no mutators.</code></pre>
+</li>
+</ul>
+<p>Specifics for class Member:</p>
+<ul>
+<li>public Assessment latestAssessment() - Returns the latest assessment based on last entry (by calendar date).</li>
+<li>public SortedSet<String> sortedAssessmentDates() - Returns the assessments dates (as strings) sorted in date order. </li>
+<li>public abstract void chosenPackage(String chosenPackage);
+The concrete implementation of this method will be completed in Member subclasses.</li>
+</ul>
+<p>Specifics for class PremiumMember:</p>
+<ul>
+<li>public void chosenPackage(String packageChoice) - Provides the concrete implementation for this method. The chosenPackage is set to the value passed as a parameter. There is no validation on the entered data.</li>
+</ul>
+<p>Specifics for class StudentMember:</p>
+<ul>
+<li>public void chosenPackage(String packageChoice) - Provides the concrete implementation for this method. The chosenPackage is set to the package associated with their collegeName. If there is no package associated with their college, default to “Package 3”.</li>
+</ul>
+<p>The last model class is Assessment. It stores weight, thigh, waist, comment and a Trainer that entered the member’s assessment (i.e. personal trainer). This class just has the standard constructor, accessor and mutator method with no validation on any fields.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Gym API">
+            <h2>Gym API.</h2>
+<p>This class operates between the model classes and the menu driver class (see later). It stores:</p>
+<ul>
+<li>an ArrayList of Members</li>
+<li>an ArrayList of Trainers.</li>
+</ul>
+<p>It contains the following, self-explanatory methods:</p>
+<ul>
+<li>public void addMember(Member member)</li>
+<li>public void addTrainer(Trainer trainer)</li>
+<li>public int numberOfMembers()</li>
+<li>public int numberOfTrainers()</li>
+<li>public ArrayList (of Members) getMembers()   </li>
+<li>public ArrayList (of Trainers) getTrainers()  </li>
+</ul>
+<p>The class also contains these methods:</p>
+<ul>
+<li>public boolean isValidMemberIndex(int index) - Returns a boolean indicating if the index passed as a parameter is a valid index for the member’s array list. </li>
+<li>public boolean isValidTrainerIndex( int index ) - ditto for trainers array list.</li>
+<li>public Member searchMembersByEmail(String emailEntered) - Returns the member object that matches the email entered. If no member matches, return null.</li>
+<li>public ArrayList (of Strings) searchMembersByName(String nameEntered) - Returns a list of member names that partially or entirely matches the entered name. An empty array is returned when their are no matches. </li>
+<li>public Trainer searchTrainersByEmail(String emailEntered) - Returns the trainer object that matches the email entered.  If no trainer matches, return null.</li>
+<li>public ArrayList (of Members) listMembers() - Returns a list containing all the members in the gym. Returns an empty list if none are found.</li>
+<li>public ArrayList (of Member) listMembersWithIdealWeight() - Returns a list containing all the members details in the gym whose latest assessment weight is an ideal weight (based on the devine method). Returns an empty list if none are found.</li>
+<li>public ArrayList (of Member) listMembersBySpecificBMICategory (String category) Returns a string containing all the members details in the gym whose BMI category(based on the latest assessment weight) partially or entirely matches the entered category. Returns an empty list if none are found.</li>
+<li>public String listMemberDetailsImperialAndMetric() List, for each member, their latest assessment weight and their height both imperially and metrically.  The format of the output is like so:</li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>Joe Soap: xx kg (xxx lbs) x.x metres (xx inches).
+Joan Soap: xx kg (xxx lbs) x.x metres (xx inches).  </p>
+</blockquote>
+<p>If there are no members in the gym, the message &quot;No registered members&quot; should be returned.</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>public void store() throws Exception - Push the members and trainers array lists out to 
+the associated XML file.</li>
+<li>public void load() throws Exception - Pull the members and trainers array lists from 
+the associated XML file.</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Utility Class">
+            <h2>Utility class.</h2>
+<p>A utility class (or helper class) is a &quot;structure&quot; that has only static methods and encapsulates no state (fields). Typically the functionality of the methods is reusable across a range of applications. </p>
+<p>For the Gym management application we can define an Analytics class that would hold the following methods:</p>
+<ul>
+<li>public static double calculateBMI(Member member, Assessment assessment) - Return the BMI for the member based on the calculation: BMI is weight divided by the square of the height.</li>
+<li><p>public static String determineBMICategory(double bmiValue) - Return the category the BMI belongs to, based on the following values:</p>
+<ul>
+<li>BMI less than 16 (exclusive) is &quot;SEVERELY UNDERWEIGHT&quot; </li>
+<li>BMI between 16 (inclusive) and 18.5 (exclusive) is &quot;UNDERWEIGHT&quot;</li>
+<li>BMI between 18.5 (inclusive) and 25(exclusive) is &quot;NORMAL&quot;</li>
+<li>BMI between 25 (inclusive) and 30 (exclusive) is &quot;OVERWEIGHT&quot;</li>
+<li>BMI between 30 (inclusive) and 35 (exclusive) is &quot;MODERATELY OBESE&quot; </li>
+<li>BMI greater than 35 (inclusive) and is &quot;SEVERELY OBESE&quot;</li>
+</ul>
+</li>
+<li><p>public static boolean isIdealBodyWeight(Member member, Assessment assessment) - Returns a boolean to indicate if the member has an ideal body weight based on the Devine formula:</p>
+<ul>
+<li>For males, an ideal body weight is: 50 kg + 2.3 kg for each inch over 5 feet.</li>
+<li>For females, an ideal body weight is: 45.5 kg + 2.3 kg for each inch over 5 feet.</li>
+<li>Note: if no gender is specified, return the result of the female calculation.</li>
+<li>Note: if the member is 5 feet or less, return 50kg for male and 45.5kg for female.</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="MenuController">
+            <h2>MenuController class.</h2>
+<p>The menu driver class (MenuController) uses the console I/O to interact with the user. It should create an instance of the GymApi class and allow the user to navigate (a subset of) the system&#39;s features through a series of menus. The following processing is required in this menu system:</p>
+<ol>
+<li>On app start-up, automatically load the gym data (trainers and members) from an XML file.</li>
+<li>Ask the user do they want to login(l) or register (r).</li>
+<li>Ask the user if they are a member(m) or a trainer(t).<ul>
+<li>If the user selected to login, verify that the email entered is stored in the appropriate arraylist i.e. the members or trainers list.  If the email doesn’t exist, print out “access denied” to the console and exit the program.</li>
+<li>If the user selected to register, ask them to enter the required details for the member/trainer. If they entered an email that is already used in the system (for either trainers/members), let them know it is an invalid email and ask them to enter a new one. </li>
+</ul>
+</li>
+<li><p>Once logged in, display a trainer menu for the trainer and a member menu for the member. </p>
+<ol>
+<li>The trainer menu should allow the trainer to:<ul>
+<li>Add a new member </li>
+<li>List all members</li>
+<li>Search for a member by email</li>
+<li>Assessment sub-menu:<ul>
+<li>Add an assessment for a member</li>
+<li>Update comment on an assessment for a member</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The member menu should allow the member to:<pre><code> + View their profile
+ + Update their profile
+ + Progress sub-menu:
+    + View progress by weight
+    + View progress by waist measurement</code></pre>
+</li>
+</ol>
+</li>
+<li><p>On app exit, automatically save the gym data (trainers and members) to an XML file.</p>
+</li>
+</ol>
+<p>Notes:</p>
+<p>Note 1: Aside from the above requirements, the design of the menu system and the contents you include is left open to you. The qualities to aim at include user-friendliness (e.g. report progress) and robustness (e.g. validation, formatted output).</p>
+<p>Note 2. The following packages can be hard coded in this class into a HashMap:</p>
+<pre><code>(&quot;Package 1&quot;, &quot;Allowed access anytime to gym.\nFree access to all classes.\nAccess to all changing areas including deluxe changing rooms.&quot;);
+
+(&quot;Package 2&quot;, &quot;Allowed access anytime to gym.\n€3 fee for all classes.\nAccess to all changing areas including deluxe changing rooms.&quot;);
+
+(&quot;Package 3&quot;, &quot;Allowed access to gym at off-peak times.
+\n€5 fee for all classes. \nNo access to deluxe changing rooms.&quot;);
+
+(&quot;WIT&quot;, &quot;Allowed access to gym during term time.
+\n€4 fee for all classes.  \nNo access to deluxe changing rooms.&quot;);</code></pre>
+<p>Ideally, this data would be read in from a file, however, we can just hard-code them for the purposes of this assignment.</p>
+<p>Note 3. The options on the progress sub-menu should ideally display the member’s progress based on the metric chosen (e.g. weight). It should display the metric sorted by date and some form of indication as to whether the subsequent measurement was above or below the previous measurement.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Unit Tests">
+            <h2>Unit tests.</h2>
+<p>As noted earlier, the menu controller exercises only a portion of the API&#39;s feature set. For this reason, a full suite of unit test will be provided to prove the entire API and utility classes. You are not required to edit or indeed understand the test code as it was not part of the curriculum. You are simply required to run the tests and fix any logic errors it reports in your code - as illustrated in the lab exercise earlier. The test execution output is presented in a &#39;GIVEN-WHEN-THEN&#39; fashion and will identify the specific class method with the bug as well as the conditions that produced it. </p>
+<p>The starter pack provided in the first section of this specification has the test required for the <em>Pass</em> mark level in the grading spectrum. Only the <code>GymAPUTest</code> and <code>MemberTest</code> files are relevant for this level. Tests for the higher grades will be provided incrementally over the duration of the assignment. </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Grading Spectrum">
+            <h2>Grading spectrum.</h2>
+<p>Pass (40-50) - Data Model: Basic implementation (Person, Member and Trainer). API: Add members/trainers, numberofMembers/Trainers methods, isValidMember/TrainerIndex methods, basic addMember/Trainer. Menu: Registration, Add New member, List all members. Input validation.</p>
+<p>Good (50-65) - API: Various Search methods (by email and name),   ; XML persistence. Menu: Login, Trainer and Member sub-menus, (Trainer) Add/List/Search members, (Member) View/update profile. </p>
+<p>Excellent (65-85) - Data Model: Assessment class basic support. API:  Utility class. Menu: (Trainer) Add assessment, Update assessment comment. Most unit tests pass</p>
+<p>Outstanding (85-100) - Data model: Student and Premium Member support; Member assessment query support. API: Fully-featured. Menu: (Member) Progress sub-menu options; Fully-featured. All unit tests pass.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Submission">
+            <h2>Handup of submission</h2>
+<h3>When</h3>
+<p>The submission is due  Sunday, 20th May 2018, 11.55PM.</p>
+<p>No late submissions will be accepted (unless mitigating circumstances, with supporting documentation, apply).</p>
+<h3>Where</h3>
+<p>The dropbox is available in the &#39;Assignments&#39; section in Moodle.</p>
+<h3>What</h3>
+<p>You received a skeleton IntelliJ project folder at the start of this assignment and developed your code inside it. Create an archive of this folder and simply name it <code>Assignment3,zip</code> (or .rar etc). Submit this archive.</p>
+<p>Your files should be contained in a folder named according to the rule:</p>
+<h3>README</h3>
+<p>You should include a README text file in the project&#39;s base folder. The contents of should be as follows:</p>
+<pre><code>Name : 
+Student Number:
+
+A statement of how much of the application specification you implemented. 
+
+Any extra features you wish to bring to the assessors attention, i.e. extra 
+functionality, Java syntax not covered in the lectures, 
+non-standard Libraries used 
+
+Known bugs/problems:
+
+Any sources referred to during the development of the assignment (no need to reference lecture/lab materials):</code></pre>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

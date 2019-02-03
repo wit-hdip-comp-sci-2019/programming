@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../index.html">  Assignment Specifications  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Assignment-2">
+          Assignment-2
+        </a>
+      
+        <a class="item" data-tab="Advice">
+          Advice
+        </a>
+      
+        <a class="item" data-tab="Specification">
+          Specification
+        </a>
+      
+        <a class="item" data-tab="Marking">
+          Marking
+        </a>
+      
+        <a class="item" data-tab="Submission">
+          Submission
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-00-induction/book-induction/index.html">Induction </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-01-first-contact/unit-01a-intro-to-processing/book-1a/index.html">Lab-1a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-01-first-contact/unit-01b-animate-your-drawings/book-1b/index.html">Lab-1b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-02-selection_and_iteration/unit-02a-if-stmt-and-events/book/index.html">Lab-02a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-02-selection_and_iteration/unit-02b-iteration-for-while/book/index.html">Lab-02b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-03-methods/unit-03a-methods/book/index.html">Lab-03a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-03-methods/unit-03b-more-on-methods/book/index.html">Lab-03b </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Assignment-2">
+            <h1>Assignment 2</h1>
+<p>This is your second assignment that will contribute to your grade for the semester.  It is worth 30% of your overall grade.  You are asked to write a more involved working animation / game.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Advice">
+            <h1>Assignment 2</h1>
+<p>This will detail, for your second assignment:</p>
+<ul>
+<li><em>Specification:</em> What is expected from your code.</li>
+<li><em>Marking:</em> The marking scheme for the assignment.</li>
+<li><em>Submission:</em> Submission details including submission date.</li>
+</ul>
+<h1>Assignment Advice</h1>
+<p>Read the specification carefully.</p>
+<p>Start working on the assignment early.</p>
+<p>When you think you are ready to submit check the following: </p>
+<ul>
+<li><p>Ensure you have all covered all the elements mentioned in the marking scheme.</p>
+</li>
+<li><p>Ensure specifically that your indentation is consistent. </p>
+</li>
+<li><p>Write comments to explain what your animation does and particularly how tricky code works and what it does.</p>
+</li>
+<li><p>Ensure that your name, student number and description of what your code does is written at the top of the main sketch file.</p>
+</li>
+<li><p>Ensure that you have named the submission (zip) file according to the prescribed naming convention. </p>
+</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Specification">
+            <h1>Specification</h1>
+<p>In your second assignment, you are asked to write code to produce a more complex dynamic animation / game of your choice with user interaction of your choice in Processing (Java).</p>
+<p>The aim of the assignment is for you to demonstrate your understanding of all the structures seen so far.  Specifically, you are asked to include the following:</p>
+<ul>
+<li><p>At least one user-defined class, adhering to encapsulation rules, complete with:</p>
+<ul>
+<li>fields</li>
+<li>constructors</li>
+<li>getters</li>
+<li>setters</li>
+<li>other methods</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>The usual Processing class containing the draw(), setup(), etc.  This class must use your user-defined class(es) in an appropriate manner.</p>
+</li>
+<li><p>Use of selection (if) and iteration (loops).</p>
+</li>
+<li><p>Use of primitive / object arrays.</p>
+</li>
+</ul>
+<h2>A note on complexity</h2>
+<p>The complexity of the entire code is important, i.e. the more complex the code, the more marks you will achieve. (see marking scheme).</p>
+<p>The <strong>Pong game v8</strong> that we covered in lectures and labs is an example of top marks for complexity. </p>
+<p>Bear in mind that you don&#39;t have to develop a game; you can also develop a complex animation instead.  </p>
+<h2>A Suggestion</h2>
+<p>Build a game other than Pong or a complex animation.</p>
+<p>Our recommendation is that you try something other than Pong. If you hand up another version of Pong it will need to go beyond v8 in complexity. 
+i.e. you have the code for v8 and v9 of Pong so you will need to implement addtional functionality and classes (e.g. 2 player with one player being the computer etc.)</p>
+<p>When handing up it is important that you explicitly highlight how you&#39;ve met each part of the spec. Additionally if you are handing up Pong again you will need to explicity highlight the difference between the first version that you handed up and this version.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Marking">
+            <h1>Marking Scheme</h1>
+<p>There are two components to your overall mark:</p>
+<ul>
+<li>Structure of code</li>
+<li>Complexity of code</li>
+</ul>
+<p><em>Please read below regarding interviews.</em></p>
+<h2>Structure of Code  (100 Marks)</h2>
+<p>Working animation with inclusion of bespoke methods in the main sketch. <strong>(10 marks)</strong></p>
+<p>User-defined class (at least one):</p>
+<ul>
+<li><p>Creation of user-defined class with appropriate fields, constructors, getters, setters <strong>(10 marks)</strong>.</p>
+</li>
+<li><p>Class bespoke methods (15 marks)</p>
+</li>
+<li><p>The user-defined class(es) are used in an appropriate manner <strong>(15 marks)</strong>.</p>
+</li>
+</ul>
+<p>Data structure:</p>
+<ul>
+<li><p>Use of a data structure to store information i.e. array <strong>(20 marks)</strong>.</p>
+</li>
+<li><p>Calculations performed on the information stored <strong>(20 marks)</strong>.</p>
+</li>
+</ul>
+<p>Use of standard programming control contructs (if, loop) <strong>(5 marks)</strong>.</p>
+<p>Comments, indentation, naming, structure of code, etc. <strong>(5 marks)</strong></p>
+<h2>Complexity of code (10 Marks)</h2>
+<p>This is a mark out of 10 based on the complexity of the problem solved/code. So you will get more marks if the animation is more involved than one that is very simple. Please do not confuse an elegant solution of a complex problem with a simple problem.</p>
+<h2>How is the final mark calculated?</h2>
+<p> The final mark is calculated by multiplying the two component marks and dividing by 10. This means that complexity is a multiplier so a weakness in that will negatively affect your grade.</p>
+<p> Example:</p>
+<ul>
+<li>Structure of code = 80/100</li>
+<li>Complexity of code = 9/10</li>
+<li>Final mark = (80 by 9)/10 = 72%</li>
+</ul>
+<h2>Interview (and subsequent grade calculation)</h2>
+<p>Please note that we reserve the right to interview you on your code. You <em>may</em> be asked (for example) to explain:</p>
+<ul>
+<li>Any of the code.</li>
+<li>How you decided on your animation.</li>
+<li>How you developed your animation; where did you start first, etc?</li>
+<li>Anything else.</li>
+</ul>
+<p>If we need to interview you on your work, you will be given a mark out of 10 for the interview.  This mark will be a multiplier of your overall grade.  For example:</p>
+<ul>
+<li>Structure of code = 80/100</li>
+<li>Complexity of code = 9/10</li>
+<li>Interview = 8/10</li>
+<li>Final mark = (80 by 9 by 8)/100 = 57.6%</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Submission">
+            <h1>Handup of submission</h1>
+<h2>Date</h2>
+<p>The submission is due <strong><em>Sunday 15 April 2018, 11.55PM</em></strong>.</p>
+<p>No late submissions will be accepted (unless mitigating circumstances, with supporting documentation, apply).</p>
+<h2>Where</h2>
+<p>The dropbox is available in the &#39;Assignments&#39; section in Moodle.</p>
+<h2>File naming convention</h2>
+<p>Your files should be contained in a <strong>folder</strong> named  according to the rule: </p>
+<ul>
+<li><em>First name</em> + <em>Second name</em>, e.g. Donald Duck&#39;s folder would be called <em>DonaldDuck</em>. </li>
+</ul>
+<p>You should then compress (zip) the <strong>folder</strong> that contains all the sketches used to develop your assignment; this is the file that you should submit.</p>
+<h2>readme tab</h2>
+<p>You should include a readme tab in the sketch.  The contents of this tab should be of the following format:</p>
+<pre><code>/*
+Name : 
+Student Number:
+
+Brief description of the animation achieved:
+
+Justification of spec:
+
+Known bugs/problems:
+
+Any sources referred to during the development of the assignment (no need to reference lecture/lab materials):
+
+*/</code></pre>
+<p>If you hand up another version of Pong you will need to state the addtional features added in the description section above.</p>
+<p>Additionally, if you are handing up Pong for a second time, add another section within the description, explicity stating the difference between the first version that you handed up, and this version.</p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>
