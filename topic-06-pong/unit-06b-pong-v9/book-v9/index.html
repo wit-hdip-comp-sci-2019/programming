@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html">  Pong v9: Watch the demo, Review the slides & video, Complete the lab  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-06b-v9">
+          Lab-06b-v9
+        </a>
+      
+        <a class="item" data-tab="V9">
+          V9
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic----assignments/book-assignment-1/index.html">Assignment-1 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-00-induction/book-induction/index.html">Induction </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-01-first-contact/unit-01a-intro-to-processing/book-1a/index.html">Lab-1a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-01-first-contact/unit-01b-animate-your-drawings/book-1b/index.html">Lab-1b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-02-selection_and_iteration/unit-02a-if-stmt-and-events/book/index.html">Lab-02a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-02-selection_and_iteration/unit-02b-iteration-for-while/book/index.html">Lab-02b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-03-methods/unit-03a-methods/book/index.html">Lab-03a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-03-methods/unit-03b-more-on-methods/book/index.html">Lab-03b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-04-classes/unit-04a-strings-and-intro-to-classes/book/index.html">Lab-04a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-04-classes/unit-04b-classes-encapsulation/book/index.html">Lab-04b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-05-arrays/unit-05a-swing-and-arrays/book/index.html">Lab-05a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-05-arrays/unit-05b-arrays-and-classes/book/index.html">Lab-05b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06a-pong-V1-V5/book-v1-v5/index.html">Lab-06a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v6/book-v6/index.html">Lab-06b-v6 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v7/book-v7/index.html">Lab-06b-v7 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v8/book-v6-v7-v8/index.html">Lab-06b-v8 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v9/book-v9/index.html">Lab-06b-v9 </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-06b-v9">
+            <h1>Objectives</h1>
+<p>PongGame V9.0 </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="V9">
+            <h1>Game of Pong - V9.0</h1>
+<p>In this lab, you will work on PongGameV9_0.</p>
+<p>We will refactor PongGameV8_0 so that it uses the Pythagorean Theorem version for collision detection.</p>
+<p>Open your latest version of PongGame version 8. If you wish, you can use this solution <a href="archives/PongGameV8_0.zip">here</a>.</p>
+<p>Save this as PongGameV9_0.</p>
+<h2>hitPaddle method</h2>
+<p>In your PongGameV9_0 class, you will see a <strong>hitPaddle</strong> method.  </p>
+<p>Replace it with this code i.e. the pythagoreas version of collision detection:</p>
+<pre><code class="lang-java">//method returns true if the ball and paddle overlap (i.e. ball is hit), false otherwise.
+
+boolean hitPaddle(Paddle paddle, Ball ball)
+{
+   //These variables measure the magnitude of the gap between the paddle and the ball.  
+   float circleDistanceX = abs(ball.getXCoord() - paddle.getXCoord() - paddle.getPaddleWidth()/2);
+   float circleDistanceY = abs(ball.getYCoord() - paddle.getYCoord() - paddle.getPaddleHeight()/2);
+
+   if (circleDistanceX &gt; (paddle.getPaddleWidth()/2  + ball.getDiameter()/2)) { return false; }
+   if (circleDistanceY &gt; (paddle.getPaddleHeight()/2 + ball.getDiameter()/2)) { return false; }
+
+   if (circleDistanceX &lt;= (paddle.getPaddleWidth()/2))  { 
+      return true;
+   }
+   if (circleDistanceY &lt;= (paddle.getPaddleHeight()/2)) { 
+      return true;
+   } 
+
+   float cornerDistance = pow(circleDistanceX - paddle.getPaddleWidth()/2,  2) +
+                          pow(circleDistanceY - paddle.getPaddleHeight()/2, 2);
+
+   if (cornerDistance &lt;= pow(ball.getDiameter()/2, 2)){
+      return true;
+   } 
+   else{
+      return false;
+   }
+}</code></pre>
+<p>Run your game to ensure that the collision detection works correctly. </p>
+<h2>Solution</h2>
+<p>If your code is not working, the solution can be found <a href="archives/PongGameV9_0.zip">here</a>. </p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

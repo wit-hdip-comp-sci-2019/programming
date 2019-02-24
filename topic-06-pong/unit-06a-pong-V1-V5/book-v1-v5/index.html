@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html">  6a: Pong v1-v5  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-06a">
+          Lab-06a
+        </a>
+      
+        <a class="item" data-tab="Pong">
+          Pong
+        </a>
+      
+        <a class="item" data-tab="Architecture">
+          Architecture
+        </a>
+      
+        <a class="item" data-tab="V1">
+          V1
+        </a>
+      
+        <a class="item" data-tab="V2">
+          V2
+        </a>
+      
+        <a class="item" data-tab="V3">
+          V3
+        </a>
+      
+        <a class="item" data-tab="V4">
+          V4
+        </a>
+      
+        <a class="item" data-tab="V5">
+          V5
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic----assignments/book-assignment-1/index.html">Assignment-1 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-00-induction/book-induction/index.html">Induction </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-01-first-contact/unit-01a-intro-to-processing/book-1a/index.html">Lab-1a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-01-first-contact/unit-01b-animate-your-drawings/book-1b/index.html">Lab-1b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-02-selection_and_iteration/unit-02a-if-stmt-and-events/book/index.html">Lab-02a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-02-selection_and_iteration/unit-02b-iteration-for-while/book/index.html">Lab-02b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-03-methods/unit-03a-methods/book/index.html">Lab-03a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-03-methods/unit-03b-more-on-methods/book/index.html">Lab-03b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-04-classes/unit-04a-strings-and-intro-to-classes/book/index.html">Lab-04a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-04-classes/unit-04b-classes-encapsulation/book/index.html">Lab-04b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-05-arrays/unit-05a-swing-and-arrays/book/index.html">Lab-05a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-05-arrays/unit-05b-arrays-and-classes/book/index.html">Lab-05b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06a-pong-V1-V5/book-v1-v5/index.html">Lab-06a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v6/book-v6/index.html">Lab-06b-v6 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v7/book-v7/index.html">Lab-06b-v7 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v8/book-v6-v7-v8/index.html">Lab-06b-v8 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v9/book-v9/index.html">Lab-06b-v9 </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-06a">
+            <h1>Objectives</h1>
+<p>Game of Pong Architecture · Solutions for all versions · PongGame V1.0 - V5.0</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Pong">
+            <h1>The Game of Pong</h1>
+<p>In this section, we wil introduce the Game of Pong that we will build over the next few labs.</p>
+<h2>Tournament</h2>
+<p>In our version of Pong, the player enters into a tournament of games. </p>
+<p>The player decides how many games of Pong they would like to play in their tournament:</p>
+<p><img src="./img/01.png" alt="Number of Games in Tournament"></p>
+<h2>Player name</h2>
+<p>The player enters their name (if more than 6 characters are entered, Pong will truncate the String):</p>
+<p><img src="./img/02.png" alt="Name of Player"></p>
+<h2>Playing the Game</h2>
+<p>When the ball is hit by the paddle, the score is increased by 1.</p>
+<p>When the paddle misses the ball, a life is lost.</p>
+<p>There are three lives in a game.</p>
+<p><img src="./img/03.png" alt="Playing Pong"></p>
+<p>When a game ends and there are more games left to play in the tournament:</p>
+<ul>
+<li><p>The score is displayed.</p>
+</li>
+<li><p>The player is asked if they want to continue with the tournament.</p>
+</li>
+</ul>
+<p><img src="./img/04.png" alt="Continue with Tournament?"></p>
+<p>If the player wishes to continue:</p>
+<ul>
+<li><p>Their game score is stored in an array. </p>
+</li>
+<li><p>A new game is started (the variables storing the number of lives and score is reset to zero).</p>
+</li>
+</ul>
+<p><img src="./img/03.png" alt="Playing Pong"></p>
+<p>Player is shown their score and asked again if they wish to continue.</p>
+<p><img src="./img/05.png" alt="Continue with Tournament?"></p>
+<p>If they choose yes:</p>
+<ul>
+<li><p>Their score is stored in an array. </p>
+</li>
+<li><p>A new game is started.</p>
+</li>
+</ul>
+<h2>Ending the Game</h2>
+<p>When a game ends and there are NO more games left to play in the tournament:</p>
+<ul>
+<li><p>The player name and score is displayed for each game in the tournament.</p>
+</li>
+<li><p>The tournament statistics are also displayed (highest score, lowest score and average score).</p>
+</li>
+</ul>
+<p><img src="./img/06.png" alt="Tournament Over"></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Architecture">
+            <h1>Architecture of Pong</h1>
+<p>In the final version (V8.0) of Pong, there are four classes:</p>
+<ul>
+<li><p><strong>PongGame</strong> - has the setup() and draw() methods.  It starts the game, handles player input, manages collision detection between the Ball and the Paddle, ends the game and outputs the player statistics.</p>
+</li>
+<li><p><strong>Ball</strong> - controls the location, size and speed of the ball.  This class updates the ball and displays it at the updated location.</p>
+</li>
+<li><p><strong>Paddle</strong> - controls the location and size of the paddle.  This class updates the paddle location and displays it at the updated location. </p>
+</li>
+<li><p><strong>Player</strong> - stores the player name and the score for each game in the tournament (in an array).  It calculates the statistics for the games in the tournament. </p>
+</li>
+</ul>
+<p><img src="./img/07.png" alt="PongGame V8.0"></p>
+<h2>Versions of Pong</h2>
+<p>We will incrementally build versions of the game and finish with Game of Pong V8.0.  </p>
+<p>The 8 versions are:</p>
+<ul>
+<li><p>Game of Pong V1.0 (Ball class)</p>
+</li>
+<li><p>Game of Pong V2.0 (Paddle class)</p>
+</li>
+<li><p>Game of Pong V3.0 (Simple collision detection)</p>
+</li>
+<li><p>Game of Pong V4.0 (Lives lost, lives per game, score)</p>
+</li>
+<li><p>Game of Pong V5.0 (Tournament functionality)</p>
+</li>
+<li><p>Game of Pong V6.0 (Player class – array, no statistics)</p>
+</li>
+<li><p>Game of Pong V7.0 (Player class – array, with statistics)</p>
+</li>
+<li><p>Game of Pong V8.0 (JOptionPane for I/O)</p>
+</li>
+</ul>
+<p>There is an additional version that covers more advance collision using pythagorus theorem:</p>
+<ul>
+<li>Game of Pong V9.0 (Advanced collision detection)</li>
+</ul>
+<p>The solutions for each of these versions can be downloaded from <a href="archives/game-of-pong-v1-to-v9.zip">here</a>. </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="V1">
+            <h1>PongGameV1.0</h1>
+<p>Having read the lecture on PongGameV1.0 we will now develop it. </p>
+<p>Make sure that you read and understand the code below, while typing it into the Ball class.  If you have any questions on any part of the code, make sure to ask your lecturer.</p>
+<p><img src="./img/08.png" alt="PongGame V1.0"></p>
+<h2>Ball class</h2>
+<p>Create a new Processing sketch called &#39;&#39;PongGameV1_0&#39;&#39;.</p>
+<p>Create a new tab and call it &#39;&#39;Ball&#39;&#39;.</p>
+<p>In the Ball class, add the instance fields:</p>
+<pre><code class="lang-java">public class Ball 
+{
+  private float xCoord;      //x coordinate of the ball
+  private float yCoord;      //y coordinate of the ball
+  private float diameter;    //diameter of the ball
+  private float speedX;      //speed along the x-axis
+  private float speedY;      //speed along the y-axis
+}</code></pre>
+<p>Then add these getter methods:</p>
+<pre><code class="lang-java">   public float getXCoord(){  
+      return xCoord;
+   }  
+
+   public float getYCoord(){
+      return yCoord;
+   }  
+
+   public float getDiameter(){
+      return diameter;
+   }</code></pre>
+<p>Followed by the setDiameter setter:</p>
+<pre><code class="lang-java">  public void setDiameter(float diameter){
+     //The ball diameter must be between 20 and height/6 (inclusive)
+     if ((diameter &gt;= 20) &amp;&amp; (diameter &lt;= height/6)){
+        this.diameter = diameter;
+     }
+     else {
+        // If an invalid diameter is passed as a parameter, a default of 20 is imposed.
+        // With this animation, if we do not supply a default value for the diameter, 
+        // a ball may not be drawn on the display window.  Important note: it is not       
+        // always appropriate to provide a default value at sette) level; this will 
+        //depend on your design.
+        this.diameter = 20;
+     }
+  }</code></pre>
+<p>Now add this method that will display a white ball with no outline on the display window:</p>
+<pre><code class="lang-java">  public void display(){
+     fill(255);
+     noStroke();
+     ellipse(xCoord, yCoord, diameter, diameter);
+  }</code></pre>
+<p>Now add the resetBall private helper method:</p>
+<pre><code class="lang-java">  private void resetBall(){
+     xCoord = 0;
+     yCoord = random(height);
+     speedX = random(3, 5);   
+     speedY = random(-2, 2);
+  }</code></pre>
+<p>NOTE:  A private helper method is a method that is private to the class you are in i.e. you are not allowed to use it outside of the current class.  The resetBall method is used by the Ball constructor and the update method.</p>
+<p>Still in the ball class, add this constructor:</p>
+<pre><code class="lang-java">  public Ball(float diameter){
+      setDiameter(diameter);
+      resetBall();
+  }</code></pre>
+<p>Add a hit method that will change the ball direction when it hits the paddle and bump it back to the edge of the paddle.</p>
+<pre><code class="lang-java">  public void hit(){
+      speedX = speedX * -1;
+      xCoord = xCoord + speedX;
+  }</code></pre>
+<p>Finally add the following update method:</p>
+<pre><code class="lang-java">  public boolean update(){
+    boolean lifeLost = false;
+
+    //update ball coordinates
+    xCoord = xCoord + speedX;
+    yCoord = yCoord + speedY;
+
+    //reset position if ball leaves the screen
+    if (xCoord &gt; width + diameter/2){
+       resetBall();
+       lifeLost = true;
+    }
+
+    // If ball hits the left edge of the display 
+    // window, change direction of xCoord
+    if (xCoord &lt; diameter/2){
+       xCoord = diameter/2;
+       speedX = speedX * -1;
+    }
+
+    // If ball hits top or bottom of the display
+    //  window, change direction of yCoord
+    if (yCoord &gt; height - diameter/2){
+       yCoord = height - diameter/2;
+       speedY = speedY * -1;
+    } 
+    else if (yCoord &lt; diameter/2){
+       yCoord = diameter/2;
+       speedY = speedY * -1;
+    }
+    return lifeLost;
+ }</code></pre>
+<p>Your ball class is complete.  Save this code.</p>
+<h2>PongGameV1_0 class</h2>
+<p>Now that the Ball class is written, we will start to use it in the <strong>PongGameV1_0</strong> main tab.</p>
+<p>Return to the main tab and enter the following code:</p>
+<pre><code class="lang-java">Ball ball;
+
+void setup(){
+   size(600,600);
+   noCursor();
+
+   //setting up the ball with hard-coded sizes.
+   ball = new Ball(20.0);
+}
+
+void draw(){
+   background(0);    
+
+   //Update the ball position and display it.
+   ball.update();
+   ball.display();       
+}</code></pre>
+<h2>Test your code</h2>
+<p>Run your code.  </p>
+<p>You should now have a ball that traverses the screen left to right.</p>
+<p>When the ball reaches the right hand side, it should disappear off screen and a new ball should appear in a random lcoation on the left hand side.  </p>
+<p>When a new ball appears, it should traverse the screen in a random trajectory at a random speed.</p>
+<p>Make sure you understand the code before moving onto PongGameV2_0.</p>
+<h2>Solution</h2>
+<p>If your code is not working, the solution can be found <a href="archives/PongGameV1_0.zip">here</a>.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="V2">
+            <h1>PongGameV2.0</h1>
+<p>Having read the lecture on PongGameV2.0 we will now develop it. </p>
+<p>Make sure that you read and understand the code below, while typing it into the Paddle class.  If you have any questions on any part of the code, make sure to ask your lecturer.</p>
+<p><img src="./img/09.png" alt="PongGame V2.0"></p>
+<h2>Paddle class</h2>
+<p>Open your solution to &#39;&#39;PongGameV1_0&#39;&#39;.</p>
+<p>Save it as &#39;&#39;PongGameV2_0&#39;&#39;</p>
+<p>Create a new tab and call it &#39;&#39;Paddle&#39;&#39;.</p>
+<p>In the Paddle class, add the instance fields:</p>
+<pre><code class="lang-java">public class Paddle 
+{
+   private int xCoord;        // X coordinate of the paddle
+   private int yCoord;        // Y coordinate of the paddle
+   private int paddleWidth;   // width of the paddle 
+   private int paddleHeight;  // height of the paddle
+}</code></pre>
+<p>Then add these getter methods:</p>
+<pre><code class="lang-java">   public int getXCoord(){
+      return xCoord;
+   }
+
+   public int getYCoord(){
+      return yCoord;
+   }
+
+   public int getPaddleWidth(){
+      return paddleWidth;
+   }
+
+   public int getPaddleHeight(){
+      return paddleHeight;
+   }</code></pre>
+<p>Followed by the setPaddleWidth setter:</p>
+<pre><code class="lang-java">  public void setPaddleWidth(int paddleWidth){
+     //The paddle width must be between 10 and 
+     //width/2 (inclusive)
+     if ((paddleWidth &gt;= 20) &amp;&amp; (paddleWidth &lt;= width/2)){
+         this.paddleWidth = paddleWidth;
+     }
+     else{
+     // If an invalid width is passed as a parameter, a default
+     // width of 20 is imposed.  With this animation, if we do 
+     // not supply a default value for the width, a paddle 
+     //may not be drawn on the display window.  Important 
+     // note: it is not always appropriate to provide a default 
+     // value at setter level; this will depend on your 
+     //design.
+         this.paddleWidth = 20;
+     }
+  }</code></pre>
+<p>Followed by the setPaddleHeight setter:</p>
+<pre><code class="lang-java">  public void setPaddleHeight(int paddleHeight){
+     //The paddle height must be between 50 
+     //and height/2 (inclusive)
+     if ((paddleHeight &gt;= 50) &amp;&amp; (paddleHeight &lt;= height/2)){
+         this.paddleHeight = paddleHeight;
+     }
+     else{
+     // If an invalid height is passed as a parameter, a default 
+     // height of 50 is imposed.  With this animation, if we do 
+     // not supply a default value for the height, a paddle 
+     // may not be drawn on the display window.  Important 
+     // note: it is not always appropriate to provide a default 
+     // value at setter level; this will depend on your design.
+         this.paddleHeight = 50;
+     }
+  }</code></pre>
+<p>Now add this constructor:</p>
+<pre><code class="lang-java">  public Paddle(int paddleWidth, int paddleHeight)
+  {
+     setPaddleWidth(paddleWidth);
+     setPaddleHeight(paddleHeight);
+
+     // the xCoordinate variable is set here and it stays 
+     // this value for duration of the program.
+     xCoord = width - this.paddleWidth;
+
+     // the yCoordinate variable is set here and changes 
+     // later in the program as the mouse moves on the 
+     // vertical plane.
+     yCoord = height/2;
+  }</code></pre>
+<p>Add this method that will display a gray paddle with no outline on the display window:</p>
+<pre><code class="lang-java">  public void display(){
+     fill(102);
+     noStroke();
+     rect(xCoord, yCoord, paddleWidth, paddleHeight);
+  }</code></pre>
+<p>Finally add the following update method:</p>
+<pre><code class="lang-java">  public void update()
+  {
+     yCoord = mouseY - paddleHeight/2;
+
+     //Reset yCoord if it’s outside the window coordinates. 
+     if (yCoord &lt; 0){
+         yCoord = 0; 
+     }
+     if (yCoord &gt; (height - paddleHeight)){
+         yCoord = height - paddleHeight;
+     }
+  }</code></pre>
+<p>Your Paddle class is complete.  Save this code.</p>
+<h2>PongGameV2_0 class</h2>
+<p>The code from your PongGameV1_0 class should be in your PongGameV2_0 class/main tab.</p>
+<p>The following methods currently perform this processing:</p>
+<ul>
+<li><p>setup() sets up the size of the window, switches off the cursor and creates a new Ball object</p>
+</li>
+<li><p>draw() repeatedly updates the ball location on the screen (based on speedX and speedY) and redisplays it.</p>
+</li>
+</ul>
+<p>Update this code so that a Paddle object is created in the setup() method.  To the Paddle constructor, pass in 20 as the width and 100 as the height.  Also update the draw() method to include this code:</p>
+<pre><code class="lang-java">   paddle.update();     //Update the paddle location in line with the cursor
+   paddle.display();    //Draw the paddle in this new location</code></pre>
+<h2>Test your code</h2>
+<p>Run your code.  </p>
+<p>The ball functionality should not have been affected.  It still should:</p>
+<ul>
+<li><p>traverse the screen left to right.</p>
+</li>
+<li><p>when it reaches the right hand side, disappear off screen and a new ball should appear in a random lcoation on the left hand side.  </p>
+</li>
+<li><p>when re-appearing, traverse the screen in a random trajectory at a random speed.</p>
+</li>
+</ul>
+<p>A paddle should also now appear.  It should be pinned to the right hand side of the window and should move on it&#39;s vertical plane in accordance with the movement of the mouse pointer.</p>
+<p>As there is no collision detection built into the code, the paddle and ball ignore each other.</p>
+<p>Make sure you understand the code before moving onto PongGameV3_0.</p>
+<h2>Solution</h2>
+<p>If your code is not working, the solution can be found <a href="archives/PongGameV2_0.zip">here</a>. </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="V3">
+            <h1>PongGameV3.0</h1>
+<p>On completion of this lab you should be very familiar with the game of pong and have included collision detection code for the Ball and Paddle class.  You should see the game evolve through maintaining tournaments, lives lost and scores for the game.  In this lab, you will work on PongGameV3.0, PongGameV4.0 and PongGameV5.0.</p>
+<p>Having read the lecture on PongGameV3.0 we will now develop it. </p>
+<p>This version of the game adds collision detection between the Ball and the Paddle.</p>
+<p><img src="./img/01.png" alt="PongGame V3.0"></p>
+<h2>Adding hitPaddle method</h2>
+<p>Open your solution to &#39;&#39;PongGameV2_0&#39;&#39;.  A copy of the V2 solution is <a href="archives/PongGameV2_0.zip">here</a>, if you need it.</p>
+<p>Save it as &#39;&#39;PongGameV3_0&#39;&#39;</p>
+<p>In the PongGameV3_0 class/main tab, add the following hitPaddle method:</p>
+<pre><code class="lang-java">//method returns true if the ball and paddle overlap (i.e. ball is hit), false otherwise.
+boolean hitPaddle(Paddle paddle, Ball ball)
+{
+   //These variables measure the magnitude of the gap between the paddle and the ball.  
+   float circleDistanceX = abs(ball.getXCoord() - paddle.getXCoord());
+   float circleDistanceY = abs(ball.getYCoord() - paddle.getYCoord() - paddle.getPaddleHeight()/2);
+
+   //The Ball is too far away from the Paddle on the X axis to have a collision, so abandon collision detection
+   if (circleDistanceX &gt; (ball.getDiameter()/2)) {
+      return false;
+   }
+
+   //The Ball is too far away from the Paddle on the Y axis to have a collision, so abandon collision detection
+   if (circleDistanceY &gt; (paddle.getPaddleHeight()/2 + ball.getDiameter()/2)) {
+       return false; 
+   }
+
+   //We have a collision!
+   return true;
+
+}</code></pre>
+<h2>Using the hitPadde method</h2>
+<p>In the draw method, after the ball.display() method call, insert the following code:</p>
+<pre><code class="lang-java">   //Set variable to true if ball and paddle are overlapping, false if not 
+
+   boolean collision = hitPaddle(paddle, ball);
+   if (collision == true){
+      ball.hit();        //the ball is hit i.e. reverses direction.
+   }</code></pre>
+<h2>Test your code</h2>
+<p>Run your code.  </p>
+<p>The ball functionality should not have been affected.  It still should:</p>
+<ul>
+<li><p>traverse the screen left to right.</p>
+</li>
+<li><p>when it reaches the right hand side, disappear off screen and a new ball should appear in a random lcoation on the left hand side.  </p>
+</li>
+<li><p>when re-appearing, traverse the screen in a random trajectory at a random speed.</p>
+</li>
+</ul>
+<p>The paddle functionality should not have been affected.  It should still:</p>
+<ul>
+<li><p>be pinned to the right hand side of the window </p>
+</li>
+<li><p>move on it&#39;s vertical plane in accordance with the movement of the mouse pointer.</p>
+</li>
+</ul>
+<p>You should now have collision detection built into the code.  Test that the paddle now hits the ball when they touch.</p>
+<h2>Solution</h2>
+<p>If your code is not working, the solution can be found <a href="archives/PongGameV3_0.zip">here</a>. </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="V4">
+            <h1>PongGameV4.0</h1>
+<p>Having read the lecture on PongGameV4.0 we will now develop it. </p>
+<p>Make sure that you read and understand the code below, while typing it into the relevant class.  If you have any questions on any part of the code, make sure to ask your lecturer.</p>
+<p><img src="./img/02.png" alt="PongGame V4.0"></p>
+<h2>Adding game information</h2>
+<p>In this version, we want to store the game information such as the number of lives lost, the maximum lives allowed per game and the score of the game.  The game will end when the user loses the number of lives allowed per game.</p>
+<p>Open your solution to &#39;&#39;PongGameV3_0&#39;&#39;.</p>
+<p>Save it as &#39;&#39;PongGameV4_0&#39;&#39;</p>
+<p>In the PongGameV4_0 class, add the following global variables to store the game information:</p>
+<pre><code class="lang-java">  //Current game data
+  int livesLost = 0;         //keeps track of number of lives lost in current game
+  int score = 0;             //high score of the current game
+  int maxLivesPerGame = 3;   //maximum number of lives that can be lost 
+                             //before the game ends</code></pre>
+<p>In the draw() method, change the call to the ball.update() method to be:</p>
+<pre><code class="lang-java">  // Update the ball position.  If true is returned, the ball has left the display   
+  // window i.e. a life is lost
+  if (ball.update() == true){
+      livesLost++;
+      println(&quot;Lives lost:  &quot;  + livesLost);
+  }</code></pre>
+<p>In the draw() method, replace this version 3.0 code:</p>
+<pre><code class="lang-java">   //VERSION 3.0 code.
+   //Draw the ball at its new location and check for a collision with the paddle
+   ball.display();    
+   //Set variable to true if ball and paddle are overlapping, false if not 
+   boolean collision = hitPaddle(paddle, ball);
+   if (collision == true){
+      ball.hit();        //the ball is hit i.e. reverses direction.
+   }</code></pre>
+<p>with the version 4.0 code:</p>
+<pre><code class="lang-java">  //If the player still has a life left in the current game, 
+  //draw the ball at its new location and check for a collision with the paddle
+  if (livesLost &lt; maxLivesPerGame){ 
+     ball.display();       
+     //Set variable to true if ball and paddle are overlapping, false if not 
+     boolean collision = hitPaddle(paddle, ball);
+     if (collision == true){
+        ball.hit();     //the ball is hit i.e. reverses direction.
+        score++;      //increase score in the current game by 1, if the player hit the ball.
+        println(&quot;Score:  &quot;  + score);
+     }
+  }
+  //The player has no lives left so the game ends
+  else{
+     println(&quot;Game Over!&quot;);
+     println(&quot;You have lost all of your lives:  &quot;  + livesLost);
+     println(&quot;Your final score is:  &quot;  + score); 
+     exit();     
+  }</code></pre>
+<h2>Test your code</h2>
+<p>Run your code.  </p>
+<p>Your output should be similar to this:</p>
+<p><img src="./img/03.png" alt="PongGame V4.0 output"></p>
+<p>Make sure you understand the code before moving onto PongGameV5_0.</p>
+<h2>Solution</h2>
+<p>If your code is not working, the solution can be found <a href="archives/PongGameV4_0.zip">here</a>. </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="V5">
+            <h1>PongGameV5.0</h1>
+<p>Having read the lecture on PongGameV5.0 we will now develop it. </p>
+<p>Make sure that you read and understand the code below, while typing it into the relevant class.  If you have any questions on any part of the code, make sure to ask your lecturer.</p>
+<p><img src="./img/04.png" alt="PongGame V5.0"></p>
+<h2>Adding tournament information</h2>
+<p>In this version, we want to store the tournament information such as the number of games in a tournament and the number of games played so far in the tournament.</p>
+<p>Open your solution to &#39;&#39;PongGameV4_0&#39;&#39;.</p>
+<p>Save it as &#39;&#39;PongGameV5_0&#39;&#39;</p>
+<p>In the PongGameV5_0 class, add the following global variables to store the tournament information:</p>
+<pre><code class="lang-java">  //Tournament data
+  int maxNumberOfGames = 5;     //maximum number of games in a tournament
+  int numberOfGamesPlayed = 0;  //num of games played, so far, in a tournament</code></pre>
+<p>In the draw() method, replace the &#39;&#39;else&#39;&#39; portion relating to this if statement:</p>
+<pre><code class="lang-java">  if (livesLost &lt; maxLivesPerGame){</code></pre>
+<p>with this code:</p>
+<pre><code class="lang-java">  //The player has no lives left so the game ends
+  else{
+     numberOfGamesPlayed++;        
+     //If the player has more games left in the tournament, 
+     //display their score and ask them if they want to continue with tournament.
+     if (numberOfGamesPlayed &lt; maxNumberOfGames){
+        resetGame();
+     }
+     else{
+        //the player has no more games left in the tournament 
+        tournamentOver();
+     }
+  }</code></pre>
+<h2>The resetGame() method</h2>
+<p>In the PongGameV5_0 class, add this new method:</p>
+<pre><code class="lang-java">// This method prepares for the next game by resetting the variables 
+// that store the current game information.
+void resetGame()
+{
+    println(&quot;Game Over!&quot;);
+    println(&quot;Starting a new game...&quot;);
+    livesLost = 0;        //resets the lives lost in the current game to zero
+    score = 0;            //resets the score of the current game to zero   
+}</code></pre>
+<h2>The tournamentOver() method</h2>
+<p>In the PongGameV5_0 class, add this new method:</p>
+<pre><code class="lang-java">// This method displays the player information, before exiting the program.
+void tournamentOver()
+{
+   println(&quot;Game Over!&quot;);
+   println(&quot;Tournament Over!&quot;);
+   exit();  
+}</code></pre>
+<h2>Test your code</h2>
+<p>Run your code.  </p>
+<p>Your output should be similar to this:</p>
+<p><img src="./img/05.png" alt="PongGame V5.0 output"></p>
+<p>Make sure you understand the code before moving onto PongGameV6_0.</p>
+<h2>Solution</h2>
+<p>If your code is not working, the solution can be found <a href="archives/PongGameV5_0.zip">here</a>. </p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>
