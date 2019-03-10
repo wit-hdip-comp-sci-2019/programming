@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html">  08b: Grouping Objects (ArrayLists part 2)  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-08b">
+          Lab-08b
+        </a>
+      
+        <a class="item" data-tab="ShopV2.0">
+          ShopV2.0
+        </a>
+      
+        <a class="item" data-tab="Exercises">
+          Exercises
+        </a>
+      
+        <a class="item" data-tab="Solutions">
+          Solutions
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic----assignments/book-assignment-1/index.html">Assignment-1 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic----assignments/book-assignment-2/index.html">Assignment-2 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-00-induction/book-induction/index.html">Induction </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-01-first-contact/unit-01a-intro-to-processing/book-1a/index.html">Lab-1a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-01-first-contact/unit-01b-animate-your-drawings/book-1b/index.html">Lab-1b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-02-selection_and_iteration/unit-02a-if-stmt-and-events/book/index.html">Lab-02a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-02-selection_and_iteration/unit-02b-iteration-for-while/book/index.html">Lab-02b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-03-methods/unit-03a-methods/book/index.html">Lab-03a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-03-methods/unit-03b-more-on-methods/book/index.html">Lab-03b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-04-classes/unit-04a-strings-and-intro-to-classes/book/index.html">Lab-04a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-04-classes/unit-04b-classes-encapsulation/book/index.html">Lab-04b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-05-arrays/unit-05a-swing-and-arrays/book/index.html">Lab-05a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-05-arrays/unit-05b-arrays-and-classes/book/index.html">Lab-05b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06a-pong-V1-V5/book-v1-v5/index.html">Lab-06a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v6/book-v6/index.html">Lab-06b-v6 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v7/book-v7/index.html">Lab-06b-v7 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v8/book-v6-v7-v8/index.html">Lab-06b-v8 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v9/book-v9/index.html">Lab-06b-v9 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-07-IntelliJ-JVM-and-IO/unit-07a/book-a-setup-intellij/index.html">Lab-07a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-07-IntelliJ-JVM-and-IO/unit-07b/book-b/index.html">Lab-07b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-08-grouping-objects/unit-01/book-1/index.html">Lab-08a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-08-grouping-objects/unit-02/book-2/index.html">Lab-08b </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-08b">
+            <h1>Objectives</h1>
+<p>IntelliJ · ShopV2.0 · ShopV2.1 · array · algorithms</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="ShopV2.0">
+            <h1>ShopV2.0</h1>
+<p>This console based app will ask the user how many products they would like to enter.  When prompted, they will input the details for each of the products.  When finished the data entry, the product details will be printed on the console.</p>
+<p>During this step, you may need to view this weeks lecture notes to remind you how to use Arrays.</p>
+<p>In IntelliJ, create a new Java Project called ShopV2.0.</p>
+<p>Copy the Product and Driver classes from ShopV1.0 and paste them into ShopV2.0.  Note: solution to ShopV1.0 is <a href="./archives/ShopV1.0.zip">here</a>.</p>
+<p>Create a new class in the ShopV2.0 project called Store.  </p>
+<p>Your folder structure should look like this:</p>
+<p><img src="./img/01.PNG" alt="ShopV2.0 folder structure"></p>
+<h2>Product Class</h2>
+<p>There are no changes required in this class.</p>
+<h2>Store Class</h2>
+<p>In the Store class, create two private instance fields:</p>
+<ul>
+<li><p>products; an array of Products</p>
+</li>
+<li><p>total; an int representing the number of products currently in the array and also the next available index number in the array.</p>
+</li>
+</ul>
+<p>Write a constructor for this class that takes one parameter (numberItems).  This parameter will be used to set the size of the array of Products.  The total field is initialised to zero.</p>
+<p>Write a private method called <strong>isFull</strong> that takes no parameters.  This method should return true if the value of the <strong>total</strong> field is equal to the length of the <strong>products</strong> array, false otherwise.</p>
+<p>Write a private method called <strong>isEmpty</strong> that takes no parameters.  This method should return true if the value of the <strong>total</strong> field is zero, false otherwise.</p>
+<p>Write an <strong>add</strong> method that takes one parameter (an Object of type Product) and returns a boolean value.  This method tests the boolean value returned from the <strong>isFull()</strong> method. If:</p>
+<ul>
+<li><p>true is returned then the add method should return a value of false i.e. the array is full, so we could not add a product.</p>
+</li>
+<li><p>false is returned, then add the product object that was passed as a parameter to the products array using the <strong>total</strong> field as the index location.  Increment the <strong>total</strong> field by 1.  return true, indicating that the product was successfully added to the array.</p>
+</li>
+</ul>
+<p>Write a <strong>listProducts</strong> method that takes no parameter and returns a String value.  This method tests the boolean value returned from the <strong>isEmpty()</strong> method. If:</p>
+<ul>
+<li><p>true is returned i.e. no products have been added, return the text &quot;No products&quot;.</p>
+</li>
+<li><p>false is returned, use a for loop to cycle over the elements in the array, building a String of all products.  Return this string.</p>
+</li>
+</ul>
+<h2>Driver Class</h2>
+<p>We will refactor this class to remove the Product instance field and replace it with an object of type Store.  We will also cater for entering and printing multiple products. </p>
+<ul>
+<li><p>Delete the Product instance field and include a Store instance field instead. </p>
+</li>
+<li><p>Create a new method called <strong>processOrder</strong> that takes no parameters and has a void return type.  In this method, type in the following code:</p>
+</li>
+</ul>
+<pre><code>    private void processOrder(){
+        //find out from the user how many products they would like to order
+        System.out.print(&quot;How many Products would you like to have in your Store?  &quot;);
+        int numberProducts = input.nextInt();
+
+        store = new Store(numberProducts);
+
+        //ask the user for the details of the products and add them to the order
+        for (int i = 0; i &lt; numberProducts; i++){
+            addProduct();
+        }
+    }</code></pre>
+<ul>
+<li>In your <strong>addProduct()</strong> method, change your code so that it looks like this (first and last line are changed):</li>
+</ul>
+<pre><code>    private void addProduct(){  
+        //dummy read of String to clear the buffer - bug in Scanner class.
+        input.nextLine();
+        System.out.print(&quot;Enter the Product Name:  &quot;);
+        String productName = input.nextLine();
+        System.out.print(&quot;Enter the Product Code:  &quot;);
+        int productCode = input.nextInt();
+        System.out.print(&quot;Enter the Unit Cost:  &quot;);
+        double unitCost = input.nextDouble();
+        System.out.print(&quot;Is this product in your current line (y/n): &quot;);
+           char currentProduct = input.next().charAt(0);
+        boolean inCurrentProductLine = false;
+        if ((currentProduct == &#39;y&#39;) || (currentProduct == &#39;Y&#39;))
+            inCurrentProductLine = true;
+
+        store.add(new Product(productName, productCode, unitCost, inCurrentProductLine));
+    }</code></pre>
+<ul>
+<li>Note:  there is a bug in Scanner.  When you read an int and then do a String read, Scanner ignores the String read.  For this reason, you need to put in a &quot;dummy&quot; read of a String (i.e. input.nextLine() as the first line of code in the method).</li>
+</ul>
+<ul>
+<li>In your <strong>printProduct()</strong> method, change the line of code to be:</li>
+</ul>
+<pre><code>    System.out.println(store.listProducts());</code></pre>
+<ul>
+<li>In the <strong>main</strong> method, replace this line of code:</li>
+</ul>
+<pre><code class="lang-java">   c.addProduct();</code></pre>
+<p>with:</p>
+<pre><code class="lang-java">   c.processOrder();</code></pre>
+<h2>Run the App</h2>
+<p>Run the app; does all work as expected?  </p>
+<ul>
+<li>Are you asked how many products you would like to enter?</li>
+<li>Can you enter details for each product?</li>
+<li>When finished the data entry, are the product details printed to the console?</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Exercises">
+            <h1>Exercises</h1>
+<p>In IntelliJ, create a new project called <strong>ShopV2.1</strong>.</p>
+<p>Copy your completed ShopV2.0 java files (Driver, Store and Product) into this new project.  Alternatively, you can use our solution: <a href="archives/ShopV2.0.zip">ShopV2.0</a>.</p>
+<p>Add a new method to the Store class for each piece of functionality listed below:</p>
+<ul>
+<li><p>list the products that are in the current product line (testing the boolean variable here).</p>
+</li>
+<li><p>list the cheapest product entered.</p>
+</li>
+<li><p>list the average product price.</p>
+</li>
+<li><p>list the products above a specific price (read from the user and passed as a parameter).</p>
+</li>
+</ul>
+<p>To test these new methods, call them from the main method in your Driver class. </p>
+<p>Your output should look something like this:</p>
+<p><img src="./img/02.PNG" alt="ShopV2.1 Output"></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Solutions">
+            <h1>Solutions</h1>
+<p><a href="archives/ShopV1.0.zip">ShopV1.0</a></p>
+<p><a href="archives/ShopV2.0.zip">ShopV2.0</a></p>
+<p><a href="archives/ShopV2.1.zip">Exercise - ShopV2.1</a></p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>
