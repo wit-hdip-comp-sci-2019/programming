@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html">  09c: Persistence + misc (CRUD · debugging)  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-09c">
+          Lab-09c
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="DVD 1.0">
+          DVD 1.0
+        </a>
+      
+        <a class="item" data-tab="DVD 2.0">
+          DVD 2.0
+        </a>
+      
+        <a class="item" data-tab="Solutions">
+          Solutions
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic----assignments/book-assignment-1/index.html">Assignment-1 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic----assignments/book-assignment-2/index.html">Assignment-2 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-00-induction/book-induction/index.html">Induction </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-01-first-contact/unit-01a-intro-to-processing/book-1a/index.html">Lab-1a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-01-first-contact/unit-01b-animate-your-drawings/book-1b/index.html">Lab-1b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-02-selection_and_iteration/unit-02a-if-stmt-and-events/book/index.html">Lab-02a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-02-selection_and_iteration/unit-02b-iteration-for-while/book/index.html">Lab-02b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-03-methods/unit-03a-methods/book/index.html">Lab-03a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-03-methods/unit-03b-more-on-methods/book/index.html">Lab-03b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-04-classes/unit-04a-strings-and-intro-to-classes/book/index.html">Lab-04a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-04-classes/unit-04b-classes-encapsulation/book/index.html">Lab-04b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-05-arrays/unit-05a-swing-and-arrays/book/index.html">Lab-05a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-05-arrays/unit-05b-arrays-and-classes/book/index.html">Lab-05b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06a-pong-V1-V5/book-v1-v5/index.html">Lab-06a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v6/book-v6/index.html">Lab-06b-v6 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v7/book-v7/index.html">Lab-06b-v7 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v8/book-v6-v7-v8/index.html">Lab-06b-v8 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v9/book-v9/index.html">Lab-06b-v9 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-07-IntelliJ-JVM-and-IO/unit-07a/book-a-setup-intellij/index.html">Lab-07a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-07-IntelliJ-JVM-and-IO/unit-07b/book-b/index.html">Lab-07b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-08-grouping-objects/unit-01/book-1/index.html">Lab-08a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-08-grouping-objects/unit-01/book-2/index.html">Lab-08b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-09-menu-and-crud/unit-01/book-1/index.html">Lab-09a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-09-menu-and-crud/unit-01b/book-4/index.html">Assignment 3 Prerequisite </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-09-menu-and-crud/unit-02/book-2/index.html">Lab-09c </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-09c">
+            <h1>Objectives</h1>
+<p>CRUD · ShopV4.0 · DVDLibraryV2.0</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Developing Shop V4.0</h1>
+<p>In this practical, you will create a new project called ShopV4.0 in IntelliJ. You will add the Driver, Store and Product classes (linked below) to this project and amend the code so that it presents the user with the following simple menu for adding, listing, updating and deleting products (see Figure 1).</p>
+<p><img src="./img/01.png" alt="Figure 1: Menu System for ShopV4.0"> </p>
+<h2>Starting ShopV4.0</h2>
+<p>Create a new project called ShopV4.0.</p>
+<p>Copy the following classes into the project:</p>
+<ul>
+<li><p><a href="archives/Driver.java">Driver.java</a></p>
+</li>
+<li><p><a href="archives/Store.java">Store.java</a></p>
+</li>
+<li><p><a href="archives/Product.java">Product.java</a></p>
+</li>
+</ul>
+<p>Familiarise yourself with these classes by reviewing the code.</p>
+<p>In the Driver class, make the following changes to display the updated menu:</p>
+<p><img src="./img/02.png" alt="Figure 2: Menu System code for Shop V4.0"> </p>
+<p>Also in the Driver class, update the switch statement that processes the menu options to be:</p>
+<pre><code class="lang-java">            switch (option){
+                case 1:    addProduct();
+                    break;
+                case 2:    System.out.println(store.listProducts());
+                    break;
+                case 5:    System.out.println(store.cheapestProduct());
+                    break;
+                case 6:    System.out.println(store.listCurrentProducts());
+                    break;
+                case 7:    System.out.println(store.averageProductPrice());
+                    break;
+                case 8:    System.out.print(&quot;Enter the price barrier: &quot;);
+                    double price = input.nextDouble();
+                    System.out.println(store.listProductsAboveAPrice(price));
+                    break;
+                default:    System.out.println(&quot;Invalid option entered: &quot; + option);
+                    break;
+            }</code></pre>
+<p>Run the project.  </p>
+<ul>
+<li><p>Test options 1 and 2 to ensure you can add and list products.  </p>
+</li>
+<li><p>Test options 5-8 to make sure they are working as expected.</p>
+</li>
+<li><p>Test options 3 and 4; they should do nothing and we will add this code in the subsequent steps.</p>
+</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Developing Shop V4.0</h1>
+<p>Continue working with ShopV4.0 in IntelliJ.  You will add the code to delete a product, using menu option 4.</p>
+<p><img src="./img/01.png" alt="Figure 1: Menu System for ShopV4.0"> </p>
+<h2>Store Class - getting ready for deleting</h2>
+<p>In the Store class, add an accessor method for the ArrayList of Products i.e.:</p>
+<pre><code class="lang-java">public ArrayList&lt;Product&gt; getProducts()
+{
+    return products;
+}</code></pre>
+<h2>Menu Item 4:  Deleting a product</h2>
+<p>In the Driver class, make the following changes to implement case 4 (deleting a product):</p>
+<p><img src="./img/05.png" alt="Figure 2: Code for case 4"> </p>
+<p><img src="./img/06.png" alt="Figure 3: Code for deleting a Product"> </p>
+<p>Run the project (as a Java Application).</p>
+<p>Add a product using option 1.</p>
+<p>Test option 4 and try to delete the product you just added.  </p>
+<p>Did it work?</p>
+<p>Now try to delete a product that doesn&#39;t exist e.g. enter an index of 6.</p>
+<p>What happened?  Did your program crash?</p>
+<h2>Menu Item 4:  Adding error checking</h2>
+<p>In the Driver class, make the following changes to implement error checking:</p>
+<p><img src="./img/07.png" alt="Figure 4: Error checking when deleting a product"> </p>
+<p>Run the project and test these three scenarios:</p>
+<ul>
+<li><p>No products exist...try deleting a product.  The message &quot;No products&quot; should be displayed.</p>
+</li>
+<li><p>Create two products...try deleting a product at index 6.  A message similar to &quot;There is no product for this index number&quot; should be displayed.</p>
+</li>
+<li><p>With the two products created...try deleting a product at index 1.  The product is deleted.</p>
+</li>
+</ul>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Developing Shop V4.0</h1>
+<p>Continue working with ShopV4.0 in IntelliJ.  You will add the code to update a product, using menu option 3.</p>
+<p><img src="./img/01.png" alt="Figure 1: Menu System for ShopV4.0"> </p>
+<h2>Menu Item 3:  Updating a product</h2>
+<p>In the Driver class, make the following changes to implement case 3 (updating a product):</p>
+<p><img src="./img/08.png" alt="Figure 2: Code for case 3"> </p>
+<p><img src="./img/09.png" alt="Figure 3: Code for updating a Product"> </p>
+<p>Run the project.</p>
+<p>Add a product using option 1.</p>
+<p>Test option 3 - try to update the product you just added.  </p>
+<p>Did it work?</p>
+<p>Now try to update a product that doesn&#39;t exist e.g. enter an index of 6.</p>
+<p>What happened?  Did your program crash?</p>
+<h2>Menu Item 3:  Adding error checking</h2>
+<p>In the Driver class, make the following changes to implement error checking:</p>
+<p><img src="./img/10.png" alt="Figure 4: Error checking when updating a product"> </p>
+<p>Run the project and test these three scenarios:</p>
+<ul>
+<li><p>No products exist...try updating a product.  The message &quot;No products&quot; should be displayed.</p>
+</li>
+<li><p>Create two products...try updating a product at index 6.  A message similar to &quot;There is no product for this index number&quot; should be displayed.</p>
+</li>
+<li><p>With the two products created...try updating a product at index 1.  The product should be updated.</p>
+</li>
+</ul>
+<p>Save and close this project.  </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="DVD 1.0">
+            <h1>Menu Driven DVD Specification (Phase 1)</h1>
+<p>In the previous practical, we worked on a new project called <strong>DVDLibraryV1.0</strong>.  This app presented the user with a simple menu for adding and listing DVD titles.  To refresh your memory on this project, please read the information below.</p>
+<h2>DVD class</h2>
+<p>The DVD class contained one instance field <strong>title</strong>, an empty default constructor and a getter and setter for the <strong>title</strong> field.  </p>
+<p>We also wrote a second constructor that took in the title as a parameter and updated the instance field, <strong>title</strong>.  Finally, we wrote a toString method that formatted the object state to a user-friendly string.</p>
+<h2>Library class</h2>
+<p>The Library class contained one instance field called <strong>dvds</strong> that held an ArrayList of DVDs.  The default constructor instantiated this ArrayList.  </p>
+<p>We wrote a method <strong>add()</strong> that accpeted a DVD object as a parameter. This method added the passed DVD object to the <strong>dvds</strong> ArrayList.</p>
+<p>We also wrote a <strong>listDVDs()</strong> method that returned a String comprising the index number and the title of each DVD in the dvds ArrayList.  If there were no dvds in the ArrayList, the String &quot;No DVDs&quot; was returned.</p>
+<h2>Driver class</h2>
+<p>The Driver class contained an instance field called <strong>library</strong> that is of type <strong>Library</strong>.  </p>
+<p>A global Scanner object was created that could be used by all methods in the class.</p>
+<p>The default constructor instantiated the <strong>library</strong> field and the Scanner object.</p>
+<p>We wrote a private method called <strong>addDVD()</strong> that had a void return type.  This method read the title of the DVD from the user and added it (as a DVD object) to the ArrayList in the <strong>Library</strong> class.</p>
+<p>We wrote a private method <strong>mainMenu()</strong> that had an int return type.  This method  displayed the name of the menu and the menu options (see Figure 1).  This method read the menu option that the user entered and returned it.</p>
+<p><img src="./img/11.png" alt="Figure 1: Menu for the DVD Library"> </p>
+<p>We wrote a private method <strong>run()</strong> that had a void return type.  This method controlled the menu options i.e. it called the appropriate method when the user selected a menu option.</p>
+<p>Finally, we wrote a main method that created an instance of itself (i.e. the Driver class) and called the <strong>run</strong> method over this instance (see the code below).</p>
+<h2>Solution for DVD1.0</h2>
+<p>If you didn&#39;t complete DVD Phase 1, the solution <a href="archives/DVDLibraryV1.0.zip">is here</a>.</p>
+<p>If you did complete it, open your DVD V1.0 code in IntelliJ.</p>
+<h2>Run and Test</h2>
+<p>Run the DVD Phase 1 project.</p>
+<p>Test the code by adding a few DVD and listing them.  Try listing the DVDs when no DVDs have been entered (you can do this by restarting the app and listing without adding).</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="DVD 2.0">
+            <h1>Menu Driven DVD Specification (Phase 2)</h1>
+<p>In this practical, you will create a new project in IntelliJ and copy in the code from <strong>DVDLibraryV1.0</strong>.  You will then extend the code to allow the user to update and delete DVDs. </p>
+<p>Create a new project called <strong>DVDLibraryV2.0</strong> and copy the <strong>src</strong> java files from <strong>DVDLibraryV1.0</strong> to the <strong>src</strong> folder in your new project,  <strong>DVDLibraryV2.0</strong>.</p>
+<p>NOTE:  a copy of the completed <strong>DVDLibraryV1.0</strong> <a href="archives/DVDLibraryV1.0.zip">is available here</a>.</p>
+<h2>Update a DVD</h2>
+<p>In your Driver class:</p>
+<ul>
+<li><p>add a third option to the menu:  3) Update a DVD.</p>
+</li>
+<li><p>in the switch statement, add a call to a new private method called updateDVD().</p>
+</li>
+<li><p>create an updateDVD() method that has no return type.  This method should:</p>
+<ul>
+<li><p>if DVDs exist in the ArrayList, list the DVDs and ask the user which one they would like to edit.  </p>
+</li>
+<li><p>if the user types in a valid index, ask the user to enter a new title for the DVD.  </p>
+</li>
+<li><p>retrieve the DVD at the specified index and update the title using the title mutator. </p>
+</li>
+</ul>
+</li>
+</ul>
+<p>In your Library class, add an accessor for the dvs ArrayList:</p>
+<pre><code>    public ArrayList&lt;DVD&gt; getDVDs()
+    {
+        return dvds;
+    }</code></pre>
+<p>Run your code and test this code for the following three scenarios:</p>
+<ul>
+<li><p>No DVDs exist...try updating a DVD. The message &quot;No DVDs&quot; should be displayed.</p>
+</li>
+<li><p>Create two DVDs...try updating a DVD at index 6. A message similar to &quot;There is no DVD for this index number&quot; should be displayed.</p>
+</li>
+<li><p>With the two DVDs created...try updating a DVD at index 1. The DVD should be updated.</p>
+</li>
+</ul>
+<h2>Delete a DVD</h2>
+<p>In your driver class:</p>
+<ul>
+<li><p>add a fourth option to the menu:  4) Delete a DVD.</p>
+</li>
+<li><p>in the switch statement, add a call to the deleteDVD() method.</p>
+</li>
+<li><p>create an deleteDVD() method that has no return type.  This method should:</p>
+<ul>
+<li><p>if DVDs exist in the ArrayList, list the DVDs and ask the user which one they would like to delete.  </p>
+</li>
+<li><p>if the user types in a valid index, delete the DVD at that index.  </p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Run your code and test this code for the following three scenarios:</p>
+<ul>
+<li><p>No DVDs exist...try deleting a DVD. The message &quot;No DVDs&quot; should be displayed.</p>
+</li>
+<li><p>Create two DVDs...try deleting a DVD at index 6. A message similar to &quot;There is no DVD for this index number&quot; should be displayed.</p>
+</li>
+<li><p>With the two DVDs created...try deleting a DVD at index 1. The DVD should be updated.</p>
+</li>
+</ul>
+<p>Save and close your project.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Solutions">
+            <h1>Solutions</h1>
+<p>The solution to DVD phase 1 <a href="archives/DVDLibraryV1.0.zip">is here</a>.</p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>

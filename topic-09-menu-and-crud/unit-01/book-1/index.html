@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html">  09a: Menu Driven Systems (Switch · Loops · Menus)   </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-09a">
+          Lab-09a
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+        <a class="item" data-tab="05">
+          05
+        </a>
+      
+        <a class="item" data-tab="Exercises">
+          Exercises
+        </a>
+      
+        <a class="item" data-tab="Solutions">
+          Solutions
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic----assignments/book-assignment-1/index.html">Assignment-1 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic----assignments/book-assignment-2/index.html">Assignment-2 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-00-induction/book-induction/index.html">Induction </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-01-first-contact/unit-01a-intro-to-processing/book-1a/index.html">Lab-1a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-01-first-contact/unit-01b-animate-your-drawings/book-1b/index.html">Lab-1b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-02-selection_and_iteration/unit-02a-if-stmt-and-events/book/index.html">Lab-02a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-02-selection_and_iteration/unit-02b-iteration-for-while/book/index.html">Lab-02b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-03-methods/unit-03a-methods/book/index.html">Lab-03a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-03-methods/unit-03b-more-on-methods/book/index.html">Lab-03b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-04-classes/unit-04a-strings-and-intro-to-classes/book/index.html">Lab-04a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-04-classes/unit-04b-classes-encapsulation/book/index.html">Lab-04b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-05-arrays/unit-05a-swing-and-arrays/book/index.html">Lab-05a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-05-arrays/unit-05b-arrays-and-classes/book/index.html">Lab-05b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06a-pong-V1-V5/book-v1-v5/index.html">Lab-06a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v6/book-v6/index.html">Lab-06b-v6 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v7/book-v7/index.html">Lab-06b-v7 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v8/book-v6-v7-v8/index.html">Lab-06b-v8 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v9/book-v9/index.html">Lab-06b-v9 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-07-IntelliJ-JVM-and-IO/unit-07a/book-a-setup-intellij/index.html">Lab-07a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-07-IntelliJ-JVM-and-IO/unit-07b/book-b/index.html">Lab-07b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-08-grouping-objects/unit-01/book-1/index.html">Lab-08a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-08-grouping-objects/unit-01/book-2/index.html">Lab-08b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-09-menu-and-crud/unit-01/book-1/index.html">Lab-09a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-09-menu-and-crud/unit-01b/book-4/index.html">Assignment 3 Prerequisite </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-09-menu-and-crud/unit-02/book-2/index.html">Lab-09c </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-09a">
+            <h1>Objectives</h1>
+<p>Collections · Generic Classes · ArrayList · loops · for each loop · Menu Driven Apps</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>Starting ShopV3.0</h1>
+<p>In this step, you will use the ShopV2.1 solution as a starting point for Shop V3.0.  In this version:</p>
+<ul>
+<li><p>you will remove the primitive array and use an ArrayList instead.</p>
+</li>
+<li><p>when you are successfully using an ArrayList, you will then add a menu to control the user interaction with your app.</p>
+</li>
+</ul>
+<h2>Creating ShopV3.0</h2>
+<p>The solution to the previous lab (i.e. ShopV2.1) is <a href="./archives/ShopV2.1.zip">here</a>.</p>
+<p>In IntelliJ, create a new project called ShopV3.0.  </p>
+<p>Copy the src files (Driver, Store, Product) from ShopV2.1 and paste them in the src for ShopV3.0.</p>
+<p><img src="./img/01.PNG" alt="ShopV3.0 folder structure"></p>
+<h2>Test the code base</h2>
+<p>Run your version of ShopV3.0 to both test it and also familiarise yourself with the project. </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Refactoring the Store Class</h1>
+<p>In this step, you will refactor (change) the Store class so that it no longer uses a primitive array, but uses an ArrayList instead.</p>
+<h2>Import the ArrayList class</h2>
+<p>To use the ArrayList in our Store class, we need to import it:</p>
+<pre><code class="lang-java">import java.util.ArrayList;</code></pre>
+<h2>Declaring an ArrayList</h2>
+<p>Currently we are using a primitive array and we keep track of how many items are added using the <strong>total</strong> field:</p>
+<pre><code class="lang-java">    private Product[] products;
+    private int total;</code></pre>
+<p>As an ArrayList automatically grows and shrinks as you add/remove elements, there is no need for the <strong>total</strong> field anymore. Delete this field.</p>
+<p>The <strong>products</strong> instance field should be changed to this:</p>
+<pre><code class="lang-java">    private ArrayList&lt;Product&gt; products;</code></pre>
+<h2>The Store Constructor</h2>
+<p>Currently the Store constructor looks like this:</p>
+<pre><code class="lang-java">    public Store(int numberItems){
+        products = new Product[numberItems];
+        total = 0;
+    }</code></pre>
+<p>As an ArrayList doesn&#39;t need to know the maximum number of items that will be stored, we can delete the parameter <strong>numberItems</strong>.  We can also remove the initialisation of <strong>total</strong>.  We will instantiate the <strong>products</strong> ArrayList too, instead of a primitive array instantiation.  Your constructor should now look like this:</p>
+<pre><code class="lang-java">    public Store(){
+        products = new ArrayList&lt;Product&gt;();
+    }</code></pre>
+<h2>The add method</h2>
+<p>Currently the <strong>add</strong> method looks something like this (see code below).  As a primitive array has a maximum capacity, you have to check if the array is full before attempting to add a Product to it.  As the add can fail due to space restrictions, you also need to return a boolean status for the add.  The total field also needed to be maintained.</p>
+<pre><code class="lang-java">        public boolean add(Product product){
+        if (isFull()){
+            return false;
+        }
+        else{
+            products[total] = product;
+            total++;
+            return true;
+        }
+    }</code></pre>
+<p>As the ArrayList grows when you add Product objects to it, you don&#39;t need to check for spare capacity, check for successful adds, nor do you have to maintain the total items entered (an ArrayList does this for us).  Replace the above <strong>add</strong> method with our new <strong>add</strong> method, which will simply look like this:</p>
+<pre><code class="lang-java">    public void add (Product product){
+        products.add (product); 
+    }</code></pre>
+<h2>The listProducts method</h2>
+<p>Currently the <strong>listProducts</strong> method looks like this:</p>
+<pre><code class="lang-java">    public String listProducts(){
+        if (isEmpty()){
+            return &quot;No products&quot;;
+        }
+        else{
+            String listOfProducts = &quot;&quot;;
+            for (int i = 0; i &lt; total; i++){
+                listOfProducts = listOfProducts + i + &quot;: &quot; + products[i] + &quot;\n&quot;;
+            }
+            return listOfProducts;
+        }
+    }</code></pre>
+<p>Rewrite the method so that it looks like this:</p>
+<pre><code class="lang-java">    public String listProducts(){
+        if (products.size() == 0){
+            return &quot;No products&quot;;
+        }
+        else{
+            String listOfProducts = &quot;&quot;;
+            for (int i = 0; i &lt; products.size(); i++){
+                listOfProducts = listOfProducts + i + &quot;: &quot; + products.get(i) + &quot;\n&quot;;
+            }
+            return listOfProducts;
+        } 
+    }</code></pre>
+<p>Or if you prefer to use the for-each loop, you can replace it with this:</p>
+<pre><code>    public String listProducts(){
+        if (products.size() == 0){
+            return &quot;No products&quot;;
+        }
+        else{
+            String listOfProducts = &quot;&quot;;
+            int index = 0;
+            for (Product product : products){
+                listOfProducts = listOfProducts + index + &quot;: &quot; + product + &quot;\n&quot;;
+                index ++;
+            }
+            return listOfProducts;
+        } 
+    }</code></pre>
+<h2>The listCurrentProducts method</h2>
+<p>Having rewritten the <strong>listProducts</strong> method, refactor the <strong>listCurrentProducts</strong> method body so that it is the exact same.</p>
+<p>Include, inside the for loop, the following test so that only those products in the current product line are added to the String to be returned:</p>
+<pre><code>    if (products.get(i).isInCurrentProductLine())</code></pre>
+<h2>The listProductsAboveAPrice method</h2>
+<p>Having worked on the other two <strong>list</strong> methods above, have a go at converting <strong>listProductsAboveAPrice</strong> to handle <strong>ArrayList</strong> instead of a <strong>primitive array</strong>.</p>
+<h2>The averageProductPrice method</h2>
+<p>Currently, the <strong>averageProductPrice</strong> method looks like this:</p>
+<pre><code class="lang-java">    public double averageProductPrice()
+    { 
+        if (!isEmpty()){
+            double totalPrice = 0;
+            for (int i = 0; i &lt; total; i++){
+                totalPrice = totalPrice + products[i].getUnitCost();
+            }
+            return totalPrice / products.length;
+        }
+        else
+        {
+            return 0.0;
+        }
+
+    }</code></pre>
+<p>Refactor the method so that it looks like the code below.  Note that we have catered for an empty ArrayList...we don&#39;t want to accidentally divide by zero as it will crash our program (DivideByZeroException).</p>
+<pre><code>    public double averageProductPrice()
+    { 
+        if (products.size() != 0){
+            double totalPrice = 0;
+            for (int i = 0; i &lt; products.size(); i++){
+                totalPrice = totalPrice + products.get(i).getUnitCost();
+            }
+            return totalPrice / products.size();
+        }
+        else{
+            return 0.0;
+        }
+    }</code></pre>
+<h2>The cheapestProduct method</h2>
+<p>Having refactored the previous methods, have a go at converting the <strong>cheapestProduct</strong> method to handle <strong>ArrayList</strong> instead of a <strong>primitive array</strong>.</p>
+<h2>isEmpty and isFull methods</h2>
+<p>There is no need for these methods when using ArrayLists, so you can simply delete them.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Refactoring the Driver Class</h1>
+<p>In this step, you will refactor (change) the Driver class so that any changes we made to the <strong>Interface</strong> of the Store class are reflected in this class.</p>
+<h2>Store Constructor</h2>
+<p>The only change that we made to the <strong>Interface</strong> of the Store class is the Store Constructor.</p>
+<p>By using an ArrayList, we removed the need to know the size of the collection at the start of the program.  For this reason we deleted the numberItems from the Store constructor&#39;s parameter list. </p>
+<p>In the Driver class, in the processOrder method, you will find this code:</p>
+<pre><code class="lang-java">    //find out from the user how many products they would like to order
+    System.out.print(&quot;How many Products would you like to have in your Store?  &quot;);
+    int numberProducts = input.nextInt();
+
+    store = new Store(numberProducts);</code></pre>
+<p>For the moment, leave the code in that asks the user how many products they want to enter (we will come back to this later!).</p>
+<p>Just remove the parameter that is passed to the Store constructor.  This line of code should now be:</p>
+<pre><code class="lang-java">    store = new Store();</code></pre>
+<h2>Run and Test</h2>
+<p>Try running your code; the functionality for the user should not have changed in any way.  </p>
+<p>Your output should look similar to this:</p>
+<p><img src="./img/06.PNG" alt="Output from ShopV3.0 - no menu"></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Menu Driven App</h1>
+<p>At this stage, you should have refactored ShopV3.0 so that it uses an ArrayList instead of a primitive array.  If you had difficulty with it, <a href="./archives/ShopV3.0-InterimSolution.zip">here is an interim solution</a> that you can use for the rest of this lab.</p>
+<p>You will notice in our code that we are still asking the user how many products they want to add.  This is very restrictive for a user; they cannot add more products later on.  Our app also doesn&#39;t allow them to choose what items they would like to list, etc.  The user has no level of control over our system.</p>
+<p>For this reason, we are going to add a menu to our console app so the user can choose what they would like to do with their products:</p>
+<p><img src="./img/07.PNG" alt="ShopV3.0 menu"></p>
+<p>As the <strong>Driver</strong> class controls all the I/O, our changes will be made in this class; Store and Product will not change.</p>
+<h2>Driver Class I/O</h2>
+<p>Currently, the I/O is controlled by the <strong>main</strong> method with calls to other methods of the Driver class:</p>
+<pre><code class="lang-java">    public static void main(String[] args) {
+        Driver c = new Driver();
+        c.processOrder();
+        c.printProduct();
+        c.printCurrentProducts();
+        c.printAverageProductPrice();
+        c.printCheapestProduct();
+        c.printProductsAboveAPrice();
+    }</code></pre>
+<p>As we will call these methods from our <strong>menu</strong> code instead, you can delete all of these method calls.  Your main method should now look something like this:</p>
+<pre><code>    public static void main (String args[]){
+        Driver app = new Driver();
+    }</code></pre>
+<h2>Driver constructor</h2>
+<p>Add a <strong>Driver</strong> constructor that creates an object of the <strong>Store</strong> class:</p>
+<pre><code class="lang-java">    public Driver(){
+        store = new Store();
+    }</code></pre>
+<p>You can now delete the <strong>processOrder</strong> method; the menu will perform this processing for us.</p>
+<h2>Driver methods (except the add method)</h2>
+<p>The following methods (except the add one) print out a bit of information to the user to give them context on the data that is being printed e.g.:</p>
+<pre><code class="lang-java">    private void printProduct(){
+        System.out.println(&quot;List of Products are:&quot;);
+        System.out.println(store.listProducts());
+    }
+
+    private void printCurrentProducts(){
+        System.out.println(&quot;List of CURRENT Products are:&quot;);
+        System.out.println(store.listCurrentProducts());
+    }
+
+    private void printAverageProductPrice(){
+        System.out.println(&quot;The average product price is: &quot; + store.averageProductPrice());
+    }
+
+    private void printCheapestProduct(){
+        System.out.println(&quot;The cheapest product is:  &quot; + store.cheapestProduct());
+    }
+
+    private void printProductsAboveAPrice(){
+        System.out.print(&quot;View the product costing more than this price:  &quot;);
+        double price = input.nextDouble();
+        System.out.println(store.listProductsAboveAPrice(price));
+    }</code></pre>
+<p>As the user will select, from a menu system, what they want to print, there is no need for the added detail to be printed out.  </p>
+<p>Delete all of these methods (don&#39;t delete <em>add</em>); instead we will just call the relevant <em>store.xxx</em> method directly from the main menu.</p>
+<h2>mainMenu method</h2>
+<p>Enter the following code into the Driver class.  This method displays the menu for the application, reads the menu option that the user entered and returns it.</p>
+<pre><code class="lang-java">    /**
+     * mainMenu() - This method displays the menu for the application, 
+     * reads the menu option that the user entered and returns it.
+     * 
+     * @return     the users menu choice
+     */
+    private int mainMenu(){ 
+        System.out.println(&quot;Shop Menu&quot;);
+        System.out.println(&quot;---------&quot;);     
+        System.out.println(&quot;  1) Add a Product&quot;);    
+        System.out.println(&quot;  2) List the Products&quot;);    
+        System.out.println(&quot;---------&quot;);     
+        System.out.println(&quot;  3) List the cheapest product&quot;);        
+        System.out.println(&quot;  4) List the products in our current product line&quot;); 
+        System.out.println(&quot;  5) Display average product unit cost&quot;); 
+        System.out.println(&quot;  6) List products that are more expensive than a given price&quot;);     
+        System.out.println(&quot;  0) Exit&quot;);
+        System.out.print(&quot;==&gt;&gt; &quot;);
+        int option = input.nextInt();
+        return option;
+    }</code></pre>
+<h2>runMenu method</h2>
+<p>Enter the following code into the Driver class...this method controls the looping of the menu and calls the appropriate methods based on the user choice:</p>
+<pre><code>   private void runMenu(){
+       int option = mainMenu();
+       while (option != 0){
+
+           switch (option){
+              case 1:    addProduct();
+                         break;
+              case 2:    System.out.println(store.listProducts());
+                         break;
+              case 3:    System.out.println(store.cheapestProduct());
+                         break;
+              case 4:    System.out.println(store.listCurrentProducts());
+                         break;
+              case 5:    System.out.println(store.averageProductPrice());
+                         break;
+              case 6:    System.out.print(&quot;Enter the price barrier: &quot;);
+                         double price = input.nextDouble();
+                         System.out.println(store.listProductsAboveAPrice(price));
+                         break;
+             default:    System.out.println(&quot;Invalid option entered: &quot; + option);
+                         break;
+           }
+
+           //pause the program so that the user can read what we just printed to the terminal window
+           System.out.println(&quot;\nPress any key to continue...&quot;);
+           input.nextLine();
+           input.nextLine();  //this second read is required - bug in Scanner class; a String read is ignored straight after reading an int.
+
+           //display the main menu again
+           option = mainMenu();
+       }
+
+       //the user chose option 0, so exit the program
+       System.out.println(&quot;Exiting... bye&quot;);
+       System.exit(0);
+   }</code></pre>
+<h2>Calling the menu</h2>
+<p>Return back to your <strong>Driver</strong> constructor and add, as the last statement, a call the runMenu() method e.g.:</p>
+<pre><code class="lang-java">    public Driver(){
+        store = new Store();
+        runMenu();
+    }</code></pre>
+<h2>Run the App</h2>
+<p>Run the app; does all work as expected?  Does each menu option do what it is supposed to do? </p>
+<p>Test the menu with some of your own products and see if you can identify any bugs.  If you come across any, try fix them.</p>
+<p>Before moving onto the next step, it is a good idea to familiarise yourself with the code in both the Store and the Driver class.  Note that we made no changes to the Product class. </p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="05">
+            <h1>Formatting decimal output</h1>
+<p>Did you notice that the average product price is not limited to two decimal places?</p>
+<p><img src="./img/08.PNG" alt="Average product price"></p>
+<h2>toTwoDecimalPlaces</h2>
+<p>We are going to just truncate this to two decimal places.</p>
+<p>Add the following helper method towards the bottom of the Store class:</p>
+<pre><code class="lang-java">    private double toTwoDecimalPlaces(double num){
+        return (int) (num *100 ) /100.0; 
+    }</code></pre>
+<p>Currently, your <strong>averageProductPrice</strong> method should look something like this:</p>
+<pre><code>    public double averageProductPrice()
+    { 
+        if (products.size() != 0){
+            double totalPrice = 0;
+            for (int i = 0; i &lt; products.size(); i++){
+                totalPrice = totalPrice + products.get(i).getUnitCost();
+            }
+            return totalPrice / products.size();
+        }
+        else{
+            return 0.0;
+        }
+    }</code></pre>
+<p>When returning the result of the average calculation, we want to call our new <strong>toTwoDecimalPlaces</strong> method to truncate the result to two decimal places:</p>
+<pre><code class="lang-java">    public double averageProductPrice()
+    { 
+        if (products.size() != 0){
+            double totalPrice = 0;
+            for (int i = 0; i &lt; products.size(); i++){
+                totalPrice = totalPrice + products.get(i).getUnitCost();
+            }
+            return toTwoDecimalPlaces(totalPrice / products.size());
+        }
+        else{
+            return 0.0;
+        }
+    }</code></pre>
+<p>Make this change and test your app to make sure your result is truncated to two decimal places.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Exercises">
+            <h1>Exercises</h1>
+<p>Over the next few weeks, we will use the knowledge we glean from the <strong>Shop</strong> project to build a Menu Driven <strong>DVDLibrary</strong> app.  </p>
+<p>Today, you will work on Phase 1 of this DVDLibrary application; it presents the user with a simple menu for adding and listing DVD titles.</p>
+<h1>Menu Driven DVD app - phase 1</h1>
+<p>Create a new project called <strong>DVDLibraryV1.0</strong>. </p>
+<h2>DVD class</h2>
+<p>Within this project, create a new class called <strong>DVD</strong>. In this class:</p>
+<ul>
+<li><p>Add an instance field, called <strong>title</strong>, that will store the title of the DVD.</p>
+</li>
+<li><p>Add a default empty constructor (we will cover why in later labs). </p>
+</li>
+<li><p>Add a constructor that takes in the title as a parameter and updates the instance field, <strong>title</strong>.</p>
+</li>
+<li><p>Add an accessor and a mutator for the <strong>title</strong> field.</p>
+</li>
+<li><p>Add a toString method that formats the object state to a user-friendly string.</p>
+</li>
+</ul>
+<h2>Library class</h2>
+<p>Within the current project, create a new class called <strong>Library</strong>. In this class:</p>
+<ul>
+<li><p>Add an instance field called <strong>dvds</strong> that can hold an ArrayList of DVDs.</p>
+</li>
+<li><p>Add a constructor that instantiates the above ArrayList.</p>
+</li>
+<li><p>Add a method <strong>add()</strong> that accpets a DVD object as a parameter. This method should add the passed DVD object to the <strong>dvds</strong> ArrayList.</p>
+</li>
+<li><p>Add a method <strong>listDVDs()</strong> that <em>returns</em> a String comprising the index number and the title of each DVD in the dvds ArrayList.  If there are no dvds in the ArrayList, the String &quot;No DVDs&quot; should be returned.</p>
+</li>
+</ul>
+<h2>Driver class</h2>
+<p>Within the current project, create a new class called <strong>Driver</strong>. In this class:</p>
+<ul>
+<li><p>Add an instance field called <strong>library</strong> that is of type <strong>Library</strong>.</p>
+</li>
+<li><p>Add an instance field called <strong>input</strong> that is of type <strong>Scanner</strong>.</p>
+</li>
+<li><p>Add a constructor that instantiates the above <strong>library</strong> field and the above <strong>input</strong> field.</p>
+</li>
+<li><p>Add a private method called <strong>addDVD()</strong> that has a void return type.  This method should read the title of the DVD from the user.  It should also include the following line of code to add the DVD to the dvds collection in Library:</p>
+</li>
+</ul>
+<pre><code class="lang-java">    library.add(new DVD(dvdTitle));</code></pre>
+<ul>
+<li><p>NOTE:  This line of code:</p>
+<ul>
+<li><p>creates a DVD object with the title entered by the user.</p>
+</li>
+<li><p>calls the <strong>add</strong> method in the Library class to add the DVD object to the <strong>dvds</strong> ArrayList. </p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Add a private method <strong>mainMenu()</strong> that has an int return type.  This method should display the name of the menu and the menu options (see image below).  This method should read the menu option that the user entered and return it.</li>
+</ul>
+<p><img src="./img/09.PNG" alt="Menu for the DVD Library"> </p>
+<ul>
+<li>Add a private method <strong>run()</strong> that has a void return type.  This method should look like this:</li>
+</ul>
+<pre><code class="lang-java">    private void run()
+    {
+        int option = mainMenu();
+        while (option != 0)
+        {
+            switch (option)
+            {
+                case 1:
+                    addDVD();
+                    break;
+                case 2:
+                    System.out.println(library.listDVDs());
+                    break;
+                default:
+                    System.out.println(&quot;Invalid option selected.&quot;);
+                    break;
+            }
+
+            //display the main menu again
+            System.out.println(&quot;&quot;);
+            option = mainMenu();
+        }
+        System.out.println(&quot;Exiting... bye&quot;);
+    }</code></pre>
+<ul>
+<li>Finally, write a main method that will create an instance of itself (i.e. the Driver class) and call the <strong>run</strong> method over this instance (see the code below).</li>
+</ul>
+<pre><code class="lang-java">    public static void main (String[] args)
+     {
+         Driver app = new Driver();
+         app.run();
+     }</code></pre>
+<h2>Run and Test</h2>
+<p>Run the project.</p>
+<p>Test by adding a series of DVDs and listing them.  </p>
+<p>Also try listing the DVDs when no DVDs have been entered (you can test this by restarting the application to clear any existing DVDs).</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Solutions">
+            <h1>Solutions</h1>
+<p><a href="archives/ShopV2.1.zip">ShopV2.1 from the previous lab</a></p>
+<p><a href="archives/ShopV3.0-InterimSolution.zip">ShopV3.0-InterimSolution</a></p>
+<p><a href="archives/ShopV3.0.zip">ShopV3.0</a></p>
+<p><a href="archives/DVDLibraryV1.0.zip">Exercise Solution - DVDLibraryV1.0</a></p>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>
