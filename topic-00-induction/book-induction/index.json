@@ -1,0 +1,89 @@
+
+
+
+  {
+  
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Induction",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>Processing · drawing basic shapes · verify IntelliJ setup</p>",
+  "folder" : "book-induction",
+  "link" : "index.html",
+  "los": [
+   ]
+,
+  "chapters" : [
+  
+    {
+    "title": "#Objectives",
+    "shortTitle": "Induction",
+    "contentMd" : "#Objectives\n\nProcessing · drawing basic shapes · verify IntelliJ setup"
+    },
+  
+    {
+    "title": "#Installing the Module Software",
+    "shortTitle": "Software",
+    "contentMd" : "#Installing the Module Software\n\nFor this module, we need the following software packages:\n\n- Processing Development Environment (PDE).  \n- Java (JDK)\n- IntelliJ IDEA\n\nIf you have these installed on your computer, you can move onto the next step.\n\nIf you didn't get a chance to install the required software, please watch the video previously sent to you and follow the instructions for the installation.\n\nAlternatively, if you are familiar with installing software, you can download and install the latest version of the resources from here:\n\n- Processing <https://processing.org/download/>\n\n- Java JDK <https://www.oracle.com/technetwork/java/javase/downloads/index.html> \n\n- IntelliJ IDEA <https://www.jetbrains.com/idea/download/>\n\nIf you require unzipping software, 7zip is a good choice: <http://www.7-zip.org/> (or Keka for Mac <http://www.kekaosx.com/en/>)"
+    },
+  
+    {
+    "title": "#Verifying IntelliJ Installation",
+    "shortTitle": "IntelliJ",
+    "contentMd" : "#Verifying IntelliJ Installation\n\n- We will start using IntelliJ in week 6/7.  \n- The purpose of this step is to verify that IntelliJ installed correctly. \n\n##Launch IntelliJ\n\nLocate your IntelliJ application and start it.\n\nA small window might appear asking you if you want to import settings...you don't need to import any settings.  \n\nIf this is your first time launching IntelliJ, you will be presented with this customising window:\n\n![](./img/26.png)\n\nClick on the button to **Skip Remaining and Set Defaults**.  \n\n\n##Creating your first Java Program\n\nClick **Create New Project**.\n\n![](./img/27.png)\n\nSomething similar to this window should appear:\n\n![](./img/28.png)\n\nIf your installation says that **No SDK** exists for the **Project SDK** (as ours does above), click on the **New..** button and locate the version of Java you previously downloaded, for example:\n\n![](./img/29.png)\n\nNow that we have a valid Project SDK, click the **Next** button:\n\n![](./img/30.png)\n\nCheck the **Create project from template** box and select the **Java Hello World** project.  Click the Next button.\n\n![](./img/31.png)\n\nRename the project to **HelloWorld** and click **Finish**.\n\n![](./img/32.png)\n\nClose the **Tip** window when it appears.  \n\nBelow, we can see our first project has been created and it contains a **Main.java** file with Java code in it.\n\n![](./img/33.png)\n\n\n##Running your first Java Program\n\nThis program, when run, will print **Hello World!** into the console window.  At the moment, we are not concerned with the Java code written here, we are just checking that your installtion of IntelliJ is working properly.  We will cover the code in later labs.\n\nTo run the program, click the run button.\n\n![](./img/34.png)\n\n**Hello World!** should be printed to the console:\n\n![](./img/35.png)\n\nIf you are not getting this result, you should flag this to your instructor who can help resolve the issue.\n\nOnce you have **Hello World!** printed to your console, you can exit the IntelliJ IDE.\n\n"
+    },
+  
+    {
+    "title": "#Opening the PDE (Processing Development Environment)",
+    "shortTitle": "01",
+    "contentMd" : "#Opening the PDE (Processing Development Environment)\n\nGo to the directory/folder where you installed your processing app.  \n\nYou should see a list of files and folders similiar to the image below:\n\n![Processing Development Environment files](./img/04.png)\n\nDouble click in the **processing** application (highlighted by the red rectangle).\n\nThe PDE (Processing Development Environment) should launch.\n\n![The Processing Development Environment](./img/05.png)\n\n"
+    },
+  
+    {
+    "title": "#Setting your Sketchbook location",
+    "shortTitle": "02",
+    "contentMd" : "#Setting your Sketchbook location\n\n- As you work through the exercises in this course, you will create many new files.  These files are called Sketchbooks.\n\n- It is important that you pick a convenient location on your computer to save these sketchbook files to.  The following steps show you how to do this.\n\n\n##Updating your Sketchbook location\n\n- In Processing, from the **File** menu (**Processing** menu on the Mac), select the **Preferences** menu item.\n\n![Selecting the Preferences menu item](./img/06.png)\n\n- When the following window appears, enter a convenient folder location (or keep the existing one if it is suitable for you).\n\n![Enter a new sketchbook location](./img/07.png)\n\n\n##The Sketchbook location\n\n- All your work can now be accessed easily by selecting **Open Recent** from the **File** menu. An example of previous Sketchbook work could look like this:\n\n![Example of a Sketchbook containing previous work](./img/08.png)\n\n"
+    },
+  
+    {
+    "title": "#Drawing Simple Shapes",
+    "shortTitle": "03",
+    "contentMd" : "#Drawing Simple Shapes\n\n- We will use the following built-in functions to draw simple shapes:\n    - rect()\n    - line()\n    - ellipse()\n\n##Drawing Rectangles\n\n- The syntax of the **rect** function is:\n\n~~~   \n    rect(x, y, w, h)\n        x = x-coordinate of the upper left corner of the rectangle\n        y = y-coordinate of the upper left corner of the rectangle\n        w = width of the rectangle\n        h = height of the rectangle\n~~~\n\n- Note that, in computing, the coordinates start in the top left hand corner i.e. (0,0) is in the top left of the screen.  In the following picture, you can see the coordinates of the rectangle (1,2) along with its width (4) and height (3). \n\n![Rectangle example from www.processing.org](./img/09.png)\n\n- Enter the following code in your sketchbook:\n\n~~~\n    rect(20,30,50,30);\n~~~\n\n- Run the code, by clicking on the **play** button (highlighted in red in the screen shot below):\n\n![Running code - click on the play button](./img/11.png)\n\n- The following window should appear with a rectangle that:\n    - starts at the (x,y) coordinates (20,30) [measured in pixels]\n    - has a width of 50 pixels\n    - has a height of 30 pixels\n\n![Rectangle](./img/12.png)\n\n\n##Drawing Squares\n\n- Using the rect() function, you can draw squares. Just set the width and height to the same number of pixels.\n\n- Below the code you wrote previously, try drawing a square that has starts at the (x,y) coordinates of (40,5) and has a length of 20.  \n\n- Run the code.  Did a square appear?\n\n![Rectangle and square](./img/13.png)\n\n"
+    },
+  
+    {
+    "title": "#Drawing Simple Shapes(contd.)",
+    "shortTitle": "04",
+    "contentMd" : "#Drawing Simple Shapes(contd.)\n\n- Using rect(), line() and ellipse().\n\n##Drawing Lines\n\n- The syntax of the **line** function is:\n\n~~~\n    line(x1, y1, x2, y2)\n        x1 = x-coordinate of first point\n        y1 = y-coordinate of first point\n        x2 = x-coordinate of second point\n        y2 = y-coordinate of second point\n~~~\n\n- In the following picture, you can see an example of a line. \n\n![Line example from www.processing.org](./img/14.png)\n\n- Enter the following code in your open sketchbook:\n\n~~~\n    line(5,30,20,90);\n~~~\n\n- When you run the code, you should see the following line that starts at (5,30) and ends at (20,90):\n\n![Drawing a line](./img/15.png)\n\n"
+    },
+  
+    {
+    "title": "#Drawing Simple Shapes(contd.)",
+    "shortTitle": "05",
+    "contentMd" : "#Drawing Simple Shapes(contd.)\n\n- Using rect(), line() and ellipse().\n\n##Drawing Ellipses\n\n- For our purposes here, we will define an **ellipse** as a basic oval shape. \n\n- The syntax of the **ellipse** function is:\n\n~~~\n    ellipse(x, y, w, h)\n        x = x-coordinate at the centre of the ellipse\n        y = y-coordinate at the centre of the ellipse\n        w = width of the ellipse\n        h = height of the ellipse\n~~~\n\n- In the following picture, you can see an example of an ellipse. \n\n![Ellipse example from www.processing.org](./img/16.png)\n\n- Enter the following code in your open sketchbook:\n\n~~~java\n    ellipse(85,50,20,60);\n~~~\n\n- When you run the code, you should see the following ellipse whose centre is (85,50) and is 20 pixels wide and 90 high.\n\n![Drawing an ellipse](./img/17.png)\n\n\n##Drawing Circles\n\n- Using the ellipse() function, you can draw circles. Just set the width and height to the same number of pixels.\n\n- Try drawing a cicle that has the coordinates (50,80) at its centre and has a diameter of 15 pixels.\n\n- Run the code.  Did a circle appear?\n\n![Drawing a circle](./img/18.png)\n\n"
+    },
+  
+    {
+    "title": "#Changing the look of the display window",
+    "shortTitle": "06",
+    "contentMd" : "#Changing the look of the display window\n\n- You should have the following code in your open sketchbook:\n\n~~~java\n\trect(20,30,50,30);\n\trect(40,5,20,20);\n\tline(5,30,20,90);\n\tellipse(85,50,20,60);\n    ellipse(50,80,15,15);\n~~~\n\n- When it runs, you should have something that looks like this:\n\n![Output so far](./img/18.png)\n\n- We can see that the available space in the window is at a minimum and the window is quite small.  There background is also a default light grey colour.  We will make changes to this code to make the window larger and change the colour.\n\n\n##size() function\n\n- The size() function sets the size of the display window in pixels.  It has to be the first line of code in your sketchbook (there is an exception to this that we will cover later).  \n\n- The syntax of the **size** function is:\n\n~~~\n    size(w, h)\n        w = width of the ellipse\n        h = height of the ellipse\n~~~\n\n- If the size function is not called, the window will be set to a default size of 100x100 pixels.\n\n- Enter the following code in your open sketchbook:\n\n~~~\n    size(400,300);\n~~~\n\n- Run your code; your window should now be larger.\n\n\n##background() function\n\n- The background() function sets the background colour of the display window. \n\n- The syntax of the Grayscale **background** function is:\n\n~~~\n    background(g)\n        g = gray colour   (a number between 0 and 255 inclusive) \n\n        0 is black and 255 is white.  All numbers in between vary in shades of gray.\n~~~\n\n\n- In your open sketchbook (after the size() function), type in the background() function, passing a value between 0 and 255 as your colour parameter.\n\n- For example, we chose a dark-ish grey:  \n\n~~~\n    background(100);\n~~~\n   \n![Setting the size and colour of the display window](./img/19.png)\n\n\n##Saving your work\n\nIt is a good idea to save your work as you progress through your labs.  From the **File** menu (**Processing** on the Mac), select **Save As..**.  The folder location you chose earlier for storing your sketches should be displayed.  Save your sketch as something like **lab00**.  \n\n\n\n"
+    },
+  
+    {
+    "title": "#Exercises",
+    "shortTitle": "Exercises",
+    "contentMd" : "#Exercises\n\n- These exercises are based on the functions we covered in the previous steps in this lab.\n- For each exercise listed below, create a new sketchbook.\n\n\n##Exercise 1\n\nAt the end of step07, your animation looked like this:\n\n![](./img/19.png)\n\nMake the necessary changes so your animation now looks like this image:\n\n![](./img/20.png)\n\n\n##Exercise 2\n\n- Draw a stick man as shown in the picture below:\n\n![Basic Stick Man](./img/25.png)\n\n\n##Exercise 3\n\n- Design your own picture, making sure to use combinations of Circles, Ovals, Squares, Rectanges and Lines.  \n\n"
+    },
+  
+    {
+    "title": "#Solutions",
+    "shortTitle": "Solutions",
+    "contentMd" : "#Solutions\n\nThe solutions for this lab can be found [here](archives/lab00_solutions.zip). \n\nIf you require unzipping software, 7zip is a good choice: <http://www.7-zip.org/> (or Keka for Mac <http://www.kekaosx.com/en/>)\n\nAfter unzipping the solutions, it might be a good idea to copy the three folders to your **sketchbook** folder.  From Processing, you could then use **File**, followed by **Sketchbook** to easily open them.\n"
+    }
+  
+  ]
+  }
+

@@ -1,0 +1,35 @@
+
+
+
+  {
+  
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-06b-v6",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>PongGame V6.0</p>",
+  "folder" : "book-v6",
+  "link" : "index.html",
+  "los": [
+   ]
+,
+  "chapters" : [
+  
+    {
+    "title": "#Objectives",
+    "shortTitle": "Lab-06b-v6",
+    "contentMd" : "#Objectives\n\nPongGame V6.0 "
+    },
+  
+    {
+    "title": "#Game of Pong - V6.0",
+    "shortTitle": "V6",
+    "contentMd" : "#Game of Pong - V6.0\n\nOn completion of this lab you will have introduced an array of Players and build simple data analysis algorithms based on the stored data.  In this lab, you will work on PongGameV6.0, PongGame7.0 and PongGameV8.0.\n\nIn Version 6 of the game, we introduce a new Player class. For this version, the Player class will have limited functionality. \n    \nOpen your latest version of PongGame version 5. If you want, you can use this solution [here](archives/PongGameV5_0.zip). \n\nSave this as PongGameV6.0. Now, make the changes listed below. \n\n\n##Player class description\n\nWe will create a *Player* who plays a game.  This class will store details about the player:\n\n- the player's name \n\n- the number of games they wish to play for the current tournament\n\n- a collection (array) of the scores of each of the games in the current tournament\n\n- the number of scores added (games played) at this time.\n\n\nWe need to have getters and setters for these fields.\n\nWe need a method that adds a value to the scores array. \n\nWe also have a toString() method that returns a String version of the object. This is useful when we want to print details of a player object.\n\n\n##Developing the Player class \n\nCreate a new tab called *Player* and add the following code in your sketch (don't cut and paste it, type it in):\n\n~~~java\npublic class Player\n{\n  private String playerName;\n  private int[] scores;\n  //no accessor and mutator is created for the count field as it is an internal field that \n  //has a dual purpose:\n  //   1. represents the next available index in the array \n  //   2. represents the number of high scores added to the array\n  private int count;\n  \n  //Constructor to create a player with a starting name and sets the size of the array\n  //to the number of games in the tournament, as entered by the player.\n  public Player(String playerName, int numberOfGames)\n  {\n     this.playerName = playerName.trim().substring(0,6);\n     scores = new int[numberOfGames];\n     count = 0;\n  }\n   //accessors\n  public String getPlayerName()\n  {\n    return playerName;\n  }\n\n  public int[] getscores()\n  {\n    return scores;\n  }\n  \n  //mutator for player name\n  public void setPlayerName(String playerName)\n  {\n     this.playerName = playerName.substring(0,6);  \n  }\n  \n  //mutator for high score array\n  public void setscores(int[] scores)\n  {\n     this.scores = scores;\n  }\n   \n  //method to add a score at the next available location in the scores array   \n  public void addScore(int score)\n  {\n      if (score >= 0){\n         scores[count] = score;\n         count++;\n      }\n  } \n  \n  //method builds a nice String representation of the player name and their high scores.\n  //This string is then returned\n  public String toString()\n  {\n     String str = \"Scores for \" + playerName + \"\\n\";\n     \n     for(int i = 0; i < count; i++){\n        str = str + \"     Score \" + (i+1) + \": \" + scores[i] + \"\\n\"; \n     }   \n     return str;  \n  }\n\n}\n~~~\n\nEnsure that you understand the code you have written in. For example:\n\n- What validation rule is imposed on the player's name?\n\n- How does the toString() work? Why do we need a loop?\n\n- What is the purpose of the count data field in the addScore() method and overall?\n    \n  \n\n##Changes in the PongGame class\n\nFirstly, we need to declare a Player in the class (just under the declaration of the Ball and Paddle objects:\n\n~~~java\nPlayer player;\n~~~\n\nThen we need to add in the following line of code to the setup method to construct the player. \n\n~~~java\nvoid setup()\n{\n  :\n  :\n   //create a player object \n   player = new Player(\"  PongMaster  \", maxNumberOfGames);\n}\n~~~\n\nThe effect of these two pieces of code is that a Player object, called player setup and ready to be used and to play. \n\nSo, when do we add the scores to the scores array? We do this when we have lost all our lives, thus finished the game. So look for the part of the code in the draw() method that deals with when the player has no more lives left in the current game. To do this, you need to add the following line of code:\n\n~~~java\nplayer.addScore(score); \n~~~\n\nso that the full part of if..else statement is \n\n~~~\n //If the player has no lives left in the current game\n   else{\n      player.addScore(score);   //add the score of the current game to the array in player\n      numberOfGamesPlayed++;        \n      //If the player has more games left in the tournament, \n      //display their score and ask them if they want to continue with the tournament.\n      if (numberOfGamesPlayed < maxNumberOfGames){\n         resetGame();\n      }\n~~~\n\nNow that we have information stored about the player and their scores for the games, we will use this information at the end of the tournament. Specifically, we will print out the player's details using the toString() method using the following code, so change the tournamentOver() code to:\n\n~~~\n//method displays the player information, high scores and statistics, before exiting the program.\nvoid tournamentOver()\n{\n   println(\"Game Over!\\n\");\n   println(player.getPlayerName() + \", your tournament is over!\\n\"\n                                  + \"Number of games played: \" + numberOfGamesPlayed\n                                  + \"\\n\\n\"                     + player.toString());\n   exit();          \n}\n~~~\n\nYou should be able to now play the game and get the information reported at the end of the tournament. The information will be sent to the console. Later we will redirect this information to the dialog boxes via JOptionPane. \n\nSave your work.\n\nMake sure you understand the code before moving onto PongGameV7_0.\n\n\n##Solution\n\nIf your code is not working, the solution can be found [here](archives/PongGameV6_0.zip). \n\n"
+    }
+  
+  ]
+  }
+

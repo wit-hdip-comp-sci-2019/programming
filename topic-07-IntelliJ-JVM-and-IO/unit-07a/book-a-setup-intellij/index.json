@@ -1,0 +1,65 @@
+
+
+
+  {
+  
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-07a",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>Install JDK 8 + IntelliJ Idea</p>",
+  "folder" : "book-a-setup-intellij",
+  "link" : "index.html",
+  "los": [
+   ]
+,
+  "chapters" : [
+  
+    {
+    "title": "#Objectives",
+    "shortTitle": "Lab-07a",
+    "contentMd" : "#Objectives\n\nInstall JDK 8 + IntelliJ Idea"
+    },
+  
+    {
+    "title": "# Preparation",
+    "shortTitle": "01",
+    "contentMd" : "# Preparation\n\nFor this lab you need to be reasonably comfortable with the command prompt + explorer - or finder/terminal on a Mac.\n\nWe have reviewed these in [Lab05a](https://wit-hdip-comp-sci-2018.github.io/web-development/topic05-templating/book-01-harp/index.html) in the [Web Development Deployment Topic](https://wit-hdip-comp-sci-2018.github.io/web-development/topic05-templating/index.html)\n\n## Command Prompt\n\nRecall, how you launch the command prompt: \n\n![](img/01.png)\n\nYoy may already have it pinned to the task bar:\n\n![](img/03.png)\n\nBefore going on to the next step, make sure you are comfortable navigating in DOS around the file system, and in particular make sure you can navigate to your web development workspace.\n\n![](img/04.png)\n\n## Explorer\n\nAlso, keep an eye on your file structure in explorer:\n\n![](./img/07.png)\n\n## Mac\n\nThe equivalents on Mac are the Finder and the Terminal."
+    },
+  
+    {
+    "title": "# Install Java JDK: Windows",
+    "shortTitle": "02",
+    "contentMd" : "# Install Java JDK: Windows\n\nVisit this page:\n\n- <http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html>\n\nMake sure you install the correct version - which should be Version 8 JDK\n\n![](img/31.png)\n\nOn windows, your download is likely to be for Windows 64:\n\n- jdk08u161-windows-x64.exe\n\nTo check if it is installed ok - you should try\n\n~~~\njava -v\n~~~\n\nYou should get something like this:\n\n![](img/50.png)\n\nIf you are getting `1.9` or perhaps `9.0` reported - then you will need to remove this version. The installed versions can be inspected via windows Settings:\n\n![](img/26.png)\n\nSelect `Apps` above to see something like:\n\n![](img/27.png)\n\nThere are multiple version of java installed here. Clicking on any one will allow you to uninstall:\n\n![](img/28.png)\n\nIdeally, these should be the only java versions installed:\n\n![](img/52.png)\n\n\n\n# Install Java JDK: Mac\n\nFor the mac, the best way to install is to use Brew. These commands should do:\n\n~~~\nbrew update\nbrew install jenv\nbrew cask install caskroom/versions/java8\n~~~\n\nGetting the correct java version can be a challenge on mac. If the above commands are executed - and you find that there is still a version 9 of Java installed, try the following:\n\nLocate this directory :\n\n![](img/49.png)\n\nIf there is a version 9 (not shown here) then try to manually delete it.\n\n\n"
+    },
+  
+    {
+    "title": "# Install IntelliJ Idea",
+    "shortTitle": "03",
+    "contentMd" : "# Install IntelliJ Idea\n\nTo date we have been using Sublime Text as our primary editor. While we can continue to use it, we will supplement our tool set with a professional Java Integrated Development Environment (IDE) called Idea:\n\n- <https://www.jetbrains.com/idea>\n\nBefore downloading, first create a new `Jetbrains` account:\n\n- <https://account.jetbrains.com/login>\n\nMake sure to ___use your WIT email address___, as this will allow you to gain access to the professional versions of all Jetbrains products.\n\nNow proceed to download and install the `Ultimate` version of the Idea IDE:\n\n- <https://www.jetbrains.com/idea>\n\nDuring installation, make sure the following options are selected during the install:\n\n![](img/10.png)\n\nYou have already created your Jetbrains account, so log in with your credentials now:\n\n![](img/58.png)\n\nThis should activate the application, and you will get to the opening screen:\n\n![](img/18.png)\n\n"
+    },
+  
+    {
+    "title": "# Hello World",
+    "shortTitle": "04",
+    "contentMd" : "# Hello World\n\nTo create a project - select Create New Project\n\n![](img/53.png)\n\nPress next - and the select `Java Hello World App`\n\n![](img/54.png)\n\nThis will allow you to name the and locate the project:\n\n![](img/55.png)\n\nCall the project `Hello` - and make sure you know where it is located. You may be asked to create the folder:\n\n![](img/57.png)\n\nThe project should look like this eventually:\n\n![](img/59.png)\n\nPressing the green Run button on the top right - and the program should execute:\n\n![](img/60.png)\n\nIf the IDE doesnt quite display as shown above, experiment with the button on the extreme bottom left:\n\n![](img/67.png)\n\nThis will toggle some aspects of the display:\n\n![](img/66.png)\n"
+    },
+  
+    {
+    "title": "# Exploring the Project View",
+    "shortTitle": "05",
+    "contentMd" : "# Exploring the Project View\n\nIn IntelliJ, take a close look at the project window:\n\n![](img/61.png)\n\nTry to expand the view so that it looks like this:\n\n![](img/62.png)\n\nThe `Main` icon above is a representation of the file in editor window on the right.\n\nNow select the `Project` dropdown - to reveal potential alternative views for this window:\n\n![](img/63.png)\n\nFrom this - select `Packages`. This presents a simpler view:\n\n![](img/64.png)\n\nYou could regard these two views as:\n\n- Physical: the actual files in the project, included all generated and system files. This view more or less corresponds to the Explorer/Finder view\n- Logical: just the files that are significant to the programmer. This hides all non-editable files, and allows you to focus on just the project sources.\n\nIn general, you will be happy to work with the Packages (logical) view. As you gain more experience, and the projects become more sophisticated, you may occasionally need to view the Project (physical) view."
+    },
+  
+    {
+    "title": "# Exercises",
+    "shortTitle": "Exercises",
+    "contentMd" : "# Exercises\n\n## Exercise 1:\n\nExamine the Hello World project folder in Explore/Finder - and compare the contents with the view presented in Idea.\n\n## Exercise 2:\n\nCreate another new project - like Hello World - but give the project a different name. Get used to having more than one project open at a time."
+    }
+  
+  ]
+  }
+

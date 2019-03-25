@@ -1,0 +1,35 @@
+
+
+
+  {
+  
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-06b-v8",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>PongGameV8.0</p>",
+  "folder" : "book-v6-v7-v8",
+  "link" : "index.html",
+  "los": [
+   ]
+,
+  "chapters" : [
+  
+    {
+    "title": "#Objectives",
+    "shortTitle": "Lab-06b-v8",
+    "contentMd" : "#Objectives\n\nPongGameV8.0\n"
+    },
+  
+    {
+    "title": "#Game of Pong - V8.0",
+    "shortTitle": "V8",
+    "contentMd" : "#Game of Pong - V8.0\n\nIn this version of the game, we add the JOptionPane methods that allow us to read data in from the keyboard and to send data out via dialog boxes. \n\nBecause we can now use user input, we use this in two places:\n\n- setting up the player (name, number of games)\n\n- we give the user the option to quit the game after every game is finished.\n\n\nOpen your latest version of PongGame version 7. If you wish, you can use this solution [here](archives/PongGameV7_0.zip). \n\nSave this as PongGameV8_0. Now, make changes to this work. \n\n\n##PongGame class - changes\n\nFirstly note that we will only use the main tab (in this case PongGameV8_0) to read in data or report data. PongGameV8_0 then decides how data comes in/goes out (e.g. console or JOptionPane).  Taking this approach, Ball and Paddle should never 'talk to the user'. \n\nSo, the only changes in this version update is in the PongGame class.\n\nIn the main tab, we firstly import the swing package as the first line of code.\n\n~~~java\nimport javax.swing.*;\n~~~\n\n\n##Changes in setup() method  \n\nChange the setup method so that it is:    \n\n~~~java\nvoid setup()\n{\n   size(600,600);\n   noCursor();\n   \n   //setting up the paddle and the ball with hard-coded sizes.\n   //This could be updated so that the values are read from the user at the start of the tournament.\n   paddle = new Paddle(20,100);\n   ball = new Ball(20.0);\n   \n   //create a player object with the data entered by the user \n   maxNumberOfGames = Integer.parseInt(JOptionPane.showInputDialog(\"Welcome to the Pong Tournament\\n\\n Please enter the number of games you would like to play: \",\"3\"));\n   player = new Player(JOptionPane.showInputDialog(\"Enter the player name (max 6 chars: \"), maxNumberOfGames);\n}\n  \n~~~\n\nEnsure that you understand the code you have written in. For example:\n\n- The first use of the showInputDialog method returns a string which is then converted to an integer using Integer.parseInt\n\n- The second use of showInputDialog calls the method and uses the value returned directly in the Player constructor. So if \"Siobhan\" were entered in the dialog box, this would be the same as using \n\n~~~java\nplayer = new Player(\"Siobhan\", maxNumberOfGames);\n~~~\n\nNow run this code: You will get the following dialog boxes: \n\n![Entering number of games](./img/01.png)\n\nThen you will get the following:\n\n![Entering player name](./img/02.png)\n    \n\n##Changes in the draw() class - game functionality\n\nWe will add extra functionality to the game...when a player has finished a game s/he is asked do they wish to continue (only if there are still games left):\n\nAmend your code so that it is:\n\n~~~java\n  //If the player has no lives left in the current game\n   else{\n      player.addScore(score);\n      numberOfGamesPlayed++;        \n      //If the player has more games left in the tournament, \n      //display their score and ask them if they want to continue with the tournament.\n      if (numberOfGamesPlayed < maxNumberOfGames){\n         int reply = JOptionPane.showConfirmDialog(null,\n            \"Game Over! You scored \" + score + \".\\nWould you like to play the next game in your tournament?\",\n            \"Play next game?\",\n            JOptionPane.YES_NO_OPTION);\n         if (reply == JOptionPane.YES_OPTION){\n            //player chooses to play the next game in their tournament.\n            resetGame();\n         }\n         else{\n            //player chooses to leave the tournament early.\n            tournamentOver();\n         }\n      }\n      else{\n         //the player has no more games left in the tournament \n         tournamentOver();\n      }\n   }\n~~~\n\nEnsure that you understand the code.\n\nNow play a tournament. When you finish any game you are given the option to quit the tournament:\n\n![Do you wish to continue? option](./img/03.png)\n\n\n##Changes to the tournamentOver() method - reporting results\n\nCurrently, we output to the console.  We are going to change this so that our output is via a dialog box.\n\nChange the tournamentOver() method code to be:\n\n~~~java\n//method displays the player information, high scores and statistics, before exiting the program.\nvoid tournamentOver()\n{\n   JOptionPane.showMessageDialog(null, player.getPlayerName() + \", your tournament is over! \\n\\n\"  \n                                 + \"Number of games played: \" + numberOfGamesPlayed\n                                 + \"\\n\\n\"                     + player.toString()\n                                 + \"\\n\\nHighest Score: \"      + player.highestScore()\n                                 +   \"\\nLowest Score:  \"      + player.lowestScore()\n                                 +   \"\\nAverage Score: \"      + player.averageScore());\n   exit();            \n}\n~~~\n\nNote that you are not changing any of the data being displayed, just their method of display.\n\nNow when you play the tournament, you should get results in the format below:\n\n![Results of a tournament](./img/04.png)\n\nSave your work.\n\nMake sure you understand the code before moving onto PongGameV9_0.\n\n\n##Solution\n\nIf your code is not working, the solution can be found [here](archives/PongGameV8_0.zip). \n\n"
+    }
+  
+  ]
+  }
+

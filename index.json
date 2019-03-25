@@ -1,0 +1,2181 @@
+
+
+
+  {
+  
+  
+    "properties" : {"highlightstyle":"railscasts","slack":"https://wit-hdip-comp-sci-19.slack.com/messages/CEN2114F4","moodle":"https://moodle.wit.ie/course/view.php?id=132121","youtube":"https://www.youtube.com/channel/UCOJZMc0BQDXDljzdcxP2EDw","parent":"https://wit-hdip-comp-sci-2019.github.io/","courseurl":"http://wit-hdip-comp-sci-2019.github.io/programming/","credits":"Colm Dunphy, Johnathan Brazil, Patrick Felicia,  WIT","license":"Unless otherwise stated, this work is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>.","faPanelicon":"fas fa-cogs","faColour":"#64dd17","crest":"crestwit.jpg","cresturl":"https://www.wit.ie/courses/school/science/department_of_computing_maths_physics/hdipcomputerscience2yearparttime","ects":10},
+  
+  "type" : "course",
+  "title" : " Programming Fundamentals ",
+  "img" : "course.png",
+  "videoid" : "",
+  "objectives" : "<p>algorithms · data structures · processing · java · classes · libraries</p>",
+  "folder" : "programming-2019",
+  "link" : "index.html",
+  "los": [
+   ]
+,
+  "topics" : [  {
+    
+  
+    "properties" : {"highlightstyle":"railscasts","disable":false,"slack":"https://wit-hdip-comp-sci-19.slack.com/messages/CEN2114F4","moodle":"https://moodle.wit.ie/course/view.php?id=132121","youtube":"https://www.youtube.com/channel/UCOJZMc0BQDXDljzdcxP2EDw","parent":"https://wit-hdip-comp-sci-2019.github.io/","courseurl":"http://wit-hdip-comp-sci-2019.github.io/programming/","credits":"Colm Dunphy, Johnathan Brazil, Patrick Felicia,  WIT","license":"Unless otherwise stated, this work is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>.","faPanelicon":"fas fa-cogs","faColour":"#64dd17","crest":"crestwit.jpg","cresturl":"https://www.wit.ie/courses/school/science/department_of_computing_maths_physics/hdipcomputerscience2yearparttime","ects":10},
+  
+  "type" : "topic",
+  "title" : " Assignment Specifications ",
+  "img" : "topic.png",
+  "videoid" : "",
+  "objectives" : "<p>This section details the assignments for module</p>",
+  "folder" : "topic----assignments",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {"highlightstyle":"railscasts","disable":false,"slack":"https://wit-hdip-comp-sci-19.slack.com/messages/CEN2114F4","moodle":"https://moodle.wit.ie/course/view.php?id=132121","youtube":"https://www.youtube.com/channel/UCOJZMc0BQDXDljzdcxP2EDw","parent":"https://wit-hdip-comp-sci-2019.github.io/","courseurl":"http://wit-hdip-comp-sci-2019.github.io/programming/","credits":"Colm Dunphy, Johnathan Brazil, Patrick Felicia,  WIT","license":"Unless otherwise stated, this work is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>.","faPanelicon":"fas fa-cogs","faColour":"#64dd17","crest":"crestwit.jpg","cresturl":"https://www.wit.ie/courses/school/science/department_of_computing_maths_physics/hdipcomputerscience2yearparttime","ects":10},
+  
+  "type" : "lab",
+  "title" : "Assignment-1",
+  "img" : "img/main.jpg",
+  "videoid" : "none",
+  "objectives" : "<p>This is your first assignment that will contribute to your grade for the semester.  It is worth 15% of your overall grade.  You are asked to <strong>write a working animation.</strong></p>",
+  "folder" : "book-assignment-1",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {"highlightstyle":"railscasts","disable":false,"slack":"https://wit-hdip-comp-sci-19.slack.com/messages/CEN2114F4","moodle":"https://moodle.wit.ie/course/view.php?id=132121","youtube":"https://www.youtube.com/channel/UCOJZMc0BQDXDljzdcxP2EDw","parent":"https://wit-hdip-comp-sci-2019.github.io/","courseurl":"http://wit-hdip-comp-sci-2019.github.io/programming/","credits":"Colm Dunphy, Johnathan Brazil, Patrick Felicia,  WIT","license":"Unless otherwise stated, this work is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>.","faPanelicon":"fas fa-cogs","faColour":"#64dd17","crest":"crestwit.jpg","cresturl":"https://www.wit.ie/courses/school/science/department_of_computing_maths_physics/hdipcomputerscience2yearparttime","ects":10},
+  
+  "type" : "lab",
+  "title" : "Assignment-2",
+  "img" : "img/main.jpg",
+  "videoid" : "none",
+  "objectives" : "<p>This is your second assignment that will contribute to your grade for the semester.  It is worth 30% of your overall grade.  </p>",
+  "folder" : "book-assignment-2",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+  },
+ {
+    
+  
+    "properties" : {},
+  
+  "type" : "topic",
+  "title" : "00: Induction ",
+  "img" : "topic.png",
+  "videoid" : "",
+  "objectives" : "<p>module structure · delivery approach · java programming language · development environments</p>",
+  "folder" : "topic-00-induction",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Programming Fundamentals ",
+  "img" : "a-intro-to-programming.png",
+  "videoid" : "none",
+  "objectives" : "<p>Introduction to module · Lecturers / Tutors</p>",
+  "folder" : "talk-1",
+  "link" : "a-intro-to-programming.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Coding in Processing ",
+  "img" : "a-intro-to-processing.png",
+  "videoid" : "none",
+  "objectives" : "<p>Processing · introduction to coding · drawing basic shapes</p>",
+  "folder" : "talk-2",
+  "link" : "a-intro-to-processing.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Induction",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>Processing · drawing basic shapes · verify IntelliJ setup</p>",
+  "folder" : "book-induction",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+  },
+ {
+    
+  
+    "properties" : {},
+  
+  "type" : "topic",
+  "title" : "01: First Contact ",
+  "img" : "unit-01a-intro-to-processing/talk-1-processing-recap/a-processing-recap.png",
+  "videoid" : "",
+  "objectives" : "<p>processing · java · drawing shapes · colour · grayscale · RGB · syntax errors · commenting code animating simple drawings · variables · system variables · primitive data types · operators</p>",
+  "folder" : "topic-01-first-contact",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : " 1a: Introduction to Processing ",
+  "img" : "talk-1-processing-recap/a-processing-recap.png",
+  "videoid" : "",
+  "objectives" : "<p>processing · java · drawing shapes · colour · grayscale · RGB · syntax errors · commenting code</p>",
+  "folder" : "unit-01a-intro-to-processing",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Introduction to the PDE ",
+  "img" : "a-processing-recap.png",
+  "videoid" : "none",
+  "objectives" : "<p>Processing · Processing Development Environment (PDE).</p>",
+  "folder" : "talk-1-processing-recap",
+  "link" : "a-processing-recap.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Static Drawings ",
+  "img" : "b-processing-static-drawings.jpg",
+  "videoid" : "none",
+  "objectives" : "<p>coding · static drawings · basic shapes · colour · grayscale · RGB</p>",
+  "folder" : "talk-2-static-drawings",
+  "link" : "b-processing-static-drawings.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Formatting Shapes ",
+  "img" : "c-processing-formatting-shapes.jpg",
+  "videoid" : "none",
+  "objectives" : "<p>fill · stroke · commenting code.</p>",
+  "folder" : "talk-3-formatting-shapes",
+  "link" : "c-processing-formatting-shapes.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-1a",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>static drawings · basic shapes · colour · grayscale · RGB</p>",
+  "folder" : "book-1a",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Online Class Monday 14-01-2019	12:30 PM ",
+  "img" : "",
+  "videoid" : "DVTSvacj_T0",
+  "objectives" : "<p>Online Class Monday 14-01-2019    12:30 PM</p>",
+  "folder" : "panelvideo",
+  "link" : "DVTSvacj_T0",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : " 1b: Animating your Drawings ",
+  "img" : "talk-1-basic-animation/a-processing-basic-animation.png",
+  "videoid" : "",
+  "objectives" : "<p>animating simple drawings · variables · system variables · primitive data types · operators</p>",
+  "folder" : "unit-01b-animate-your-drawings",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Basic Animation ",
+  "img" : "a-processing-basic-animation.png",
+  "videoid" : "none",
+  "objectives" : "<p>setup() · draw() · animate drawings · system variables</p>",
+  "folder" : "talk-1-basic-animation",
+  "link" : "a-processing-basic-animation.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Data Types ",
+  "img" : "b-processing-data-types.png",
+  "videoid" : "none",
+  "objectives" : "<p>primitive data types · variables · arithmetic operators</p>",
+  "folder" : "talk-2-data-types",
+  "link" : "b-processing-data-types.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-1b",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>animate simple drawings · variables · system variables · primitive data types · arithmetic operators</p>",
+  "folder" : "book-1b",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Online Class Wed 16-01-2019	12:30 PM ",
+  "img" : "",
+  "videoid" : "_Nzrz8MqAbc",
+  "objectives" : "<p>Online Class Wed 16-01-2019    12:30 PM</p>",
+  "folder" : "panelvideo",
+  "link" : "_Nzrz8MqAbc",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } 
+   ]
+
+  },
+ {
+    
+  
+    "properties" : {},
+  
+  "type" : "topic",
+  "title" : "02: Selection & Iteration ",
+  "img" : "topic.png",
+  "videoid" : "",
+  "objectives" : "<p>animated drawings · conditional statements · relational operators · logical operators · variables · mouse events · key events · iteration · for loops · while loops · variable scope · compound assignment statements · print · println</p>",
+  "folder" : "topic-02-selection_and_iteration",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : " 2a: Selection and Events ",
+  "img" : "talk-1-conditional-statements/a-processing-conditional-statements.png",
+  "videoid" : "",
+  "objectives" : "<p>animated drawings · conditional statements · relational operators · logical operators · variables · mouse events · key events</p>",
+  "folder" : "unit-02a-if-stmt-and-events",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Conditional Statements ",
+  "img" : "a-processing-conditional-statements.png",
+  "videoid" : "none",
+  "objectives" : "<p>animated drawings · conditional statements · boolean expressions · relational operators · logical operators.</p>",
+  "folder" : "talk-1-conditional-statements",
+  "link" : "a-processing-conditional-statements.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Mouse Events ",
+  "img" : "b-processing-mouse-events.png",
+  "videoid" : "none",
+  "objectives" : "<p>animated drawings · operators · mouse events · order of evaluation</p>",
+  "folder" : "talk-2-mouse-events",
+  "link" : "b-processing-mouse-events.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-02a",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>animated drawings · conditional statements · relational operators · logical operators · variables · mouse events · key events</p>",
+  "folder" : "book",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Online Class Mon 21-01-2019	12:30 PM ",
+  "img" : "",
+  "videoid" : "1tx-FY3nwks",
+  "objectives" : "<p>Online Class Mon 21-01-2019    12:30 PM</p>",
+  "folder" : "panelvideo",
+  "link" : "1tx-FY3nwks",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : "2b: Iteration (Loops) ",
+  "img" : "topic.jpg",
+  "videoid" : "",
+  "objectives" : "<p>iteration · for loops · while loops · variable scope · compound assignment statements · print · println</p>",
+  "folder" : "unit-02b-iteration-for-while",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Scope of Variables ",
+  "img" : "a-scope-of-variables.jpg",
+  "videoid" : "none",
+  "objectives" : "<p>variable scope · compound assignment statements · print · println</p>",
+  "folder" : "talk-1-scope-of-variables",
+  "link" : "a-scope-of-variables.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Loops Simplified ",
+  "img" : "b-processing-iteration-loops-simplified.png",
+  "videoid" : "9rU0ltWBM-8",
+  "objectives" : "<p>iteration · loops · while · for · comparison</p>",
+  "folder" : "talk-2-iteration-loops-simplified",
+  "link" : "b-processing-iteration-loops-simplified.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "While loops ",
+  "img" : "b-processing-iteration-while.png",
+  "videoid" : "none",
+  "objectives" : "<p>iteration · while loops</p>",
+  "folder" : "talk-3-iteration-while",
+  "link" : "b-processing-iteration-while.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "For loops ",
+  "img" : "c-processing-iteration-for.png",
+  "videoid" : "none",
+  "objectives" : "<p>iteration · for loops · while loops</p>",
+  "folder" : "talk-4-iteration-for",
+  "link" : "c-processing-iteration-for.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Help - Bouncing Ball Challenge ",
+  "img" : "d-processing-help-bouncingball.png",
+  "videoid" : "DDbHC7Yrdjs",
+  "objectives" : "<p>Try the challenge yourself first!</p>",
+  "folder" : "talk-5-iteration-help-bouncingball",
+  "link" : "d-processing-help-bouncingball.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Help - Moving Line Challenge ",
+  "img" : "e-processing-help-movingline.png",
+  "videoid" : "6eGype1CrUk",
+  "objectives" : "<p>Try the lab challenge yourself first!</p>",
+  "folder" : "talk-6-iteration-help-movingline",
+  "link" : "e-processing-help-movingline.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-02b",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>variable scope · iteration · for loops · while loops · print · println</p>",
+  "folder" : "book",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Online Class Wed 23-01-2019	12:30 PM ",
+  "img" : "",
+  "videoid" : "t2fST6iVgrQ",
+  "objectives" : "<p>Online Class Wed 23-01-2019    12:30 PM</p>",
+  "folder" : "panelvideo",
+  "link" : "t2fST6iVgrQ",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } 
+   ]
+
+  },
+ {
+    
+  
+    "properties" : {},
+  
+  "type" : "topic",
+  "title" : "03: Methods ",
+  "img" : "unit-03a-methods/talk-1-mouse-event-methods/a-processing-mouse-event-methods-W.png",
+  "videoid" : "",
+  "objectives" : "<p>method signature · return types · parameters · mouse event methods · bespoke methods · more sophisticated methods · return types · parameters · recursion · Strings · API · String methods · JOptionPane</p>",
+  "folder" : "topic-03-methods",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : "3a: Methods (Part 1) ",
+  "img" : "talk-1-mouse-event-methods/a-processing-mouse-event-methods-W.png",
+  "videoid" : "",
+  "objectives" : "<p>method signature · return types · parameters · mouse event methods · bespoke methods</p>",
+  "folder" : "unit-03a-methods",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Mouse event methods ",
+  "img" : "a-processing-mouse-event-methods-W.png",
+  "videoid" : "none",
+  "objectives" : "<p>methods · method signature · return type · parameters · mouse events · event methods · mouse system variables</p>",
+  "folder" : "talk-1-mouse-event-methods",
+  "link" : "a-processing-mouse-event-methods-W.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Bespoke methods ",
+  "img" : "b-processing-bespoke-methods.png",
+  "videoid" : "none",
+  "objectives" : "<p>bespoke methods · return type · method signature · parameters</p>",
+  "folder" : "talk-2-bespoke-methods",
+  "link" : "b-processing-bespoke-methods.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-03a",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>methods · mouse event methods · bespoke methods</p>",
+  "folder" : "book",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Online Class Mon 28-01-2019	12:30 PM ",
+  "img" : "",
+  "videoid" : "LLcgX2F94fk",
+  "objectives" : "<p>Online Class Mon 28-01-2019    12:30 PM</p>",
+  "folder" : "panelvideo",
+  "link" : "LLcgX2F94fk",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : "3b: Methods (Part 2) ",
+  "img" : "talk-1-more-on-methods/a-processing-more-on-methods.png",
+  "videoid" : "",
+  "objectives" : "<p>more sophisticated methods · return types · parameters · recursion · Strings · API · String methods · JOptionPane</p>",
+  "folder" : "unit-03b-more-on-methods",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "More on methods ",
+  "img" : "a-processing-more-on-methods.png",
+  "videoid" : "none",
+  "objectives" : "<p>more sophisticated methods · return types · parameters · recursion</p>",
+  "folder" : "talk-1-more-on-methods",
+  "link" : "a-processing-more-on-methods.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Strings - Introduction ",
+  "img" : "b-processing-strings.png",
+  "videoid" : "none",
+  "objectives" : "<p>String v char · Object type v Primitive type</p>",
+  "folder" : "talk-2-strings-intro",
+  "link" : "b-processing-strings.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Strings - Xtra ",
+  "img" : "b-processing-strings-extra.png",
+  "videoid" : "3ixCvq0xWaE",
+  "objectives" : "<p>Continuation of discussion on Strings · String class/object · API · String methods</p>",
+  "folder" : "talk-3-strings-xtra",
+  "link" : "b-processing-strings-extra.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-03b",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>more sophisticated methods · return types · parameters · Strings · String methods · JOptionPane</p>",
+  "folder" : "book",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Online Class Wed 30-01-2019	12:30 PM ",
+  "img" : "",
+  "videoid" : "q3l2k3co6XQ",
+  "objectives" : "<p>Online Class Wed 30-01-2019    12:30 PM</p>",
+  "folder" : "panelvideo",
+  "link" : "q3l2k3co6XQ",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } 
+   ]
+
+  },
+ {
+    
+  
+    "properties" : {"highlightstyle":"railscasts","disable":false,"slack":"https://wit-hdip-comp-sci-19.slack.com/messages/CEN2114F4","moodle":"https://moodle.wit.ie/course/view.php?id=132121","youtube":"https://www.youtube.com/channel/UCOJZMc0BQDXDljzdcxP2EDw","parent":"https://wit-hdip-comp-sci-2019.github.io/","courseurl":"http://wit-hdip-comp-sci-2019.github.io/programming/","credits":"Colm Dunphy, Johnathan Brazil, Patrick Felicia,  WIT","license":"Unless otherwise stated, this work is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>.","faPanelicon":"fas fa-cogs","faColour":"#64dd17","crest":"crestwit.jpg","cresturl":"https://www.wit.ie/courses/school/science/department_of_computing_maths_physics/hdipcomputerscience2yearparttime","ects":10},
+  
+  "type" : "topic",
+  "title" : "04: Classes ",
+  "img" : "topic.png",
+  "videoid" : "",
+  "objectives" : "<p>String methods · Objects · Classes · behaviour · attributes · Spot class · methods · behaviour · overloading · validation · this · encapsulation · access modifiers · accessors · mutators</p>",
+  "folder" : "topic-04-classes",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : "4a: Classes (Part 1)  ",
+  "img" : "talk-1-more-on-strings/a-processing-more-on-strings.png",
+  "videoid" : "",
+  "objectives" : "<p>String methods · Objects · Classes · behaviour · attributes · Spot class</p>",
+  "folder" : "unit-04a-strings-and-intro-to-classes",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "More on Strings ",
+  "img" : "a-processing-more-on-strings.png",
+  "videoid" : "none",
+  "objectives" : "<p>charAt · substring · compareTo · identity vs equality · null · escape sequences</p>",
+  "folder" : "talk-1-more-on-strings",
+  "link" : "a-processing-more-on-strings.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Classes and Objects ",
+  "img" : "b-processing-classes-and-objects.png",
+  "videoid" : "none",
+  "objectives" : "<p>objects · classes · object state · attributes · bahaviours · class design · constructors · Spot</p>",
+  "folder" : "talk-2-classes-and-objects",
+  "link" : "b-processing-classes-and-objects.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-04a",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>charAt · compareTo · substring · objects · classes · object state · attributes · bahaviours · class design · constructors · Spot</p>",
+  "folder" : "book",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Online Class Mon 04-02-2019	12:30 PM ",
+  "img" : "",
+  "videoid" : "NFu9hg319ks",
+  "objectives" : "<p>Online Class Mon 04-02-2019    12:30 PM</p>",
+  "folder" : "panelvideo",
+  "link" : "NFu9hg319ks",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : " 4b: Classes (Part 2) ",
+  "img" : "talk-1-adding-behaviour/a-processing-classes-adding-behaviour.png",
+  "videoid" : "",
+  "objectives" : "<p>classes · methods · behaviour · overloading · validation · this · encapsulation · access modifiers · accessors · mutators</p>",
+  "folder" : "unit-04b-classes-encapsulation",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Behaviour in Classes ",
+  "img" : "a-processing-classes-adding-behaviour.png",
+  "videoid" : "none",
+  "objectives" : "<p>classes · methods · behaviour · overloading · validation · this</p>",
+  "folder" : "talk-1-adding-behaviour",
+  "link" : "a-processing-classes-adding-behaviour.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Classes and Objects ",
+  "img" : "b-processing-encapsulation.png",
+  "videoid" : "none",
+  "objectives" : "<p>classes · encapsulation · access modifiers · accessors · mutators</p>",
+  "folder" : "talk-2-encapsulation",
+  "link" : "b-processing-encapsulation.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-04b",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>classes · methods · behaviour · overloading · validation · this · encapsulation · access modifiers · accessors · mutators</p>",
+  "folder" : "book",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Online Class Wed 06-02-2019	12:30 PM ",
+  "img" : "",
+  "videoid" : "Z_2E8fDLBoU",
+  "objectives" : "<p>Online Class Wed 06-02-2019    12:30 PM</p>",
+  "folder" : "panelvideo",
+  "link" : "Z_2E8fDLBoU",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } 
+   ]
+
+  },
+ {
+    
+  
+    "properties" : {"highlightstyle":"railscasts","disable":false,"slack":"https://wit-hdip-comp-sci-19.slack.com/messages/CEN2114F4","moodle":"https://moodle.wit.ie/course/view.php?id=132121","youtube":"https://www.youtube.com/channel/UCOJZMc0BQDXDljzdcxP2EDw","parent":"https://wit-hdip-comp-sci-2019.github.io/","courseurl":"http://wit-hdip-comp-sci-2019.github.io/programming/","credits":"Colm Dunphy, Johnathan Brazil, Patrick Felicia,  WIT","license":"Unless otherwise stated, this work is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>.","faPanelicon":"fas fa-cogs","faColour":"#64dd17","crest":"crestwit.jpg","cresturl":"https://www.wit.ie/courses/school/science/department_of_computing_maths_physics/hdipcomputerscience2yearparttime","ects":10},
+  
+  "type" : "topic",
+  "title" : "05: Arrays ",
+  "img" : "topic.png",
+  "videoid" : "",
+  "objectives" : "<p>GUI · Swing · JOptionPane · dialog boxes · primitive arrays · array syntax  · primitive arrays · array syntax · arrays and loops · length · classes</p>",
+  "folder" : "topic-05-arrays",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : " 5a: Swing and Arrays ",
+  "img" : "talk-1-joptionpane/a-processing-joptionpane.png",
+  "videoid" : "",
+  "objectives" : "<p>GUI · Swing · JOptionPane · dialog boxes · primitive arrays · array syntax</p>",
+  "folder" : "unit-05a-swing-and-arrays",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : " Using Swing ",
+  "img" : "a-processing-joptionpane.png",
+  "videoid" : "none",
+  "objectives" : "<p>GUI · Swing · JOptionPane · dialog boxes</p>",
+  "folder" : "talk-1-joptionpane",
+  "link" : "a-processing-joptionpane.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : " Using Arrays ",
+  "img" : "a-processing-arrays.png",
+  "videoid" : "none",
+  "objectives" : "<p>primitive arrays · array syntax · arrays and loops</p>",
+  "folder" : "talk-2-intro-to-arrays",
+  "link" : "a-processing-arrays.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-05a",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>GUI · Swing · JOptionPane · dialog boxes · primitive arrays · array syntax</p>",
+  "folder" : "book",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Online Class Mon 11-02-2019	12:30 PM ",
+  "img" : "",
+  "videoid" : "831gTr0jrJU",
+  "objectives" : "<p>Online Class Mon 11-02-2019    12:30 PM</p>",
+  "folder" : "panelvideo",
+  "link" : "831gTr0jrJU",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : " 5b: Arrays and Classes ",
+  "img" : "talk-1-array-recap/a-array-recap.png",
+  "videoid" : "",
+  "objectives" : "<p>primitive arrays · array syntax · arrays and loops · length · classes</p>",
+  "folder" : "unit-05b-arrays-and-classes",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : " Array Recap ",
+  "img" : "a-array-recap.png",
+  "videoid" : "none",
+  "objectives" : "<p>primitive arrays · array syntax · arrays and loops · length</p>",
+  "folder" : "talk-1-array-recap",
+  "link" : "a-array-recap.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : " Arrays and Classes ",
+  "img" : "b-processing-arrays-classes.png",
+  "videoid" : "none",
+  "objectives" : "<p>primitive arrays · classes</p>",
+  "folder" : "talk-2-arrays-and-classes",
+  "link" : "b-processing-arrays-classes.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-05b",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>primitive arrays · length property · array of classes</p>",
+  "folder" : "book",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Online Class Wed 13-02-2019	12:30 PM ",
+  "img" : "",
+  "videoid" : "BA-qllBhGFk",
+  "objectives" : "<p>Online Class Wed 13-02-2019    12:30 PM</p>",
+  "folder" : "panelvideo",
+  "link" : "BA-qllBhGFk",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } 
+   ]
+
+  },
+ {
+    
+  
+    "properties" : {"highlightstyle":"railscasts","disable":false,"slack":"https://wit-hdip-comp-sci-19.slack.com/messages/CEN2114F4","moodle":"https://moodle.wit.ie/course/view.php?id=132121","youtube":"https://www.youtube.com/channel/UCOJZMc0BQDXDljzdcxP2EDw","parent":"https://wit-hdip-comp-sci-2019.github.io/","courseurl":"http://wit-hdip-comp-sci-2019.github.io/programming/","credits":"Colm Dunphy, Johnathan Brazil, Patrick Felicia,  WIT","license":"Unless otherwise stated, this work is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>.","faPanelicon":"fas fa-cogs","faColour":"#64dd17","crest":"crestwit.jpg","cresturl":"https://www.wit.ie/courses/school/science/department_of_computing_maths_physics/hdipcomputerscience2yearparttime","ects":10},
+  
+  "type" : "topic",
+  "title" : " 06: Game of Pong ",
+  "img" : "unit-06a-pong-V1-V5/talk-1-pong-overview/a-processing-game-of-pong-oreverview.png",
+  "videoid" : "",
+  "objectives" : "<p>Game of Pong · Ball class · Paddle class · Player class · Tournaments · Statistics · Collision detection</p>",
+  "folder" : "topic-06-pong",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : " 6a: Pong v1-v5 ",
+  "img" : "talk-1-pong-overview/a-processing-game-of-pong-oreverview.png",
+  "videoid" : "",
+  "objectives" : "",
+  "folder" : "unit-06a-pong-V1-V5",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Game of Pong ",
+  "img" : "a-processing-game-of-pong-oreverview.png",
+  "videoid" : "none",
+  "objectives" : "<p>Overview</p>",
+  "folder" : "talk-1-pong-overview",
+  "link" : "a-processing-game-of-pong-oreverview.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Game of Pong ",
+  "img" : "a-processing-game-of-pongV1.png",
+  "videoid" : "none",
+  "objectives" : "<p>V1.0 (Ball class)</p>",
+  "folder" : "talk-1-pong-v1",
+  "link" : "a-processing-game-of-pongV1.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Game of Pong ",
+  "img" : "a-processing-game-of-pongV2.png",
+  "videoid" : "none",
+  "objectives" : "<p>V2.0 (Paddle class)</p>",
+  "folder" : "talk-1-pong-v2",
+  "link" : "a-processing-game-of-pongV2.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Game of Pong  ",
+  "img" : "b-processing-game-of-pongV3.png",
+  "videoid" : "none",
+  "objectives" : "<p>V3.0 (Simple Collision detection)</p>",
+  "folder" : "talk-2-pong-v3",
+  "link" : "b-processing-game-of-pongV3.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Game of Pong  ",
+  "img" : "b-processing-game-of-pongV4.png",
+  "videoid" : "VyruzVWz_Og",
+  "objectives" : "<p>V4.0 (Lives lost, lives per game, score) ·</p>",
+  "folder" : "talk-2-pong-v4",
+  "link" : "b-processing-game-of-pongV4.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Game of Pong  ",
+  "img" : "b-processing-game-of-pongV5.png",
+  "videoid" : "4DsY1U7cmh8",
+  "objectives" : "<p>V5.0 (Tournaments)</p>",
+  "folder" : "talk-2-pong-v5",
+  "link" : "b-processing-game-of-pongV5.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-06a",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>Game of Pong Architecture · Solutions for all versions · PongGame V1.0 - V5.0</p>",
+  "folder" : "book-v1-v5",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : " Pong v6: Watch the demo, Review the slides & video, Complete the lab ",
+  "img" : "talk-1-pong-v6-demo/pong6demo.png",
+  "videoid" : "",
+  "objectives" : "<h1>Pong v6: Watch the demo, Review the slides &amp; video, Complete the lab</h1>",
+  "folder" : "unit-06b-pong-v6",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Pong V6.0 Demo ",
+  "img" : "pong6demo.png",
+  "videoid" : "T2Rekw6OMRE",
+  "objectives" : "<p>V6.0 Demo (Same functionality as v5)</p>",
+  "folder" : "talk-1-pong-v6-demo",
+  "link" : "pong6demo.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Game of Pong ",
+  "img" : "c-processing-game-of-pongV6.jpg",
+  "videoid" : "nPjjIWDUKas",
+  "objectives" : "<p>V6.0 (Player class – array, no statistics)</p>",
+  "folder" : "talk-2-pong-v6-talk",
+  "link" : "c-processing-game-of-pongV6.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-06b-v6",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>PongGame V6.0</p>",
+  "folder" : "book-v6",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : " Pong v7: Watch the demo, Review the slides & video, Complete the lab ",
+  "img" : "talk-3-pong-v7-demo/c-processing-game-of-pongV7-demo.png",
+  "videoid" : "",
+  "objectives" : "<h1>Pong v7: Watch the demo, Review the slides &amp; video, Complete the lab</h1>",
+  "folder" : "unit-06b-pong-v7",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Pong V7.0 Demo ",
+  "img" : "c-processing-game-of-pongV7-demo.png",
+  "videoid" : "sknqXL3lKGw",
+  "objectives" : "<p>V7.0 Demo (Tournament statistics using arrays)</p>",
+  "folder" : "talk-3-pong-v7-demo",
+  "link" : "c-processing-game-of-pongV7-demo.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Game of Pong ",
+  "img" : "c-processing-game-of-pongV7.jpg",
+  "videoid" : "nmweec0iqMI",
+  "objectives" : "<p>V7.0 (Player class – array, with statistics)</p>",
+  "folder" : "talk-3-pong-v7-talk",
+  "link" : "c-processing-game-of-pongV7.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-06b-v7",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>PongGame V7.0</p>",
+  "folder" : "book-v7",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : " Pong v8: Watch the demo, Review the slides & video, Complete the lab ",
+  "img" : "talk-3-pong-v8-demo/c-processing-game-of-pongV8-demo.png",
+  "videoid" : "",
+  "objectives" : "<h1>Pong v8: Watch the demo, Review the slides &amp; video, Complete the lab</h1>",
+  "folder" : "unit-06b-pong-v8",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Pong V8 Demo ",
+  "img" : "c-processing-game-of-pongV8-demo.png",
+  "videoid" : "Vr4DhIqgN3g",
+  "objectives" : "<p>V8.0 Demo - I/O through dialogs</p>",
+  "folder" : "talk-3-pong-v8-demo",
+  "link" : "c-processing-game-of-pongV8-demo.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Game of Pong ",
+  "img" : "c-processing-game-of-pongV8.jpg",
+  "videoid" : "0SuLR3-NyjA",
+  "objectives" : "<p>V8.0 (JOptionPane for I/O)</p>",
+  "folder" : "talk-3-pong-v8-talk",
+  "link" : "c-processing-game-of-pongV8.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-06b-v8",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>PongGameV8.0</p>",
+  "folder" : "book-v6-v7-v8",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : " Pong v9: Watch the demo, Review the slides & video, Complete the lab ",
+  "img" : "talk-4-pong-v9-demo/c-processing-game-of-pongV9-demo.png",
+  "videoid" : "",
+  "objectives" : "",
+  "folder" : "unit-06b-pong-v9",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Pong V9 Demo ",
+  "img" : "c-processing-game-of-pongV9-demo.png",
+  "videoid" : "Vr4DhIqgN3g",
+  "objectives" : "<p>V9.0 Demo - (same as v8)</p>",
+  "folder" : "talk-4-pong-v9-demo",
+  "link" : "c-processing-game-of-pongV9-demo.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Game of Pong ",
+  "img" : "d-processing-game-of-pongV9.png",
+  "videoid" : "YPHuFGE19sQ",
+  "objectives" : "<p>V9.0 (Pythagorus Collision detection)</p>",
+  "folder" : "talk-4-pong-v9-talk",
+  "link" : "d-processing-game-of-pongV9.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-06b-v9",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>PongGame V9.0</p>",
+  "folder" : "book-v9",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Online Class Week 6 Talk 1 ",
+  "img" : "",
+  "videoid" : "WTID1UxkYl0",
+  "objectives" : "<p>Online Class Week 6 Talk 1</p>",
+  "folder" : "panelvideo",
+  "link" : "WTID1UxkYl0",
+  "los": [
+   ]
+
+    } 
+   ]
+
+  },
+ {
+    
+  
+    "properties" : {"highlightstyle":"railscasts","disable":false,"slack":"https://wit-hdip-comp-sci-19.slack.com/messages/CEN2114F4","moodle":"https://moodle.wit.ie/course/view.php?id=132121","youtube":"https://www.youtube.com/channel/UCOJZMc0BQDXDljzdcxP2EDw","parent":"https://wit-hdip-comp-sci-2019.github.io/","courseurl":"http://wit-hdip-comp-sci-2019.github.io/programming/","credits":"Colm Dunphy, Johnathan Brazil, Patrick Felicia,  WIT","license":"Unless otherwise stated, this work is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>.","faPanelicon":"fas fa-cogs","faColour":"#64dd17","crest":"crestwit.jpg","cresturl":"https://www.wit.ie/courses/school/science/department_of_computing_maths_physics/hdipcomputerscience2yearparttime","ects":10},
+  
+  "type" : "topic",
+  "title" : "07: IntelliJ and Basic I/O ",
+  "img" : "topic.png",
+  "videoid" : "",
+  "objectives" : "<p>IntelliJ · Java Virtual Machine (JVM) · main method · Scanner · OO recap · Array recap</p>",
+  "folder" : "topic-07-IntelliJ-JVM-and-IO",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : "07: IntelliJ and Basic I/O ",
+  "img" : "talk-1-remaining-weeks/a-remaining-weeks.jpg",
+  "videoid" : "",
+  "objectives" : "<p>IntelliJ · Java Virtual Machine (JVM) · main method · Scanner · OO recap · Array recap</p>",
+  "folder" : "unit-07a",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Remaining Weeks ",
+  "img" : "a-remaining-weeks.jpg",
+  "videoid" : "none",
+  "objectives" : "<p>Java · IntelliJ · Remaining Content</p>",
+  "folder" : "talk-1-remaining-weeks",
+  "link" : "a-remaining-weeks.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "JVM ",
+  "img" : "b-main-and-JVM.jpg",
+  "videoid" : "none",
+  "objectives" : "<p>Java Virtual Machine (JVM) · JDK · bytecode · javac · main method · files</p>",
+  "folder" : "talk-2-main-and-jvm",
+  "link" : "b-main-and-JVM.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Introduction to IntelliJ ",
+  "img" : "c-intellij.png",
+  "videoid" : "none",
+  "objectives" : "<p>IntelliJ · Integrated Development Environment (IDE)</p>",
+  "folder" : "talk-3-intellij",
+  "link" : "c-intellij.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "OO Recap ",
+  "img" : "d-oo-recap.jpg",
+  "videoid" : "none",
+  "objectives" : "<p>Objects · Classes · Constructors · Accessors · Mutators · toString</p>",
+  "folder" : "talk-4-oo-recap",
+  "link" : "d-oo-recap.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-07a",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>Install JDK 8 + IntelliJ Idea</p>",
+  "folder" : "book-a-setup-intellij",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Online Class: Week 7 - Talk 1 ",
+  "img" : "",
+  "videoid" : "tbaSZD9iX4Q",
+  "objectives" : "<p>Online Class: Week 7 - Talk 1</p>",
+  "folder" : "panelvideo",
+  "link" : "tbaSZD9iX4Q",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : "07: IntelliJ and Basic I/O ",
+  "img" : "talk-5-scanner-io/e-scanner-io.jpg",
+  "videoid" : "",
+  "objectives" : "<p>IntelliJ · Java Virtual Machine (JVM) · main method · Scanner · OO recap · Array recap</p>",
+  "folder" : "unit-07b",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Scanner IO ",
+  "img" : "e-scanner-io.jpg",
+  "videoid" : "none",
+  "objectives" : "<p>Scanner · Console I/O</p>",
+  "folder" : "talk-5-scanner-io",
+  "link" : "e-scanner-io.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Array Recap ",
+  "img" : "f-array-recap.jpg",
+  "videoid" : "none",
+  "objectives" : "<p>primitive array · classes</p>",
+  "folder" : "talk-6-array-recap",
+  "link" : "f-array-recap.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-07b",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>IntelliJ · Java Virtual Machine (JVM) · main method · Scanner · OO recap</p>",
+  "folder" : "book-b",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Online Class: Week 7 - Talk 2 ",
+  "img" : "",
+  "videoid" : "uA5477BGQKE",
+  "objectives" : "<p>Online Class: Week 7 - Talk 2</p>",
+  "folder" : "panelvideo2",
+  "link" : "uA5477BGQKE",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : "07: IntelliJ and Basic I/O ",
+  "img" : "panelvideo1/",
+  "videoid" : "",
+  "objectives" : "<p>Lab Support Videos</p>",
+  "folder" : "unit-07c",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Week 07 lab Support - Installing JDK ",
+  "img" : "",
+  "videoid" : "nlEMAd-FZd8",
+  "objectives" : "<p>Week 07 lab Support - Installing JDK</p>",
+  "folder" : "panelvideo1",
+  "link" : "nlEMAd-FZd8",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Week 07 lab Support - Downloading IntelliJ ",
+  "img" : "",
+  "videoid" : "UqT5j2ScBzo",
+  "objectives" : "<p>Week 07 lab Support - Downloading IntelliJ</p>",
+  "folder" : "panelvideo2",
+  "link" : "UqT5j2ScBzo",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Week 07 lab Support - Coding Your First Class in IntelliJ ",
+  "img" : "",
+  "videoid" : "g_zSeb97K8k",
+  "objectives" : "<p>Week 07 lab Support - Coding Your First Class in IntelliJ</p>",
+  "folder" : "panelvideo3",
+  "link" : "g_zSeb97K8k",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Week 07 lab Support - Working with Multiple Projects in IntelliJ ",
+  "img" : "",
+  "videoid" : "Gsxu2oaVDBc",
+  "objectives" : "<p>Week 07 lab Support - Working with Multiple Projects in IntelliJ</p>",
+  "folder" : "panelvideo4",
+  "link" : "Gsxu2oaVDBc",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } 
+   ]
+
+  },
+ {
+    
+  
+    "properties" : {"highlightstyle":"railscasts","disable":false,"slack":"https://wit-hdip-comp-sci-19.slack.com/messages/CEN2114F4","moodle":"https://moodle.wit.ie/course/view.php?id=132121","youtube":"https://www.youtube.com/channel/UCOJZMc0BQDXDljzdcxP2EDw","parent":"https://wit-hdip-comp-sci-2019.github.io/","courseurl":"http://wit-hdip-comp-sci-2019.github.io/programming/","credits":"Colm Dunphy, Johnathan Brazil, Patrick Felicia,  WIT","license":"Unless otherwise stated, this work is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>.","faPanelicon":"fas fa-cogs","faColour":"#64dd17","crest":"crestwit.jpg","cresturl":"https://www.wit.ie/courses/school/science/department_of_computing_maths_physics/hdipcomputerscience2yearparttime","ects":10},
+  
+  "type" : "topic",
+  "title" : " 08: Grouping Objects ",
+  "img" : "topic.jpg",
+  "videoid" : "",
+  "objectives" : "<p>primitive arrays · classes · algorithms for collections · ArrayLists</p>",
+  "folder" : "topic-08-grouping-objects",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : " 08a: Grouping Objects (Shop v2 · ArrayLists part 1) ",
+  "img" : "talk-1-array-product/a-array-product.jpg",
+  "videoid" : "",
+  "objectives" : "",
+  "folder" : "unit-01",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "ShopV2.0 ",
+  "img" : "a-array-product.jpg",
+  "videoid" : "none",
+  "objectives" : "<p>Primitive Array of Product</p>",
+  "folder" : "talk-1-array-product",
+  "link" : "a-array-product.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "ArrayList (part 1) ",
+  "img" : "b-intro-to-arraylists.jpg",
+  "videoid" : "none",
+  "objectives" : "<p>Collections · Generic Classes · ArrayList · loops · for each loop</p>",
+  "folder" : "talk-2-intro-to-arraylists",
+  "link" : "b-intro-to-arraylists.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-08a",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>Scanner · primitive arrays · counter-controlled loops</p>",
+  "folder" : "book-1",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-08b",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>IntelliJ · ShopV2.0 · ShopV2.1 · array · algorithms</p>",
+  "folder" : "book-2",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Online Class: Week 8 - Talk 1 ",
+  "img" : "",
+  "videoid" : "prgIUqSWXD8",
+  "objectives" : "<p>Online Class: Week 8 - Talk 1</p>",
+  "folder" : "panelvideo",
+  "link" : "prgIUqSWXD8",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : " 08b: Grouping Objects (ArrayLists part 2) ",
+  "img" : "talk-3-more-on-arraylists/c-intro-to-arraylist-contd.jpg",
+  "videoid" : "",
+  "objectives" : "",
+  "folder" : "unit-02",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "ArrayList (part 2) ",
+  "img" : "c-intro-to-arraylist-contd.jpg",
+  "videoid" : "none",
+  "objectives" : "<p>ArrayList · ShopV3.0 · algorithms</p>",
+  "folder" : "talk-3-more-on-arraylists",
+  "link" : "c-intro-to-arraylist-contd.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Online Class: Week 8 - Talk 2 ",
+  "img" : "",
+  "videoid" : "oF8BHK1WW80",
+  "objectives" : "<p>Online Class: Week 8 - Talk 2</p>",
+  "folder" : "panelvideo",
+  "link" : "oF8BHK1WW80",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } 
+   ]
+
+  },
+ {
+    
+  
+    "properties" : {"highlightstyle":"railscasts","disable":false,"slack":"https://wit-hdip-comp-sci-19.slack.com/messages/CEN2114F4","moodle":"https://moodle.wit.ie/course/view.php?id=132121","youtube":"https://www.youtube.com/channel/UCOJZMc0BQDXDljzdcxP2EDw","parent":"https://wit-hdip-comp-sci-2019.github.io/","courseurl":"http://wit-hdip-comp-sci-2019.github.io/programming/","credits":"Colm Dunphy, Johnathan Brazil, Patrick Felicia,  WIT","license":"Unless otherwise stated, this work is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>.","faPanelicon":"fas fa-cogs","faColour":"#64dd17","crest":"crestwit.jpg","cresturl":"https://www.wit.ie/courses/school/science/department_of_computing_maths_physics/hdipcomputerscience2yearparttime","ects":10},
+  
+  "type" : "topic",
+  "title" : " 09: Menu Driven Apps and Persistence ",
+  "img" : "topic.jpg",
+  "videoid" : "",
+  "objectives" : "<p>Switch · Loops · Menus · persistence · CRUD · debugging</p>",
+  "folder" : "topic-09-menu-and-crud",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : " 09a: Menu Driven Systems (Switch · Loops · Menus)  ",
+  "img" : "talk-1-menu-driven-systems/a-menu-driven-systems.jpg",
+  "videoid" : "",
+  "objectives" : "<h1>09a: Menu Driven Systems (Switch · Loops · Menus)</h1>",
+  "folder" : "unit-01",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Menu Driven Systems ",
+  "img" : "a-menu-driven-systems.jpg",
+  "videoid" : "none",
+  "objectives" : "<p>Switch · Loops · Menus</p>",
+  "folder" : "talk-1-menu-driven-systems",
+  "link" : "a-menu-driven-systems.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-09a",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>Collections · Generic Classes · ArrayList · loops · for each loop · Menu Driven Apps</p>",
+  "folder" : "book-1",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Online Class: Week 9 - Talk 1 ",
+  "img" : "",
+  "videoid" : "NhZ4q-9fEzI",
+  "objectives" : "<p>Online Class: Week 9 - Talk 1</p>",
+  "folder" : "panelvideo",
+  "link" : "NhZ4q-9fEzI",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : " 09b: Unit Testing (JUnit, TDD)  ",
+  "img" : "talk-4-unit-testing/talk-4-unit-testing.png",
+  "videoid" : "",
+  "objectives" : "<h1>09b: Unit Testing (JUnit, TDD)</h1>",
+  "folder" : "unit-01b",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Unit Testing ",
+  "img" : "talk-4-unit-testing.png",
+  "videoid" : "F07Am9GoVt0",
+  "objectives" : "<p>[13 mins] · JUnit · IntelliJ · Assertions</p>",
+  "folder" : "talk-4-unit-testing",
+  "link" : "talk-4-unit-testing.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "TDD Test Driven Development ",
+  "img" : "talk-4-tdd.png",
+  "videoid" : "Yqan4ol8wXU",
+  "objectives" : "<p>[9 mins] · JUnit · IntelliJ · Running Unit Tests</p>",
+  "folder" : "talk-5-tdd",
+  "link" : "talk-4-tdd.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Assignment 3 Prerequisite",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>The material covered in this &#39;lab&#39; is a prerequisite for the third assignment in this module.</p>",
+  "folder" : "book-4",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : " 09c: Persistence + misc (CRUD · debugging) ",
+  "img" : "talk-2-CRUD/b-CRUD-process.jpg",
+  "videoid" : "",
+  "objectives" : "<h1>09c: Persistence + misc (CRUD · debugging)</h1>",
+  "folder" : "unit-02",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "CRUD Process ",
+  "img" : "b-CRUD-process.jpg",
+  "videoid" : "RstEgsN3oXE",
+  "objectives" : "<p>[21 mins] · CRUD · Create · Read · Update · Delete</p>",
+  "folder" : "talk-2-CRUD",
+  "link" : "b-CRUD-process.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : " Debugging ",
+  "img" : "c-debugging.jpg",
+  "videoid" : "dkw9QuGOd04",
+  "objectives" : "<p>[14 mins] · Bug · Debugging · IntelliJ Debugger</p>",
+  "folder" : "talk-3-debugging",
+  "link" : "c-debugging.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-09c",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>CRUD · ShopV4.0 · DVDLibraryV2.0</p>",
+  "folder" : "book-2",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } 
+   ]
+
+  }
+ ]
+  }
+

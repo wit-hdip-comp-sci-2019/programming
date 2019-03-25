@@ -1,0 +1,95 @@
+
+
+
+  {
+  
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-02a",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>animated drawings · conditional statements · relational operators · logical operators · variables · mouse events · key events</p>",
+  "folder" : "book",
+  "link" : "index.html",
+  "los": [
+   ]
+,
+  "chapters" : [
+  
+    {
+    "title": "#Objectives",
+    "shortTitle": "Lab-02a",
+    "contentMd" : "#Objectives\n\nanimated drawings · conditional statements · relational operators · logical operators · variables · mouse events · key events"
+    },
+  
+    {
+    "title": "#Conditional statements and boolean expressions",
+    "shortTitle": "01",
+    "contentMd" : "#Conditional statements and boolean expressions\n\nIn this step, we will implement an example from your lecture.\n\nIf the x coordinate of the mouse pointer is on the:\n\n- left half of the display window, draw a rectangle on the left hand side.  \n\n- right half of the display window, draw a rectangle on the right hand side.\n\n\n##Conditional Example 2.1\n\nCreate a new Processing sketch in your workspace and call it **Example_2_1**.\n\nEnter the following code into your sketchbook (avoid the temptation to copy and paste it...you learn more by writing the code out):\n\n~~~java\nvoid setup() {\n    size(100, 100);\n    noStroke();\n    fill(0);\n}\n\nvoid draw() {\n    background(204);\n    if (mouseX < 50) \n    {\n       rect(0, 0, 50, 100); \n    } \n    else \n    {\n       rect(50, 0, 50, 100); \n    }\n}\n~~~\n\n- Run your code.  Does it work as you would expect?\n\n![Expected output](./img/01.png)"
+    },
+  
+    {
+    "title": "#Conditional statements and boolean expressions",
+    "shortTitle": "02",
+    "contentMd" : "#Conditional statements and boolean expressions\n\nIn this step, we will implement an example from your lecture.\n\nIf the x coordinate of the mouse pointer is on the:\n\n- left third of the display window, draw a rectangle on the left third of the window.  \n\n- middle third of the display window, draw a rectangle on the middle third of the window.\n\n- right third of the display window, draw a rectangle on the right third of the window.\n\n\n##Conditional Example 2.2\n\nCreate a new Processing sketch in your workspace and call it **Example_2_2**.\n\nEnter the following code into your sketchbook (avoid the temptation to copy and paste it...you learn more by writing the code out):\n\n~~~java\nvoid setup() {\n    size(100, 100);\n    noStroke();\n    fill(0);\n}\n\nvoid draw() {\n    background(204);\n    if (mouseX < 33) {\n        rect(0, 0, 33, 100); \n    } \n    else if (mouseX < 66) {\n        rect(33, 0, 33, 100); \n    } \n    else {\n         rect(66, 0, 33, 100); \n    }  \n}\n\n~~~\n\n- Run your code.  Does it work as you would expect?\n\n![Expected output](./img/02.png)"
+    },
+  
+    {
+    "title": "#Conditional statements and logical operators",
+    "shortTitle": "03",
+    "contentMd" : "#Conditional statements and logical operators\n\nIn this step, we will implement an example from your lecture.\n\nIf the mouse pointer is:\n\n- inside the rectangle coordinates, then fill the rectangle with white.\n\n- otherwise, fill with black.\n\n\n##Conditional Example 2.3\n\nCreate a new Processing sketch in your workspace and call it **Example_2_3**.\n\nEnter the following code into your sketchbook (avoid the temptation to copy and paste it...you learn more by writing the code out):\n\n~~~\nvoid setup() {\n  size(100, 100);\n  noStroke();\n  fill(0);\n}\n\nvoid draw() {\n  background(204);\n  if ((mouseX > 40) && (mouseX < 80) &&\n      (mouseY > 20) && (mouseY < 80)) {\n      fill(255);\n  } else {\n      fill(0);\n  }\n  rect(40, 20, 40, 60);\n}\n~~~\n\n- Run your code.  Does it work as you would expect?\n\n\n![Expected output](./img/03.png)"
+    },
+  
+    {
+    "title": "#Conditional statements and logical operators",
+    "shortTitle": "04",
+    "contentMd" : "#Conditional statements and logical operators\n\nIn this step, we will implement an example from your lecture.\n\n- If the mouse pointer is in the upper-left quadrant of the display window, draw a black rectangle covering the upper-left quadrant of the window.  \n\n- Repeat this approach for upper-right, lower-left and lower-right quadrants. \n\n\n##Conditional Example 2.4\n\nCreate a new Processing sketch in your workspace and call it **Example_2_4**.\n\nEnter the following code into your sketchbook (avoid the temptation to copy and paste it...you learn more by writing the code out):\n\n~~~java\nvoid setup() {\n  size(100, 100);\n  noStroke();\n  fill(0);\n}\n\nvoid draw() {\n  background(204);\n  if ((mouseX <= 50) && (mouseY <= 50)) {\n    rect(0, 0, 50, 50);             // upper-left\n  } else if ((mouseX <= 50) && (mouseY > 50)) {\n    rect(0, 50, 50, 50);            // lower-left\n  } else if ((mouseX > 50) && (mouseY <= 50)) {\n    rect(50, 0, 50, 50);            // upper-right\n  } else {\n    rect(50, 50, 50, 50);           // lower-right\n  }\n}\n~~~\n\n- Run your code.  Does it work as you would expect?\n\n![Expected output](./img/04.png)"
+    },
+  
+    {
+    "title": "#Mouse events",
+    "shortTitle": "05",
+    "contentMd" : "#Mouse events\n\nIn this step, we will implement an example from your lecture.\n\nIf the mouse is pressed:\n\n- draw a gray square with a white outline.  \n\n- otherwise draw a gray circle with a white outline.\n\n\n##Mouse Example 2.5\n\nCreate a new Processing sketch in your workspace and call it **Example_2_5**.\n\nEnter the following code into your sketchbook (avoid the temptation to copy and paste it...you learn more by writing the code out):\n\n~~~java\nvoid setup() {\n  size(100,100);\n}\n\nvoid draw() {\n   background(0);\n   stroke(255);\n   fill(128);\n   if (mousePressed){\n       rect(45,45,34,34); \n   }\n   else{\n       ellipse(45,45,34,34);     \n   }\n}\n~~~\n\n- Run your code.  Does it work as you would expect?\n\n![Expected output](./img/05.png)"
+    },
+  
+    {
+    "title": "#Mouse events",
+    "shortTitle": "06",
+    "contentMd" : "#Mouse events\n\nIn this step, we will implement an example from your lecture.\n\nIf the mouse is pressed:\n\n- set the fill to white and draw a square.\n\n- otherwise set the fill to black and draw a square.\n\n\n##Mouse Example 2.6\n\nCreate a new Processing sketch in your workspace and call it **Example_2_6**.\n\nEnter the following code into your sketchbook (avoid the temptation to copy and paste it...you learn more by writing the code out):\n\n~~~java\nvoid setup() {\n  size(100,100);\n}\n\nvoid draw() {\n  background(204);\n  if (mousePressed == true)    \n  {\n       fill(255); // white\n   } else {\n       fill(0);     // black\n   }\n   rect(25, 25, 50, 50);\n}\n~~~\n\n- Run your code.  Does it work as you would expect?\n\n![Expected output](./img/06.png)"
+    },
+  
+    {
+    "title": "#Mouse events",
+    "shortTitle": "07",
+    "contentMd" : "#Mouse events\n\nIn this step, we will implement an example from your lecture.\n\n- If the LEFT button on the mouse is pressed, set the fill to black and draw a square.  As soon as the LEFT button is released, gray fill the square.\n\n- If the RIGHT button on the mouse is pressed, set the fill to white and draw a square. As soon as the  RIGHT button is released, gray fill the square.\n\n- If no mouse button is pressed, set the fill to gray and draw a square.\n\n\n##Mouse Example 2.7\n\nCreate a new Processing sketch in your workspace and call it **Example_2_7**.\n\nEnter the following code into your sketchbook (avoid the temptation to copy and paste it...you learn more by writing the code out):\n\n\n~~~java\nvoid setup() {\n  size(100,100);\n}\n\nvoid draw() { \n   if (mousePressed){\n       if (mouseButton == LEFT) \n            fill(0);      // black\n       else if (mouseButton == RIGHT)\n            fill(255);    // white\n   }        \n   else { \n       fill(126);     // gray\n    }\n    rect(25, 25, 50, 50);\n}\n~~~\n\n- Run your code.  Does it work as you would expect?\n\n![Expected output](./img/07.png)"
+    },
+  
+    {
+    "title": "#Mouse events",
+    "shortTitle": "08",
+    "contentMd" : "#Mouse events\n\nIn this step, we will implement an example from your lecture.\n\n- Draw a circle on the mouse (x,y) coordinates.\n\n- Each time you move the mouse, draw a new circle.\n\n- All the circles remain in the sketch until you press a mouse button.\n\n- When you press a mouse button, the sketch is cleared and a single circle is drawn at the mouse (x,y) coordinates.\n\n\n##Mouse Example 2.8\n\nCreate a new Processing sketch in your workspace and call it **Example_2_8**.\n\nEnter the following code into your sketchbook (avoid the temptation to copy and paste it...you learn more by writing the code out):\n\n~~~java\nvoid setup() {\n  size(500,400);\n  background(0);\n}\n\nvoid draw() {\n \n  if (mousePressed) {\n    background(0);\n  }\n\n  stroke(255);\n  fill(45,45,45);\n  ellipse(mouseX, mouseY, 100, 100);\n}\n~~~\n\n- Run your code.  Does it work as you would expect?\n\n![Expected output](./img/08.png)"
+    },
+  
+    {
+    "title": "#Exercises",
+    "shortTitle": "Exercises",
+    "contentMd" : "#Exercises\n\n- For each exercise listed below, create a new sketch.\n\n- You may need to visit the [Processing website](https://processing.org/reference/) for additional information.\n\n\n##Exercise 1\n\n- Create a display window of 500x400, with a black background.\n\n- When the mouse is pressed, draw a red circle (100 pixel diameter) with a white outline.  \n\n- Note:  when the mouse is pressed and dragged, multiple circles should be drawn.  When the mouse is released and dragged, no circles should be drawn.\n\n\n##Exercise 2\n\n- Create a display window of 500x400, with a black background.\n\n- When the LEFT mouse button is pressed, draw a red circle (50 pixel diameter) with a white outline.  Note:  when this button is pressed and dragged, multiple circles should be drawn.\n\n- When the RIGHT mouse button is pressed, draw a blue square (length of 50 pixels) with a white outline.  Note:  when this button is pressed and dragged, multiple squares should be drawn.\n\n- When no button is pressed and the mouse is dragged, nothing should be drawn.\n\n\n##Exercise 3\n\n- Draw circles (diameter 100) as the mouse is moved (the background should not be cleared).\n\n- When the mouse is pressed, reduce the size of the circle by 10 pixels.  \n\n- When the circle diameter reaches 50 pixels, don't reduce it anymore.\n\n\n##Exercise 4\n\n- Draw circles (diameter 100) as the mouse is moved (the background should not be cleared).\n\n- As each circle is drawn, its colour should vary from the previous one (use mathematical calculations on your RBG colours).\n \n- Make sure you **boundary** test this exercise.  What we mean by that is...test what happens when your colour reaches 0 or when it reaches 255.  Does it reset itself and cycle through the colours again or does it get stuck drawing in only one colour?\n\n\n"
+    },
+  
+    {
+    "title": "#Challenges",
+    "shortTitle": "Challenges",
+    "contentMd" : "#Challenges\n\n- For each challenge listed below, create a new sketch.\n\n- You may need to visit the [Processing website](https://processing.org/reference/) for additional information.\n\n\n##Challenge 1\n\n- Draw a continuously bouncing ball.  \n\n- For the moment, the xCoordiate should remain the same value i.e. the ball only bounces vertically, so it is only the yCoordiate that needs to change.\n\n\n##Challenge 2\n\n- Visit the [Processing website](https://processing.org/reference/) and read up on the following keyEvents:\n\n    - keyPressed (boolean variable used to determine if a key was pressed).\n    - key (which stores a single alphanumeric character i.e. the most recently pressed key).\n\n\n\n- In a new sketch, draw a cirlce if the **C** key was pressed and a rectangle if any other key was pressed.\n\n- Test your code...is the keyboard input case sensitive? Can you enter a lower case **c** to draw a circle?\n\n\n##Challenge 3\n\n- In a new sketch, draw a vertical line that is the height of your display window.\n\n- This vertical line should start in the left most position of your display window and move right, pixel by pixel, until it reaches the right hand side of your display window.  \n\n- Upon reaching the right hand side, the vertical line should reverse direction and return, pixel by pixel, to the left hand side of the display window.\n\n- As your vertical line is continually traversing the display window, your grayscale background should be varying very slightly in colour.  \n\n\n"
+    },
+  
+    {
+    "title": "#Solutions",
+    "shortTitle": "Solutions",
+    "contentMd" : "#Solutions\n\nThe solutions for this lab can be found [here](archives/lab02a_solutions.zip). \n\nIf you require unzipping software, 7zip is a good choice: <http://www.7-zip.org/> (or Keka for Mac <http://www.kekaosx.com/en/>)\n\nAfter unzipping the solutions, it might be a good idea to copy the folders to your **sketchbook** folder.  From Processing, you could then use **File**, followed by **Sketchbook** to easily open them.\n"
+    }
+  
+  ]
+  }
+

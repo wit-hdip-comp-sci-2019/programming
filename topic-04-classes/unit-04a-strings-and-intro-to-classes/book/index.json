@@ -1,0 +1,77 @@
+
+
+
+  {
+  
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-04a",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>charAt · compareTo · substring · objects · classes · object state · attributes · bahaviours · class design · constructors · Spot</p>",
+  "folder" : "book",
+  "link" : "index.html",
+  "los": [
+   ]
+,
+  "chapters" : [
+  
+    {
+    "title": "#Objectives",
+    "shortTitle": "Lab-04a",
+    "contentMd" : "#Objectives\n\ncharAt · compareTo · substring · objects · classes · object state · attributes · bahaviours · class design · constructors · Spot\n"
+    },
+  
+    {
+    "title": "#Strings - charAt()",
+    "shortTitle": "01",
+    "contentMd" : "#Strings - charAt()\n\nCreate a new Processing sketch in your workspace and call it **Example_4_1**.\n\n\n##charAt() method\nInclude the following code in your sketch (don't cut and paste it, type it in):\n\n~~~java\nString alphabet = \"abcdefghijklmnopqrstuvwxyz\";\nString errorMessage404 = \"HTTP 404 Not Found Error\";\n\nprintln(\"The character at position 4 in \" \n              + alphabet \n              + \" is \" \n              + alphabet.charAt(3));\n              \nprintln(\"The character at position 10 in \"\n              + errorMessage404 \n              + \" is \" \n              + errorMessage404.charAt(9));\n~~~              \n\nRun your code; You should get the following output:\n\n![charAt method output](./img/01.png)\n\nSave your work.\n\n"
+    },
+  
+    {
+    "title": "#Strings - substring()",
+    "shortTitle": "02",
+    "contentMd" : "#Strings - substring()\n\nCreate a new Processing sketch in your workspace and call it **Example_4_2**.\n\n\n##substring() method\n\nType in the following code in your sketch:\n\n~~~java \n//Version 1 (with roar variable)\nString anotherPalindrome = \"Niagara. O roar again!\"; \nString roar = anotherPalindrome.substring(11, 15); \nprint(roar);\n~~~\n\nRun the code.  Your output should be \n\n~~~\nroar\n~~~\n\nNow comment out the above code and add this code to your sketch:\n\n~~~java\n//Version 2 (without roar variable)\nString anotherPalindrome = \"Niagara. O roar again!\"; \nprint(anotherPalindrome.substring(11, 15)); \n\n//Version 1 (with roar variable)\n//String anotherPalindrome = \"Niagara. O roar again!\"; \n//String roar = anotherPalindrome.substring(11, 15); \n//print(roar);\n~~~\n\nRun the code.  Your output should still be: \n\n~~~\nroar\n~~~\n\nDo you understand the difference between the two code versions?  In the first version, we declare a variable called 'roar'.  In the second version, we don't use a 'roar' variable at all.\n\nSave your work.\n\n"
+    },
+  
+    {
+    "title": "#Strings - compareTo()",
+    "shortTitle": "03",
+    "contentMd" : "#Strings - compareTo()\n\nWe will step through a few examples of the compareTo method from your lectures.\n\n\n##compareTo(), Example 4.3\n\nCreate a new Processing sketch in your workspace and call it **Example_4_3**.\n\nType in the following code in your sketch:\n\n~~~java\nString str1 = \"Dog\";\nString str2 = \"Cat\";\n\nif(str1.compareTo(str2) < 0){\n     println(str1+\" comes before \"+ str2 +\" in the alphabet\");\n}\nelse if(str1.compareTo(str2) > 0){\n     println(str2 +\" comes before \"+ str1+\" in the alphabet\");\n}\nelse{\n    println(\"The strings are identical\");\n}\n~~~\n\nWhen you run it, you get the following output\n\n~~~\nCat comes before Dog in the alphabet\n~~~\n\nCan you explain the output?\n\nSave your work.\n\n\n##compareTo(), Example 4.4\n\nSave your sketch as **Example_4_4**.\n\nThen change the values of the two strings to the following: \n\n~~~java\nString str1 = \"cat\";\nString str2 = \"Cat\";\n~~~\n\nWhen you run it, you get the following output\n\n~~~\nCat comes before cat in the alphabet\n~~~\n\nCan you explain the output?\n\nSave your work.\n\n\n##compareTo(), Example 4.5\n\nSave your sketch as **Example_4_5**.\n\nThen change the values of the two strings to the following: \n\n~~~java\nString str1 = \"Animal\";\nString str2 = \"Cat\";\n~~~\n\nWhen you run it, you get the following output\n\n~~~\nAnimal comes before Cat in the alphabet\n~~~\n\nCan you explain the output?\n\nSave your work.\n\n\n##compareTo(), Example 4.6\n\nSave your sketch as **Example_4_6**.\n\nThen change the values of the two strings to the following: \n\n~~~java\nString str1 = \"Cat\";\nString str2 = \"Cat\";\n~~~\n\nWhen you run it, you get the following output\n\n~~~\nThe strings are identical\n~~~\n\nSave your work.\n\n\n"
+    },
+  
+    {
+    "title": "#Strings - equals()",
+    "shortTitle": "04",
+    "contentMd" : "#Strings - equals()\n\nWe will step through a new example relating to the *equals* method.\n\n\n##equals()\n\nCreate a new Processing sketch in your workspace and call it **lab04a_equals**.\n\nType in the following code in your sketch:\n\n~~~java\nString str1 = \"a\";\nString str2 = \"b\";\n        \nif(str1.equals(str2))\n{\n    println(str1+\" is the same as \"+ str2);\n}\nelse  \n{\n    println(str1+\" is NOT same as \"+ str2);\n}\n~~~\n\nRun this code and your output should be:\n\n~~~\na is NOT same as b\n~~~\n\nNow make the following change so that both *str1* and *str2* have the value *a*:\n\n~~~\nString str1 = \"a\";\nString str2 = \"a\";\n~~~\n\nWhen you run the code, your output should now be:\n\n~~~\na is the same as a\n~~~\n\nSave your work.\n\n"
+    },
+  
+    {
+    "title": "#Objects and Classes",
+    "shortTitle": "05",
+    "contentMd" : "#Objects and Classes\n\n\n##Drawing spot without classes\n\nCreate a new Sketchbook and save it as **Spot_Version0.0**.\n\nEnter the following code:\n\n~~~java\nfloat x = 33.0;\nfloat y = 50.0;\nfloat diameter = 30.0;\n\nvoid setup(){\n  size (100,100);\n  noStroke();\n}\n\nvoid draw(){\n  background(0);\n  ellipse(x, y, diameter, diameter);\n}\n~~~\n\n\nRun the code.  You should see a black window window with a white circle drawn in it.\n\n![Drawing spot without using classes](./img/05.png)\n\nSave your work.\n\n\n##Drawing spot with basic class\n\nSave your sketch as **Spot_Version1.0**.\n\nReplace the existing code with this:\n\n~~~java\nSpot sp;\n\nvoid setup()\n{\n  size (100,100);\n  noStroke();\n  sp = new Spot();\n  sp.xCoord = 33;\n  sp.yCoord = 50;\n  sp.diameter = 30;\n}\n\nvoid draw()\n{\n  background(0);\n  ellipse(sp.xCoord, sp.yCoord, sp.diameter, sp.diameter);\n}\n~~~\n\nThen using the new tab button as below, create a new tab called Spot. (This will be the name of the new class)\n\n![Creating a class](./img/06.png)\n\nEnter the following code in the new window. \n\n~~~java\nclass Spot\n{\n  float xCoord, yCoord;\n  float diameter;\n}\n~~~\n\nRun the code.  You should see the same black window with a white circle drawn in it.\n\n![Drawing spot using basic classes](./img/05.png)\n\nSave your work.\n\n\n##Drawing spot with Spot class and constructor\n\nSave your sketch as **Spot_Version2.0**.\n\nIn the main tab, refactor the code so that it is the same as below:\n\n~~~java\nSpot sp;\n\nvoid setup()\n{\n  size (100,100);\n  noStroke();\n  sp = new Spot(33, 50, 30);\n}\n\nvoid draw()\n{\n  background(0);\n  ellipse(sp.xCoord, sp.yCoord, sp.diameter, sp.diameter);\n}\n~~~\n\nThen go to the tab/class called *Spot* and refactor the code so that is has the following constructor:\n\n~~~java\nclass Spot\n{\n  float xCoord, yCoord;\n  float diameter;\n  \n  //Constructor\n  Spot(float xPos, float yPos, float diamtr)\n  {\n    xCoord = xPos;\n    yCoord = yPos;\n    diameter = diamtr;\n  }\n}\n~~~\n\n\nRun the code.  You should see the same black window with a white circle drawn in it.\n\n![Drawing spot with Spot class and constructor](./img/05.png)\n\nSave your work.\n\n\n##Drawing spot with Spot class and multiple constructors\n\nSave your sketch as **Spot_Version3.0**.\n\nIn this step, we will make no changes in the *main* tab.\n\nGo to the tab/class called *Spot* and refactor the code so that is also has the default constructor:\n\n~~~java\nclass Spot{\n  float xCoord, yCoord;\n  float diameter;\n  \n  //Default Constructor\n  Spot(){\n  }\n  \n  //Constructor \n  Spot(float xPos, float yPos, float diamtr){\n    xCoord = xPos;\n    yCoord = yPos;\n    diameter = diamtr;\n  }\n}\n~~~\n\nRun the code.  Once again, you should see the same black window with a white circle drawn in it.\n\n![Drawing spot with Spot class and multiple constructors](./img/05.png)\n\nSave and close your work.\n\n"
+    },
+  
+    {
+    "title": "#Exercise",
+    "shortTitle": "Exercises",
+    "contentMd" : "#Exercise\n\nIn these exercises, we will look at solving some common errors.\n\n##Exercise 1: Using ''='' in test for equality (syntax error) \n\nCreate a new sketch and save it as **lab04a_exercise_1**.\n\nCut and paste the following code into it:\n\n~~~java\n        int num1 = 1;\n        int num2 = 2;\n        \n        if(num1 = num2)\n             println(num1+\" is the same as \"+ num2);\n        else\n             println(num1+\" is NOT same as \"+ num2);\n~~~\n\nTry to run the code. You will see an error similar to this one: \n\n![Error Message](./img/02.png)\n\nChange the single ''='' to a double equals ''=='' Rerun the code.  It should now work. \n\nSave your work.  \n\n\n##Exercise 2: Using '';'' in incorrect place(logic) \n\nSave your sketch as **lab04a_exercise_2**.\n\nReplace the code in it with this (cut and paste is fine here!):\n\n~~~java\nint num1 = 1;\nint num2 = 2;\n\nif(num1 == num2) ;\n     println(num1+\" is the same as \"+ num2);\nif (num1 != num2) \n     println(num1+\" is NOT same as \"+ num2);\n~~~\n\nRun the code. You will get the folowing (incorrect) output. \n\n![This output is incorrect](./img/03.png)\n\nCan you see where the error is? Change the code to that you get the correct output (\"1 is not the same as 2\").\n\nIf you are having difficulty spotting it, the error is in the first if statement...there should be no ; after the boolean expression.\n\nSave your work.\n\n\n##Exercise 3: Not using ''{'' and ''}'' to control statements(logic) \n\nSave your sketch as **lab04a_exercise_3**.\n\nReplace the code in it with this (cut and paste is fine here!):\n\n~~~java\nint num1 = 1;\nint num2 = 2;\n\nif(num1 == num2) \n     println(num1+\" is the same as \"+ num2);\n     println(\"This means that they are equal\");\nif (num1 != num2) \n     println(num1+\" is NOT same as \"+ num2);\n~~~\n\nRun the code. You will get the folowing (incorrect) output. \n\n![This output is incorrect](./img/04.png)\n\nCan you see where the error is?   Hint: there is a problem with curly braces...recall that curly braces are not required in an if statement when there is only one statement in it; they are required when there is more than one statement. \n\nChange the code to that you get the correct output in each case (when numbers are equal and when numbers are not equal).\n\nSave your work.\n\n"
+    },
+  
+    {
+    "title": "#Challenges",
+    "shortTitle": "Challenges",
+    "contentMd" : "#Challenges\n\nIn these challenges, we will bring in validation on our fields in the constructor.  If you have difficulty attempting these, don't worry...we will cover this approach in detail in your next lecture!\n\n\n##Challenge 1\n\nUsing [Spot Version 3.0](archives/Spot_Version3_0.zip) as a starting point, save this as **lab04a_challenge_01**.\n\nIn this code, you will notice we have the following Spot Constructor:\n\n~~~java\nSpot(float xPos, float yPos, float diamtr){\n    xCoord = xPos;\n    yCoord = yPos;\n    diameter = diamtr;\n  }\n~~~\n\nWe want to add some validation rules to this i.e.\n\n- before setting the diameter, check that the value sent into the constructor is between 20 and 50 inclusive.  If the value sent in is outside that range, set a default value of 20.\n\n- before setting the xPos and the yPos, check that the value sent into the constructor is  not negative (i.e. >= 0).  If the value sent in is negative, set a default value of 0.\n\nTest your code to make sure it is behaving appropriately.  \n\nSave your work and close the project.\n\n\n##Challenge 2\n\nIf we add another field to Spot - a String field called **spotName**. (This simply stores the name of the spot). The class now looks like (without the validations done above):\n\n~~~java\nclass Spot{\n  String spotName;\n  float xCoord, yCoord;\n  float diameter;\n\n Spot(String name, float xPos, float yPos, float diamtr){\n    spotName = name;\n    xCoord = xPos;\n    yCoord = yPos;\n    diameter = diamtr;\n  }\n}\n~~~\n\nand the *main* class looks like:\n\n~~~java\nSpot sp;\n\nvoid setup()\n{\n  size (100,100);\n  noStroke();\n  sp = new Spot( \"SpottySpot\", 33, 50, 30);\n}\n\nvoid draw()\n{\n  background(0);\n  ellipse(sp.xCoord, sp.yCoord, sp.diameter, sp.diameter);\n  println(sp.spotName);\n}\n~~~\n\nCreate a new sketch called **lab04a_challenge_02** and cut and paste the above code into it.\n\nFirstly, run this program. See how the code in the Spot class and the *main* class have changed to cater for the extra field. Can you explain why so many *SpottySpot* are printed to the console?\n\nThen, add a validation to the constructor that only allows names that are no more than 7 characters long. If the name is too long, the constructor should impose the rule by cutting the spotName string to the first 7 characters. \n\nTest your code to make sure it is behaving appropriately.  In particular, perform the following tests:\n\n- enter a name that is 6 characters long...all 6 characters should be stored in the name.\n\n- enter a name that is 7 characters long...all 6 characters should be stored in the name.\n\n- enter a name that is 8 characters long...only the first 7 characters should be stored in the name (hint: substring).\n\nNOTE: This is called **boundary testing** i.e. we are testing just below, exactly on, and just above the boolean condition that we used in the validation.  This is a popular testing approach as a lot of bugs *live* in the boundaries.\n\nSave your work and close the project. \n\n\n"
+    },
+  
+    {
+    "title": "#Solutions",
+    "shortTitle": "Solutions",
+    "contentMd" : "#Solutions\n\nThe solutions for this lab can be found [here](archives/lab04a_solutions.zip). \n\nIf you require unzipping software, 7zip is a good choice: <http://www.7-zip.org/> (or Keka for Mac <http://www.kekaosx.com/en/>)\n\nAfter unzipping the solutions, it might be a good idea to copy the folders to your **sketchbook** folder.  From Processing, you could then use **File**, followed by **Sketchbook** to easily open them.\n"
+    }
+  
+  ]
+  }
+
