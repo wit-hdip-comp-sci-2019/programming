@@ -224,7 +224,7 @@
     "properties" : {},
   
   "type" : "panelvideo",
-  "title" : "Online Class Monday 14-01-2019	12:30 PM ",
+  "title" : "Online Class Monday 14-01-201912:30 PM ",
   "img" : "",
   "videoid" : "DVTSvacj_T0",
   "objectives" : "<p>Online Class Monday 14-01-2019    12:30 PM</p>",
@@ -304,7 +304,7 @@
     "properties" : {},
   
   "type" : "panelvideo",
-  "title" : "Online Class Wed 16-01-2019	12:30 PM ",
+  "title" : "Online Class Wed 16-01-201912:30 PM ",
   "img" : "",
   "videoid" : "_Nzrz8MqAbc",
   "objectives" : "<p>Online Class Wed 16-01-2019    12:30 PM</p>",
@@ -400,7 +400,7 @@
     "properties" : {},
   
   "type" : "panelvideo",
-  "title" : "Online Class Mon 21-01-2019	12:30 PM ",
+  "title" : "Online Class Mon 21-01-201912:30 PM ",
   "img" : "",
   "videoid" : "1tx-FY3nwks",
   "objectives" : "<p>Online Class Mon 21-01-2019    12:30 PM</p>",
@@ -544,7 +544,7 @@
     "properties" : {},
   
   "type" : "panelvideo",
-  "title" : "Online Class Wed 23-01-2019	12:30 PM ",
+  "title" : "Online Class Wed 23-01-201912:30 PM ",
   "img" : "",
   "videoid" : "t2fST6iVgrQ",
   "objectives" : "<p>Online Class Wed 23-01-2019    12:30 PM</p>",
@@ -640,7 +640,7 @@
     "properties" : {},
   
   "type" : "panelvideo",
-  "title" : "Online Class Mon 28-01-2019	12:30 PM ",
+  "title" : "Online Class Mon 28-01-201912:30 PM ",
   "img" : "",
   "videoid" : "LLcgX2F94fk",
   "objectives" : "<p>Online Class Mon 28-01-2019    12:30 PM</p>",
@@ -736,7 +736,7 @@
     "properties" : {},
   
   "type" : "panelvideo",
-  "title" : "Online Class Wed 30-01-2019	12:30 PM ",
+  "title" : "Online Class Wed 30-01-201912:30 PM ",
   "img" : "",
   "videoid" : "q3l2k3co6XQ",
   "objectives" : "<p>Online Class Wed 30-01-2019    12:30 PM</p>",
@@ -832,7 +832,7 @@
     "properties" : {},
   
   "type" : "panelvideo",
-  "title" : "Online Class Mon 04-02-2019	12:30 PM ",
+  "title" : "Online Class Mon 04-02-201912:30 PM ",
   "img" : "",
   "videoid" : "NFu9hg319ks",
   "objectives" : "<p>Online Class Mon 04-02-2019    12:30 PM</p>",
@@ -912,7 +912,7 @@
     "properties" : {},
   
   "type" : "panelvideo",
-  "title" : "Online Class Wed 06-02-2019	12:30 PM ",
+  "title" : "Online Class Wed 06-02-201912:30 PM ",
   "img" : "",
   "videoid" : "Z_2E8fDLBoU",
   "objectives" : "<p>Online Class Wed 06-02-2019    12:30 PM</p>",
@@ -1008,7 +1008,7 @@
     "properties" : {},
   
   "type" : "panelvideo",
-  "title" : "Online Class Mon 11-02-2019	12:30 PM ",
+  "title" : "Online Class Mon 11-02-201912:30 PM ",
   "img" : "",
   "videoid" : "831gTr0jrJU",
   "objectives" : "<p>Online Class Mon 11-02-2019    12:30 PM</p>",
@@ -1088,7 +1088,7 @@
     "properties" : {},
   
   "type" : "panelvideo",
-  "title" : "Online Class Wed 13-02-2019	12:30 PM ",
+  "title" : "Online Class Wed 13-02-201912:30 PM ",
   "img" : "",
   "videoid" : "BA-qllBhGFk",
   "objectives" : "<p>Online Class Wed 13-02-2019    12:30 PM</p>",
@@ -2166,6 +2166,182 @@
   "objectives" : "<p>CRUD · ShopV4.0 · DVDLibraryV2.0</p>",
   "folder" : "book-2",
   "link" : "index.html",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } 
+   ]
+
+  },
+ {
+    
+  
+    "properties" : {"highlightstyle":"railscasts","disable":false,"slack":"https://wit-hdip-comp-sci-19.slack.com/messages/CEN2114F4","moodle":"https://moodle.wit.ie/course/view.php?id=132121","youtube":"https://www.youtube.com/channel/UCOJZMc0BQDXDljzdcxP2EDw","parent":"https://wit-hdip-comp-sci-2019.github.io/","courseurl":"http://wit-hdip-comp-sci-2019.github.io/programming/","credits":"Colm Dunphy, Johnathan Brazil, Patrick Felicia,  WIT","license":"Unless otherwise stated, this work is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>.","faPanelicon":"fas fa-cogs","faColour":"#64dd17","crest":"crestwit.jpg","cresturl":"https://www.wit.ie/courses/school/science/department_of_computing_maths_physics/hdipcomputerscience2yearparttime","ects":10},
+  
+  "type" : "topic",
+  "title" : " 10: Persistence (XML & Exceptions) ",
+  "img" : "topic.jpg",
+  "videoid" : "",
+  "objectives" : "<p>Streaming · XML · Exception Handling · Validate User Input · Static · JavaDoc · ShopV5.0 · DVD3.0</p>",
+  "folder" : "topic-10-persistence-xml-exceptions",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : " 10a: Persistence (XML) ",
+  "img" : "talk-1-XML/a-XML.jpg",
+  "videoid" : "",
+  "objectives" : "<p>Streaming · XML</p>",
+  "folder" : "unit-01",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Introduction to XML ",
+  "img" : "a-XML.jpg",
+  "videoid" : "none",
+  "objectives" : "<p>XML · Serialisation</p>",
+  "folder" : "talk-1-XML",
+  "link" : "a-XML.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "XML and Java ",
+  "img" : "b-CRUD-XML.jpg",
+  "videoid" : "none",
+  "objectives" : "<p>We will show you how to serialize objects from Java to an XML file and read them back into your Java program.</p>",
+  "folder" : "talk-2-CRUD-XML",
+  "link" : "b-CRUD-XML.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-10a",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>XML · Exception Handling · Validate User Input · ShopV5.0 · DVD3.0</p>",
+  "folder" : "book",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Online Class: Week 10 - Talk 1 ",
+  "img" : "",
+  "videoid" : "yqFvfwdj00g",
+  "objectives" : "<p>Online Class: Week 10 - Talk 1</p>",
+  "folder" : "panelvideo",
+  "link" : "yqFvfwdj00g",
+  "los": [
+   ]
+
+    } 
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : " 10b: Persistence (Exception Handling) ",
+  "img" : "talk-3-exceptions/c-exceptions.jpg",
+  "videoid" : "",
+  "objectives" : "<p>Exception Handling · Validate User Input · Static · JavaDoc · ShopV5.0 · DVD3.0</p>",
+  "folder" : "unit-02",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Exception Handling ",
+  "img" : "c-exceptions.jpg",
+  "videoid" : "none",
+  "objectives" : "<p>We will show you, by using try and catch blocks, how to stop your program from crashing when invalid user input is entered.</p>",
+  "folder" : "talk-3-exceptions",
+  "link" : "c-exceptions.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Miscellaneous Concepts ",
+  "img" : "d-misc-concepts.jpg",
+  "videoid" : "none",
+  "objectives" : "<p>We will cover some miscellaneous concepts such as static variables, static methods, javadoc and storing calculated data.</p>",
+  "folder" : "talk-4-misc-concepts",
+  "link" : "d-misc-concepts.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-10b",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>XML · Exception Handling · Validate User Input · ShopV5.0 · DVD3.0</p>",
+  "folder" : "book",
+  "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Online Class: Week 10 - Talk 2 ",
+  "img" : "",
+  "videoid" : "zdWMV9kRKEo",
+  "objectives" : "<p>Online Class: Week 10 - Talk 2</p>",
+  "folder" : "panelvideo",
+  "link" : "zdWMV9kRKEo",
   "los": [
    ]
 

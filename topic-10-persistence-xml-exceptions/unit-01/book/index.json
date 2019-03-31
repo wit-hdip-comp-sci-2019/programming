@@ -1,0 +1,47 @@
+
+
+
+  {
+  
+  
+    "properties" : {},
+  
+  "type" : "lab",
+  "title" : "Lab-10a",
+  "img" : "img/main.png",
+  "videoid" : "none",
+  "objectives" : "<p>XML · Exception Handling · Validate User Input · ShopV5.0 · DVD3.0</p>",
+  "folder" : "book",
+  "link" : "index.html",
+  "los": [
+   ]
+,
+  "chapters" : [
+  
+    {
+    "title": "#Objectives",
+    "shortTitle": "Lab-10a",
+    "contentMd" : "#Objectives\n\nXML · Exception Handling · Validate User Input · ShopV5.0 · DVD3.0\n\n"
+    },
+  
+    {
+    "title": "#Developing Shop V5.0 ",
+    "shortTitle": "01",
+    "contentMd" : "#Developing Shop V5.0 \n\nIn this practical, you will create a new project called ShopV5.0, based on ShopV4.0.  You will update the Driver, Store and Product classes (linked below) to enable the user to save the products to an XML file and also reload them (see Figure 1 for the updated menu system).\n\n![Figure 1: Menu System for ShopV5.0](./img/00.png) \n\n##Menu Items 9 and 10:  Saving and Loading Products\n\nCreate a new project called ShopV5.0.\n\nCopy the following classes into the project:\n\n- [Driver.java](archives/Driver.java)\n\n- [Store.java](archives/Store.java)\n\n- [Product.java](archives/Product.java)\n\n\n##Setting up the Component for Serializing\n\nDownload the following XStream jar file from:\n\n**UPDATE: use XSTREAM 1.4.11.1 jar file instead**\n\n- [xstream-1.4.10.jar](archives/xstream-1.4.10.jar) \n\n\nIn IntelliJ, on the ShopV5.0 project, right click and select **New**, followed by **Directory**.  Call the new directory **lib**.  Drag the xstream jar file already downloaded into the lib folder.\n\nYour workspace should look like this:\n\n![](img/xml01.png)\n\n\nFrom **File** menu, select **Project Structure**.  Click on **Libraries**.  To add a library to your build path, click on the green + : \n\n![](img/xml02.png)\n\nSelect Java and locate your library…click OK (a few times!).\n\n\n##Updating Store Class to serialize and deserialize products \n\nIn the Store class, create these two new methods:\n\n~~~java\n    @SuppressWarnings(\"unchecked\")\n    public void load() throws Exception\n    {\n        XStream xstream = new XStream(new DomDriver());\n        ObjectInputStream is = xstream.createObjectInputStream(new FileReader(\"products.xml\"));\n        products = (ArrayList<Product>) is.readObject();\n        is.close();\n    }\n    \n    public void save() throws Exception\n    {\n        XStream xstream = new XStream(new DomDriver());\n        ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter(\"products.xml\"));\n        out.writeObject(products);\n        out.close();    \n    }\n~~~\n\nYou will notice that they don't compile; they are missing some needed packages.  Import the following packages at the top of the store class:\n\n~~~java\nimport java.io.FileReader;\nimport java.io.FileWriter;\nimport java.io.ObjectInputStream;\nimport java.io.ObjectOutputStream;\n\nimport com.thoughtworks.xstream.XStream;\nimport com.thoughtworks.xstream.io.xml.DomDriver;\n~~~\n\n\n##Adding load and save functionality to the menu\n\nIn the Driver class, add options 9 and 10 to the printed menu:\n\n![Figure 4: Menu System code for Shop V5.0](./img/03.png) \n\nIn the Driver class, make the following changes to implement case 9 and 10: \n\n![Figure 5: Code for case 9 and 10](./img/04.png) \n\n\n##Testing the load and store\n\nYou should be in a position now to test.  \n\nStart your app and create two products e.g.\n\n~~~\nPlease enter the product description: 24 inch monitor\nPlease enter the product code: 3423\nPlease enter the product cost: 129.99\nIs this product in your current line (y/n): y\n\nPlease enter the product description: 14 inch monitor\nPlease enter the product code: 2322\nPlease enter the product cost: 109.99\nIs this product in your current line (y/n): y\n~~~\n\nNow try option 9 to save your products. **Note: if you are using java 9 you are probably getting a series of red warning messages...the products will be saved, but they will still produce the warnings.  The next step will show you how to suppress these warnings**.  \nYou should now see a products.xml file appearing in the root of your project.  \n\nOpen this file and it should contain something similar to this:\n\n~~~xml\n<object-stream>\n  <list>\n    <Product>\n      <productName>24 inch monitor</productName>\n      <productCode>3423</productCode>\n      <unitCost>129.99</unitCost>\n      <inCurrentProductLine>true</inCurrentProductLine>\n    </Product>\n    <Product>\n      <productName>14 inch monitor</productName>\n      <productCode>2322</productCode>\n      <unitCost>109.99</unitCost>\n      <inCurrentProductLine>true</inCurrentProductLine>\n    </Product>\n  </list>\n</object-stream>\n~~~\n\n\nExit your application and run it again.\n\nTest option 10 and make sure that the saved products are loaded back into your products ArrayList correctly.\n\n\n"
+    },
+  
+    {
+    "title": "#Java 9 and XStream ",
+    "shortTitle": "02",
+    "contentMd" : "#Java 9 and XStream \n\n*This step ONLY applies if you are using JDK9.  If you are using JDK8 or lower, you can move onto the next step.  Chances are the majority of you are using JDK8.*\n\nIf you are using JDK9, you are more than likely getting the following warning when saving your products:\n\n![Warning when saving XML file with JDK9](./img/error01.png)  \n\nHowever, your products.xml file will still be successfully saved; it is just a warning. \n\n\n##Getting rid of the warning\n\nWe can get rid of the warning by passing suppression messages to the VM when we run our application. To do this:\n\n- From the **Run** menu, select **Edit Configuratons...***\n\n- In the **VM Options** box, paste in the following VM arguments:\n\n~~~\n--add-opens java.base/java.util=ALL-UNNAMED \n--add-opens java.base/java.lang.reflect=ALL-UNNAMED \n--add-opens java.base/java.text=ALL-UNNAMED \n--add-opens java.desktop/java.awt.font=ALL-UNNAMED\n~~~\n\n- Click the **OK** button.  \n\n\n##Retesting\n\nRerun the app and try the save again...the warning message should now be suppresed.\n\n\n##A note on XStream and Java\n\nJava 9 was released in September 2017.  However, the latest version of XStream (1.4.10) was released in May 2017, before the latest Java changes.  When a new version of XStream is released, we probably won't have to pass these parameters to the VM.\n\n\n"
+    },
+  
+    {
+    "title": "#Solutions",
+    "shortTitle": "Solutions",
+    "contentMd" : "#Solutions\n\nThe solution to the ShopV5.0 exercise [is here](archives/ShopV5.0.zip).\n\nThe solution to DVD phase 3 [is here](archives/DVDLibraryV3.0.zip).\n\n\n"
+    }
+  
+  ]
+  }
+

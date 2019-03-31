@@ -1,0 +1,10 @@
+<object-stream>
+  <list>
+    <DVD>
+      <title>The Matrix</title>
+    </DVD>
+    <DVD>
+      <title>The Grinch</title>
+    </DVD>
+  </list>
+</object-stream>
