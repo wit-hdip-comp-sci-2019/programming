@@ -46,7 +46,7 @@ public class Store {
             String listOfProducts = "";
             for (Product product : products) {
                 if (product.isInCurrentProductLine())
-                    listOfProducts += ": " + product + "\n";
+                    listOfProducts += product + "\n";
             }
             return listOfProducts;
         }

@@ -2,7 +2,7 @@
  * A scaled down version of a Product class
  *
  * @author Siobhan Drohan, Mairead Meagher
- * @version 3.0
+ * @version 2.1
  */
 public class Product {
 

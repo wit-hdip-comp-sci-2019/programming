@@ -8,6 +8,10 @@ public class Store {
         products = new ArrayList<Product>();
     }
 
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+
     public void add(Product product) {
         products.add(product);
     }
@@ -46,7 +50,7 @@ public class Store {
             String listOfProducts = "";
             for (Product product : products) {
                 if (product.isInCurrentProductLine())
-                    listOfProducts += ": " + product + "\n";
+                    listOfProducts += product + "\n";
             }
             return listOfProducts;
         }
