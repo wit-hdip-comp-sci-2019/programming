@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
+
+body {
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
+}
+
+p {
+  margin: 0.5em;
+}
+
+pre code {
+  font-family: "Monaco";
+  font-size: 100%;
+}
+
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin:10px;
+}
+
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
+  font-style:italic;
+  font-size:130%;
+}
+
+h2 {
+  font-size:110%;
+}
+
+h3 {
+  font-size:100%;
+}
+
+
+
+      
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+    </style>
+  </head>
+
+  
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../../index.html">  11b: Polymorphism: (many shapes!) · Overriding  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab-11">
+          Lab-11
+        </a>
+      
+        <a class="item" data-tab="V1">
+          V1
+        </a>
+      
+        <a class="item" data-tab="V2">
+          V2
+        </a>
+      
+        <a class="item" data-tab="V3">
+          V3
+        </a>
+      
+        <a class="item" data-tab="V4">
+          V4
+        </a>
+      
+        <a class="item" data-tab="Exercises">
+          Exercises
+        </a>
+      
+        <a class="item" data-tab="Solutions">
+          Solutions
+        </a>
+      
+    </div>
+  </div>
+
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic----assignments/book-assignment-1/index.html">Assignment-1 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic----assignments/book-assignment-2/index.html">Assignment-2 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-00-induction/book-induction/index.html">Induction </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-01-first-contact/unit-01a-intro-to-processing/book-1a/index.html">Lab-1a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-01-first-contact/unit-01b-animate-your-drawings/book-1b/index.html">Lab-1b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-02-selection_and_iteration/unit-02a-if-stmt-and-events/book/index.html">Lab-02a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-02-selection_and_iteration/unit-02b-iteration-for-while/book/index.html">Lab-02b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-03-methods/unit-03a-methods/book/index.html">Lab-03a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-03-methods/unit-03b-more-on-methods/book/index.html">Lab-03b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-04-classes/unit-04a-strings-and-intro-to-classes/book/index.html">Lab-04a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-04-classes/unit-04b-classes-encapsulation/book/index.html">Lab-04b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-05-arrays/unit-05a-swing-and-arrays/book/index.html">Lab-05a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-05-arrays/unit-05b-arrays-and-classes/book/index.html">Lab-05b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06a-pong-V1-V5/book-v1-v5/index.html">Lab-06a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v6/book-v6/index.html">Lab-06b-v6 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v7/book-v7/index.html">Lab-06b-v7 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v8/book-v6-v7-v8/index.html">Lab-06b-v8 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-06-pong/unit-06b-pong-v9/book-v9/index.html">Lab-06b-v9 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-07-IntelliJ-JVM-and-IO/unit-07a/book-a-setup-intellij/index.html">Lab-07a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-07-IntelliJ-JVM-and-IO/unit-07b/book-b/index.html">Lab-07b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-08-grouping-objects/unit-01/book-1/index.html">Lab-08a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-08-grouping-objects/unit-01/book-2/index.html">Lab-08b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-09-menu-and-crud/unit-01/book-1/index.html">Lab-09a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-09-menu-and-crud/unit-01b/book-4/index.html">Assignment 3 Prerequisite </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-09-menu-and-crud/unit-02/book-2/index.html">Lab-09c </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-10-persistence-xml-exceptions/unit-01/book/index.html">Lab-10a </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-10-persistence-xml-exceptions/unit-02/book/index.html">Lab-10b </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-11-inher-polym/unit-01/book/index.html">Lab-11 </a>
+          
+        
+      
+        
+          
+            <a class="item"
+               href="http://wit-hdip-comp-sci-2019.github.io/programming//topic-11-inher-polym/unit-02/book2/index.html">Lab-11 </a>
+          
+        
+      
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab-11">
+            <h1>Objectives</h1>
+<p>Social Network app · Inheritance · Polymorphism · Overriding</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="V1">
+            <h1>Network-V1</h1>
+<p>In this step, you will familiarise yourself with the original version of the Network example (without inheritance).</p>
+<h2>Creating Network V1 Project</h2>
+<p>In IntelliJ, create a new project called Network-V1.</p>
+<p>Copy the following classes into the project:</p>
+<ul>
+<li><p><a href="archives/v1/MessagePost.java">MessagePost.java</a></p>
+</li>
+<li><p><a href="archives/v1/NewsFeed.java">NewsFeed.java</a></p>
+</li>
+<li><p><a href="archives/v1/PhotoPost.java">PhotoPost.java</a></p>
+</li>
+</ul>
+<h2>Testing the project</h2>
+<p>In the above project, create a new class called Test.  Copy the following code into it:</p>
+<ul>
+<li><a href="archives/v1/Test.java">Test.java</a></li>
+</ul>
+<p>This class is a <strong>test harness</strong> and tests the three classes by performing the following actions:</p>
+<ul>
+<li>Create 2 MessagePost objects.</li>
+<li>Create 2 PhotoPosts objects.</li>
+<li>Create 1 NewsFeed object.</li>
+<li>Add 1 PhotoPost object to the NewsFeed object.</li>
+<li>Add 1 MessagePost object to the NewsFeed object.</li>
+<li>Add another PhotoPost object to the NewsFeed object.</li>
+<li>Add another MessagePost object to the NewsFeed object.</li>
+<li>List all messagePost and photoPosts from the NewsFeed object.</li>
+</ul>
+<p>Run this test class and interrogate the output. </p>
+<p>Note the order of the posts...figure out why the order is different than the
+order of input.</p>
+<p><img src="./img/00.png" alt="Output from Test.java"> </p>
+<h2>Moving onto the next version</h2>
+<p>Before moving onto v2, ensure that you:</p>
+<ul>
+<li><p>understand the code in v1. </p>
+</li>
+<li><p>notice the code duplication and the problems that it could cause.</p>
+</li>
+</ul>
+<h2>Solution</h2>
+<p>The solution to network-v1 is <a href="archives/network-solution-v1.zip">here</a>.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="V2">
+            <h1>Network-V2</h1>
+<p>In this step, you will familiarise yourself with the second version of the Network example (with inheritance).  </p>
+<h2>Creating Network V2 Project</h2>
+<p>In IntelliJ, create a new project called Network-V2.</p>
+<p>Copy the following classes into the project:</p>
+<ul>
+<li><p><a href="archives/v2/MessagePost.java">MessagePost.java</a></p>
+</li>
+<li><p><a href="archives/v2/NewsFeed.java">NewsFeed.java</a></p>
+</li>
+<li><p><a href="archives/v2/PhotoPost.java">PhotoPost.java</a></p>
+</li>
+<li><p><a href="archives/v2/Post.java">Post.java</a></p>
+</li>
+</ul>
+<h2>Testing the project</h2>
+<p>In the above project, create a new class called Test.  Copy the following code into it:</p>
+<ul>
+<li><a href="archives/v2/Test.java">Test.java</a></li>
+</ul>
+<p>This test class will repeat these steps that you did with v1:</p>
+<ul>
+<li>Create 2 MessagePost objects.</li>
+<li>Create 2 PhotoPosts objects.</li>
+<li>Create 1 NewsFeed object.</li>
+<li>Add 1 PhotoPost object to the NewsFeed object.</li>
+<li>Add 1 MessagePost object to the NewsFeed object.</li>
+<li>Add another PhotoPost object to the NewsFeed object.</li>
+<li>Add another MessagePost object to the NewsFeed object.</li>
+<li>List all messagePost and photoPosts from the NewsFeed object.</li>
+</ul>
+<p>Note the difference in the order (the details are now printed in the order they were entered).</p>
+<p><img src="./img/01.png" alt="Output from Test.java"> </p>
+<p>Note that all the details associated with each post are not displayed when we &quot;List all posts&quot;?  Why do you think details are missing?  Note:  we will fix this later in the lab.</p>
+<h2>Solution</h2>
+<p>The solution to network-v2 is <a href="archives/network-solution-v2.zip">here</a>.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="V3">
+            <h1>Network-V3</h1>
+<p>In this step, you will create version 3 of the Network system.  This version will have a menu that will control the NewsFeed class.</p>
+<h2>Creating Network V3 Project</h2>
+<p>In IntelliJ, create a new project called Network-V3.</p>
+<p>Copy the following classes into this new project (note they have the System.out.print statements removed from them and instead have returned the Strings).</p>
+<ul>
+<li><a href="archives/v3/PhotoPost.java">PhotoPost</a></li>
+<li><a href="archives/v3/MessagePost.java">MessagePost</a></li>
+<li><a href="archives/v3/Post.java">Post</a></li>
+<li><a href="archives/v3/NewsFeed.java">NewsFeed</a></li>
+</ul>
+<p>Create a new class, called Driver.  This class will contain the main() method.  In this class:</p>
+<ul>
+<li>write a private method, called mainMenu() that displays the following menu and returns the user&#39;s input.</li>
+</ul>
+<p><img src="./img/main.png" alt="Figure 1: Menu System for NetworkV3"> </p>
+<ul>
+<li><p>write a private method, called run().  This method should call the mainMenu() method and use a switch statment to process the user&#39;s input.  Hint: write a private method for each case i.e. one that creates a MessagePost, one that creates a PhotoPost and then one that adds to the posts collection.</p>
+</li>
+<li><p>The run() method should be called from the main method.   </p>
+</li>
+</ul>
+<h2>Testing V3</h2>
+<p>Test the program by doing the following:</p>
+<ul>
+<li>Add 1 messagePost.</li>
+<li>Add 1 photoPost.</li>
+<li>Add another 1 messagePost.</li>
+<li>Add another 1 photoPost.</li>
+<li>List all posts.</li>
+</ul>
+<p>Are the posts printed in the order we entered them?</p>
+<p>Are all the details that we entered, displayed when we &quot;List all posts&quot;?  Why do you think details are missing?  Hint:  Investigate the code in Post, PhotoPost and MessagePost that displays the post.  <em>Note:  we will fix this is the next step.</em></p>
+<h2>Solution</h2>
+<p>The solution to network-v3 is <a href="archives/network-solution-v3.zip">here</a>.</p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="V4">
+            <h1>Network-V4</h1>
+<p>In this step, you will build on v3 that you wrote in the previous step.</p>
+<h2>Creating the Network-V4 project</h2>
+<p>Create a new project called Network-V4 and copy the src files from <em>either</em> your solution to network-v3 <em>or</em> our solution of <a href="archives/Network-V3.zip">Network-V3</a> into it.</p>
+<p>In v3, details that we entered via the menu were NOT displayed back to us when we listed all posts.</p>
+<p>The data is missing because the display method was written in the superclass, Post.  This superclass has no knowledge of its subclasses.  Therefore, it has no knowledge of the message field in MessagePost, or the filename and caption fields in the PhotoPost class. </p>
+<p>To fix this issue, you need to also write a display method in the subclasses, MessagePost and PhotoPost.  This display method should:</p>
+<ul>
+<li>override the super class method, display.</li>
+<li>contain a call to the super class method, display.</li>
+<li>append the sub class specific fields to the String returned from the super class call to the display method.</li>
+</ul>
+<p>Test your code again.  Are all details printed to the console?</p>
+<h2>Solution</h2>
+<p>The solution is available <a href="archives/network-solution-v4.zip">here</a></p>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Exercises">
+            <h1>Exercises</h1>
+<p>These exercises are based on the exercises in Chapter 8 of Objects First with Java - A Practical Introduction Using Bluej, by David Barnes &amp; Michael Kolling).</p>
+<h2>Exercise 1</h2>
+<p>Order the following items into an inheritance hierarchy : </p>
+<ul>
+<li><p>Apple</p>
+</li>
+<li><p>IceCream</p>
+</li>
+<li><p>Bread</p>
+</li>
+<li><p>Fruit</p>
+</li>
+<li><p>FoodItem</p>
+</li>
+<li><p>Cereal</p>
+</li>
+<li><p>Dessert</p>
+</li>
+<li><p>ChocolateMousse</p>
+</li>
+<li><p>Baguette</p>
+</li>
+</ul>
+<h2>Exercise 2</h2>
+<p>Assume that we have four classes : </p>
+<ul>
+<li><p>Person</p>
+</li>
+<li><p>Teacher</p>
+</li>
+<li><p>Student</p>
+</li>
+<li><p>PhDStudent</p>
+</li>
+</ul>
+<p>Teacher and Student are both subclasses of Person. PhDStudent is a subclass of Student.</p>
+<ul>
+<li>Which of the following assignments are legal and why or why not:</li>
+</ul>
+<pre><code>Person p1 = new Student(); 
+Person p2 = new PhDStudent (); 
+PhDStudent phd1 = new Student(); 
+Teacher t1 = new Person(); 
+Student s1 = new PhDStudent ();</code></pre>
+<h2>Exercise 3</h2>
+<p>Given the Person hierarchy from Exercise 2, suppose that we have the following legal declarations and assignments:</p>
+<pre><code class="lang-java">Person p1 = new Person(); 
+Person p2 = new Person (); 
+PhDStudent phd1 = new PhDStudent(); 
+Teacher t1 = new Teacher(); 
+Student s1 = new Student ();</code></pre>
+<ul>
+<li>Based on those just mentioned, which of the following assignments are legal and why or why not?</li>
+</ul>
+<pre><code>s1 = p1; 
+s1 = p2; 
+p1 = s1; 
+t1 = s1; 
+s1 = phd1; 
+phd1 = s1;</code></pre>
+
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="Solutions">
+            <h1>Solutions</h1>
+<h2>Exercise 1 Solution</h2>
+<p>The question was...order the following items into an inheritance hierarchy : </p>
+<ul>
+<li><p>apple</p>
+</li>
+<li><p>ice-cream</p>
+</li>
+<li><p>bread</p>
+</li>
+<li><p>fruit</p>
+</li>
+<li><p>food-item</p>
+</li>
+<li><p>cereal</p>
+</li>
+<li><p>dessert</p>
+</li>
+<li><p>chocolate mousse</p>
+</li>
+<li><p>baguette</p>
+</li>
+</ul>
+<p>The answer is:</p>
+<p><img src="./img/02.png" alt="FoodItem Hierarchy"> </p>
+<h2>Exercise 2</h2>
+<p>In the Person hierarchy, Teacher and Student are both subclasses of Person. PhDStudent is a subclass of Student.</p>
+<p><img src="./img/03.png" alt="Person Hierarchy"> </p>
+<pre><code class="lang-java">Person p1 = new Student();  // This is legal because a Student &quot;is a&quot; Person.  
+                            // We are following the direction of the arrows in the 
+                            // inheritance diagram.</code></pre>
+<pre><code class="lang-java">Person p2 = new PhDStudent (); // This is legal because a PhDStudent &quot;is a&quot; Person.
+                                 // We are following the direction of the arrows in the 
+                                 // inheritance diagram.</code></pre>
+<pre><code class="lang-java">PhDStudent phd1 = new Student(); // This is NOT legal because a Student &quot;may not be&quot; 
+                                 // a PhDStudent.  We are going against the direction  
+                                 // of the arrows in the inheritance diagram.</code></pre>
+<pre><code class="lang-java">Teacher t1 = new Person();    // This is NOT legal because a Person &quot;may not be&quot; 
+                              // a Teacher.  For example, the Person could be a Student.  
+                              // We are going against the arrows in the 
+                              // inheritance diagram.</code></pre>
+<pre><code class="lang-java">Student s1 = new PhDStudent();  //This is legal because a PhDStudent &quot;is a&quot; Student.
+                                // We are following the arrows in the inheritance diagram.</code></pre>
+<h2>Exercise 3</h2>
+<p>Given the Person hierarchy from Exercise 2:</p>
+<p><img src="./img/03.png" alt="Person Hierarchy"> </p>
+<p>...suppose that we have the following legal declarations and assignments:</p>
+<pre><code class="lang-java">Person p1 = new Person(); 
+Person p2 = new Person (); 
+PhDStudent phd1 = new PhDStudent(); 
+Teacher t1 = new Teacher(); 
+Student s1 = new Student ();</code></pre>
+<p>Based on these legal variable declarations, which of the following assignments are legal and why or why not?</p>
+<pre><code class="lang-java">s1 = p1;    // This is NOT legal...a Person &quot;may not be&quot; a Student. 
+            // We are going against the arrows in the inheritance diagram.</code></pre>
+<pre><code class="lang-java">s1 = p2;    // Again, this is NOT legal...a Person &quot;may not be&quot; a Student. 
+            // We are going against the arrows in the inheritance diagram.</code></pre>
+<pre><code class="lang-java">p1 = s1;   // This is legal...a Student &quot;is a&quot; Person. 
+             // We are following the direction of the arrows in the inheritance diagram.</code></pre>
+<pre><code class="lang-java">t1 = s1;   // This is NOT legal...there is no relationship between a Teacher and a 
+           // Student in our inheritance diagram.</code></pre>
+<pre><code class="lang-java">s1 = phd1; // This is legal...a PhDStudent &quot;is a&quot; Student. 
+             // We are following the direction of the arrows in the inheritance diagram.</code></pre>
+<pre><code class="lang-java">phd1 = s1;   // However, this is NOT legal...a Student &quot;may not be&quot; a PhDStudent. 
+               // We are going against the direction of the arrows in the 
+               // inheritance diagram.</code></pre>
+
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <script>
+    $(document).on('keydown', function(e) {
+  e = e || window.event;
+  var nextTab;
+  switch (e.which || e.keyCode) {
+    case 37: // left
+      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+
+    case 39: // right
+      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
+      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
+      nextTab.click();
+      $('.pusher').focus();
+      break;
+  }
+});
+
+    $(document).ready(function() {
+  $('img').addClass('ui image');
+
+  $('.ui.embed').embed();
+
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass(
+        'ui basic segment',
+      );
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+        'ui blue ribbon label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+
+  $('.ui.menu .item').tab({
+    history: true,
+    historyType: 'hash',
+  });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+    .sidebar({ context: $('.pushable') })
+    .sidebar('setting', 'transition', 'slide out')
+    .sidebar('attach events', '#toc');
+});
+
+  </script>
+
+
+
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right small menu">
+      <div class="ui tiny basic message segment">
+         Powered by <a href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+</html>
