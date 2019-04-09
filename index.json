@@ -2399,6 +2399,22 @@
   
     "properties" : {},
   
+  "type" : "talk",
+  "title" : " Inheritance - Polymorphism ",
+  "img" : "a-polymorphism.png",
+  "videoid" : "G4OtgZP-Ll8",
+  "objectives" : "<p>subtyping · substitution · polymorphic variables · casting · wrapper classes · autoboxing · unboxing · Object class</p>",
+  "folder" : "talk-2-polymorphism",
+  "link" : "a-polymorphism.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
   "type" : "lab",
   "title" : "Lab-11",
   "img" : "img/main.png",
