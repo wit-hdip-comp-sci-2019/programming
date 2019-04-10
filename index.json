@@ -2403,7 +2403,7 @@
   "title" : " Inheritance - Polymorphism ",
   "img" : "a-polymorphism.png",
   "videoid" : "G4OtgZP-Ll8",
-  "objectives" : "<p>subtyping · substitution · polymorphic variables · casting · wrapper classes · autoboxing · unboxing · Object class</p>",
+  "objectives" : "<p>[15 mins] subtyping · substitution · polymorphic variables · casting · wrapper classes · autoboxing · unboxing · Object class</p>",
   "folder" : "talk-2-polymorphism",
   "link" : "a-polymorphism.pdf",
   "los": [
@@ -2451,10 +2451,10 @@
     "properties" : {},
   
   "type" : "unit",
-  "title" : " 11b: Polymorphism: (many shapes!) · Overriding ",
+  "title" : " 11b: Polymorphism ",
   "img" : "talk-0-social-network-recap-inheritance/social-network-recap.png",
   "videoid" : "",
-  "objectives" : "<h1>11b: Polymorphism: (many shapes!) · Overriding</h1>",
+  "objectives" : "<h1>11b: Polymorphism</h1>",
   "folder" : "unit-02",
   "link" : "index.html",
   "los": [
@@ -2467,7 +2467,7 @@
   "title" : " Exploring Polymorphism ",
   "img" : "social-network-recap.png",
   "videoid" : "32xGsZZFwmw",
-  "objectives" : "<p>recap of inheritance · Recap Social Network v1,v2,v3</p>",
+  "objectives" : "<p>[8 mins] recap of inheritance · recap Social Network v1,v2,v3</p>",
   "folder" : "talk-0-social-network-recap-inheritance",
   "link" : "social-network-recap.pdf",
   "los": [
@@ -2483,7 +2483,7 @@
   "title" : " Exploring Polymorphism ",
   "img" : "talk-1-polymorphism-method-polymorphism.png",
   "videoid" : "soYuxRExTJY",
-  "objectives" : "<p>method polymorphism</p>",
+  "objectives" : "<p>[6 mins] method polymorphism</p>",
   "folder" : "talk-1-polymorphism-method-polymorphism",
   "link" : "talk-1-polymorphism-method-polymorphism.pdf",
   "los": [
@@ -2499,7 +2499,7 @@
   "title" : " Exploring Polymorphism ",
   "img" : "talk-2-polymorphism-static-dynamic-types.png",
   "videoid" : "iTeeDAqGdWY",
-  "objectives" : "<p>static type · dynamic type</p>",
+  "objectives" : "<p>[4 mins] static type · dynamic type</p>",
   "folder" : "talk-2-polymorphism-static-dynamic-types",
   "link" : "talk-2-polymorphism-static-dynamic-types.pdf",
   "los": [
@@ -2515,7 +2515,7 @@
   "title" : " Exploring Polymorphism ",
   "img" : "talk-3-polymorphism-overriding.png",
   "videoid" : "TnMB9JqvFWc",
-  "objectives" : "<p>overriding</p>",
+  "objectives" : "<p>[2 mins] overriding</p>",
   "folder" : "talk-3-polymorphism-overriding",
   "link" : "talk-3-polymorphism-overriding.pdf",
   "los": [
@@ -2531,7 +2531,7 @@
   "title" : " Exploring Polymorphism ",
   "img" : "talk-4-polymorphism-dynamic-method-lookup.png",
   "videoid" : "Yh5v9t9ym2g",
-  "objectives" : "<p>dynamic method lookup</p>",
+  "objectives" : "<p>[13 mins] dynamic method lookup</p>",
   "folder" : "talk-4-polymorphism-dynamic-method-lookup",
   "link" : "talk-4-polymorphism-dynamic-method-lookup.pdf",
   "los": [
@@ -2547,7 +2547,7 @@
   "title" : " Exploring Polymorphism ",
   "img" : "talk-5-polymorphis-protected.png",
   "videoid" : "nsOLcoMxEY0",
-  "objectives" : "<p>protected access</p>",
+  "objectives" : "<p>[4 mins] protected access · polymorphism summary</p>",
   "folder" : "talk-5-polymorphis-protected",
   "link" : "talk-5-polymorphis-protected.pdf",
   "los": [
@@ -2563,7 +2563,7 @@
   "title" : " Exploring Polymorphism - ALL SLIDES ",
   "img" : "b-exploring-polymorphism.jpg",
   "videoid" : "none",
-  "objectives" : "<p>inheritance · polymorphism · overriding · static type · dynamic type · dynamic method lookup · protected access · Object class</p>",
+  "objectives" : "<p>inheritance · polymorphism · overriding · static type · dynamic type · dynamic method lookup · protected access · Object class · summary</p>",
   "folder" : "talk-x-polymorphism-ALL",
   "link" : "b-exploring-polymorphism.pdf",
   "los": [
