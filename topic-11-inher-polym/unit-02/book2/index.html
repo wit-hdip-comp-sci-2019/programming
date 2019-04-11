@@ -107,14 +107,6 @@ html, body {
           Lab-11
         </a>
       
-        <a class="item" data-tab="V1">
-          V1
-        </a>
-      
-        <a class="item" data-tab="V2">
-          V2
-        </a>
-      
         <a class="item" data-tab="V3">
           V3
         </a>
@@ -352,93 +344,6 @@ html, body {
           <div class="ui tab segment lab" data-tab="Lab-11">
             <h1>Objectives</h1>
 <p>Social Network app · Inheritance · Polymorphism · Overriding</p>
-
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="V1">
-            <h1>Network-V1</h1>
-<p>In this step, you will familiarise yourself with the original version of the Network example (without inheritance).</p>
-<h2>Creating Network V1 Project</h2>
-<p>In IntelliJ, create a new project called Network-V1.</p>
-<p>Copy the following classes into the project:</p>
-<ul>
-<li><p><a href="archives/v1/MessagePost.java">MessagePost.java</a></p>
-</li>
-<li><p><a href="archives/v1/NewsFeed.java">NewsFeed.java</a></p>
-</li>
-<li><p><a href="archives/v1/PhotoPost.java">PhotoPost.java</a></p>
-</li>
-</ul>
-<h2>Testing the project</h2>
-<p>In the above project, create a new class called Test.  Copy the following code into it:</p>
-<ul>
-<li><a href="archives/v1/Test.java">Test.java</a></li>
-</ul>
-<p>This class is a <strong>test harness</strong> and tests the three classes by performing the following actions:</p>
-<ul>
-<li>Create 2 MessagePost objects.</li>
-<li>Create 2 PhotoPosts objects.</li>
-<li>Create 1 NewsFeed object.</li>
-<li>Add 1 PhotoPost object to the NewsFeed object.</li>
-<li>Add 1 MessagePost object to the NewsFeed object.</li>
-<li>Add another PhotoPost object to the NewsFeed object.</li>
-<li>Add another MessagePost object to the NewsFeed object.</li>
-<li>List all messagePost and photoPosts from the NewsFeed object.</li>
-</ul>
-<p>Run this test class and interrogate the output. </p>
-<p>Note the order of the posts...figure out why the order is different than the
-order of input.</p>
-<p><img src="./img/00.png" alt="Output from Test.java"> </p>
-<h2>Moving onto the next version</h2>
-<p>Before moving onto v2, ensure that you:</p>
-<ul>
-<li><p>understand the code in v1. </p>
-</li>
-<li><p>notice the code duplication and the problems that it could cause.</p>
-</li>
-</ul>
-<h2>Solution</h2>
-<p>The solution to network-v1 is <a href="archives/network-solution-v1.zip">here</a>.</p>
-
-          </div>
-        
-          <div class="ui tab segment lab" data-tab="V2">
-            <h1>Network-V2</h1>
-<p>In this step, you will familiarise yourself with the second version of the Network example (with inheritance).  </p>
-<h2>Creating Network V2 Project</h2>
-<p>In IntelliJ, create a new project called Network-V2.</p>
-<p>Copy the following classes into the project:</p>
-<ul>
-<li><p><a href="archives/v2/MessagePost.java">MessagePost.java</a></p>
-</li>
-<li><p><a href="archives/v2/NewsFeed.java">NewsFeed.java</a></p>
-</li>
-<li><p><a href="archives/v2/PhotoPost.java">PhotoPost.java</a></p>
-</li>
-<li><p><a href="archives/v2/Post.java">Post.java</a></p>
-</li>
-</ul>
-<h2>Testing the project</h2>
-<p>In the above project, create a new class called Test.  Copy the following code into it:</p>
-<ul>
-<li><a href="archives/v2/Test.java">Test.java</a></li>
-</ul>
-<p>This test class will repeat these steps that you did with v1:</p>
-<ul>
-<li>Create 2 MessagePost objects.</li>
-<li>Create 2 PhotoPosts objects.</li>
-<li>Create 1 NewsFeed object.</li>
-<li>Add 1 PhotoPost object to the NewsFeed object.</li>
-<li>Add 1 MessagePost object to the NewsFeed object.</li>
-<li>Add another PhotoPost object to the NewsFeed object.</li>
-<li>Add another MessagePost object to the NewsFeed object.</li>
-<li>List all messagePost and photoPosts from the NewsFeed object.</li>
-</ul>
-<p>Note the difference in the order (the details are now printed in the order they were entered).</p>
-<p><img src="./img/01.png" alt="Output from Test.java"> </p>
-<p>Note that all the details associated with each post are not displayed when we &quot;List all posts&quot;?  Why do you think details are missing?  Note:  we will fix this later in the lab.</p>
-<h2>Solution</h2>
-<p>The solution to network-v2 is <a href="archives/network-solution-v2.zip">here</a>.</p>
 
           </div>
         
