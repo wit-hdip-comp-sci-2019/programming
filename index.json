@@ -2694,9 +2694,25 @@
   "title" : "Tech Support System V3 ",
   "img" : "c-tech-support-V3.jpg",
   "videoid" : "none",
-  "objectives" : "<p>console-based tech support system · context sensitive response, based on input</p>",
+  "objectives" : "<p>console-based tech support system · context sensitive response, based on input · Collections · Map · Set · Iterator · Java Collection Framework</p>",
   "folder" : "talk-3-tech-support-v3",
   "link" : "c-tech-support-V3.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Collections Summary ",
+  "img" : "talk-4-collections-summary.png",
+  "videoid" : "none",
+  "objectives" : "<p>Collections · Map · Set · Iterator · Java Collection Framework</p>",
+  "folder" : "talk-4-collections-summary",
+  "link" : "talk-4-collections-summary.pdf",
   "los": [
    ]
 
