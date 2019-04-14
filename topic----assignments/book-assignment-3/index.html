@@ -513,32 +513,62 @@ The concrete implementation of this method will be completed in Member subclasse
 <h3>Methods: other</h3>
 <p>The class also contains these methods:</p>
 <ul>
-<li>public boolean <strong>isValidMemberIndex</strong>(int index) - Returns a boolean indicating if the index passed as a parameter is a valid index for the member’s array list. </li>
+<li><p>public boolean <strong>isValidMemberIndex</strong>(int index) </p>
+<ul>
+<li>Returns a boolean indicating if the index passed as a parameter is a valid index for the member’s array list. </li>
+</ul>
+</li>
+<li><p>public boolean <strong>isValidMemberIndex</strong>(int index) </p>
+<ul>
+<li>Returns a boolean indicating if the index passed as a parameter is a valid index for the member’s array list. </li>
+</ul>
+</li>
+<li><p>public boolean <strong>isValidTrainerIndex</strong>( int index ) </p>
+<ul>
+<li>ditto for trainers array list.</li>
+</ul>
+</li>
 </ul>
 <ul>
-<li>public boolean <strong>isValidTrainerIndex</strong>( int index ) - ditto for trainers array list.</li>
+<li>public Member <strong>searchMembersByEmail</strong>(String emailEntered) <ul>
+<li>Returns the member object that matches the email entered. If no member matches, return null.</li>
+</ul>
+</li>
 </ul>
 <ul>
-<li>public Member <strong>searchMembersByEmail</strong>(String emailEntered) - Returns the member object that matches the email entered. If no member matches, return null.</li>
+<li>public ArrayList (of Strings) <strong>searchMembersByName</strong>(String nameEntered) <ul>
+<li>Returns a list of member names that partially or entirely matches the entered name. An empty array is returned when their are no matches. </li>
+</ul>
+</li>
 </ul>
 <ul>
-<li>public ArrayList (of Strings) <strong>searchMembersByName</strong>(String nameEntered) - Returns a list of member names that partially or entirely matches the entered name. An empty array is returned when their are no matches. </li>
+<li>public Trainer <strong>searchTrainersByEmail</strong>(String emailEntered) <ul>
+<li>Returns the trainer object that matches the email entered.  If no trainer matches, return null.</li>
+</ul>
+</li>
 </ul>
 <ul>
-<li>public Trainer <strong>searchTrainersByEmail</strong>(String emailEntered) - Returns the trainer object that matches the email entered.  If no trainer matches, return null.</li>
+<li>public ArrayList (of Members) <strong>listMembers</strong>() <ul>
+<li>Returns a list containing all the members in the gym. Returns an empty list if none are found.</li>
+</ul>
+</li>
 </ul>
 <ul>
-<li>public ArrayList (of Members) <strong>listMembers</strong>() - Returns a list containing all the members in the gym. Returns an empty list if none are found.</li>
+<li>public ArrayList (of Member) <strong>listMembersWithIdealWeight</strong>() <ul>
+<li>Returns a list containing all the members details in the gym whose latest assessment weight is an ideal weight (based on the devine formula). Returns an empty list if none are found.</li>
+</ul>
+</li>
 </ul>
 <ul>
-<li>public ArrayList (of Member) <strong>listMembersWithIdealWeight</strong>() - Returns a list containing all the members details in the gym whose latest assessment weight is an ideal weight (based on the devine formula). Returns an empty list if none are found.</li>
+<li>public ArrayList (of Member) <strong>listMembersBySpecificBMICategory</strong> (String category) <ul>
+<li>Returns a string containing all the members details in the gym whose BMI category(based on the latest assessment weight) partially or entirely matches the entered category. Returns an empty list if none are found.</li>
+</ul>
+</li>
 </ul>
 <ul>
-<li>public ArrayList (of Member) <strong>listMembersBySpecificBMICategory</strong> (String category) Returns a string containing all the members details in the gym whose BMI category(based on the latest assessment weight) partially or entirely matches the entered category. Returns an empty list if none are found.</li>
-</ul>
+<li><p>public String <strong>listMemberDetailsImperialAndMetric</strong>() </p>
 <ul>
-<li>public String <strong>listMemberDetailsImperialAndMetric</strong>() List, for each member, their latest assessment weight and their height both imperially and metrically.  The format of the output is like so:</li>
-</ul>
+<li><p>List, for each member, their latest assessment weight and their height both imperially and metrically.  The format of the output is like so:</p>
 <blockquote>
 <blockquote>
 <blockquote>
@@ -548,11 +578,20 @@ Joan Soap: xx kg (xxx lbs) x.x metres (xx inches).  </p>
 <p>If there are no members in the gym, the message &quot;No registered members&quot; should be returned.</p>
 </blockquote>
 </blockquote>
+</li>
+</ul>
+</li>
+<li><p>public void <strong>store</strong>() throws Exception </p>
 <ul>
-<li>public void <strong>store</strong>() throws Exception - Push the members and trainers array lists out to the associated XML file.</li>
+<li>Push the members and trainers array lists out to the associated XML file.</li>
+</ul>
+</li>
 </ul>
 <ul>
-<li>public void <strong>load</strong>() throws Exception - Pull the members and trainers array lists from the associated XML file.</li>
+<li>public void <strong>load</strong>() throws Exception <ul>
+<li>Pull the members and trainers array lists from the associated XML file.</li>
+</ul>
+</li>
 </ul>
 
           </div>
