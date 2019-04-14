@@ -2435,7 +2435,7 @@
   "title" : " QUIZ ",
   "img" : "quiz_progfund11a.png",
   "videoid" : "none",
-  "objectives" : "<p><a href="https://api.socrative.com/rc/Y4gdhW">Week 11 Quiz</a></p>",
+  "objectives" : "<p><a href='https://api.socrative.com/rc/Y4gdhW'>Week 11 Quiz</a></p>",
   "folder" : "talk-3-quiz",
   "link" : "quiz_progfund11a.pdf",
   "los": [
@@ -2595,7 +2595,7 @@
   "title" : " QUIZ ",
   "img" : "quiz_progfund11b.png",
   "videoid" : "none",
-  "objectives" : "<p><a href="https://api.socrative.com/rc/Y4gdhW">Week 11 Quiz</a></p>",
+  "objectives" : "<p><a href='https://api.socrative.com/rc/Y4gdhW'>Week 11 Quiz</a></p>",
   "folder" : "talk-6-quiz",
   "link" : "quiz_progfund11b.pdf",
   "los": [
