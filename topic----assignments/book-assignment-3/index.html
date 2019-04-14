@@ -506,67 +506,30 @@ The concrete implementation of this method will be completed in Member subclasse
 public void addTrainer (Trainer trainer)
 public int numberOfMembers ()
 public int numberOfTrainers ()
-public ArrayList (of Members) getMembers ()   
-public ArrayList (of Trainers) getTrainers ()</code></pre>
+public ArrayList&lt;Members&gt; getMembers ()   
+public ArrayList&lt;Trainers&gt; getTrainers ()</code></pre>
 <h3>Methods: other</h3>
 <p>The class also contains these methods:</p>
-<ul>
-<li><p>public boolean <strong>isValidMemberIndex</strong> (int index) </p>
-<ul>
-<li>Returns a boolean indicating if the index passed as a parameter is a valid index for the member’s array list. </li>
-</ul>
-</li>
-<li><p>public boolean <strong>isValidMemberIndex</strong> (int index) </p>
-<ul>
-<li>Returns a boolean indicating if the index passed as a parameter is a valid index for the member’s array list. </li>
-</ul>
-</li>
-<li><p>public boolean <strong>isValidTrainerIndex</strong> (int index) </p>
-<ul>
-<li>ditto for trainers array list.</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>public Member <strong>searchMembersByEmail</strong> (String emailEntered) <ul>
-<li>Returns the member object that matches the email entered. If no member matches, return null.</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>public ArrayList (of Strings) <strong>searchMembersByName</strong> (String nameEntered) <ul>
-<li>Returns a list of member names that partially or entirely matches the entered name. An empty array is returned when their are no matches. </li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>public Trainer <strong>searchTrainersByEmail</strong> (String emailEntered) <ul>
-<li>Returns the trainer object that matches the email entered.  If no trainer matches, return null.</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>public ArrayList (of Members) <strong>listMembers</strong> () <ul>
-<li>Returns a list containing all the members in the gym. Returns an empty list if none are found.</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>public ArrayList (of Member) <strong>listMembersWithIdealWeight</strong> () <ul>
-<li>Returns a list containing all the members details in the gym whose latest assessment weight is an ideal weight (based on the devine formula). Returns an empty list if none are found.</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>public ArrayList (of Member) <strong>listMembersBySpecificBMICategory</strong> (String category) <ul>
-<li>Returns a string containing all the members details in the gym whose BMI category(based on the latest assessment weight) partially or entirely matches the entered category. Returns an empty list if none are found.</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>public String <strong>listMemberDetailsImperialAndMetric</strong> () </p>
-<ul>
-<li><p>List, for each member, their latest assessment weight and their height both imperially and metrically.  The format of the output is like so:</p>
+<pre><code>public boolean isValidMemberIndex (int index)</code></pre>
+<p>Returns a boolean indicating if the index passed as a parameter is a valid index for the member’s array list. </p>
+<pre><code>public boolean isValidMemberIndex (int index)</code></pre>
+<p>Returns a boolean indicating if the index passed as a parameter is a valid index for the member’s array list. </p>
+<pre><code>public boolean isValidTrainerIndex (int index)</code></pre>
+<p>ditto for trainers array list.</p>
+<pre><code>public Member searchMembersByEmail (String emailEntered)</code></pre>
+<p>Returns the member object that matches the email entered. If no member matches, return null.</p>
+<pre><code>public ArrayList&lt;String&gt; searchMembersByName (String nameEntered)</code></pre>
+<p>Returns a list of member names that partially or entirely matches the entered name. An empty array is returned when their are no matches. </p>
+<pre><code>public Trainer searchTrainersByEmail (String emailEntered)</code></pre>
+<p>Returns the trainer object that matches the email entered.  If no trainer matches, return null.</p>
+<pre><code>public ArrayList&lt;Member&gt; listMembers ()</code></pre>
+<p>Returns a list containing all the members in the gym. Returns an empty list if none are found.</p>
+<pre><code>public ArrayList&lt;Member&gt; listMembersWithIdealWeight ()</code></pre>
+<p>Returns a list containing all the members details in the gym whose latest assessment weight is an ideal weight (based on the devine formula). Returns an empty list if none are found.</p>
+<pre><code>public ArrayList&lt;Member&gt; listMembersBySpecificBMICategory (String category)</code></pre>
+<p>Returns a string containing all the members details in the gym whose BMI category(based on the latest assessment weight) partially or entirely matches the entered category. Returns an empty list if none are found.</p>
+<pre><code>public String listMemberDetailsImperialAndMetric ()</code></pre>
+<p>List, for each member, their latest assessment weight and their height both imperially and metrically.  The format of the output is like so:</p>
 <blockquote>
 <blockquote>
 <blockquote>
@@ -576,21 +539,10 @@ Joan Soap: xx kg (xxx lbs) x.x metres (xx inches).  </p>
 <p>If there are no members in the gym, the message &quot;No registered members&quot; should be returned.</p>
 </blockquote>
 </blockquote>
-</li>
-</ul>
-</li>
-<li><p>public void <strong>store</strong> () throws Exception </p>
-<ul>
-<li>Push the members and trainers array lists out to the associated XML file.</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>public void <strong>load</strong> () throws Exception <ul>
-<li>Pull the members and trainers array lists from the associated XML file.</li>
-</ul>
-</li>
-</ul>
+<pre><code>public void store () throws Exception</code></pre>
+<p>Push the members and trainers array lists out to the associated XML file.</p>
+<pre><code>public void load () throws Exception</code></pre>
+<p>Pull the members and trainers array lists from the associated XML file.</p>
 
           </div>
         
