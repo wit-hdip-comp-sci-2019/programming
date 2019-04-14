@@ -502,59 +502,57 @@ The concrete implementation of this method will be completed in Member subclasse
 </ul>
 <h3>Methods: self-explanatory</h3>
 <p>It contains the following, self-explanatory methods:</p>
-<ul>
-<li>public void <strong>addMember</strong>(Member member)</li>
-<li>public void <strong>addTrainer</strong>(Trainer trainer)</li>
-<li>public int <strong>numberOfMembers</strong>()</li>
-<li>public int <strong>numberOfTrainers</strong>()</li>
-<li>public ArrayList (of Members) <strong>getMembers</strong>()   </li>
-<li>public ArrayList (of Trainers) <strong>getTrainers</strong>()  </li>
-</ul>
+<pre><code class="lang-java">public void addMember (Member member)
+public void addTrainer (Trainer trainer)
+public int numberOfMembers ()
+public int numberOfTrainers ()
+public ArrayList (of Members) getMembers ()   
+public ArrayList (of Trainers) getTrainers ()</code></pre>
 <h3>Methods: other</h3>
 <p>The class also contains these methods:</p>
 <ul>
-<li><p>public boolean <strong>isValidMemberIndex</strong>(int index) </p>
+<li><p>public boolean <strong>isValidMemberIndex</strong> (int index) </p>
 <ul>
 <li>Returns a boolean indicating if the index passed as a parameter is a valid index for the member’s array list. </li>
 </ul>
 </li>
-<li><p>public boolean <strong>isValidMemberIndex</strong>(int index) </p>
+<li><p>public boolean <strong>isValidMemberIndex</strong> (int index) </p>
 <ul>
 <li>Returns a boolean indicating if the index passed as a parameter is a valid index for the member’s array list. </li>
 </ul>
 </li>
-<li><p>public boolean <strong>isValidTrainerIndex</strong>( int index ) </p>
+<li><p>public boolean <strong>isValidTrainerIndex</strong> (int index) </p>
 <ul>
 <li>ditto for trainers array list.</li>
 </ul>
 </li>
 </ul>
 <ul>
-<li>public Member <strong>searchMembersByEmail</strong>(String emailEntered) <ul>
+<li>public Member <strong>searchMembersByEmail</strong> (String emailEntered) <ul>
 <li>Returns the member object that matches the email entered. If no member matches, return null.</li>
 </ul>
 </li>
 </ul>
 <ul>
-<li>public ArrayList (of Strings) <strong>searchMembersByName</strong>(String nameEntered) <ul>
+<li>public ArrayList (of Strings) <strong>searchMembersByName</strong> (String nameEntered) <ul>
 <li>Returns a list of member names that partially or entirely matches the entered name. An empty array is returned when their are no matches. </li>
 </ul>
 </li>
 </ul>
 <ul>
-<li>public Trainer <strong>searchTrainersByEmail</strong>(String emailEntered) <ul>
+<li>public Trainer <strong>searchTrainersByEmail</strong> (String emailEntered) <ul>
 <li>Returns the trainer object that matches the email entered.  If no trainer matches, return null.</li>
 </ul>
 </li>
 </ul>
 <ul>
-<li>public ArrayList (of Members) <strong>listMembers</strong>() <ul>
+<li>public ArrayList (of Members) <strong>listMembers</strong> () <ul>
 <li>Returns a list containing all the members in the gym. Returns an empty list if none are found.</li>
 </ul>
 </li>
 </ul>
 <ul>
-<li>public ArrayList (of Member) <strong>listMembersWithIdealWeight</strong>() <ul>
+<li>public ArrayList (of Member) <strong>listMembersWithIdealWeight</strong> () <ul>
 <li>Returns a list containing all the members details in the gym whose latest assessment weight is an ideal weight (based on the devine formula). Returns an empty list if none are found.</li>
 </ul>
 </li>
@@ -566,7 +564,7 @@ The concrete implementation of this method will be completed in Member subclasse
 </li>
 </ul>
 <ul>
-<li><p>public String <strong>listMemberDetailsImperialAndMetric</strong>() </p>
+<li><p>public String <strong>listMemberDetailsImperialAndMetric</strong> () </p>
 <ul>
 <li><p>List, for each member, their latest assessment weight and their height both imperially and metrically.  The format of the output is like so:</p>
 <blockquote>
@@ -581,14 +579,14 @@ Joan Soap: xx kg (xxx lbs) x.x metres (xx inches).  </p>
 </li>
 </ul>
 </li>
-<li><p>public void <strong>store</strong>() throws Exception </p>
+<li><p>public void <strong>store</strong> () throws Exception </p>
 <ul>
 <li>Push the members and trainers array lists out to the associated XML file.</li>
 </ul>
 </li>
 </ul>
 <ul>
-<li>public void <strong>load</strong>() throws Exception <ul>
+<li>public void <strong>load</strong> () throws Exception <ul>
 <li>Pull the members and trainers array lists from the associated XML file.</li>
 </ul>
 </li>
@@ -601,13 +599,13 @@ Joan Soap: xx kg (xxx lbs) x.x metres (xx inches).  </p>
 <p>A utility class (or helper class) is a &quot;structure&quot; that has only <em>static</em> methods and encapsulates no state (fields). Typically the functionality of the methods is reusable across a range of applications. <em>(maybe you can write code here that is common with your Web Design Assignment?)</em></p>
 <p>For the Gym management application we can define an Analytics class that would hold the following methods:</p>
 <h3>1. calculateBMI</h3>
-<pre><code>public static double **calculateBMI**(Member member, Assessment assessment)</code></pre>
+<pre><code>public static double calculateBMI(Member member, Assessment assessment)</code></pre>
 <p>Returns the BMI for the member based on the calculation: </p>
 <ul>
 <li>BMI is weight divided by the square of the height.</li>
 </ul>
 <h3>2. determineBMICategory</h3>
-<pre><code>public static String **determineBMICategory**(double bmiValue)</code></pre>
+<pre><code>public static String determineBMICategory(double bmiValue)</code></pre>
 <p>Returns the category the BMI belongs to, based on the following values:</p>
 <ul>
 <li>BMI less than 16 (exclusive) is &quot;SEVERELY UNDERWEIGHT&quot; </li>
@@ -618,7 +616,7 @@ Joan Soap: xx kg (xxx lbs) x.x metres (xx inches).  </p>
 <li>BMI greater than 35 (inclusive) and is &quot;SEVERELY OBESE&quot;</li>
 </ul>
 <h3>3. isIdealBodyWeight</h3>
-<pre><code>public static boolean **isIdealBodyWeight**(Member member, Assessment assessment)</code></pre>
+<pre><code>public static boolean isIdealBodyWeight(Member member, Assessment assessment)</code></pre>
 <p>Returns a boolean to indicate if the member has an ideal body weight based on the Devine formula:</p>
 <ul>
 <li>For males, an ideal body weight is: 50 kg + 2.3 kg for each inch over 5 feet.</li>
