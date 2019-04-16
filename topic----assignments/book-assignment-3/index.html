@@ -445,6 +445,7 @@ html, body {
 <p>Subclass of Member. Stores studentId and collegeName.</p>
 <h3>Trainer</h3>
 <p>Subclass of Person. Stores the trainer’s specialty.</p>
+<h2>---</h2>
 <hr>
 <h1>Rules</h1>
 <p>The following rules should be applied to these entities:</p>
@@ -470,24 +471,22 @@ html, body {
 </li>
 </ul>
 <h3>Specifics for class Person:</h3>
-<ul>
-<li>The <strong>Person class</strong> should have a String <strong>toString()</strong> method that formats the printing of the object state and returns it. Its subclasses should override the superclass method String toString(), call the superclass toString method and also report on the new fields defined in these subclasses.</li>
-</ul>
+<p>The <strong>Person class</strong> should have a </p>
+<pre><code>String toString()</code></pre>
+<p>method that formats the printing of the object state and returns it. Its subclasses should override the superclass method String toString(), call the superclass toString method and also report on the new fields defined in these subclasses.</p>
 <h3>Specifics for class Member:</h3>
-<ul>
-<li>public Assessment latestAssessment() - Returns the latest assessment based on last entry (by calendar date).</li>
-<li>public SortedSet<String> sortedAssessmentDates() - Returns the assessments dates (as strings) sorted in date order. </li>
-<li>public abstract void chosenPackage(String chosenPackage);
-The concrete implementation of this method will be completed in Member subclasses.</li>
-</ul>
+<pre><code>public Assessment latestAssessment()</code></pre>
+<p>Returns the latest assessment based on last entry (by calendar date).</p>
+<pre><code>public SortedSet&lt;String&gt; sortedAssessmentDates()</code></pre>
+<p>Returns the assessments dates (as strings) sorted in date order. </p>
+<pre><code>public abstract void chosenPackage(String chosenPackage);</code></pre>
+<p>The concrete implementation of this method will be completed in Member subclasses.</p>
 <h3>Specifics for class PremiumMember:</h3>
-<ul>
-<li>public void chosenPackage(String packageChoice) - Provides the concrete implementation for this method. The chosenPackage is set to the value passed as a parameter. There is no validation on the entered data.</li>
-</ul>
+<pre><code>public void chosenPackage(String packageChoice)</code></pre>
+<p>Provides the concrete implementation for this method. The chosenPackage is set to the value passed as a parameter. There is no validation on the entered data.</p>
 <h3>Specifics for class StudentMember:</h3>
-<ul>
-<li>public void chosenPackage(String packageChoice) - Provides the concrete implementation for this method. The chosenPackage is set to the package associated with their collegeName. If there is no package associated with their college, default to “Package 3”.</li>
-</ul>
+<pre><code>public void chosenPackage(String packageChoice)</code></pre>
+<p>Provides the concrete implementation for this method. The chosenPackage is set to the package associated with their collegeName. If there is no package associated with their college, default to “Package 3”.</p>
 <h3>Specifics for class Assessment:</h3>
 <p>The last model class is Assessment. It stores weight, thigh, waist, comment and a Trainer that entered the member’s assessment (i.e. personal trainer). This class just has the standard constructor, accessor and mutator method with no validation on any fields.</p>
 
@@ -510,8 +509,6 @@ public ArrayList&lt;Member&gt; getMembers ()
 public ArrayList&lt;Trainer&gt; getTrainers ()</code></pre>
 <h3>Methods: other</h3>
 <p>The class also contains these methods:</p>
-<pre><code>public boolean isValidMemberIndex (int index)</code></pre>
-<p>Returns a boolean indicating if the index passed as a parameter is a valid index for the member’s array list. </p>
 <pre><code>public boolean isValidMemberIndex (int index)</code></pre>
 <p>Returns a boolean indicating if the index passed as a parameter is a valid index for the member’s array list. </p>
 <pre><code>public boolean isValidTrainerIndex (int index)</code></pre>
@@ -583,14 +580,19 @@ Joan Soap: xx kg (xxx lbs) x.x metres (xx inches).  </p>
             <h2>MenuController class.</h2>
 <p>The menu driver class (<strong>MenuController</strong>) uses the console I/O to interact with the user. It should create an instance of the <strong>GymApi</strong> class and allow the user to navigate (a subset of) the system&#39;s features through a series of menus. The following processing is required in this <em>menu system</em>:</p>
 <ol>
-<li>On app start-up, automatically <strong>load</strong> the gym data (<strong>trainers</strong> and <strong>members</strong>) from an <strong>XML</strong> file.</li>
-<li>Ask the user do they want to login(l) or register (r).</li>
-<li><p>Ask the user if they are a member(m) or a trainer(t).</p>
-<ul>
+<li>On app start-up, automatically <strong>load</strong> the gym data (<strong>trainers</strong> and <strong>members</strong>) from an <strong>XML</strong> file.   </li>
+</ol>
+<ol>
+<li>Ask the user do they want to login(l) or register (r).   </li>
+</ol>
+<ol>
+<li>Ask the user if they are a member(m) or a trainer(t).<ul>
 <li>If the user selected to <strong>login</strong>, verify that the email entered is stored in the appropriate arraylist i.e. the members or trainers list.  If the email doesn’t exist, print out “access denied” to the console and exit the program.</li>
-<li>If the user selected to <strong>register</strong>, ask them to enter the required details for the member/trainer. If they entered an email that is already used in the system (for either trainers/members), let them know it is an invalid email and ask them to enter a new one. </li>
+<li>If the user selected to <strong>register</strong>, ask them to enter the required details for the member/trainer. If they entered an email that is already used in the system (for either trainers/members), let them know it is an invalid email and ask them to enter a new one.    </li>
 </ul>
 </li>
+</ol>
+<ol>
 <li><p>Once logged in, display a the appropriate menu (trainer or member) for the member. </p>
 <ul>
 <li>The <strong>trainer menu</strong> should allow the trainer to:<ul>

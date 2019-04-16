@@ -69,7 +69,7 @@
   "type" : "lab",
   "title" : "Assignment 3",
   "img" : "img/main.jpg",
-  "videoid" : "none",
+  "videoid" : "f9f085YgJc4",
   "objectives" : "<p>You are required to implement a console-based Gym Management application. The application&#39;s architecture is illustrated below.</p>",
   "folder" : "book-assignment-3",
   "link" : "index.html",
@@ -2676,11 +2676,27 @@
   
   "type" : "talk",
   "title" : "Tech Support System V1 ",
-  "img" : "a-tech-support-V1.jpg",
-  "videoid" : "none",
-  "objectives" : "<p>console-based tech support system · respond with &quot;That sounds interesting. Tell me more...&quot;</p>",
-  "folder" : "talk-1-tech-support-v1",
-  "link" : "a-tech-support-V1.pdf",
+  "img" : "talk-1-tech-support-v1-02-java-api-intro.png",
+  "videoid" : "WuM9BGJ_SWI",
+  "objectives" : "<p>intro · Java API · single response · interface  · implementation</p>",
+  "folder" : "talk-1-tech-support-v1-02-java-api-intro",
+  "link" : "talk-1-tech-support-v1-02-java-api-intro.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Tech Support System V1 ",
+  "img" : "talk-1-tech-support-v1-03.jpg",
+  "videoid" : "IsM3_rAiEuo",
+  "objectives" : "<p>single response · console-based tech support system · <em>&quot;That sounds interesting. Tell me more...&quot;</em></p>",
+  "folder" : "talk-1-tech-support-v1-03",
+  "link" : "talk-1-tech-support-v1-03.pdf",
   "los": [
    ]
 
@@ -2693,8 +2709,8 @@
   "type" : "talk",
   "title" : "Tech Support System V2 ",
   "img" : "b-tech-support-V2.jpg",
-  "videoid" : "none",
-  "objectives" : "<p>console-based tech support system · randomised responses for the user</p>",
+  "videoid" : "U1Vmq7aIOvY",
+  "objectives" : "<p>Random · console-based tech support system · randomised responses for the user</p>",
   "folder" : "talk-2-tech-support-v2",
   "link" : "b-tech-support-V2.pdf",
   "los": [
@@ -2708,11 +2724,59 @@
   
   "type" : "talk",
   "title" : "Tech Support System V3 ",
-  "img" : "c-tech-support-V3.jpg",
-  "videoid" : "none",
-  "objectives" : "<p>console-based tech support system · context sensitive response, based on input · Collections · Map · Set · Iterator · Java Collection Framework</p>",
-  "folder" : "talk-3-tech-support-v3",
-  "link" : "c-tech-support-V3.pdf",
+  "img" : "talk-3-tech-support-v3-05-overview.png",
+  "videoid" : "-1-5QQqufbw",
+  "objectives" : "<p>context sensitive response based on input</p>",
+  "folder" : "talk-3-tech-support-v3-05-overview",
+  "link" : "talk-3-tech-support-v3-05-overview.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Tech Support System V3 ",
+  "img" : "talk-3-tech-support-v3-06-java-collection-framework.png",
+  "videoid" : "EU9TMeXoqks",
+  "objectives" : "<p>Java Collection Framework</p>",
+  "folder" : "talk-3-tech-support-v3-06-java-collection-framework",
+  "link" : "talk-3-tech-support-v3-06-java-collection-framework.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Tech Support System V3 ",
+  "img" : "talk-3-tech-support-v3-07-maps.png",
+  "videoid" : "eMPFMLqQHs0",
+  "objectives" : "<p>Collections · Map · Iterator · Java Collection Framework</p>",
+  "folder" : "talk-3-tech-support-v3-07-maps",
+  "link" : "talk-3-tech-support-v3-07-maps.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : "Tech Support System V3 ",
+  "img" : "talk-3-tech-support-v3-08-sets.png",
+  "videoid" : "JuSrDmJQzmo",
+  "objectives" : "<p>Collections · Set · Iterator · Java Collection Framework · String Tokens</p>",
+  "folder" : "talk-3-tech-support-v3-08-sets",
+  "link" : "talk-3-tech-support-v3-08-sets.pdf",
   "los": [
    ]
 
@@ -2724,10 +2788,10 @@
   
   "type" : "talk",
   "title" : "Collections Summary ",
-  "img" : "talk-4-collections-summary.png",
-  "videoid" : "none",
+  "img" : "talk-4-collections-summary.jpg",
+  "videoid" : "eOGPJt9Fyio",
   "objectives" : "<p>Collections · Map · Set · Iterator · Java Collection Framework</p>",
-  "folder" : "talk-4-collections-summary",
+  "folder" : "talk-4-collections-09-summary",
   "link" : "talk-4-collections-summary.pdf",
   "los": [
    ]
@@ -2745,6 +2809,22 @@
   "objectives" : "<p>ArrayList · HashMap · HashSet · Tokenise Strings · Random · Tech Support App</p>",
   "folder" : "book",
   "link" : "index.html",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Pre-Recorded Class: Week 12 - Introduction ",
+  "img" : "",
+  "videoid" : "_bQdaRy-GkY",
+  "objectives" : "<p>Pre-Recorded Class: Week 12 - Introduction</p>",
+  "folder" : "panelvideo",
+  "link" : "_bQdaRy-GkY",
   "los": [
    ]
 
