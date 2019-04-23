@@ -2659,10 +2659,10 @@
     "properties" : {},
   
   "type" : "unit",
-  "title" : "topic",
-  "img" : "panelvideo/",
+  "title" : " 11c: Abstract Classes ",
+  "img" : "talk-1-abstract-classes/a-abstract.png",
   "videoid" : "",
-  "objectives" : "",
+  "objectives" : "<h1>11c: Abstract Classes</h1>",
   "folder" : "unit-03",
   "link" : "index.html",
   "los": [
@@ -2671,13 +2671,29 @@
   
     "properties" : {},
   
-  "type" : "panelvideo",
-  "title" : "Bonus Video: Week 11 Talk 2 - Unit Testing Abstract Classes ",
-  "img" : "",
+  "type" : "talk",
+  "title" : " Abstract Classes ",
+  "img" : "a-abstract.png",
+  "videoid" : "c20peDjntg4",
+  "objectives" : "<p>[15 mins] Abstract Classes</p>",
+  "folder" : "talk-1-abstract-classes",
+  "link" : "a-abstract.pdf",
+  "los": [
+   ]
+
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "talk",
+  "title" : " Unit Testing - Abstract Classes ",
+  "img" : "a-abstract-unittest.png",
   "videoid" : "SMuqdMzZGXs",
-  "objectives" : "<p>Bonus Video: Week 11 Talk 2 - Unit Testing Abstract Classes</p>",
-  "folder" : "panelvideo",
-  "link" : "SMuqdMzZGXs",
+  "objectives" : "<p>[11 mins] Unit Testing · Abstract Classes</p>",
+  "folder" : "talk-2-unit-test-abstract-classes",
+  "link" : "a-abstract-unittest.pdf",
   "los": [
    ]
 
