@@ -2652,6 +2652,38 @@
     } 
    ]
 
+    } ,
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "unit",
+  "title" : "topic",
+  "img" : "panelvideo/",
+  "videoid" : "",
+  "objectives" : "",
+  "folder" : "unit-03",
+  "link" : "index.html",
+  "los": [
+   {
+    
+  
+    "properties" : {},
+  
+  "type" : "panelvideo",
+  "title" : "Bonus Video: Week 11 Talk 2 - Unit Testing Abstract Classes ",
+  "img" : "",
+  "videoid" : "SMuqdMzZGXs",
+  "objectives" : "<p>Bonus Video: Week 11 Talk 2 - Unit Testing Abstract Classes</p>",
+  "folder" : "panelvideo",
+  "link" : "SMuqdMzZGXs",
+  "los": [
+   ]
+
+    } 
+   ]
+
     } 
    ]
 
